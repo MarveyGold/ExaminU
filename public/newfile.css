@@ -285,7 +285,19 @@ nav ul {
     justify-content: space-evenly;
   }
   .background{
-    width: 100%;
+    width: 85vw;
+  }
+  .hero-text p{
+    position: absolute;
+    width: 85vw;
+  }
+  .hero-text button{
+    position: absolute;
+    margin-top: 50px;
+  }
+  .hero-image{
+    position: relative;
+    padding-bottom: 30vh;
   }
 }
 auth-buttons::after{
