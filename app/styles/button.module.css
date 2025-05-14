@@ -1,0 +1,16 @@
+.buttons{
+    padding-top: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+}
+.button{
+    width: 45vw;
+    height: 25vh;
+    border-radius: 30px;
+    background-color: rgb(30, 29, 29);
+    border: 10px;
+}
+.button:hover{
+    background-color: blueviolet;
+}

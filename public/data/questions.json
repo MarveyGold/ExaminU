@@ -1,0 +1,523 @@
+[ 
+        { 
+         "title": "COS101",
+         "id": 52,
+         "question": "The capacity of an internet connection is",
+         "optionA": "bandwidth",
+         "optionB": "kilobyte",
+         "optionC": "megabyte",
+         "optionD": "bit",
+         "correctAnswer": "bandwidth" 
+        },
+        {
+                "title": "COS101",
+                "id": 1,
+                "question": "Which of these is FALSE?",
+                "optionA": "EEPROM means Electrically programmable Read Only Memory",
+                "optionB": "DRAM needs to be refreshed thousands of times per second",
+                "optionC": "EPROM means Erasable Programmable Read Only Memory",
+                "optionD": "the development of integrated circuits was the hall mark of the third generation computers",
+                "correctAnswer": "EEPROM means Electrically programmable Read Only Memory"
+            },
+            {
+                "title": "COS101",
+                "id": 2,
+                "question": "Which of the following looks like a ball pen but uses pressure instead of ink to write text and draw lines",
+                "optionA": "stylus",
+                "optionB": "graphic tablet",
+                "optionC": "light pen",
+                "optionD": "trackball",
+                "correctAnswer": "stylus"
+            },
+            {
+                "title": "COS101",
+                "id": 3,
+                "question": "Which of these is NOT true",
+                "optionA": "Gopher is a protocol that governs the transfer of hypertext between two or more computers",
+                "optionB": "Telnet is a protocol that enables one computer to connect to another computer",
+                "optionC": "high level languages are machine independent",
+                "optionD": "systems software enables computers perform essential operating task",
+                "correctAnswer": "Gopher is a protocol that governs the transfer of hypertext between two or more computers"
+            },
+            {
+                "title": "COS101",
+                "id": 4,
+                "question": "Which of these is NOT true",
+                "optionA": "ENIAC means Electrical Numeric Integrator and Calculator",
+                "optionB": "PROM is a memory chip which is manufactured blank on which data can be written only once",
+                "optionC": "the analog computer represents data in physical quantities and operates on the data by manipulating the quantities",
+                "optionD": "transistors replaced vacuum",
+                "correctAnswer": "ENIAC means Electrical Numeric Integrator and Calculator"
+            },
+            {
+                "title": "COS101",
+                "id": 5,
+                "question": "Which of these is not an example of a syntax error",
+                "optionA": "data mismatch",
+                "optionB": "Missing apostrophe",
+                "optionC": "use of reserved words as variables",
+                "optionD": "use of keywords as variables",
+                "correctAnswer": "data mismatch"
+            },
+            {
+                "title": "COS101",
+                "id": 6,
+                "question": "Entering a wrong salary scale when computing the payroll of workers is an example of",
+                "optionA": "Logical error",
+                "optionB": "execution error",
+                "optionC": "compilation error",
+                "optionD": "syntax error",
+                "correctAnswer": "Logical error"
+            },
+            {
+                "title": "COS101",
+                "id": 7,
+                "question": "Which of these is NOT true",
+                "optionA": "the CASE statement is great for a test that has only one acceptable answer",
+                "optionB": "a combined IF statement is one that contains multiple condition in the decision symbol",
+                "optionC": "the null ELSE structure is a variation of the simple IF structure with the false side being empty",
+                "optionD": "in the simple IF statement, selection occurs when a choice is made between two alternative paths",
+                "correctAnswer": "the CASE statement is great for a test that has only one acceptable answer"
+            },
+            {
+                "title": "COS101",
+                "id": 8,
+                "question": "Which of these brings together the object modules, operating system routines and other utility software to produce a complete, executable program",
+                "optionA": "linker",
+                "optionB": "compiler",
+                "optionC": "interpreter",
+                "optionD": "loader",
+                "correctAnswer": "linker"
+            },
+            {
+                "title": "COS101",
+                "id": 9,
+                "question": "Which of these is NOT true",
+                "optionA": "a swarm boot is the process of turning on a computer after it had been completely switched off",
+                "optionB": "the resident portion of an operating system is called kernel",
+                "optionC": "POST checks the memory, keyboard, buses and expansion slots",
+                "optionD": "BIOS is stored in a ROM chip",
+                "correctAnswer": "a swarm boot is the process of turning on a computer after it had been completely switched off"
+            },
+            {
+                "title": "COS101",
+                "id": 10,
+                "question": "Convert 11011.101_2 to decimal",
+                "optionA": "27.625",
+                "optionB": "34.90",
+                "optionC": "44.56",
+                "optionD": "24.55",
+                "correctAnswer": "27.625"
+            },
+            {
+                "title": "COS101",
+                "id": 11,
+                "question": "Convert 110000111.011100_2",
+                "optionA": "22.34_8",
+                "optionB": "66.34_8",
+                "optionC": "56.77_8",
+                "optionD": "607.34_8",
+                "correctAnswer": "22.34_8"
+            },
+            {
+                "title": "COS101",
+                "id": 12,
+                "question": "Which of these possibly is an advantage of using office suit?",
+                "optionA": "all the options listed",
+                "optionB": "the package is free",
+                "optionC": "the package is easy to obtain",
+                "optionD": "the possibility of file sharing",
+                "correctAnswer": "the possibility of file sharing"
+            },
+            {
+                "title": "COS101",
+                "id": 13,
+                "question": "Which of these software under Microsoft office suit support file sharing?",
+                "optionA": "graphic design",
+                "optionB": "communication software",
+                "optionC": "spreadsheet",
+                "optionD": "word processor",
+                "correctAnswer": "communication software"
+            },
+            {
+                "title": "COS101",
+                "id": 14,
+                "question": "Which of these can handle sequential program line interpretation?",
+                "optionA": "system unit",
+                "optionB": "memory",
+                "optionC": "registers",
+                "optionD": "control unit",
+                "correctAnswer": "control unit"
+            },
+            {
+                "title": "COS101",
+                "id": 15,
+                "question": "Which of the following task is not performed by utility programs?",
+                "optionA": "none of options listed",
+                "optionB": "disk management",
+                "optionC": "linking and loading",
+                "optionD": "backup and restore",
+                "correctAnswer": "linking and loading"
+            },
+            {
+                "title": "COS101",
+                "id": 16,
+                "question": "Which of the following is executed by the BIOS?",
+                "optionA": "All the options listed",
+                "optionB": "load operating system",
+                "optionC": "load application software",
+                "optionD": "memory text",
+                "correctAnswer": "load operating system"
+            },
+            {
+                "title": "COS101",
+                "id": 17,
+                "question": "The octal equivalent of 1100101.001010_2 is",
+                "optionA": "624.2",
+                "optionB": "154.12",
+                "optionC": "145.12",
+                "optionD": "624.12",
+                "correctAnswer": "154.12"
+            },
+            {
+                "title": "COS101",
+                "id": 18,
+                "question": "Memories in which any location can be reached in a fixed (and short) amount of time after specifying its address is called?",
+                "optionA": "none of the options listed",
+                "optionB": "secondary memory",
+                "optionC": "random access memory",
+                "optionD": "sequential access memory",
+                "correctAnswer": "random access memory"
+            },
+            {
+                "title": "COS101",
+                "id": 19,
+                "question": "With respect to the functions of the control unit, all but one is a part of the machine cycle?",
+                "optionA": "fetching",
+                "optionB": "coding",
+                "optionC": "decoding",
+                "optionD": "storing",
+                "correctAnswer": "coding"
+            },
+            {
+                "title": "COS101",
+                "id": 20,
+                "question": "Which of these is not a file management task",
+                "optionA": "virus protection",
+                "optionB": "copying",
+                "optionC": "editing",
+                "optionD": "listing",
+                "correctAnswer": "virus protection"
+            },
+            {
+                "title": "COS101",
+                "id": 21,
+                "question": "The capacity of an internet connection is referred to as",
+                "optionA": "bandwidth",
+                "optionB": "kilobyte",
+                "optionC": "megabyte",
+                "optionD": "gigabyte",
+                "correctAnswer": "bandwidth"
+            },
+            {
+                "title": "COS101",
+                "id": 22,
+                "question": "Which of these allows files to be transferred between computers",
+                "optionA": "FTP",
+                "optionB": "Telnet",
+                "optionC": "HTTP",
+                "optionD": "TCP/IP",
+                "correctAnswer": "FTP"
+            },
+            {
+                "title": "COS101",
+                "id": 23,
+                "question": "Which of these is NOT true",
+                "optionA": "IP address are not unique",
+                "optionB": "IP addresses are global and standardized",
+                "optionC": "each domain name corresponds to numeric IP address",
+                "optionD": "not two organizations can have the same domain name",
+                "correctAnswer": "IP address are not unique"
+            },
+            {
+                "title": "COS101",
+                "id": 24,
+                "question": "Which of these is NOT true",
+                "optionA": "URL consists of letters and numbers only",
+                "optionB": "every resosess available via the wee has a unique URL",
+                "optionC": "URL represents a standardized addressing scheme for internet resources",
+                "optionD": "a URL identifies a particular internet resource",
+                "correctAnswer": "URL consists of letters and numbers only"
+            },
+            {
+                "title": "COS101",
+                "id": 25,
+                "question": "Which of these represents, in detail, the various steps to be performed within the system for transforming the input into output",
+                "optionA": "program flowchart",
+                "optionB": "run flowchart",
+                "optionC": "system flowchart",
+                "optionD": "pseudocode",
+                "correctAnswer": "program flowchart"
+            },
+            {
+                "title": "COS101",
+                "id": 26,
+                "question": "Which of these is NOT true",
+                "optionA": "debugging is the process of finding errors in a program",
+                "optionB": "instructions in algorithm are described as starting from the top and going to the bottom",
+                "optionC": "a sequence of precise steps that solve a problem is called algorithm",
+                "optionD": "coding is the technical word for writing a program",
+                "correctAnswer": "debugging is the process of finding errors in a program"
+            },
+            {
+                "title": "COS101",
+                "id": 27,
+                "question": "Which of these is NOT true",
+                "optionA": "missing curly brackets and semicolons are run time errors",
+                "optionB": "entering a wrong salary scale when computing the payroll of workers is a logical error",
+                "optionC": "syntax errors are also known as compilation errors",
+                "optionD": "syntax errors usually result from mis-ordering symbols within expressions and statements",
+                "correctAnswer": "missing curly brackets and semicolons are run time errors"
+            },
+            {
+                "title": "COS101",
+                "id": 28,
+                "question": "Which of these is not TRUE",
+                "optionA": "4GLs are not problem oriented",
+                "optionB": "forth generation languages are non-procedural",
+                "optionC": "natural languages have profound effect on artificial intelligence and expert systems",
+                "optionD": "machine language instructions are written in 0s and Is",
+                "correctAnswer": "4GLs are not problem oriented"
+            },
+            {
+                "title": "COS101",
+                "id": 29,
+                "question": "Which of these is NOT true",
+                "optionA": "a virtual machine operating systems does not allow a single user to run two or more different operating systems",
+                "optionB": "the operating system also monitors the system activities such as performance and security",
+                "optionC": "the primary function of operating systems is to allocate/assign resources",
+                "optionD": "the operating system contains program that perform functions related to disk/file management",
+                "correctAnswer": "a virtual machine operating systems does not allow a single user to run two or more different operating systems"
+            },
+            {
+                "title": "COS101",
+                "id": 30,
+                
+                "question": "In developing an algorithm, which of these is not of the steps you follow?",
+                "optionA": "identify patterns, repetitions and familiar task",
+                "optionB": "understand the problem",
+                "optionC": "carry out the plan",
+                "optionD": "coding the plan",
+                "correctAnswer": "coding the plan"
+            },
+            {
+                "title": "COS101",
+                "id": 31,
+                "question": "Analysis, design, coding and execution are all stages of?",
+                "optionA": "program development cycle",
+                "optionB": "building an algorithm",
+                "optionC": "constructing a program flow chart",
+                "optionD": "none of the options listed",
+                "correctAnswer": "none of the options listed"
+            },
+            {
+                "title": "COS101",
+                "id": 32,
+                "question": "Which of these is used to represent the logical relationship of computer routines along with inputs, master files, transaction files and outputs?",
+                "optionA": "program flowchart",
+                "optionB": "system flowchart",
+                "optionC": "run flowchart",
+                "optionD": "none of the options listed",
+                "correctAnswer": "program flowchart"
+            },
+            {
+                "title": "COS101",
+                "id": 33,
+                "question": "Which of these is a product identification code that contains a set of vertical lines and spaces?",
+                "optionA": "optical mark code",
+                "optionB": "QR code",
+                "optionC": "bar code",
+                "optionD": "none of the options listed",
+                "correctAnswer": "bar code"
+            },
+            {
+                "title": "COS101",
+                "id": 34,
+                "question": "Converting 512_8 to binary gives",
+                "optionA": "100101010_2",
+                "optionB": "10001010_2",
+                "optionC": "10100100_2",
+                "optionD": "1000101_2",
+                "correctAnswer": "1010010100_2"
+            },
+            {
+                "title": "COS101",
+                "id": 35,
+                "question": "Converting 2048_16 to octal gives",
+                "optionA": "20030_8",
+                "optionB": "54200_8",
+                "optionC": "300420_8",
+                "optionD": "4246321_8",
+                "correctAnswer": "20030_8"
+            },
+            {
+                "title": "COS101",
+                "id": 36,
+                "question": "Which of these errors is the most difficult to detect?",
+                "optionA": "compilation",
+                "optionB": "run time",
+                "optionC": "execution",
+                "optionD": "logical",
+                "correctAnswer": "logical"
+            },
+            {
+                "title": "COS101",
+                "id": 37,
+                "question": "What part of the operating system is also called the master program?",
+                "optionA": "control program",
+                "optionB": "main program",
+                "optionC": "chief program",
+                "optionD": "special program",
+                "correctAnswer": "control program"
+            },
+            {
+                "title": "COS101",
+                "id": 38,
+                "question": "Which of these order of sections in pseudocode is correct?",
+                "optionA": "body, header, declaration, termination",
+                "optionB": "declaration, body, termination, header",
+                "optionC": "body, declaration, header, termination",
+                "optionD": "header, declaration, body, termination",
+                "correctAnswer": "header, declaration, body, termination"
+            },
+            {
+                "title": "COS101",
+                "id": 39,
+                "question": "Which of these is an error in logic or arithmetic that must be detected at runtime?",
+                "optionA": "logical error",
+                "optionB": "syntax error",
+                "optionC": "compilation error",
+                "optionD": "semantic error",
+                "correctAnswer": "semantic error"
+            },
+            {
+                "title": "COS101",
+                "id": 40,
+                "question": "Which of these units will resolve the following copreasions, x - y = x + 17",
+                "optionA": "sysien unit",
+                "optionB": "memory",
+                "optionC": "regisiers",
+                "optionD": "control unit",
+                "correctAnswer": "control unit"
+            },
+            {
+                "title": "COS101",
+                "id": 41,
+                "question": "What is the different between a camera and a webcam?",
+                "optionA": "all of the options listed",
+                "optionB": "cameras are always wireless components while webcams are not",
+                "optionC": "webcams are peripheral devices while cameras are not",
+                "optionD": "cameras are input devices while webcams are not",
+                "correctAnswer": "all of the options listed"
+            },
+            {
+                "title": "COS101",
+                "id": 42,
+                "question": "Education that is delivered with tutor and learner geographically dispersed is?",
+                "optionA": "M-learning",
+                "optionB": "distance learning",
+                "optionC": "e-Learning",
+                "optionD": "corresponding learning",
+                "correctAnswer": "distance learning"
+            },
+            {
+                "title": "COS101",
+                "id": 43,
+                "question": "To get internet access for mobile phones, the protocol used is",
+                "optionA": "TCP/IP",
+                "optionB": "WAP",
+                "optionC": "FTP",
+                "optionD": "SLIP",
+                "correctAnswer": "WAP"
+            },
+            {
+                "title": "COS101",
+                "id": 44,
+                "question": "Which of these do architects use to show clients the preview of a building and landscapes?",
+                "optionA": "telecommuting",
+                "optionB": "computer modeling",
+                "optionC": "command and control",
+                "optionD": "computer aided design",
+                "correctAnswer": "computer aided design"
+            },
+            {
+                "title": "COS101",
+                "id": 45,
+                "question": "Which of these systems must be designed as a fault-tolerant system?",
+                "optionA": "computer aided design",
+                "optionB": "computer modelling",
+                "optionC": "command and control",
+                "optionD": "telecommuting",
+                "correctAnswer": "command and control"
+            },
+            {
+                "title": "COS101",
+                "id": 46,
+                "question": "Which of these is not an application of computer in medicines?",
+                "optionA": "tele-surgery",
+                "optionB": "tele-prognosis",
+                "optionC": "tele diagnosis",
+                "optionD": "none of the options listed",
+                "correctAnswer": "tele-prognosis"
+            },
+            {
+                "title": "COS101",
+                "id": 47,
+                "question": "Simplification of learning through songs and animations is known as?",
+                "optionA": "child learning",
+                "optionB": "edutainment",
+                "optionC": "distance learning",
+                "optionD": "open learning",
+                "correctAnswer": "edutainment"
+            },
+            {
+                "title": "COS101",
+                "id": 48,
+                "question": "An executable program produced through module object interaction occurs through?",
+                "optionA": "compilers",
+                "optionB": "linkers",
+                "optionC": "antivirus",
+                "optionD": "utility program",
+                "correctAnswer": "linkers"
+            },
+            {
+                "title": "COS101",
+                "id": 49,
+                "question": "Converting 4188.625_10 to base 16 gives?",
+                "optionA": "FFFA.D_16",
+                "optionB": "102.D_16",
+                "optionC": "105C.A_16",
+                "optionD": "4AF.C_16",
+                "correctAnswer": "105C.A_16"
+            },
+            {
+                "title": "COS101",
+                "id": 50,
+                "question": "The is the most extensive network in the world",
+                "optionA": "internet",
+                "optionB": "wide area network",
+                "optionC": "intranet",
+                "optionD": "extranet",
+                "correctAnswer": "internet"
+            },
+            {
+                "title": "COS101",
+                "id": 51,
+                "question": "System configuration information is stored in which of the following files",
+                "optionA": "none of options listed",
+                "optionB": "AUTOEXEC.BAT",
+                "optionC": "IO.SYS",
+                "optionD": "MSDOS.SYS",
+                "correctAnswer": "none of the options listed"
+            }
+]

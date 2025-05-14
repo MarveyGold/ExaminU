@@ -1,0 +1,117 @@
+:root {
+  --background: #ffffff;
+  --foreground: ;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(black, rgb(46, 1, 86), black);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+details{
+  gap: 20px;
+}
+header{
+  margin-bottom: 10vh
+}
+.selector{
+  width: 95vw;
+  height: 3rem;
+  border-radius: 1.7rem;
+  background-color: #383838;
+  padding: 5px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 5px;
+}
+
+.ans{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+.answerButton{
+  width: 160px;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(blueviolet, blue);
+  border: none;
+}
+.answerButton:hover{
+  background: linear-gradient(purple, rgb(102, 0, 255));
+}
+.footerButton:hover{
+  background: linear-gradient(purple, rgb(102, 0, 255));
+}
+footer {
+  grid-row-start: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  gap: 24px;
+  position: absolute;
+  bottom: 7px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer img {
+  flex-shrink: 0;
+}
+.footerButton{
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(blueviolet, blue);
+  border: none;
+}
+.soon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
