@@ -1,3 +1,5 @@
+'use client';
+import { Analytics } from "@vercel/analytics/next"
 import Button from "./components/buttons";
 import styles  from "./styles/home.module.css";
 import Logo from "./components/logo";
