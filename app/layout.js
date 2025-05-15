@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
     <head>
       <Script src="https://ligheechoagool.com/88/tag.min.js" data-zone="147503" async data-cfasync="false" />
+      <Analytics/>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
