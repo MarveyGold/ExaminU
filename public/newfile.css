@@ -240,10 +240,16 @@ text-align: center;
 width: 100vw;
 }
 .hero-text h1 {
-font-size: 32px;
+font-size: 2rem;
 }
 .hero-text p {
 font-size: 14px;
+padding-right: 15vw;
+}
+.hero-text{
+  width: 85vw;
+  margin-left: 7.5vw;
+
 }
 .hero-image {
 margin-top: 30px;
@@ -258,6 +264,7 @@ nav ul {
   width: 45%;
   top: 10vh;
   background-color: #f7f6f4;
+  padding: 20px;
 
 }
 .active{
@@ -269,7 +276,7 @@ nav ul {
     justify-content: center;
     position: absolute;
     right: 10px;
-    
+    border-radius: 5px;
   width: 40px;
   height: 40px;
   font-size: 50px;

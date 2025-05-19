@@ -1,6 +1,4 @@
-import Image from "next/image";
 import styles from "../page.module.css";
-import Link from 'next/link';
 import Logo from "../components/logo";
 
 export default function Dashboard() {
@@ -10,7 +8,7 @@ export default function Dashboard() {
         <Logo />
       </header>
       <main className={styles.main}>
-        <h3>GST Exam Preparation</h3>
+        <h3>Exam Preparation</h3>
       </main>
       <footer className={styles.footer}></footer>
     </div>

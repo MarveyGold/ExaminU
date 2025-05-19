@@ -1,4 +1,3 @@
-
 import { promises as fs } from "fs";
 import Link from "next/link";
 import Logo from "../components/logo";
@@ -74,7 +73,7 @@ export default async function Quiz({searchParams}) {
 
             </form>
           
-
+ 
 
             <h2>{result && <p>{result}</p> }</h2>
             
@@ -89,3 +88,4 @@ export default async function Quiz({searchParams}) {
 
     )
     }
+    
