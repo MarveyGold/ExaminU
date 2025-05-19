@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "../components/logo";
 import styles from "../styles/quiz.module.css";
 import { redirect } from "next/navigation";
+import Script from "next/script";
 export const metadata = {
   title: "Random",
   description: "Test Yourself with random questions",
@@ -35,6 +36,9 @@ export default async function Quiz({searchParams}) {
 
     return(
         <div className={styles.home}>
+<head>
+<Script src="https://vaugroar.com/act/files/tag.min.js?z=9350747" data-cfasync="false" async />
+</head>
             <header>
                 <Logo/>
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
