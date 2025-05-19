@@ -36,9 +36,7 @@ export default async function Quiz({searchParams}) {
 
     return(
         <div className={styles.home}>
-<head>
-<Script src="https://vaugroar.com/act/files/tag.min.js?z=9350747" data-cfasync="false" async />
-</head>
+
             <header>
                 <Logo/>
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
