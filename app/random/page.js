@@ -36,6 +36,15 @@ export default async function Quiz({searchParams}) {
 
     return(
         <div className={styles.home}>
+      <head>
+  <Script
+        id="vemtoutcheeg-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9351557,document.createElement('script'))`,
+        }}
+      />
+      </head>
 
             <header>
                 <Logo/>
