@@ -2,10 +2,14 @@ import Button from "./components/buttons";
 import styles  from "./styles/home.module.css";
 import Logo from "./components/logo";
 import Link from "next/link";
+import Script from "next/script";
 export default function Home(){
 
   return(
     <div className={styles.hom}>
+      <head>
+        <Script src="https://ligheechoagool.com/88/tag.min.js" data-zone="147503" async data-cfasync="false" />
+      </head>
 
     <header>
       <Logo />
