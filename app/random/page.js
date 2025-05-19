@@ -35,7 +35,7 @@ export default async function Quiz({searchParams}) {
 
     return(
         <div className={styles.home}>
-            
+            <Script src="https://couphaithuph.net/act/files/tag.min.js?z=9350746" data-cfasync="false" async/>
             <header>
                 <Logo/>
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
