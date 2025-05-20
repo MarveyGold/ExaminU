@@ -37,13 +37,10 @@ export default async function Quiz({searchParams}) {
     return(
         <div className={styles.home}>
       <head>
-  <Script
-        id="vemtoutcheeg-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9351557,document.createElement('script'))`,
-        }}
-      />
+  <Script src="https://couphaithuph.net/act/files/tag.min.js?z=9350746" 
+      data-cfasync="false" 
+        async
+          />
       </head>
 
             <header>
