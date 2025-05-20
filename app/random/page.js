@@ -38,12 +38,7 @@ export default async function Quiz({searchParams}) {
         <div className={styles.home}>
       <head>
  
-      <Script
-        src="//foomaque.net/9351557"
-        strategy="afterInteractive"
-        onError={() => console.error('Failed to load ad script')}
-        onLoad={() => console.log('Ad script loaded')}
-      />
+    
       </head>
 
             <header>
