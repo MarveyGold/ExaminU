@@ -36,10 +36,7 @@ export default async function Quiz({searchParams}) {
 
     return(
         <div className={styles.home}>
-      <head>
- 
-    
-      </head>
+      
 
             <header>
                 <Logo/>
@@ -89,6 +86,11 @@ export default async function Quiz({searchParams}) {
                 <Link href="/"><button className="footerButton">Home</button></Link>
                 <Link href="/random"><button className="footerButton">Next</button></Link>
             </footer>
+            <Script 
+        id="external-script"
+        src={`https://vemtoutcheeg.com/400/9351557`} 
+        strategy="afterInteractive"
+      />
     </div>
 
     )

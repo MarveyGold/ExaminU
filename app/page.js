@@ -7,9 +7,8 @@ export default function Home(){
 
   return(
     <div className={styles.hom}>
-      <head>
-    <Script src="https://fpyf8.com/88/tag.min.js" data-zone="147503" async data-cfasync="false"/>
-      </head>
+      
+      
 
     <header>
       <Logo />
@@ -21,6 +20,7 @@ export default function Home(){
       </h2>
       <Button />
     </main>
+    <Script src="https://fpyf8.com/88/tag.min.js" data-zone="147503" async data-cfasync="false"/>
     </div>
   )
 }
