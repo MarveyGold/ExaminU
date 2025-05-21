@@ -18,7 +18,7 @@ export default async function Quiz({searchParams}) {
     const quiz = data[randomIndex];
     // const quiz = data.find(quiz => quiz.id === random);
     const correctAnswer = quiz.correctAnswer;
-    const result = await searchParams?.result || "";
+    const result = searchParams?.result || "";
    // console.log(searchParams?.result);
     
 

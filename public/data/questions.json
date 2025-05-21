@@ -519,5 +519,282 @@
                 "optionC": "IO.SYS",
                 "optionD": "MSDOS.SYS",
                 "correctAnswer": "none of the options listed"
-            }
+            },
+            
+                {
+                    "title": "COS101",
+                    "id": 53,
+                    "question": "The term used for all the programs in a particular computer is:",
+                    "optionA": "software",
+                    "optionB": "computer programs",
+                    "optionC": "programs",
+                    "optionD": "apps",
+                    "optionE": "no answer",
+                    "correctAnswer": "software"
+                },
+                {
+                    "title": "COS101",
+                    "id": 54,
+                    "question": "The number 1101.01_2  represents in decimal:",
+                    "optionA": "109",
+                    "optionB": "208",
+                    "optionC": "108",
+                    "optionD": "901",
+                    "optionE": "no answer",
+                    "correctAnswer": "109"
+                },
+                {
+                    "title": "COS101",
+                    "id": 55,
+                    "question": "A type of operating system that allows different parts of a user's program to run concurrently is referred to as:",
+                    "optionA": "multiprocessing OS",
+                    "optionB": "multithreading",
+                    "optionC": "multitasking OS",
+                    "optionD": "virtual machine OS",
+                    "optionE": "none of the above",
+                    "correctAnswer": "multitasking OS"
+                },
+                {
+                    "title": "COS101",
+                    "id": 56,
+                    "question": "A ______ helps perform a power on self-test during the computer's boot up:",
+                    "optionA": "ROM",
+                    "optionB": "RAM",
+                    "optionC": "BIOS",
+                    "optionD": "POST",
+                    "optionE": "none of the above",
+                    "correctAnswer": "BIOS"
+                },
+                {
+                    "title": "COS101",
+                    "id": 57,
+                    "question": "The program which contributes to the control and performance of the computer system are collectively known as:",
+                    "optionA": "operating system",
+                    "optionB": "translator",
+                    "optionC": "assembler",
+                    "optionD": "system software",
+                    "optionE": "no answer",
+                    "correctAnswer": "system software"
+                },
+                {
+                    "title": "COS101",
+                    "id": 58,
+                    "question": "Mauchly and Eckert built EDVAC in collaboration with:",
+                    "optionA": "Godstine",
+                    "optionB": "John Atanasoff",
+                    "optionC": "Von Neumann",
+                    "optionD": "Howard Aiken",
+                    "optionE": "Babbage",
+                    "correctAnswer": "Von Neumann"
+                },
+                {
+                    "title": "COS101",
+                    "id": 59,
+                    "question": "The information processing cycle comprises of four basic operations of:",
+                    "optionA": "input, analysis, design, testing",
+                    "optionB": "analysis, design, storage, output",
+                    "optionC": "input, storage, process, output",
+                    "optionD": "input, process, output, storage",
+                    "optionE": "no answer",
+                    "correctAnswer": "input, process, output, storage"
+                },
+                {
+                    "title": "COS101",
+                    "id": 60,
+                    "question": "The fourth generation language are commonly termed:",
+                    "optionA": "none procedural language",
+                    "optionB": "procedural language",
+                    "optionC": "machine language",
+                    "optionD": "high level language",
+                    "optionE": "none of the above",
+                    "correctAnswer": "none procedural language"
+                },
+                {
+                    "title": "COS101",
+                    "id": 61,
+                    "question": "Finding a local sequence of precise steps that solves a programming problem in the program development cycle is the stage:",
+                    "optionA": "design",
+                    "optionB": "analysis",
+                    "optionC": "coding",
+                    "optionD": "execution",
+                    "optionE": "none of the above",
+                    "correctAnswer": "design"
+                },
+                {
+                    "title": "COS101",
+                    "id": 62,
+                    "question": "All but one is not a basic control structure in design:",
+                    "optionA": "serial",
+                    "optionB": "selection",
+                    "optionC": "sequence",
+                    "optionD": "repetition",
+                    "optionE": "no answer",
+                    "correctAnswer": "serial"
+                },
+                {
+                    "title": "COS101",
+                    "id": 63,
+                    "question": "Which of the following is NOT an operating system?",
+                    "optionA": "Microsoft Vista",
+                    "optionB": "Linux",
+                    "optionC": "Microsoft Word",
+                    "optionD": "Mac OS X",
+                    "optionE": "none",
+                    "correctAnswer": "Microsoft Word"
+                },
+                {
+                    "title": "COS101",
+                    "id": 64,
+                    "question": "If a 5-minute song is sampled at 44 kHz, and each sample is stored as two 8-bit numbers (stereo), it will need how much space?",
+                    "optionA": "211.2 Mbytes",
+                    "optionB": "2.64 Mbyte",
+                    "optionC": "26.4 Mbytes",
+                    "optionD": "13.2 Mbytes",
+                    "optionE": "None",
+                    "correctAnswer": "26.4 Mbytes"
+                },
+                {
+                    "title": "COS101",
+                    "id": 65,
+                    "question": "What is a NIC?",
+                    "optionA": "no internet connection",
+                    "optionB": "Network interference control",
+                    "optionC": "network interface card",
+                    "optionD": "New infrared controller",
+                    "optionE": "Nigeria institute of computers",
+                    "correctAnswer": "network interface card"
+                },
+                {
+                    "title": "COS101",
+                    "id": 66,
+                    "question": "How many bits is a kilobyte?",
+                    "optionA": "1000",
+                    "optionB": "8000",
+                    "optionC": "8192",
+                    "optionD": "1024",
+                    "optionE": "1 gram",
+                    "correctAnswer": "8192"
+                },
+                {
+                    "title": "COS101",
+                    "id": 67,
+                    "question": "Which smaller unit of the CPU directs and coordinates all activities within and determines the sequence in which instructions are executed, sending instructions sequence to other smaller unit:",
+                    "optionA": "ALU",
+                    "optionB": "CPU",
+                    "optionC": "processor",
+                    "optionD": "all of the above",
+                    "optionE": "none of the above",
+                    "correctAnswer": "ALU"
+                },
+                {
+                    "title": "COS101",
+                    "id": 68,
+                    "question": "The capacity of an internet connection is referred to as:",
+                    "optionA": "kilobytes",
+                    "optionB": "megabyte",
+                    "optionC": "nano station",
+                    "optionD": "bandwidth",
+                    "optionE": "internogram",
+                    "correctAnswer": "bandwidth"
+                },
+                {
+                    "title": "COS101",
+                    "id": 69,
+                    "question": "Which of the following is not necessary for establishing a dial-up connection:",
+                    "optionA": "an ISP account",
+                    "optionB": "a telephone connection",
+                    "optionC": "an email address",
+                    "optionD": "a modem",
+                    "optionE": "a communication software",
+                    "correctAnswer": "an email address"
+                },
+                {
+                    "title": "COS101",
+                    "id": 70,
+                    "question": "Breaking data into packets that the internet can handle efficiently, verifying that all packets have arrived at their destination and reassembling packets into data are functions:",
+                    "optionA": "File Transfer Protocol",
+                    "optionB": "transmission control protocol",
+                    "optionC": "internet protocol",
+                    "optionD": "HTTP",
+                    "optionE": "translator",
+                    "correctAnswer": "transmission control protocol"
+                },
+                {
+                    "title": "COS101",
+                    "id": 71,
+                    "question": "UNIVAC and ENIAC are examples of computing devices that relied on:",
+                    "optionA": "transistor technology",
+                    "optionB": "vacuum technology",
+                    "optionC": "integrated circuits technology",
+                    "optionD": "micro-processors",
+                    "optionE": "UNENIAC technology",
+                    "correctAnswer": "vacuum technology"
+                },
+                {
+                    "title": "COS101",
+                    "id": 72,
+                    "question": "Which of these is not a service provided by the internet?",
+                    "optionA": "email",
+                    "optionB": "web browsers",
+                    "optionC": "newsgroups",
+                    "optionD": "internet relay chat",
+                    "optionE": "no answer",
+                    "correctAnswer": "web browsers"
+                },
+                {
+                    "title": "COS101",
+                    "id": 73,
+                    "question": "______ is a computer program that has been written to attach itself to other files such as programs and to replicate itself when those programs are executed:",
+                    "optionA": "Cobol",
+                    "optionB": "antivirus",
+                    "optionC": "Forman",
+                    "optionD": "Pascal",
+                    "optionE": "virus",
+                    "correctAnswer": "virus"
+                },
+                {
+                    "title": "COS101",
+                    "id": 74,
+                    "question": "Which of these QBASIC statements can be used to instruct a computer to decide from two alternative statements?",
+                    "optionA": "IF-THEN-ELSE",
+                    "optionB": "FOR-NEXT",
+                    "optionC": "WHILE-WEND",
+                    "optionD": "IF-THEN",
+                    "optionE": "none of the above",
+                    "correctAnswer": "IF-THEN-ELSE"
+                },
+                {
+                    "title": "COS101",
+                    "id": 75,
+                    "question": "The acronym ASCII means:",
+                    "optionA": "America Standard Codes for Information Interchange",
+                    "optionB": "American Standardized Codes for Information Interchange",
+                    "optionC": "American Standard Codes for Information Interchange",
+                    "optionD": "American Standard Code for Information Interchange",
+                    "optionE": "no answer",
+                    "correctAnswer": "American Standard Code for Information Interchange"
+                },
+                {
+                    "title": "COS101",
+                    "id": 76,
+                    "question": "The following are valid domain names except:",
+                    "optionA": "net",
+                    "optionB": "gov",
+                    "optionC": "dom",
+                    "optionD": "biz",
+                    "optionE": "no answer",
+                    "correctAnswer": "dom"
+                },
+                {
+                    "title": "COS101",
+                    "id": 77,
+                    "question": "MODEM is an acronym for:",
+                    "optionA": "Moderation/Demoderation",
+                    "optionB": "Modulate/Demodulate",
+                    "optionC": "Moderator/Demoderator",
+                    "optionD": "Moderate/Demoderate",
+                    "optionE": "No answer",
+                    "correctAnswer": "Modulate/Demodulate"
+                }
+            
 ]
