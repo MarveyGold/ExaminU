@@ -86,21 +86,7 @@ export default async function Quiz({searchParams}) {
                 <Link href="/"><button className="footerButton">Home</button></Link>
                 <Link href="/random"><button className="footerButton">Next</button></Link>
             </footer>
-            <Script
-      id="ad-script"
-      strategy="afterInteractive"
-      dangerouslySetInnerHTML={{
-        __html: `
-          (function(d, z, s) {
-            s.src = 'https://' + d + '/401/' + z;
-            try {
-              (document.body || document.documentElement).appendChild(s);
-            } catch (e) {}
-          })('gizokraijaw.net', 9365928, document.createElement('script'));
-));
-        `,
-      }}
-    />
+            
     </div>
 
     )
