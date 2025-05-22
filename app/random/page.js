@@ -35,7 +35,7 @@ export default async function Quiz({searchParams}) {
     }
 
     return(
-        <div className={styles.home}>
+     <Link href = 'https://otieu.com/4/9333331'>   <div className={styles.home}>
       
 
             <header>
@@ -88,7 +88,7 @@ export default async function Quiz({searchParams}) {
             </footer>
             
     </div>
-
+      </Link>
     )
     }
     
