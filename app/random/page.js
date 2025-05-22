@@ -36,16 +36,20 @@ export default async function Quiz({searchParams}) {
 
     return(
      <Link href = 'https://otieu.com/4/9333331'>  
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(d,z,s){
-            s.src='https://' + d + '/400/' + z;
-            try {
-              (document.body || document.documentElement).appendChild(s);
-            } catch(e){}
-          })('vemtoutcheeg.com', 9351557, document.createElement('script'));`,
-        }}
-      />
+      <Script
+  id="ad-script"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function(d, z, s) {
+        s.src = 'https://' + d + '/401/' + z;
+        try {
+          (document.body || document.documentElement).appendChild(s);
+        } catch (e) {}
+      })('gizokraijaw.net', 9365928, document.createElement('script'));
+    `,
+  }}
+/>
       <div className={styles.home}>
       
 
