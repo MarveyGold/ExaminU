@@ -4,6 +4,7 @@
     padding-left: 5px;
     justify-content: center;
     gap: 10px;
+    position: absolute;
 }
 .title{
     font-size: 20px;
