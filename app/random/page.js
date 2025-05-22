@@ -89,14 +89,16 @@ export default async function Quiz({searchParams}) {
             
     </div>
   
-      <Script id="custom-tracking" strategy="afterInteractive">
-        {`(function(d,z,s){
-            s.src='https://'+d+'/400/'+z;
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(d,z,s){
+            s.src='https://' + d + '/400/' + z;
             try {
-              (document.body||document.documentElement).appendChild(s)
+              (document.body || document.documentElement).appendChild(s);
             } catch(e){}
-        })('vemtoutcheeg.com',9351557,document.createElement('script'))`}
-      </Script>
+          })('vemtoutcheeg.com', 9351557, document.createElement('script'));`,
+        }}
+      />
       </Link>
     )
     }
