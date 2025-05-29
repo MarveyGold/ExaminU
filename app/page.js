@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import Logo from "./components/logo";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 
 
 export default function Dashboard() {
