@@ -21,7 +21,12 @@ export default function Dashboard() {
         data-cfasync="false"
         strategy="afterInteractive"
       />
-        <Logo />
+      <header>
+      <Logo />
+      <Link href="https://wa.me/+2349164747109">
+          <button>Feedback</button>
+        </Link>
+      </header>
 
       <main className={styles.main}>
       <h3>Exam Preparation</h3>
