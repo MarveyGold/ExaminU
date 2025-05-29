@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  color: white;
   background: linear-gradient(black, rgb(46, 1, 86), black);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,10 +46,11 @@ details{
   gap: 20px;
 }
 header{
-  margin-bottom: 10vh
+  margin-bottom: 10vh;
+  padding: 10px;
 }
 .selector{
-  width: 95vw;
+  width: 90vw;
   height: 3rem;
   border-radius: 1.7rem;
   background-color: #383838;
@@ -59,6 +60,14 @@ header{
   align-items: center;
   gap: 2px;
   padding-left: 5px;
+  border: 1px;
+}
+.course{
+  height: 6rem;
+  margin-left: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ans{

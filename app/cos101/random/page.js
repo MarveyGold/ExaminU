@@ -1,17 +1,18 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import Logo from "../components/logo";
-import styles from "../styles/quiz.module.css";
+import Logo from "../../components/logo";
+import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
 import Script from "next/script";
 export const metadata = {
   title: "Random",
   description: "Test Yourself with random questions",
-  course: "COS101",
 };
 
 export default async function Quiz({searchParams}) {
-    const filePath = process.cwd() + '/public/data/questions.json';
+  const course = "cos101";
+  const source = "cos101.json"
+    const filePath = process.cwd() + `/public/data/${source}`;
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
     const randomIndex =  searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
@@ -19,7 +20,6 @@ export default async function Quiz({searchParams}) {
     // const quiz = data.find(quiz => quiz.id === random);
     const correctAnswer = quiz.correctAnswer;
     const result = searchParams?.result || "";
-   // console.log(searchParams?.result);
     
 
     const checkAnswer = async (formData) => {
@@ -29,10 +29,11 @@ export default async function Quiz({searchParams}) {
         if (selectedAnswer=== null) {
             return "The answer is" + quiz.correctAnswer
         }
-        redirect(`/random?result=${encodeURIComponent(result)}&index=${randomIndex}`);
+        redirect(`/${course}/random?result=${encodeURIComponent(result)}&index=${randomIndex}`);
     
 
     }
+    const again = `/${course}/random`;
 
     return(
      <Link href = 'https://otieu.com/4/9333331'>  
@@ -96,8 +97,8 @@ export default async function Quiz({searchParams}) {
             <div>
             </div>
             <footer className={styles.footer}>
-                <Link href="/"><button className="footerButton">Home</button></Link>
-                <Link href="/random"><button className="footerButton">Next</button></Link>
+                <Link href="/"><button className="footerButton">{course}</button></Link>
+                <Link href={again}><button className="footerButton">Next</button></Link>
             </footer>
             
     </div>

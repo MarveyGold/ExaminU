@@ -178,7 +178,7 @@ nav ul li a {
   flex: 1 1 300px;
 }
 .hero-text h1 {
-  font-size: 40px;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 .hero-text p {
@@ -197,8 +197,8 @@ nav ul li a {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .hero-text button:hover {
-  background-color: #624bd2;
-  transform: translateY(-3px);
+  background-color: #4933b8;
+  transform: translateY(-1px);
 }
 .hero-image {
   max-width: 550px;
@@ -235,12 +235,14 @@ header {
 }
 .hero {
 flex-direction: column;
-padding: 40px 20px;
+padding: 20px 20px;
 text-align: center;
 width: 100vw;
 }
 .hero-text h1 {
-font-size: 2rem;
+font-size: 30px;
+position: static;
+row-gap: 10px;
 }
 .hero-text p {
 font-size: 14px;
@@ -253,7 +255,7 @@ padding-right: 15vw;
 }
 .hero-image {
 margin-top: 30px;
-max-width: 100%;
+width: 120rem;
 }
 nav ul {
   display: none;
@@ -282,8 +284,12 @@ nav ul {
   font-size: 50px;
   
   }
-  .float{
-    width: 50vw;
+  .book{
+    width: 200px;
+  }
+  .man{
+    width: 200px;
+    height: 150px;
   }
   .others{
     width: 80vw;
@@ -297,6 +303,8 @@ nav ul {
   .hero-text p{
     position: absolute;
     width: 85vw;
+    margin-left: 4vw;
+    align-items: center;
   }
   .hero-text button{
     position: absolute;

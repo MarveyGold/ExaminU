@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import Logo from "./logo";
-import styles from "../styles/quiz.module.css";
+import Logo from "../../components/logo";
+import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
 import Script from "next/script";
 export const metadata = {
@@ -10,8 +10,8 @@ export const metadata = {
 };
 
 export default async function Quiz({searchParams}) {
-  const course = "cos101";
-  const source = "questions.json"
+  const course = "sta111";
+  const source = "sta111.json"
     const filePath = process.cwd() + `/public/data/${source}`;
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
@@ -20,7 +20,6 @@ export default async function Quiz({searchParams}) {
     // const quiz = data.find(quiz => quiz.id === random);
     const correctAnswer = quiz.correctAnswer;
     const result = searchParams?.result || "";
-   // console.log(searchParams?.result);
     
 
     const checkAnswer = async (formData) => {
@@ -98,7 +97,7 @@ export default async function Quiz({searchParams}) {
             <div>
             </div>
             <footer className={styles.footer}>
-                <Link href="/"><button className="footerButton">Home</button></Link>
+                <Link href="/"><button className="footerButton">{course}</button></Link>
                 <Link href={again}><button className="footerButton">Next</button></Link>
             </footer>
             
