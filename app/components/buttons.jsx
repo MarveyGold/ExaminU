@@ -3,7 +3,10 @@ import styles from '../styles/button.module.css'
 import Link from "next/link";
 export default function Button( { to, children } ) {
     const random = () => {
-        window.location.href = to
+        if (typeof window !== 'undefined') {
+  window.location.href = to
+        }
+        
     }
   
     return(
