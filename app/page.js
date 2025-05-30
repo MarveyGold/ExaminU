@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Logo from "./components/logo";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
-
+import Link from "next/link";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function Dashboard() {
       </header>
 
       <main className={styles.main}>
-      <h3>Exam Preparation</h3>
+      <h3>Exam Success!!!</h3>
       <ol>
         <li>
         <button className="course selector" onClick={COS101}><h1>COS101</h1></button>

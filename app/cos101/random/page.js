@@ -3,7 +3,6 @@ import Link from "next/link";
 import Logo from "../../components/logo";
 import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
-import Script from "next/script";
 export const metadata = {
   title: "Random",
   description: "Test Yourself with random questions",
@@ -11,7 +10,7 @@ export const metadata = {
 
 export default async function Quiz({searchParams}) {
   const course = "cos101";
-  const source = "cos101.json"
+  const source = "cos101.json";
     const filePath = process.cwd() + `/public/data/${source}`;
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
@@ -33,11 +32,15 @@ export default async function Quiz({searchParams}) {
     
 
     }
-    const again = `/${course}/random`;
+
+    const back = `/${course}`;
+    const again = `${back}/random`;
 
     return(
-     <Link href = 'https://otieu.com/4/9333331'>  
-      <script
+    
+     
+      <div className={styles.home}>
+         <script
         dangerouslySetInnerHTML={{
           __html: `
             (function(d,z,s){
@@ -49,13 +52,27 @@ export default async function Quiz({searchParams}) {
           `,
         }}
       />
-      <div className={styles.home}>
+        <script
+        id="external-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(d,z,s){
+              s.src='https://'+d+'/401/'+z;
+              try{
+                (document.body||document.documentElement).appendChild(s)
+              }catch(e){}
+            })('gizokraijaw.net',9365928,document.createElement('script'))
+          `,
+        }}
+      />
       
 
             <header>
                 <Logo/>
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
             </header>
+            <Link href = 'https://otieu.com/4/9333331'>  
             <div className={styles.title}>
              {quiz.title}
             </div>
@@ -97,27 +114,15 @@ export default async function Quiz({searchParams}) {
             <div>
             </div>
             <footer className={styles.footer}>
-                <Link href="/"><button className="footerButton">{course}</button></Link>
+                <Link href={back}><button className="footerButton">{course}</button></Link>
                 <Link href={again}><button className="footerButton">Next</button></Link>
             </footer>
+
+      </Link>
             
     </div>
-   <Script
-        id="external-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(d,z,s){
-              s.src='https://'+d+'/401/'+z;
-              try{
-                (document.body||document.documentElement).appendChild(s)
-              }catch(e){}
-            })('gizokraijaw.net',9365928,document.createElement('script'))
-          `,
-        }}
-      />
+ 
       
-      </Link>
     )
     }
     

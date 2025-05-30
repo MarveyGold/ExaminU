@@ -46,7 +46,6 @@ details{
   gap: 20px;
 }
 header{
-  margin-bottom: 10vh;
   padding: 10px;
 }
 .selector{
@@ -98,7 +97,7 @@ footer {
   width: 100vw;
   gap: 24px;
   position: absolute;
-  bottom: 7px;
+  bottom: 0;
 }
 
 footer a {
