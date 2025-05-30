@@ -7,11 +7,14 @@
   padding-top: 15vh;
   position: absolute;
 }
-.main{
+.main h3{
   color: #ffffff;
 }
 .main ol button:hover{
   background-color: blueviolet;
+}
+.main ol button:{
+  color: #ffffff;
 }
 
 .main ol {
@@ -21,7 +24,7 @@
   font-size: 14px;
   line-height: 24px;
   letter-spacing: -0.01em;
-  list-style-position: inside;
+  list-style: none;
 }
 
 .main li:not(:last-of-type) {
