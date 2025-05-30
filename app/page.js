@@ -13,6 +13,9 @@ export default function Dashboard() {
   const STA111 = () => {
     router.push('/sta111')
   }
+  const ENT211 = () => {
+    router.push('/ent211')
+  }
   return (
     <div className={styles.page}>
         <Script
@@ -39,6 +42,9 @@ export default function Dashboard() {
         </li>
         <li>
         <button className="course selector"><h1>MTH101</h1> <h6>coming soon</h6></button>
+        </li>
+        <li>
+        <button className="course selector" onClick={ENT211}><h1>ENT211</h1></button>
         </li>
       </ol>
       </main>
