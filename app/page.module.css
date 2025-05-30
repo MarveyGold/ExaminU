@@ -13,8 +13,9 @@
 .main ol button:hover{
   background-color: blueviolet;
 }
-.main ol button:{
+.main ol button{
   color: #ffffff;
+  background-color: initial;
 }
 
 .main ol {
