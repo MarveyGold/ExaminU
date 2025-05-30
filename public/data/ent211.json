@@ -179,7 +179,7 @@
         "optionC": "A gap in the market that can be filled",
         "optionD": "All of the above",
         "correctAnswer": "All of the above"
-    },
+    }
     {
         "title": "ENT211",
         "id": 32,
@@ -808,6 +808,694 @@
         "optionC": "What types or styles of leadership, motivation, communication, and accountability will be best to knit the people together to achieve the project's objectives and purposes?",
         "optionD": "All of the above",
         "correctAnswer": "All of the above"
+    },
+ {
+        "title": "ENT211",
+        "id": 118,
+        "question": "The tax system in which the taxpayer pays a fixed proportion of their income irrespective of their income level is",
+        "optionA": "Proportional",
+        "optionB": "Progressive",
+        "optionC": "Aggressive",
+        "optionD": "None of the above",
+        "correctAnswer": "Proportional"
+    },
+    {
+        "title": "ENT211",
+        "id": 119,
+        "question": "Which among the following is an indirect tax?",
+        "optionA": "Personal income tax",
+        "optionB": "Capital gain tax",
+        "optionC": "Excise tax",
+        "optionD": "Company tax",
+        "correctAnswer": "Excise tax"
+    },
+    {
+        "title": "ENT211",
+        "id": 120,
+        "question": "The tax body that provides advisory support to the federal government on double taxation and capital allowances is known as",
+        "optionA": "FIRS",
+        "optionB": "ITB",
+        "optionC": "SIRS",
+        "optionD": "All of the above",
+        "correctAnswer": "ITB"
+    },
+    {
+        "title": "ENT211",
+        "id": 121,
+        "question": "A legal way of arranging one's financial affairs in order to reduce tax liability is",
+        "optionA": "Tax avoidance",
+        "optionB": "Tax runs",
+        "optionC": "Tax evasion",
+        "optionD": "Tax rate",
+        "correctAnswer": "Tax avoidance"
+    },
+    {
+        "title": "ENT211",
+        "id": 122,
+        "question": "The specific measure or value upon which a tax is levied is",
+        "optionA": "Tax burden",
+        "optionB": "Tax elasticity",
+        "optionC": "Tax base",
+        "optionD": "Tax incentives",
+        "correctAnswer": "Tax base"
+    },
+    {
+        "title": "ENT211",
+        "id": 123,
+        "question": "Which is the most important challenge in collecting tax in Nigeria?",
+        "optionA": "Corruption and bribery",
+        "optionB": "Inadequate qualified tax personnel",
+        "optionC": "Issues of tax evasion",
+        "optionD": "Current policies and regulation",
+        "correctAnswer": "Issues of tax evasion"
+    },
+    {
+        "title": "ENT211",
+        "id": 124,
+        "question": "Social media platforms can be categorized into the following except",
+        "optionA": "Professional sites",
+        "optionB": "Social sites",
+        "optionC": "Publication sites",
+        "optionD": "Microblogs",
+        "correctAnswer": "Publication sites"
+    },
+    {
+        "title": "ENT211",
+        "id": 125,
+        "question": "One major advantage social media have over traditional media is",
+        "optionA": "Social media is one-way communication",
+        "optionB": "The reach of social media is limited compared to traditional media",
+        "optionC": "Social media does not depend on internet",
+        "optionD": "Information sharing can be instant for social media",
+        "correctAnswer": "Information sharing can be instant for social media"
+    },
+    {
+        "title": "ENT211",
+        "id": 126,
+        "question": "Which amongst the following is a benefit of social media?",
+        "optionA": "It is less cost-effective",
+        "optionB": "It is less interactive",
+        "optionC": "It has a territorial limit",
+        "optionD": "It is less expensive",
+        "correctAnswer": "It is less expensive"
+    },
+    {
+        "title": "ENT211",
+        "id": 127,
+        "question": "The following are adoption theories of technology except",
+        "optionA": "The theory of Reasoned action",
+        "optionB": "Utopia theory of action",
+        "optionC": "Decomposed theory of planned behaviour",
+        "optionD": "Technology of Acceptance model",
+        "correctAnswer": "Utopia theory of action"
+    },
+    {
+        "title": "ENT211",
+        "id": 128,
+        "question": "According to Duane and O'Reilly, organizations go through the following stages in adopting social media except",
+        "optionA": "Exploration",
+        "optionB": "Experimentation and learning",
+        "optionC": "Direction and coordination",
+        "optionD": "Formalization",
+        "correctAnswer": "Formalization"
+    },
+    {
+        "title": "ENT211",
+        "id": 129,
+        "question": "Which amongst the following is a professional social media site?",
+        "optionA": "Facebook",
+        "optionB": "X",
+        "optionC": "Linkedin",
+        "optionD": "Escapboard",
+        "correctAnswer": "Linkedin"
+    },
+    {
+        "title": "ENT211",
+        "id": 130,
+        "question": "All SMEs can market their products through the following social media except",
+        "optionA": "Facebook",
+        "optionB": "YouTube",
+        "optionC": "Radio",
+        "optionD": "Google+",
+        "correctAnswer": "Radio"
+    },
+    {
+        "title": "ENT211",
+        "id": 131,
+        "question": "The development that meets with present needs without compromising the needs of future generations is known as",
+        "optionA": "Action development",
+        "optionB": "Business development",
+        "optionC": "Sustainable development",
+        "optionD": "Idea development",
+        "correctAnswer": "Sustainable development"
+    },
+    {
+        "title": "ENT211",
+        "id": 132,
+        "question": "The origin of sustainable development can be traced to 1992 Rio de Janeiro United Nations Conference on Environment and Development (True/False)",
+        "optionA": "True",
+        "optionB": "False",
+        "correctAnswer": "True"
+    },
+    {
+        "title": "ENT211",
+        "id": 133,
+        "question": "The top pillars of sustainable development include the following except",
+        "optionA": "Environmental sustainability",
+        "optionB": "Human sustainability",
+        "optionC": "Climate sustainability",
+        "optionD": "Economic sustainability",
+        "correctAnswer": "Climate sustainability"
+    },
+    {
+        "title": "ENT211",
+        "id": 134,
+        "question": "SDG simply means",
+        "optionA": "Social development goals",
+        "optionB": "Stable double group",
+        "optionC": "Sustainability development goals",
+        "optionD": "Sustainability development group",
+        "correctAnswer": "Sustainability development goals"
+    },
+    {
+        "title": "ENT211",
+        "id": 135,
+        "question": "SDG was adopted by the United Nations in what year?",
+        "optionA": "September 2000",
+        "optionB": "October 2015",
+        "optionC": "January 2017",
+        "optionD": "September 2015",
+        "correctAnswer": "September 2015"
+    },
+    {
+        "title": "ENT211",
+        "id": 136,
+        "question": "Which amongst the following preceded the SDG?",
+        "optionA": "RTG",
+        "optionB": "MOG",
+        "optionC": "PLO",
+        "optionD": "MDE",
+        "correctAnswer": "MOG"
+    },
+    {
+        "title": "ENT211",
+        "id": 137,
+        "question": "SDG is made up of how many goals?",
+        "optionA": "12",
+        "optionB": "15",
+        "optionC": "23",
+        "optionD": "17",
+        "correctAnswer": "17"
+    },
+    {
+        "title": "ENT211",
+        "id": 138,
+        "question": "The following are goals of SDG except",
+        "optionA": "Reduced inequality",
+        "optionB": "Zero hunger",
+        "optionC": "Good health and well-being",
+        "optionD": "Deforestation",
+        "correctAnswer": "Deforestation"
+    },
+    {
+        "title": "ENT211",
+        "id": 139,
+        "question": "The following are ethical issues faced by business except",
+        "optionA": "Unethical accounting",
+        "optionB": "Harassment and discrimination",
+        "optionC": "Health and safety",
+        "optionD": "Nepotism and favouritism",
+        "correctAnswer": "Health and safety"
+    },
+    {
+        "title": "ENT211",
+        "id": 140,
+        "question": "______ is a moral principle that guides a business conduct which extends beyond legal requirements",
+        "optionA": "Business plan",
+        "optionB": "Business ethics",
+        "optionC": "Business policy",
+        "optionD": "All of the above",
+        "correctAnswer": "Business ethics"
+    },
+    {
+        "title": "ENT211",
+        "id": 141,
+        "question": "______ is a business initiative designed to meet no other specific goals related to ethics, sustainability and social impact",
+        "optionA": "Policy social responsibility",
+        "optionB": "Legal governance possibility",
+        "optionC": "Corporate social responsibility",
+        "optionD": "Corporate sustainability responsibility",
+        "correctAnswer": "Corporate social responsibility"
+    },
+    {
+        "title": "ENT211",
+        "id": 142,
+        "question": "The following are primary stakeholders in a business except",
+        "optionA": "Suppliers",
+        "optionB": "Customers",
+        "optionC": "Government",
+        "optionD": "Employees",
+        "correctAnswer": "Government"
+    },
+    {
+        "title": "ENT211",
+        "id": 143,
+        "question": "One of the following is not a secondary stakeholder",
+        "optionA": "Employees",
+        "optionB": "NGOs",
+        "optionC": "Activists",
+        "optionD": "Local communities",
+        "correctAnswer": "Employees"
+    },
+    {
+        "title": "ENT211",
+        "id": 144,
+        "question": "______ is a type of corporate social responsibility whereby financial decisions are based on commitment to doing good",
+        "optionA": "Ethics",
+        "optionB": "Economic",
+        "optionC": "Environmental",
+        "optionD": "Philanthropic",
+        "correctAnswer": "Philanthropic"
+    },
+    {
+        "title": "ENT211",
+        "id": 145,
+        "question": "Which of the following is the benefit of corporate social responsibility?",
+        "optionA": "Increase in employee engagement",
+        "optionB": "Commitment to United Nations SDG",
+        "optionC": "Refinement of public image",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 146,
+        "question": "______ is a process of enhancing the skillset and knowledge of entrepreneurs regarding the development, management and organization of a business venture while keeping in mind the risks associated with it",
+        "optionA": "Business development",
+        "optionB": "Political development",
+        "optionC": "Entrepreneurship development",
+        "optionD": "Social development",
+        "correctAnswer": "Entrepreneurship development"
+    },
+    {
+        "title": "ENT211",
+        "id": 147,
+        "question": "The government agency responsible for incorporation of companies in Nigeria is",
+        "optionA": "CAC",
+        "optionB": "NAEDAC",
+        "optionC": "FIRS",
+        "optionD": "NEPC",
+        "correctAnswer": "CAC"
+    },
+    {
+        "title": "ENT211",
+        "id": 148,
+        "question": "______ is responsible for the promotion, development and diversification of non-oil exports",
+        "optionA": "FIRS",
+        "optionB": "NEPC",
+        "optionC": "NCC",
+        "optionD": "NAEDAC",
+        "correctAnswer": "NEPC"
+    },
+    {
+        "title": "ENT211",
+        "id": 149,
+        "question": "The government agency responsible for the implementation of policies and guidelines for driving ICT in Nigeria is",
+        "optionA": "National Information Technology Development Agency (NITDA)",
+        "optionB": "NAEDAC",
+        "optionC": "BOI",
+        "optionD": "NIPC",
+        "correctAnswer": "National Information Technology Development Agency (NITDA)"
+    },
+    {
+        "title": "ENT211",
+        "id": 150,
+        "question": "Government agency charged with the responsibility of finance and advisory support to businesses is",
+        "optionA": "BOI",
+        "optionB": "NIPC",
+        "optionC": "NEPC",
+        "optionD": "DBN",
+        "correctAnswer": "BOI"
+    },
+    {
+        "title": "ENT211",
+        "id": 151,
+        "question": "The government agency responsible for the initiation and support measures to enhance investment in Nigeria is",
+        "optionA": "NEPC",
+        "optionB": "NIPC",
+        "optionC": "ITF",
+        "optionD": "SMEDAN",
+        "correctAnswer": "NIPC"
+    },
+    {
+        "title": "ENT211",
+        "id": 152,
+        "question": "The government agency responsible for the promotion and encouragement of the development and acquisition of industrial and commercial skills in Nigeria is",
+        "optionA": "ITF",
+        "optionB": "CBN",
+        "optionC": "NIPC",
+        "optionD": "BOI",
+        "correctAnswer": "ITF"
+    },
+    {
+        "title": "ENT211",
+        "id": 153,
+        "question": "The following is a non-statutory agency in Nigeria",
+        "optionA": "Tony Elumelu Foundation Entrepreneurship Programme",
+        "optionB": "BOI",
+        "optionC": "NEPC",
+        "optionD": "NIPC",
+        "correctAnswer": "Tony Elumelu Foundation Entrepreneurship Programme"
+    },
+    {
+        "title": "ENT211",
+        "id": 154,
+        "question": "The government agency responsible for the development of SMEs and MSME in Nigeria is",
+        "optionA": "Small and Medium Enterprises Development Agency of Nigeria (SMEDAN)",
+        "optionB": "ITF",
+        "optionC": "NEPC",
+        "optionD": "BOA",
+        "correctAnswer": "Small and Medium Enterprises Development Agency of Nigeria (SMEDAN)"
+    },
+    {
+        "title": "ENT211",
+        "id": 155,
+        "question": "The planning, organizing, staffing, leading, controlling and coordinating the different activities of workers within an organization is",
+        "optionA": "Business organization",
+        "optionB": "Corporate social responsibility",
+        "optionC": "Human resources management",
+        "optionD": "Operations management",
+        "correctAnswer": "Human resources management"
+    },
+    {
+        "title": "ENT211",
+        "id": 156,
+        "question": "The leadership behaviours expected of an effective entrepreneur includes the following except",
+        "optionA": "Create a culture of ethical conduct",
+        "optionB": "Exhibit respect and support for the employees",
+        "optionC": "Lead by example",
+        "optionD": "Create a climate of distrust in the company",
+        "correctAnswer": "Create a climate of distrust in the company"
+    },
+    {
+        "title": "ENT211",
+        "id": 157,
+        "question": "______ is the process of collecting, analyzing and setting out information about job content in order to provide a basis for a job recruitment and evaluation",
+        "optionA": "Job role",
+        "optionB": "Job specification",
+        "optionC": "Job analysis",
+        "optionD": "Job description",
+        "correctAnswer": "Job analysis"
+    },
+    {
+        "title": "ENT211",
+        "id": 158,
+        "question": "Written statement of the purpose of the job, where it fits in the organization structure and the context within which the job holder functions is ______",
+        "optionA": "Job role summary",
+        "optionB": "Job analysis",
+        "optionC": "Job description",
+        "optionD": "Job specification",
+        "correctAnswer": "Job description"
+    },
+    {
+        "title": "ENT211",
+        "id": 159,
+        "question": "Which amongst the following is an example of job description",
+        "optionA": "Job title",
+        "optionB": "Job location",
+        "optionC": "Job summary",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 160,
+        "question": "______ is the process of locating and encouraging potential applicants to apply for existing or anticipated job openings",
+        "optionA": "Employment",
+        "optionB": "Selection",
+        "optionC": "Reception",
+        "optionD": "Recruitment",
+        "correctAnswer": "Recruitment"
+    },
+    {
+        "title": "ENT211",
+        "id": 161,
+        "question": "Which amongst the following is not an example of job specification",
+        "optionA": "Job title",
+        "optionB": "Qualification",
+        "optionC": "Experience",
+        "optionD": "Skills",
+        "correctAnswer": "Job title"
+    },
+    {
+        "title": "ENT211",
+        "id": 162,
+        "question": "______ is a process of differentiating between job applicants in order to identify and hire those with the best likelihood of succeeding on the job",
+        "optionA": "Responsibility",
+        "optionB": "Recruitment",
+        "optionC": "Selection",
+        "optionD": "Specification",
+        "correctAnswer": "Selection"
+    },
+    {
+        "title": "ENT211",
+        "id": 163,
+        "question": "Which of the following is not part of job selection process",
+        "optionA": "Reception of the candidates",
+        "optionB": "Screening interview",
+        "optionC": "Rating out application blank to collect candidate information",
+        "optionD": "Job placement",
+        "correctAnswer": "Job placement"
+    },
+    {
+        "title": "ENT211",
+        "id": 164,
+        "question": "The existence of vacancy in an organization and the filling of the same vacancy within the organization is known as ______",
+        "optionA": "Summary recruitment",
+        "optionB": "External recruitment",
+        "optionC": "Internal recruitment",
+        "optionD": "All of the above",
+        "correctAnswer": "Internal recruitment"
+    },
+    {
+        "title": "ENT211",
+        "id": 165,
+        "question": "External recruitment can be done through the following means except",
+        "optionA": "Newspaper",
+        "optionB": "Internet",
+        "optionC": "Radio",
+        "optionD": "None of the above",
+        "correctAnswer": "None of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 166,
+        "question": "Which of the following factors can affect the success of a recruitment process",
+        "optionA": "The engagement of the recruiting company",
+        "optionB": "The nature of the job been offered",
+        "optionC": "The size of the company",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 167,
+        "question": "Which amongst the following is a remuneration method",
+        "optionA": "Time rate method",
+        "optionB": "Job alignment method",
+        "optionC": "Piece rate method",
+        "optionD": "A and C",
+        "correctAnswer": "A and C"
+    },
+    {
+        "title": "ENT211",
+        "id": 168,
+        "question": "Which of the processes take place after an applicant has been hired",
+        "optionA": "Placement",
+        "optionB": "Orientation",
+        "optionC": "Training",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 169,
+        "question": "The process of familiarizing the new employees to the organization rules and regulations is known as",
+        "optionA": "Placement",
+        "optionB": "Induction",
+        "optionC": "Recruitment",
+        "optionD": "Selection",
+        "correctAnswer": "Induction"
+    },
+    {
+        "title": "ENT211",
+        "id": 170,
+        "question": "OJT stands for",
+        "optionA": "On the job training",
+        "optionB": "On the job technique",
+        "optionC": "On the job technology",
+        "optionD": "Off the job training",
+        "correctAnswer": "On the job training"
+    },
+    {
+        "title": "ENT211",
+        "id": 171,
+        "question": "On the job training includes",
+        "optionA": "Coaching",
+        "optionB": "Conference",
+        "optionC": "Understudy",
+        "optionD": "All of these",
+        "correctAnswer": "All of these"
+    },
+   {
+        "title": "ENT211",
+        "id": 172,
+        "question": "In ______ training, a training centre is set-up and actual job conditions are duplicated or simulated in it",
+        "optionA": "Classroom",
+        "optionB": "Apprenticeship",
+        "optionC": "Internship",
+        "optionD": "Vestibule",
+        "correctAnswer": "Vestibule"
+    },
+    {
+        "title": "ENT211",
+        "id": 173,
+        "question": "Which of the following is NOT a Social Media Platform?",
+        "optionA": "Facebook",
+        "optionB": "Twitter",
+        "optionC": "Instagram",
+        "optionD": "Google",
+        "correctAnswer": "Google"
+    },
+    {
+        "title": "ENT211",
+        "id": 174,
+        "question": "E-marketing is also called ______",
+        "optionA": "Direct purchasing",
+        "optionB": "Electronic banking",
+        "optionC": "E-mail order",
+        "optionD": "Internet business",
+        "correctAnswer": "Internet business"
+    },
+    {
+        "title": "ENT211",
+        "id": 175,
+        "question": "What is the primary goal of sustainable development in entrepreneurship?",
+        "optionA": "Maximizing short-term profits",
+        "optionB": "Meeting the needs of the present without compromising the ability of future generations to meet their own needs",
+        "optionC": "Ignoring environmental and social impacts",
+        "optionD": "Prioritizing technological innovation over social responsibility",
+        "correctAnswer": "Meeting the needs of the present without compromising the ability of future generations to meet their own needs"
+    },
+    {
+        "title": "ENT211",
+        "id": 176,
+        "question": "Which of the following is NOT a key aspect of sustainable entrepreneurship?",
+        "optionA": "Focusing on environmental sustainability",
+        "optionB": "Ignoring social and economic coordination",
+        "optionC": "Prioritizing long-term value creation over short-term goals",
+        "optionD": "Investing in innovation and technological solution",
+        "correctAnswer": "Ignoring social and economic coordination"
+    },
+    {
+        "title": "ENT211",
+        "id": 177,
+        "question": "Which of the following is an example of a sustainable business practice?",
+        "optionA": "Using excessive amount of non-renewable resources",
+        "optionB": "Investing in renewable energy sources",
+        "optionC": "Ignoring social and environmental impact assessments",
+        "optionD": "Prioritizing short-term profits over long-term sustainability",
+        "correctAnswer": "Investing in renewable energy sources"
+    },
+    {
+        "title": "ENT211",
+        "id": 178,
+        "question": "What is the first step in starting a new business?",
+        "optionA": "Develop a marketing strategy",
+        "optionB": "Write a business plan",
+        "optionC": "Secure funding",
+        "optionD": "Find a location for the business",
+        "correctAnswer": "Write a business plan"
+    },
+    {
+        "title": "ENT211",
+        "id": 179,
+        "question": "What is the role of a mentor in entrepreneurship?",
+        "optionA": "To provide financial support for the business",
+        "optionB": "To provide guidance and support for the entrepreneur",
+        "optionC": "Make over the business when the entrepreneur is unavailable",
+        "optionD": "To manage the day-to-day operations of the business",
+        "correctAnswer": "To provide guidance and support for the entrepreneur"
+    },
+    {
+        "title": "ENT211",
+        "id": 180,
+        "question": "What is the role of a business owner in managing a new business?",
+        "optionA": "To oversee all aspects of the business",
+        "optionB": "To manage the day-to-day operations of the business",
+        "optionC": "To hire and train employees",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 181,
+        "question": "The assets that can be converted into cash within a year are known as ______",
+        "optionA": "Investments",
+        "optionB": "Intangible assets",
+        "optionC": "Current assets",
+        "optionD": "None of the above",
+        "correctAnswer": "Current assets"
+    },
+    {
+        "title": "ENT211",
+        "id": 182,
+        "question": "The debts which are repaid within a year are known as ______",
+        "optionA": "Contingent liabilities",
+        "optionB": "Fixed liabilities",
+        "optionC": "Current liabilities",
+        "optionD": "None of the above",
+        "correctAnswer": "Current liabilities"
+    },
+    {
+        "title": "ENT211",
+        "id": 183,
+        "question": "Bookkeeping mainly consists of ______ part of the accounting process",
+        "optionA": "Auditing the books of accounts",
+        "optionB": "Recording financial information",
+        "optionC": "Preparing financial statements",
+        "optionD": "Analyzing",
+        "correctAnswer": "Recording financial information"
+    },
+    {
+        "title": "ENT211",
+        "id": 184,
+        "question": "Which of the following is a current liability for the firm?",
+        "optionA": "Bank overdraft",
+        "optionB": "Bills payable",
+        "optionC": "Outstanding expenses",
+        "optionD": "All of the above",
+        "correctAnswer": "All of the above"
+    },
+    {
+        "title": "ENT211",
+        "id": 185,
+        "question": "What is the difference between ethical and legal issues in business?",
+        "optionA": "Legal issues are only relevant to large corporations",
+        "optionB": "Ethical issues are always legally required",
+        "optionC": "Ethical issues involve moral principles, while legal issues are governed by rules",
+        "optionD": "Ethical and legal issues are the same",
+        "correctAnswer": "Ethical issues involve moral principles, while legal issues are governed by rules"
+    },
+    {
+        "title": "ENT211",
+        "id": 186,
+        "question": "Which of the following is NOT an ethical issue that entrepreneurs may face?",
+        "optionA": "Fair wages for employees",
+        "optionB": "Accurate accounting records",
+        "optionC": "Price gouging",
+        "optionD": "All of the above are ethical issues",
+        "correctAnswer": "All of the above are ethical issues"
     }
 
 
