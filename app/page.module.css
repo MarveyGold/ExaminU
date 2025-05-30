@@ -103,6 +103,9 @@ a.secondary {
   .main ol {
     text-align: center;
   }
+  .main ol{
+    list-style: none;
+  }
 
   .ctas {
     flex-direction: column;
