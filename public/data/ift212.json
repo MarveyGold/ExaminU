@@ -1,0 +1,202 @@
+[
+  {
+    "title": "IFT212",
+    "id": 1,
+    "question": "What is the primary function of the Control Unit (CU) in a CPU?",
+    "optionA": "Perform arithmetic operations",
+    "optionB": "Decode instructions and generate control signals",
+    "optionC": "Store data temporarily",
+    "optionD": "Manage I/O devices",
+    "correctAnswer": "Decode instructions and generate control signals"
+  },
+  {
+    "title": "IFT212",
+    "id": 2,
+    "question": "Which component of the von Neumann architecture holds the currently executing instruction?",
+    "optionA": "ALU",
+    "optionB": "Instruction Register (IR)",
+    "optionC": "Program Counter (PC)",
+    "optionD": "Memory Data Register (MDR)",
+    "correctAnswer": "Instruction Register (IR)"
+  },
+  {
+    "title": "IFT212",
+    "id": 3,
+    "question": "What is the purpose of the Memory Address Register (MAR)?",
+    "optionA": "Stores the data to be written to memory",
+    "optionB": "Holds the address of the next instruction",
+    "optionC": "Specifies the memory location for read/write operations",
+    "optionD": "Manages cache coherence",
+    "correctAnswer": "Specifies the memory location for read/write operations"
+  },
+  {
+    "title": "IFT212",
+    "id": 4,
+    "question": "Which addressing mode uses the operand itself rather than its address?",
+    "optionA": "Direct addressing",
+    "optionB": "Indirect addressing",
+    "optionC": "Immediate addressing",
+    "optionD": "Indexed addressing",
+    "correctAnswer": "Immediate addressing"
+  },
+  {
+    "title": "IFT212",
+    "id": 5,
+    "question": "What is the key difference between RISC and CISC architectures?",
+    "optionA": "RISC has more complex instructions than CISC",
+    "optionB": "CISC uses fixed-length instructions",
+    "optionC": "RISC relies on pipelining and simpler instructions",
+    "optionD": "CISC has fewer registers than RISC",
+    "correctAnswer": "RISC relies on pipelining and simpler instructions"
+  },
+  {
+    "title": "IFT212",
+    "id": 6,
+    "question": "Which memory type is fastest but smallest in a typical memory hierarchy?",
+    "optionA": "Main memory (RAM)",
+    "optionB": "Secondary storage (HDD)",
+    "optionC": "Registers",
+    "optionD": "Cache",
+    "correctAnswer": "Registers"
+  },
+  {
+    "title": "IFT212",
+    "id": 7,
+    "question": "What does DMA stand for in computer systems?",
+    "optionA": "Direct Memory Access",
+    "optionB": "Dynamic Memory Allocation",
+    "optionC": "Data Movement Assistant",
+    "optionD": "Dual Memory Architecture",
+    "correctAnswer": "Direct Memory Access"
+  },
+  {
+    "title": "IFT212",
+    "id": 8,
+    "question": "Which RAID level provides mirroring without striping?",
+    "optionA": "RAID 0",
+    "optionB": "RAID 1",
+    "optionC": "RAID 5",
+    "optionD": "RAID 6",
+    "correctAnswer": "RAID 1"
+  },
+  {
+    "title": "IFT212",
+    "id": 9,
+    "question": "What is the primary purpose of an interrupt in a CPU?",
+    "optionA": "To halt the CPU permanently",
+    "optionB": "To handle urgent I/O or error conditions",
+    "optionC": "To increase clock speed",
+    "optionD": "To disable cache memory",
+    "correctAnswer": "To handle urgent I/O or error conditions"
+  },
+  {
+    "title": "IFT212",
+    "id": 10,
+    "question": "Which of these is NOT a phase of the instruction cycle?",
+    "optionA": "Fetch",
+    "optionB": "Decode",
+    "optionC": "Write-back",
+    "optionD": "Execute",
+    "correctAnswer": "Write-back"
+  },
+  {
+    "title": "IFT212",
+    "id": 11,
+    "question": "What is the function of the Program Counter (PC)?",
+    "optionA": "Stores the result of arithmetic operations",
+    "optionB": "Holds the address of the next instruction to execute",
+    "optionC": "Manages interrupt requests",
+    "optionD": "Controls I/O devices",
+    "correctAnswer": "Holds the address of the next instruction to execute"
+  },
+  {
+    "title": "IFT212",
+    "id": 12,
+    "question": "Which bus carries memory addresses from the CPU to RAM?",
+    "optionA": "Data bus",
+    "optionB": "Control bus",
+    "optionC": "Address bus",
+    "optionD": "System bus",
+    "correctAnswer": "Address bus"
+  },
+  {
+    "title": "IFT212",
+    "id": 13,
+    "question": "What is cache coherence in multiprocessor systems?",
+    "optionA": "Ensuring all caches have consistent data",
+    "optionB": "Increasing cache size dynamically",
+    "optionC": "Disabling caches to avoid conflicts",
+    "optionD": "Using only one cache for all processors",
+    "correctAnswer": "Ensuring all caches have consistent data"
+  },
+  {
+    "title": "IFT212",
+    "id": 14,
+    "question": "Which register holds the result of ALU operations?",
+    "optionA": "Instruction Register (IR)",
+    "optionB": "Accumulator (ACC)",
+    "optionC": "Memory Buffer Register (MBR)",
+    "optionD": "Stack Pointer (SP)",
+    "correctAnswer": "Accumulator (ACC)"
+  },
+  {
+    "title": "IFT212",
+    "id": 15,
+    "question": "What is the primary advantage of pipelining in CPUs?",
+    "optionA": "Reduces power consumption",
+    "optionB": "Increases instruction throughput",
+    "optionC": "Simplifies circuit design",
+    "optionD": "Eliminates the need for cache",
+    "correctAnswer": "Increases instruction throughput"
+  },
+  {
+    "title": "IFT212",
+    "id": 16,
+    "question": "Which of these is a volatile memory type?",
+    "optionA": "ROM",
+    "optionB": "Flash memory",
+    "optionC": "RAM",
+    "optionD": "HDD",
+    "correctAnswer": "RAM"
+  },
+  {
+    "title": "IFT212",
+    "id": 17,
+    "question": "What does the term 'clock cycle' refer to?",
+    "optionA": "Time taken to fetch an instruction",
+    "optionB": "Time between two pulses of the CPU clock",
+    "optionC": "Time to access main memory",
+    "optionD": "Time to execute a full program",
+    "correctAnswer": "Time between two pulses of the CPU clock"
+  },
+  {
+    "title": "IFT212",
+    "id": 18,
+    "question": "Which component performs arithmetic and logic operations?",
+    "optionA": "Control Unit (CU)",
+    "optionB": "Arithmetic Logic Unit (ALU)",
+    "optionC": "Cache",
+    "optionD": "Memory Management Unit (MMU)",
+    "correctAnswer": "Arithmetic Logic Unit (ALU)"
+  },
+  {
+    "title": "IFT212",
+    "id": 19,
+    "question": "What is the purpose of virtual memory?",
+    "optionA": "To replace RAM entirely",
+    "optionB": "To allow programs to use more memory than physically available",
+    "optionC": "To speed up cache access",
+    "optionD": "To eliminate the need for secondary storage",
+    "correctAnswer": "To allow programs to use more memory than physically available"
+  },
+  {
+    "title": "IFT212",
+    "id": 20,
+    "question": "Which of these is a characteristic of CISC architectures?",
+    "optionA": "Fixed-length instructions",
+    "optionB": "Minimal use of microcode",
+    "optionC": "Complex, multi-cycle instructions",
+    "optionD": "Large number of registers",
+    "correctAnswer": "Complex, multi-cycle instructions"
+  }
+]

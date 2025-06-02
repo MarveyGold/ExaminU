@@ -16,6 +16,9 @@ export default function Dashboard() {
   const ENT211 = () => {
     router.push('/ent211')
   }
+  const IFT212 = () => {
+    router.push('/ift212')
+  }
   return (
     <div className={styles.page}>
         <Script
@@ -45,6 +48,9 @@ export default function Dashboard() {
         </li>
         <li>
         <button className="course selector" onClick={ENT211}><h1>ENT211</h1></button>
+        </li>
+        <li>
+        <button className="course selector" onClick={IFT212}><h1>IFT212</h1></button>
         </li>
       </ol>
       </main>
