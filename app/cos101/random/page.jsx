@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import Link from "next/link";
 import Logo from "../../components/logo";
 import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
