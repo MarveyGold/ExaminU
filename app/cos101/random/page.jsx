@@ -40,38 +40,11 @@ export default async function Quiz({searchParams}) {
     
      
       <div className={styles.home}>
-         <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(d,z,s){
-              s.src='https://' + d + '/400/' + z;
-              try {
-                (document.body || document.documentElement).appendChild(s);
-              } catch(e) {}
-            })('vemtoutcheeg.com', 9351557, document.createElement('script'));
-          `,
-        }}
-      />
-        <script
-        id="external-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(d,z,s){
-              s.src='https://'+d+'/401/'+z;
-              try{
-                (document.body||document.documentElement).appendChild(s)
-              }catch(e){}
-            })('gizokraijaw.net',9365928,document.createElement('script'))
-          `,
-        }}
-      />
-      
-
-            <header>
+        <header>
                 <Logo/>
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
             </header>
+            <main>
             <Link href = 'https://otieu.com/4/9333331'>  
             <div className={styles.title}>
              {quiz.title}
@@ -105,20 +78,23 @@ export default async function Quiz({searchParams}) {
             </div>
 
             </form>
+
+      </Link>
+            </main>
           
  
 
-            <h2>{result && <p>{result}</p> }</h2>
+            
+              <h2>{result && <p>{result}</p> }</h2>
             
             
             <div>
             </div>
-            <footer className={styles.footer}>
+            <footer >
                 <Link href={back}><button className="footerButton">{course}</button></Link>
                 <Link href={again}><button className="footerButton">Next</button></Link>
             </footer>
 
-      </Link>
             
     </div>
  

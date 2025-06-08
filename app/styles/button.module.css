@@ -3,14 +3,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 10px;
+    position: absolute;
 }
 .button{
     width: 45vw;
     height: 25vh;
     border-radius: 30px;
-    background-color: rgb(30, 29, 29);
+    background-color: rgb(24, 10, 27);
     color: white;
     border: 10px;
+    margin: 0 ;
+    position: relative;
 }
 .button:hover{
     background-color: blueviolet;

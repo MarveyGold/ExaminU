@@ -15,27 +15,26 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Examin U",
   description: "Test Yourself",
+  manifest: '/manifest.json'
 };
+export const viewport = {
+  themeColor: '#ffffff',
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#ffffff" />
+
       
       <Analytics/>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <footer>
-                <h6>
-                  <div>
-                  Note: This is a beta version
-                  </div>
-                  <div>
-                  only Random mode is available
-                  </div>
-                   
-             </h6>
+                
             </footer>
       </body>
     </html>

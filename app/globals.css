@@ -14,6 +14,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  height: 100vh;
 }
 
 body {
@@ -47,6 +48,7 @@ details{
 }
 header{
   padding: 10px;
+  top: 0;
 }
 .selector{
   width: 90vw;
@@ -98,6 +100,13 @@ footer {
   gap: 24px;
   position: absolute;
   bottom: 0;
+}
+footer button{
+  border-radius: 30px;
+  border: none;
+  height: 30px;
+  font: caption;
+  position: relative;
 }
 
 footer a {

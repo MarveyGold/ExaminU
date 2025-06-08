@@ -2,8 +2,8 @@
 import styles from "./page.module.css";
 import Logo from "./components/logo";
 import { useRouter } from "next/navigation";
-import Script from "next/script";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -19,14 +19,14 @@ export default function Dashboard() {
   const IFT212 = () => {
     router.push('/ift212')
   }
+  const [course, showCourse]= useState("none");
+ function show() {
+   showCourse((state) =>
+    state==="none"? "block" : "none"
+  );
+ }
   return (
     <div className={styles.page}>
-        <Script
-        src="https://fpyf8.com/88/tag.min.js"
-        data-zone="147503"
-        data-cfasync="false"
-        strategy="afterInteractive"
-      />
       <header>
       <Logo />
       <Link href="https://wa.me/+2349164747109">
@@ -36,7 +36,7 @@ export default function Dashboard() {
 
       <main className={styles.main}>
       <h3>Exam Success!!!</h3>
-      <ol>
+      <ol style={{display: course}}>
         <li>
         <button className="course selector" onClick={COS101}><h1>COS101</h1></button>
         </li>
@@ -55,7 +55,8 @@ export default function Dashboard() {
       </ol>
       </main>
 
-      <footer className={styles.footer}>
+      <footer>
+        <button onClick={show} >Show courses</button>
       </footer>
     </div>
   );
