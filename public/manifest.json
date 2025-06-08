@@ -2,6 +2,7 @@
     "name" : "ExaminU",
     "short_name": "ExaminU",
     "description": "Your number one Study app",
+    "id": "index.html",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
@@ -13,9 +14,16 @@
         "type": "image/png"
       },
       {
-        "src": "/favicon.ico",
+        "src": "/favicon.png",
         "sizes": "512x512",
         "type": "image/png"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/Screenshot.png",
+        "type":"image/png",
+        "sizes":"381x499"
       }
     ]
     }
