@@ -20,10 +20,14 @@ export default function Dashboard() {
     router.push('/ift212')
   }
   const [course, showCourse]= useState("none");
+  const [text, toggleText]= useState("Show Courses");
  function show() {
    showCourse((state) =>
     state==="none"? "block" : "none"
   );
+  toggleText((btText) =>
+  btText==="Show Courses"? "Hide Courses" : "Show Courses"
+  )
  }
   return (
     <div className={styles.page}>
@@ -56,7 +60,9 @@ export default function Dashboard() {
       </main>
 
       <footer>
-        <button onClick={show} >Show courses</button>
+        <hr />
+        <button onClick={show} className="answerButton" >{text}</button>
+        <hr />
       </footer>
     </div>
   );

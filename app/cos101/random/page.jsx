@@ -1,5 +1,4 @@
 import { promises as fs } from "fs";
-import Link from "next/link";
 import Logo from "../../components/logo";
 import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
@@ -45,7 +44,6 @@ export default async function Quiz({searchParams}) {
                 <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
             </header>
             <main>
-            <Link href = 'https://otieu.com/4/9333331'>  
             <div className={styles.title}>
              {quiz.title}
             </div>
@@ -78,8 +76,6 @@ export default async function Quiz({searchParams}) {
             </div>
 
             </form>
-
-      </Link>
             </main>
           
  
