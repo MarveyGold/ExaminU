@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "../../components/logo";
 import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
+import Form from "next/form";
 export const metadata = {
   title: "Random",
   description: "Test Yourself with random questions",
@@ -53,30 +54,47 @@ export default async function Quiz({searchParams}) {
               {quiz.question}
             </div>
 
-            <form action={checkAnswer}  >
+            <Form action={checkAnswer}  >
             <div>
-                <div className="selector">
-                    <input type="radio" name="quiz" value={quiz.optionA} />
-                    <label htmlFor="quiz">{quiz.optionA}</label>
-                </div>
-                <div className="selector">
-                    <input type="radio" name="quiz" id="" value={quiz.optionB}  />
-                    <label htmlFor="quiz">{quiz.optionB}</label>
-                </div>
-                <div className="selector">
-                    <input type="radio" name="quiz" id="" value={quiz.optionC} />
-                    <label htmlFor="quiz">{quiz.optionC}</label>
-                </div>
-                <div className="selector">
-                    <input type="radio" name="quiz" id="" value={quiz.optionD}/>
-                    <label htmlFor="quiz">{quiz.optionD}</label>
-                </div>
+                <label className="selector">
+                  <input
+                    type="radio" 
+                    name="quiz" 
+                    value={quiz.optionA} 
+                  />
+                  {quiz.optionA}
+                </label>
+                
+                <label className="selector">
+                  <input
+                    type="radio" 
+                    name="quiz" 
+                    value={quiz.optionB} 
+                  />
+                  {quiz.optionB}
+                </label>
+                <label className="selector">
+                  <input
+                    type="radio" 
+                    name="quiz" 
+                    value={quiz.optionC} 
+                  />
+                  {quiz.optionC}
+                </label>
+                <label className="selector">
+                  <input
+                    type="radio" 
+                    name="quiz" 
+                    value={quiz.optionD} 
+                  />
+                  {quiz.optionD}
+                </label>
             </div>
             <div className="ans">
                 <button type="submit"  className="answerButton">Check The Answer</button>
             </div>
 
-            </form>
+            </Form>
             </main>
           
  
