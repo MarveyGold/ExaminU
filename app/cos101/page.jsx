@@ -12,7 +12,7 @@ export default function Home() {
   }
     const random = () => {
           if (typeof window !== 'undefined') {
-    window.location.href = to
+    window.location.href = "/cos101/random"
           }
           
       }
