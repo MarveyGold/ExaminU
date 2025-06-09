@@ -23,10 +23,13 @@ export default function Home() {
       <main className={styles.main}>
         <h2>
           Challenge your <div>knowledge</div>
-          <button className="footerButton" onClick={changeCourse}><h4>change course</h4></button>
+          
         </h2>
         <Button to="/cos101/random">Random</Button>
       </main>
+      <footer>
+        <button className="footerButton" onClick={changeCourse}><h4>change course</h4></button>
+      </footer>
     </div>
   )
     }
