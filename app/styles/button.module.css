@@ -4,6 +4,8 @@
     grid-template-columns: 1fr 1fr;
     row-gap: 10px;
     position: absolute;
+    align-items: center;
+    justify-content: center;
 }
 .button{
     width: 45vw;

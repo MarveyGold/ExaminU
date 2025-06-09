@@ -2,8 +2,7 @@ import nextPwa from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    turbo: false
+    reactStrictMode: true
 };
 
 export default nextPwa({

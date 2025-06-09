@@ -10,6 +10,12 @@ export default function Home() {
   const changeCourse = () => {
     router.push('/')
   }
+    const random = () => {
+          if (typeof window !== 'undefined') {
+    window.location.href = to
+          }
+          
+      }
 
   return (
     <div className={styles.hom}>
@@ -25,10 +31,12 @@ export default function Home() {
           Challenge your <div>knowledge</div>
           
         </h2>
-        <Button to="/cos101/random">Random</Button>
+        <Button />
       </main>
       <footer>
-        <button className="footerButton" onClick={changeCourse}><h4>change course</h4></button>
+        <button className="footerButton left" onClick={changeCourse}><h4>change course</h4></button>
+         <button className="answerButton" onClick={random}>Start Quiz</button>
+    
       </footer>
     </div>
   )

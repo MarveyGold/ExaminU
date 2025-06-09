@@ -1,20 +1,20 @@
 'use client';
 import styles from '../styles/button.module.css'
 import Link from "next/link";
-export default function Button( { to, children } ) {
-    const random = () => {
-        if (typeof window !== 'undefined') {
-  window.location.href = to
-        }
-        
-    }
+export default function Button(  ) {
+  
   
     return(
+        <>
     <div className={styles.buttons}>
-      <button className={styles.button} onClick={random}>{children}</button>
-       <Link href="/exam">  <button className={styles.button}>Exam</button>  </Link>
-        <Link href="/topic"> <button className={styles.button}>Topic</button>    </Link>                                              
-        <Link href="/"><button className={styles.button}>Quiz</button></Link>
+      
+       <Link href="/exam">  <button className={styles.button}>Course Materials</button>  </Link>
+        <Link href="/topic"> <button className={styles.button}>Topic</button>    </Link> 
+        
     </div>
+    <footer>
+       </footer>
+        
+    </>
     )
 }
