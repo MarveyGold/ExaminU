@@ -94,20 +94,13 @@ header{
 footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
   gap: 24px;
   position: absolute;
   bottom: 5vh;
 }
-footer button{
-  border-radius: 30px;
-  border: none;
-  height: 30px;
-  font: caption;
-  position: relative;
 
-}
 
 footer a {
   display: flex;
@@ -135,4 +128,57 @@ footer img {
 }
 .left{
   left: 0;
+}
+.courseToggleOn{
+  position: fixed;
+  animation: comeUp 5s  ;
+  width: 160px;
+  height: 60px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(blueviolet, blue);
+  border: none;
+  position: relative;
+}
+.courseToggle{
+  position: fixed;
+  width: 160px;
+  height: 60px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(blueviolet, blue);
+  border: none;
+  position: relative;
+  bottom: -50vh;
+}
+
+@keyframes comeUp {
+  0% {
+    bottom: -40vh;
+  }
+  100%{
+    bottom: 0;
+  }
+}
+@keyframes goDown {
+  0% {
+    bottom: 0;
+  }
+  100%{
+    bottom: -40vh;
+  }
+}
+.none{
+  display: none;
+}
+ol.block{
+  display: block;
+  animation: comeUp 5s  ;
+}
+h3{
+    font-size: 20px;
+    display: flex;
+    color: blueviolet;
+    font: bold;
+    font-weight: 800;
 }

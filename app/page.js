@@ -21,13 +21,17 @@ export default function Dashboard() {
   }
   const [course, showCourse]= useState("none");
   const [text, toggleText]= useState("Show Courses");
+  const [toggle, toggleOn]= useState("courseToggleOn");
  function show() {
    showCourse((state) =>
     state==="none"? "block" : "none"
   );
   toggleText((btText) =>
   btText==="Show Courses"? "Hide Courses" : "Show Courses"
-  )
+  );
+    toggleOn((state) =>
+    state==="courseToggle"? "courseToggleOn" : "courseToggle"
+    )
  }
   return (
     <div className={styles.page}>
@@ -40,7 +44,7 @@ export default function Dashboard() {
 
       <main className={styles.main}>
       <h3>Exam Success!!!</h3>
-      <ol style={{display: course}}>
+      <ol className={course} >
         <li>
         <button className="course selector" onClick={COS101}><h1>COS101</h1></button>
         </li>
@@ -59,10 +63,10 @@ export default function Dashboard() {
       </ol>
       </main>
 
-      <footer>
-        <hr />
-        <button onClick={show} className="answerButton" >{text}</button>
-        <hr />
+      <footer className={styles.footer} >
+      
+        <button onClick={show} className={toggle} >{text}</button>
+       
       </footer>
     </div>
   );

@@ -6,14 +6,13 @@ import Button from "../components/buttons";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const course = "cos101"
   const router = useRouter();
   const changeCourse = () => {
     router.push('/')
   }
     const random = () => {
-          if (typeof window !== 'undefined') {
-    window.location.href = "/cos101/random"
-          }
+        router.push(`/${course}/random`)
           
       }
 

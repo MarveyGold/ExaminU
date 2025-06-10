@@ -23,7 +23,6 @@
   line-height: 24px;
   letter-spacing: -0.01em;
   list-style: none;
-  display: none;
 }
 
 .main li:not(:last-of-type) {
@@ -162,4 +161,20 @@ a.secondary {
   color: transparent;
   display: inline-block;
   position: relative;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  gap: 24px;
+  bottom: 40vh;
+}
+.footer button{
+  border-radius: 30px;
+  border: none;
+  height: 30px;
+  font: caption;
+  position: relative;
+
 }
