@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import Logo from "../../components/logo";
-import styles from "../../styles/quiz.module.css";
+import Logo from "../../../components/logo";
+import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
 export const metadata = {
@@ -9,37 +9,38 @@ export const metadata = {
   description: "Test Yourself with random questions",
 };
 
-export default async function Quiz({searchParams}) {
-  const course = "ent211";
-  const source = `${course}.json`
-    const filePath = process.cwd() + `/public/data/${source}`;
-    const file = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(file);
-    const randomIndex =  searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
-    const quiz = data[randomIndex];
-    // const quiz = data.find(quiz => quiz.id === random);
-    const correctAnswer = quiz.correctAnswer;
-    const result = searchParams?.result || "";
+export default async function Quiz({params, searchParams}) {
+  const course = params.course;
+  const src = `${course}.json`
+    const filePath = process.cwd() + `/public/data/${src}`;
+    const result = await searchParams?.result || "";
     
 
-    const checkAnswer = async (formData) => {
+   
+
+    const back = `/courses/${course}`;
+    const again = `${back}/random`;
+
+    
+    try {
+    const file = await fs.readFile(filePath, 'utf8');
+    const data = JSON.parse(file);
+    const randomIndex = await searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
+    const quiz = data[randomIndex];
+     const checkAnswer = async (formData) => {
         'use server';
         const selectedAnswer =  formData.get('quiz');
-        const result = selectedAnswer === correctAnswer ? "CORRECT!!! the answer is:" + quiz.correctAnswer : "Wrong, the answer is:" + " " + quiz.correctAnswer;
+        const correctAnswer = quiz.correctAnswer;
+        const result = selectedAnswer === correctAnswer ? "CORRECT!!! the answer is:" + correctAnswer : "Wrong, the answer is:" + " " + correctAnswer;
         if (selectedAnswer=== null) {
-            return "The answer is" + quiz.correctAnswer
+            return "The answer is" + correctAnswer
         }
-        redirect(`/${course}/random?result=${encodeURIComponent(result)}&index=${randomIndex}`);
+        redirect(`/courses/${course}/random?result=${encodeURIComponent(result)}&index=${randomIndex}`);
     
 
     }
-
-    const back = `/${course}`;
-    const again = `${back}/random`;
-
-    return(
-    
      
+    return(
       <div className={styles.home}>
         <header>
                 <Logo/>
@@ -47,14 +48,14 @@ export default async function Quiz({searchParams}) {
             </header>
             <main>
             <div className={styles.title}>
-             {quiz.title}
+             {course}
             </div>
 
             <div>
               {quiz.question}
             </div>
 
-            <Form action={checkAnswer}  >
+            <Form action={checkAnswer}>
             <div>
                 <label className="selector">
                   <input
@@ -100,7 +101,7 @@ export default async function Quiz({searchParams}) {
  
 
             
-              <h2>{result && <p>{result}</p> }</h2>
+              {result && <h4>{result}</h4> }
             
             
             <div>
@@ -115,5 +116,11 @@ export default async function Quiz({searchParams}) {
  
       
     )
+    } catch (error) {
+      return <h1>This course is not yet available</h1>
+    }
+    
+    // const quiz = data.find(quiz => quiz.id === random);
+    
     }
     

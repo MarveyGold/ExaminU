@@ -1,24 +1,13 @@
 'use client';
 import styles from "./page.module.css";
 import Logo from "./components/logo";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import { ENT211, STA111, IFT212, COS101 } from "./components/courseList";
+
 
 export default function Dashboard() {
-  const router = useRouter();
-  const COS101 = () => {
-    router.push('/cos101')
-  }
-  const STA111 = () => {
-    router.push('/sta111')
-  }
-  const ENT211 = () => {
-    router.push('/ent211')
-  }
-  const IFT212 = () => {
-    router.push('/ift212')
-  }
+
   const [course, showCourse]= useState("none");
   const [text, toggleText]= useState("Show Courses");
   const [toggle, toggleOn]= useState("courseToggleOn");
@@ -45,21 +34,10 @@ export default function Dashboard() {
       <main className={styles.main}>
       <h3>Exam Success!!!</h3>
       <ol className={course} >
-        <li>
-        <button className="course selector" onClick={COS101}><h1>COS101</h1></button>
-        </li>
-        <li>
-        <button className="course selector" onClick={STA111}><h1>STA111</h1></button>
-        </li>
-        <li>
-        <button className="course selector"><h1>MTH101</h1> <h6>coming soon</h6></button>
-        </li>
-        <li>
-        <button className="course selector" onClick={ENT211}><h1>ENT211</h1></button>
-        </li>
-        <li>
-        <button className="course selector" onClick={IFT212}><h1>IFT212</h1></button>
-        </li>
+        <STA111 />
+        <COS101 />
+        <IFT212 />
+        <ENT211 />
       </ol>
       </main>
 

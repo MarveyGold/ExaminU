@@ -52,9 +52,9 @@ header{
 }
 .selector{
   width: 90vw;
-  height: 5rem;
+  height: calc(fit-content);
   border-radius: 1.7rem;
-  background-color: #383838;
+  background-color: #20153a;
   padding: 5px;
   margin-top: 5px;
   display: flex;
@@ -97,8 +97,8 @@ footer {
   justify-content: center;
   width: 100vw;
   gap: 24px;
-  position: absolute;
-  bottom: 5vh;
+  position: fixed;
+  bottom: 1vh;
 }
 
 

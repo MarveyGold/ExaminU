@@ -1,18 +1,17 @@
 'use client'
-import styles from "../styles/home.module.css"
-import Logo from "../components/logo"
+import styles from "../../styles/home.module.css"
+import Logo from "../../components/logo"
 import Link from "next/link"
-import Button from "../components/buttons";
+import Button from "../../components/buttons";
 import { useRouter } from "next/navigation";
-
-export default function Home() {
-  const course = "ent211"
+export default  function Home({params}) {
+  const {course} =  params;
   const router = useRouter();
   const changeCourse = () => {
     router.push('/')
   }
     const random = () => {
-        router.push(`/${course}/random`)
+        router.push(`/courses/${course}/random`)
           
       }
 
