@@ -11,7 +11,7 @@ export default  function Home({params}) {
     router.push('/')
   }
     const random = () => {
-        router.push(`/courses/${course}/random`)
+        router.push(`/courses/${course}/quiz`)
           
       }
 

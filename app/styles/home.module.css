@@ -7,3 +7,17 @@
 .h2{
     font-size: 30px;
 }
+.course{
+    left: 0;
+    scroll-behavior: smooth;
+}
+.course section ul{
+    position: fixed;
+    list-style: none;
+}
+.courselist div{
+    height: 100vh;
+}
+.courselist{
+    margin-left: 10vw;
+}

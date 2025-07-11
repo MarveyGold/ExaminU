@@ -55,13 +55,22 @@ header{
   height: calc(fit-content);
   border-radius: 1.7rem;
   background-color: #20153a;
-  padding: 5px;
+  padding: 13px;
   margin-top: 5px;
   display: flex;
   align-items: center;
   gap: 2px;
   padding-left: 5px;
   border: 1px;
+}
+.course:hover{
+  background-color: #3c2572;
+}
+label:has(input:checked){
+  background-color: #110b1f;
+}
+label input{
+  display: none;
 }
 .course{
   height: 6rem;
@@ -181,4 +190,7 @@ h3{
     color: blueviolet;
     font: bold;
     font-weight: 800;
+}
+li{
+  list-style: none;
 }

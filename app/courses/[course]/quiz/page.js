@@ -5,7 +5,7 @@ import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
 export const metadata = {
-  title: "Random",
+  title: "Quiz",
   description: "Test Yourself with random questions",
 };
 
@@ -19,7 +19,7 @@ export default async function Quiz({params, searchParams}) {
    
 
     const back = `/courses/${course}`;
-    const again = `${back}/random`;
+    const again = `${back}/quiz`;
 
     
     try {
@@ -35,7 +35,7 @@ export default async function Quiz({params, searchParams}) {
         if (selectedAnswer=== null) {
             return "The answer is" + correctAnswer
         }
-        redirect(`/courses/${course}/random?result=${encodeURIComponent(result)}&index=${randomIndex}`);
+        redirect(`/courses/${course}/quiz?result=${encodeURIComponent(result)}&index=${randomIndex}`);
     
 
     }
@@ -48,7 +48,7 @@ export default async function Quiz({params, searchParams}) {
             </header>
             <main>
             <div className={styles.title}>
-             {course}
+             {quiz.title}
             </div>
 
             <div>

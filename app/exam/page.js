@@ -1,9 +1,9 @@
 'use client';
-import styles from "./page.module.css";
-import Logo from "./components/logo";
+import styles from "../page.module.css";
+import Logo from "../components/logo";
 import Link from "next/link";
 import { useState } from "react";
-import { ENT211, STA111, IFT212, COS101 } from "./components/courseList";
+import { ENT211, STA111, IFT212, COS101 } from "../components/courseList";
 
 
 export default function Dashboard() {
