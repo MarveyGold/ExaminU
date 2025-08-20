@@ -1,0 +1,602 @@
+[
+    {
+      "title": "English",
+      "id": 1,
+      "question": "The dominant subject of Passage 1 is the:",
+      "optionA": "White man's road",
+      "optionB": "New religion",
+      "optionC": "White man's influence",
+      "optionD": "White man's weapon",
+      "correctAnswer": "White man's influence"
+    },
+    {
+      "title": "English",
+      "id": 2,
+      "question": "According to Passage 1, the people of Umuaro and Okperi:",
+      "optionA": "are friends",
+      "optionB": "are only acquaintances",
+      "optionC": "are no friends",
+      "optionD": "can never be enemies",
+      "correctAnswer": "are no friends"
+    },
+    {
+      "title": "English",
+      "id": 3,
+      "question": "'There is no escape from the white man' in Passage 1 means that:",
+      "optionA": "White man will send the people to prison",
+      "optionB": "White man can kill all the people with his gun",
+      "optionC": "People are only trying to run away from the white man",
+      "optionD": "People must accept the white man",
+      "correctAnswer": "People must accept the white man"
+    },
+    {
+      "title": "English",
+      "id": 4,
+      "question": "'Passes by your ears' in Passage 1 means:",
+      "optionA": "Piercing through your ears",
+      "optionB": "Listening eagerly",
+      "optionC": "Making no impression",
+      "optionD": "Accepting as truth",
+      "correctAnswer": "Making no impression"
+    },
+    {
+      "title": "English",
+      "id": 5,
+      "question": "Unachukwu's speech in Passage 1 shows that he:",
+      "optionA": "is a coward",
+      "optionB": "Wants his people to suffer",
+      "optionC": "loves the white man",
+      "optionD": "is wise with experience",
+      "correctAnswer": "is wise with experience"
+    },
+    {
+      "title": "English",
+      "id": 6,
+      "question": "The relationship between the manager and his secretary in Passage 2 could be said to be:",
+      "optionA": "strained",
+      "optionB": "Charged",
+      "optionC": "personal",
+      "optionD": "cordial",
+      "correctAnswer": "Charged"
+    },
+    {
+      "title": "English",
+      "id": 7,
+      "question": "'I would not describe you as an inefficient worker...' suggests that the manager:",
+      "optionA": "is quite pleased with the level of diligence of his secretary",
+      "optionB": "Has had cause in the past to complain against his secretary",
+      "optionC": "is dissatisfied with the level of performance of his secretary",
+      "optionD": "is non-committal over the efficiency of his secretary",
+      "correctAnswer": "is quite pleased with the level of diligence of his secretary"
+    },
+    {
+      "title": "English",
+      "id": 8,
+      "question": "It would appear that the manager feels that the secretary:",
+      "optionA": "should have, if possible personally cleaned the conference room",
+      "optionB": "should have ensured that someone else cleaned the conference room",
+      "optionC": "should have ensured that the cleaner did his job",
+      "optionD": "is a coward",
+      "correctAnswer": "should have ensured that the cleaner did his job"
+    },
+    {
+      "title": "English",
+      "id": 9,
+      "question": "The secretary's attitude seems to be:",
+      "optionA": "Manager Sir, you employed this huge and recalcitrant cleaner and I am not going to do his job for him",
+      "optionB": "it is not the duty of a secretary to enforce the instructions he gives to his junior worker",
+      "optionC": "I am a secretary by profession, not cleaner",
+      "optionD": "it is not terribly important how tidy the conference room is",
+      "correctAnswer": "it is not the duty of a secretary to enforce the instructions he gives to his junior worker"
+    },
+    {
+      "title": "English",
+      "id": 10,
+      "question": "The last comment by the manager suggests that he:",
+      "optionA": "is going to hold the secretary responsible for what has happened",
+      "optionB": "Is likely to reprimand both the secretary and the cleaner for dereliction duty",
+      "optionC": "will punish the cleaner but warn the secretary",
+      "optionD": "will warn the cleaner but punish the secretary",
+      "correctAnswer": "is going to hold the secretary responsible for what has happened"
+    },
+    {
+      "title": "English",
+      "id": 11,
+      "question": "According to Passage 3, the torch probably developed from a:",
+      "optionA": "firebrand",
+      "optionB": "twig",
+      "optionC": "lamp",
+      "optionD": "fire",
+      "correctAnswer": "firebrand"
+    },
+    {
+      "title": "English",
+      "id": 12,
+      "question": "Primitive man was least concerned with fire as a:",
+      "optionA": "means of cooking",
+      "optionB": "source of warmth",
+      "optionC": "source of light",
+      "optionD": "means of traveling",
+      "correctAnswer": "means of traveling"
+    },
+    {
+      "title": "English",
+      "id": 13,
+      "question": "One way early man made a lamp was putting a lighted reed in a:",
+      "optionA": "hollowed stone",
+      "optionB": "sea shell",
+      "optionC": "vessel",
+      "optionD": "clay pot",
+      "correctAnswer": "hollowed stone"
+    },
+    {
+      "title": "English",
+      "id": 14,
+      "question": "Primitive man preserved fire because:",
+      "optionA": "he used it for illumination during his travels",
+      "optionB": "his method of making fire was laborious",
+      "optionC": "he wanted to discover how to make a lamp",
+      "optionD": "he wanted to develop the torch",
+      "correctAnswer": "his method of making fire was laborious"
+    },
+    {
+      "title": "English",
+      "id": 15,
+      "question": "I was ______ hearing distances of the speaker:",
+      "optionA": "on",
+      "optionB": "at",
+      "optionC": "within",
+      "optionD": "in",
+      "correctAnswer": "within"
+    },
+    {
+      "title": "English",
+      "id": 16,
+      "question": "Peter was such a skillful boxer that he was not afraid to take ______ anybody:",
+      "optionA": "to",
+      "optionB": "upon",
+      "optionC": "on",
+      "optionD": "in",
+      "correctAnswer": "on"
+    },
+    {
+      "title": "English",
+      "id": 17,
+      "question": "Owing to the constant harassment of the populace by armed robbers, all night guards have been moving ______ things:",
+      "optionA": "at sight",
+      "optionB": "by sight",
+      "optionC": "in sight",
+      "optionD": "off sight",
+      "correctAnswer": "at sight"
+    },
+    {
+      "title": "English",
+      "id": 18,
+      "question": "My wife and I were to celebrate our silver wedding anniversary last Sunday, unfortunately on that ______ day, my father-in-law died mysteriously:",
+      "optionA": "fruitless",
+      "optionB": "faithful",
+      "optionC": "futile",
+      "optionD": "fateful",
+      "correctAnswer": "fateful"
+    },
+    {
+      "title": "English",
+      "id": 19,
+      "question": "The first graduation ceremony of the university was attended by men from all ______ of life:",
+      "optionA": "works",
+      "optionB": "areas",
+      "optionC": "walks",
+      "optionD": "parts",
+      "correctAnswer": "walks"
+    },
+    {
+      "title": "English",
+      "id": 20,
+      "question": "______ guests enjoyed Joy's birthday party:",
+      "optionA": "the whole",
+      "optionB": "all the",
+      "optionC": "every",
+      "optionD": "those every",
+      "correctAnswer": "all the"
+    },
+    {
+      "title": "English",
+      "id": 21,
+      "question": "One would wish ______ missed that opportunity to be present at the graduation hall:",
+      "optionA": "to have not",
+      "optionB": "for having not",
+      "optionC": "to having",
+      "optionD": "not to have",
+      "correctAnswer": "not to have"
+    },
+    {
+      "title": "English",
+      "id": 22,
+      "question": "The ceremony was rounded ______ very late:",
+      "optionA": "up",
+      "optionB": "off",
+      "optionC": "of",
+      "optionD": "out",
+      "correctAnswer": "off"
+    },
+    {
+      "title": "English",
+      "id": 23,
+      "question": "My ______ brother intends to get married in December:",
+      "optionA": "senior",
+      "optionB": "elder",
+      "optionC": "older",
+      "optionD": "oldest",
+      "correctAnswer": "elder"
+    },
+    {
+      "title": "English",
+      "id": 24,
+      "question": "The ______ Affairs officer is expecting all of us in the dining room:",
+      "optionA": "student",
+      "optionB": "student's",
+      "optionC": "students",
+      "optionD": "students'",
+      "correctAnswer": "student"
+    },
+    {
+      "title": "English",
+      "id": 25,
+      "question": "Many candidates ______ to realize the difference between written and spoken English:",
+      "optionA": "fails",
+      "optionB": "fail",
+      "optionC": "have failed",
+      "optionD": "is failing",
+      "correctAnswer": "fail"
+    },
+    {
+      "title": "English",
+      "id": 26,
+      "question": "Chinyere has not really described the cabinet as irresponsible. She only ______ it in her speech:",
+      "optionA": "alluded to",
+      "optionB": "implied",
+      "optionC": "applied",
+      "optionD": "suggested",
+      "correctAnswer": "implied"
+    },
+    {
+      "title": "English",
+      "id": 27,
+      "question": "'At 9.30 for more news' said the announcer:",
+      "optionA": "switch on",
+      "optionB": "tune in",
+      "optionC": "hook on",
+      "optionD": "channel in",
+      "correctAnswer": "tune in"
+    },
+    {
+      "title": "English",
+      "id": 28,
+      "question": "The way that big boy bullied his sister with relish makes me think he could be a ______:",
+      "optionA": "bully",
+      "optionB": "sadist",
+      "optionC": "pugilist",
+      "optionD": "tyrant",
+      "correctAnswer": "sadist"
+    },
+    {
+      "title": "English",
+      "id": 29,
+      "question": "All ______ well with Peter:",
+      "optionA": "are not",
+      "optionB": "have not been",
+      "optionC": "were not",
+      "optionD": "is not",
+      "correctAnswer": "is not"
+    },
+    {
+      "title": "English",
+      "id": 30,
+      "question": "One ______ so if she had thought it necessary:",
+      "optionA": "would have said",
+      "optionB": "would say",
+      "optionC": "may have said",
+      "optionD": "could say",
+      "correctAnswer": "would have said"
+    },
+    {
+      "title": "English",
+      "id": 31,
+      "question": "We have gone three quarters of the journey already; we ______ as well see the end of it:",
+      "optionA": "can",
+      "optionB": "might",
+      "optionC": "could",
+      "optionD": "may",
+      "correctAnswer": "might"
+    },
+    {
+      "title": "English",
+      "id": 32,
+      "question": "My little daughter has ______ sight; hence, she now wears glasses:",
+      "optionA": "diminutive",
+      "optionB": "blurred",
+      "optionC": "painful",
+      "optionD": "defective",
+      "correctAnswer": "defective"
+    },
+    {
+      "title": "English",
+      "id": 33,
+      "question": "Bassey's evidence led ______ Okon being imprisoned for life:",
+      "optionA": "at",
+      "optionB": "into",
+      "optionC": "in",
+      "optionD": "to",
+      "correctAnswer": "to"
+    },
+    {
+      "title": "English",
+      "id": 34,
+      "question": "My boss is usually a charming man but ______ he can very irritable:",
+      "optionA": "at times",
+      "optionB": "a times",
+      "optionC": "those times",
+      "optionD": "with times",
+      "correctAnswer": "at times"
+    },
+    {
+      "title": "English",
+      "id": 35,
+      "question": "We surely ought to have an ______ arrangement in case somebody discovers the present one already:",
+      "optionA": "alternate",
+      "optionB": "alternating",
+      "optionC": "alternative",
+      "optionD": "alternant",
+      "correctAnswer": "alternative"
+    },
+    {
+      "title": "English",
+      "id": 36,
+      "question": "The nurse kept apologizing to mothers as she stuck her needle ______ every baby at the clinic:",
+      "optionA": "in",
+      "optionB": "onto",
+      "optionC": "unto",
+      "optionD": "into",
+      "correctAnswer": "into"
+    },
+    {
+      "title": "English",
+      "id": 37,
+      "question": "One of the ladies who ______ in the premises ______ been asked to withdraw:",
+      "optionA": "sell/have",
+      "optionB": "sells/have",
+      "optionC": "sells/has",
+      "optionD": "sell/has",
+      "correctAnswer": "sells/has"
+    },
+    {
+      "title": "English",
+      "id": 38,
+      "question": "A Tale of Two Cities ______ the ______ we are studying for examination:",
+      "optionA": "are/novels",
+      "optionB": "was/novels",
+      "optionC": "were/novel",
+      "optionD": "is/novel",
+      "correctAnswer": "is/novel"
+    },
+    {
+      "title": "English",
+      "id": 39,
+      "question": "We must not take with us the feelings of inadequacy ______ experienced during our preparations for the debate:",
+      "optionA": "that were",
+      "optionB": "those were",
+      "optionC": "that was",
+      "optionD": "that is",
+      "correctAnswer": "that were"
+    },
+    {
+      "title": "English",
+      "id": 40,
+      "question": "Omoghai reported that the examinations ______ before he arrived in the hall:",
+      "optionA": "started",
+      "optionB": "have started",
+      "optionC": "had started",
+      "optionD": "are started",
+      "correctAnswer": "had started"
+    },
+    {
+      "title": "English",
+      "id": 41,
+      "question": "The young engineer is good at terminating other people's products but has not been capable of any ______ of his own.",
+      "optionA": "integrating",
+      "optionB": "finishing",
+      "optionC": "completing",
+      "optionD": "initiating",
+      "correctAnswer": "initiating"
+    },
+    {
+      "title": "English",
+      "id": 42,
+      "question": "The manager who expected to be given respect was treated with ______.",
+      "optionA": "dignity",
+      "optionB": "scorn",
+      "optionC": "shame",
+      "optionD": "cruelty",
+      "correctAnswer": "scorn"
+    },
+    {
+      "title": "English",
+      "id": 43,
+      "question": "Those who had invitation cards were admitted to the party while those who had none were ______.",
+      "optionA": "barred",
+      "optionB": "repelled",
+      "optionC": "expelled",
+      "optionD": "compelled",
+      "correctAnswer": "barred"
+    },
+    {
+      "title": "English",
+      "id": 44,
+      "question": "Nobody expects him to show ______ for his children but he certainly bestows too much affection on them.",
+      "optionA": "love",
+      "optionB": "concern",
+      "optionC": "intimacy",
+      "optionD": "hatred",
+      "correctAnswer": "hatred"
+    },
+    {
+      "title": "English",
+      "id": 45,
+      "question": "The challenger was crude and inexperienced in contrast to the champion who was ______.",
+      "optionA": "great",
+      "optionB": "exposed",
+      "optionC": "celebrated",
+      "optionD": "refined",
+      "correctAnswer": "refined"
+    },
+    {
+      "title": "English",
+      "id": 46,
+      "question": "The fishermen threw a stone into the river and this caused a ______.",
+      "optionA": "sprinkle",
+      "optionB": "sparkle",
+      "optionC": "splash",
+      "optionD": "spring",
+      "correctAnswer": "splash"
+    },
+    {
+      "title": "English",
+      "id": 47,
+      "question": "The play was so interesting that the ______ clapped for quite a long time at the end.",
+      "optionA": "Spectators",
+      "optionB": "watchers",
+      "optionC": "congregation",
+      "optionD": "audience",
+      "correctAnswer": "audience"
+    },
+    {
+      "title": "English",
+      "id": 48,
+      "question": "The building ______ because of weak structural foundation.",
+      "optionA": "tumbled",
+      "optionB": "succumbed",
+      "optionC": "somersaulted",
+      "optionD": "collapsed",
+      "correctAnswer": "collapsed"
+    },
+    {
+      "title": "English",
+      "id": 49,
+      "question": "The magazine was ______ by the government for an offensive publication.",
+      "optionA": "prescribed",
+      "optionB": "proscribed",
+      "optionC": "suspended",
+      "optionD": "condemned",
+      "correctAnswer": "proscribed"
+    },
+    {
+      "title": "English",
+      "id": 50,
+      "question": "Many people reacted to the brutal murder of the popular journalist with strong ______.",
+      "optionA": "indignation",
+      "optionB": "demonstration",
+      "optionC": "mobilization",
+      "optionD": "condemnation",
+      "correctAnswer": "indignation"
+    },
+    {
+      "title": "English",
+      "id": 51,
+      "question": "It takes a great deal of stamina to run the marathon race.",
+      "optionA": "courage",
+      "optionB": "determination",
+      "optionC": "energy",
+      "optionD": "intelligence",
+      "correctAnswer": "energy"
+    },
+    {
+      "title": "English",
+      "id": 52,
+      "question": "But for the principal actor the play would have been dull.",
+      "optionA": "important",
+      "optionB": "head",
+      "optionC": "master",
+      "optionD": "main",
+      "correctAnswer": "main"
+    },
+    {
+      "title": "English",
+      "id": 53,
+      "question": "An open car has no protection against the elements.",
+      "optionA": "weather",
+      "optionB": "emergency",
+      "optionC": "molecule",
+      "optionD": "atmosphere",
+      "correctAnswer": "weather"
+    },
+    {
+      "title": "English",
+      "id": 54,
+      "question": "He was reluctant to grant my request.",
+      "optionA": "disposed",
+      "optionB": "delighted",
+      "optionC": "reticent",
+      "optionD": "unwilling",
+      "correctAnswer": "unwilling"
+    },
+    {
+      "title": "English",
+      "id": 55,
+      "question": "The detective was perplexed when the clues in the murder case pointed to at least a dozen different suspects.",
+      "optionA": "surprised",
+      "optionB": "confused",
+      "optionC": "excited",
+      "optionD": "discouraged",
+      "correctAnswer": "confused"
+    },
+    {
+      "title": "English",
+      "id": 56,
+      "question": "The military governor called a concerted effort in solving the problems of the state.",
+      "optionA": "a dramatic",
+      "optionB": "an agitated",
+      "optionC": "a joint",
+      "optionD": "a directed",
+      "correctAnswer": "a joint"
+    },
+    {
+      "title": "English",
+      "id": 57,
+      "question": "My financial situation is so precarious that very soon I may be insolvent.",
+      "optionA": "borrowing",
+      "optionB": "stealing",
+      "optionC": "dependent",
+      "optionD": "bankrupt",
+      "correctAnswer": "bankrupt"
+    },
+    {
+      "title": "English",
+      "id": 58,
+      "question": "The chairman is of the opinion that accepting the proposal would be inimical to the objectives of the association.",
+      "optionA": "harmful",
+      "optionB": "relevant",
+      "optionC": "irrelevant",
+      "optionD": "helpful",
+      "correctAnswer": "harmful"
+    },
+    {
+      "title": "English",
+      "id": 59,
+      "question": "Kunle is a very pessimistic about our chance of success.",
+      "optionA": "sad",
+      "optionB": "despondent",
+      "optionC": "unconvinced",
+      "optionD": "worried",
+      "correctAnswer": "despondent"
+    },
+    {
+      "title": "English",
+      "id": 60,
+      "question": "The investigators stated clearly that they had reached a dead end in their scrutiny of the murder case.",
+      "optionA": "The end had come for the suspects in the murder case",
+      "optionB": "There was no further progress in the investigation",
+      "optionC": "The investigators did not know what to do with the suspects",
+      "optionD": "The investigators had evidence to sentence the suspects to death",
+      "correctAnswer": "There was no further progress in the investigation"
+    }
+]

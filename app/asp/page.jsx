@@ -10,7 +10,7 @@ export default function Home() {
             <h4>Good Luck on your exams</h4>
                 <Link href='/asp/courses/econs/quiz'><button className="course selector">Economics</button></Link>
                 <Link href={`/asp/courses/gov/quiz`}><button className="course selector">Government</button></Link>
-                <button className="course selector">English <h6>Coming soon</h6></button>
+               <Link href={`/asp/courses/eng/quiz`}><button className="course selector">English</button></Link> 
             </main>
             <footer>
                 <Link href={`/`}><button className="footerButton"><h5>Change Mode</h5></button></Link>
