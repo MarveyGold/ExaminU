@@ -194,3 +194,6 @@ h3{
 li{
   list-style: none;
 }
+#preFooter{
+  height: 50px;
+}

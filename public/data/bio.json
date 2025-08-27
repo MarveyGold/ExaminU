@@ -1,0 +1,92 @@
+[
+ {
+    "title": "Biology",
+    "id": 24,
+    "question": "Which of the following words look like rice plant morphologically?",
+    "optionA": "maize grain",
+    "optionB": "weedy rice",
+    "optionC": "elephant rice",
+    "optionD": "sugar cane plant",
+    "correctAnswer": "weedy rice"
+  },
+  {
+    "title": "Biology",
+    "id": 25,
+    "question": "Saline mixture is used as a drip instead of water because.",
+    "optionA": "Saline mixture kills bacteria",
+    "optionB": "saline mixture normalizes blood temperature",
+    "optionC": "there is much water in the blood already",
+    "optionD": "saline mixture is important for fluid balance",
+    "correctAnswer": "saline mixture is important for fluid balance"
+  },
+  {
+    "title": "Biology",
+    "id": 26,
+    "question": "Which of the following bone is found in the first region of the cervical vertebrae?",
+    "optionA": "atlas",
+    "optionB": "axis",
+    "optionC": "thoracic vertebrae",
+    "optionD": "",
+    "correctAnswer": "atlas"
+  },
+  {
+    "title": "Biology",
+    "id": 27,
+    "question": "The straightening of a hinge joint is called ___",
+    "optionA": "flexion",
+    "optionB": "extension",
+    "optionC": "juncture",
+    "optionD": "",
+    "correctAnswer": "extension"
+  },
+  {
+    "title": "Biology",
+    "id": 28,
+    "question": "What parts of the bone have the pectoral girdle.",
+    "optionA": "caudal vertebrae",
+    "optionB": "sacral vertebrae",
+    "optionC": "scapula and copula",
+    "optionD": "clavicle and scapula",
+    "correctAnswer": "clavicle and scapula"
+  },
+  {
+    "title": "Biology",
+    "id": 29,
+    "question": "The most important ecological factor in a terrestrial habitat is ___",
+    "optionA": "precipitation",
+    "optionB": "temperature",
+    "optionC": "salinity",
+    "optionD": "Topography",
+    "correctAnswer": "temperature"
+  },
+  {
+    "title": "Biology",
+    "id": 30,
+    "question": "The following ecological instruments are used for measuring population except",
+    "optionA": "poorer",
+    "optionB": "sweep-net",
+    "optionC": "quadrant",
+    "optionD": "photometer",
+    "correctAnswer": "photometer"
+  },
+  {
+    "title": "Biology",
+    "id": 31,
+    "question": "The hierarchical arrangement of classification of humans is ___",
+    "optionA": "animalia, chordate, mammalia, primate, hominidae, homo, sapiens",
+    "optionB": "animals, mammals, chordate, primate, hominidae, hornis, sapiens",
+    "optionC": "Animalia Chordata Mammalia, primate homonidae homo homo sapiens",
+    "optionD": "",
+    "correctAnswer": "animalia, chordate, mammalia, primate, hominidae, homo, sapiens"
+  },
+  {
+    "title": "Biology",
+    "id": 32,
+    "question": "___ Is the function of mitochondrion.",
+    "optionA": "clorosis",
+    "optionB": "respiratory process",
+    "optionC": "cell division",
+    "optionD": "metabolism",
+    "correctAnswer": "respiratory process"
+  }   
+]

@@ -104,7 +104,8 @@ export default async function Quiz({params, searchParams}) {
               {result && <h4>{result}</h4> }
             
             
-            <div>
+            <div id="preFooter">
+
             </div>
             <footer >
                 <Link href={back}><button className="footerButton"><h4>Change Subject</h4></button></Link>
