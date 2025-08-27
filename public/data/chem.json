@@ -1,0 +1,92 @@
+[
+    {
+    "title": "Chemistry",
+    "id": 35,
+    "question": "Electrolysis is used in the following except",
+    "optionA": "extraction of Aluminium",
+    "optionB": "extraction of iron",
+    "optionC": "purification of copper",
+    "optionD": "electroplating",
+    "correctAnswer": "extraction of iron"
+  },
+  {
+    "title": "Chemistry",
+    "id": 36,
+    "question": "A certain hydrocarbon has 0.12moles of carbon and 0.56moles of hydrogen. What is the empirical formula of the hydrocarbon?",
+    "optionA": "CH₃",
+    "optionB": "CH₂",
+    "optionC": "CH₃",
+    "optionD": "CH₄",
+    "correctAnswer": "CH₄"
+  },
+  {
+    "title": "Chemistry",
+    "id": 37,
+    "question": "In the reaction of alkanoic acid with ethanol to produce esters, ___ is used as a catalyst.",
+    "optionA": "sunlight",
+    "optionB": "mineral acid",
+    "optionC": "base",
+    "optionD": "finely divided nickel",
+    "correctAnswer": "mineral acid"
+  },
+  {
+    "title": "Chemistry",
+    "id": 38,
+    "question": "In the reaction between H₂SO₄ and NaCl, the gas evolved can be noticed by ___",
+    "optionA": "foaming white precipitate with BaSO₄",
+    "optionB": "bleaches blue litmus to red",
+    "optionC": "foaming white precipitate with AgNO₃",
+    "optionD": "It forms with fume when exposed to atmospheric water vapor",
+    "correctAnswer": "foaming white precipitate with AgNO₃"
+  },
+  {
+    "title": "Chemistry",
+    "id": 39,
+    "question": "Iron is found in which of the following alloys?",
+    "optionA": "lead and in",
+    "optionB": "soft solder",
+    "optionC": "duralumin and steel",
+    "optionD": "duralumin",
+    "correctAnswer": "duralumin and steel"
+  },
+  {
+    "title": "Chemistry",
+    "id": 40,
+    "question": "Oxygen has isotopes ¹⁶O with abundance of 99.75%/98. ¹⁷O with abundance of 0.038% and ¹⁸O with abundance of 0.205%. The relative atomic masses is",
+    "optionA": "125",
+    "optionB": "20",
+    "optionC": "16",
+    "optionD": "165",
+    "correctAnswer": "16"
+  },
+  {
+    "title": "Chemistry",
+    "id": 41,
+    "question": "An element M has atomic number of 19. It can said that M is",
+    "optionA": "alkali metal",
+    "optionB": "alkali earth metal",
+    "optionC": "noble gas",
+    "optionD": "a metal",
+    "correctAnswer": "alkali metal"
+  },
+  {
+    "title": "Chemistry",
+    "id": 43,
+    "question": "What is the similarity between Br₂ and NO₂ at S.T.P?",
+    "optionA": "they are liquid at S.T.P",
+    "optionB": "they have the same temperature and pressure as S.T.P",
+    "optionC": "they are both gas at S.T.P",
+    "optionD": "",
+    "correctAnswer": "they are both gas at S.T.P"
+  },
+  {
+    "title": "Chemistry",
+    "id": 44,
+    "question": "Ideal patterns are associated with ___",
+    "optionA": "high pressure, high temperature",
+    "optionB": "low pressure, high temperature",
+    "optionC": "low temperature, high pressure",
+    "optionD": "low temperature and low pressure",
+    "correctAnswer": "low pressure, high temperature"
+  }
+]

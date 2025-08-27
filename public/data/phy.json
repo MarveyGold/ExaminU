@@ -1,0 +1,32 @@
+[
+    {
+    "title": "Physics",
+    "id": 33,
+    "question": "The dielectric material used in a capacitor include the following except",
+    "optionA": "glass",
+    "optionB": "ebonite rode",
+    "optionC": "paraffin wax",
+    "optionD": "brass",
+    "correctAnswer": "brass"
+  },
+  {
+    "title": "Physics",
+    "id": 34,
+    "question": "A spring of length 20cm stretches 25cm with a force of 50N. What will be its length when stretched by 100N assuming that the elastic limit is not reached",
+    "optionA": "30 cm",
+    "optionB": "25cm",
+    "optionC": "30cm",
+    "optionD": "15cm",
+    "correctAnswer": "30 cm"
+  },
+  {
+    "title": "Physics",
+    "id": 42,
+    "question": "A radioactive substance undergoes radiation and its proton number increases by 1, what particle was emitted?",
+    "optionA": "beta particle",
+    "optionB": "alpha particle",
+    "optionC": "gamma rays",
+    "optionD": "",
+    "correctAnswer": "beta particle"
+  }
+]

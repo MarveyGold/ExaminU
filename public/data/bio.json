@@ -88,5 +88,65 @@
     "optionC": "cell division",
     "optionD": "metabolism",
     "correctAnswer": "respiratory process"
-  }   
+  }   ,
+   {
+    "title": "Biology",
+    "id": 45,
+    "question": "The pathogen that causes smallpox is",
+    "optionA": "pleomavirus",
+    "optionB": "paramyxovirus",
+    "optionC": "herpesvirus",
+    "optionD": "poxvirus",
+    "correctAnswer": "poxvirus"
+  },
+  {
+    "title": "Biology",
+    "id": 46,
+    "question": "The vector for the malaria parasite is",
+    "optionA": "female aedes mosquito",
+    "optionB": "female Anopheles mosquito",
+    "optionC": "female culex mosquito",
+    "optionD": "female culex mosquito",
+    "correctAnswer": "female Anopheles mosquito"
+  },
+  {
+    "title": "Biology",
+    "id": 47,
+    "question": "Which of the following pairs are social insects?",
+    "optionA": "Termite and locust",
+    "optionB": "Ants and cockroach",
+    "optionC": "Cockroach and bee",
+    "optionD": "Termite and bee",
+    "correctAnswer": "Termite and bee"
+  },
+  {
+    "title": "Biology",
+    "id": 48,
+    "question": "Which of the following is NOT a method of conserving wild flora?",
+    "optionA": "Indiscriminate poaching",
+    "optionB": "Establishment of zoological gardens",
+    "optionC": "Enacting wildlife conservation laws",
+    "optionD": "Establishment of game reserves",
+    "correctAnswer": "Indiscriminate poaching"
+  },
+  {
+    "title": "Biology",
+    "id": 49,
+    "question": "The type of asexual reproduction that is common to both Paramecium and Protist is",
+    "optionA": "fragmentation",
+    "optionB": "budding",
+    "optionC": "sporulation",
+    "optionD": "fission",
+    "correctAnswer": "fission"
+  },
+  {
+    "title": "Biology",
+    "id": 50,
+    "question": "The micro-organisms that causes Typhoid disease is",
+    "optionA": "trypanosome gambiense",
+    "optionB": "Salmonella typhi",
+    "optionC": "entamoeba histolytica",
+    "optionD": "plasmodium sp",
+    "correctAnswer": "Salmonella typhi"
+  }
 ]
