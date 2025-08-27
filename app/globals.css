@@ -196,4 +196,5 @@ li{
 }
 #preFooter{
   height: 50px;
+  position: absolute;
 }
