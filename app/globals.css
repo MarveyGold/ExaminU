@@ -201,8 +201,3 @@ li{
   bottom: 10px;
   background-color: aqua;
 }
-.logo{
-  background-color: #20153a;
-  position: fixed;
-  z-index: 5;
-}
