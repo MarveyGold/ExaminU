@@ -195,8 +195,9 @@ h3{
 li{
   list-style: none;
 }
-#preFooter{
-  height: 50px;
+.preFooter{
+  height: 50vh;
   position: absolute;
   bottom: 10px;
+  background-color: aqua;
 }
