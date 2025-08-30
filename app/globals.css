@@ -39,6 +39,10 @@ a {
 main{
   padding-bottom: 10vh;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: dark) {
