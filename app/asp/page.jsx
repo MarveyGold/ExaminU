@@ -14,7 +14,6 @@ export default function Home() {
                <Link href={`/asp/courses/bio/quiz`}><button className="course selector">Biology</button></Link> 
                <Link href={`/asp/courses/phy/quiz`}><button className="course selector">Physics</button></Link> 
                <Link href={`/asp/courses/chem/quiz`}><button className="course selector">Chemistry</button></Link> 
-               <div className=" selector"></div>
             </main>
               
             <footer>
