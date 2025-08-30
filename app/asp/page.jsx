@@ -14,11 +14,9 @@ export default function Home() {
                <Link href={`/asp/courses/bio/quiz`}><button className="course selector">Biology</button></Link> 
                <Link href={`/asp/courses/phy/quiz`}><button className="course selector">Physics</button></Link> 
                <Link href={`/asp/courses/chem/quiz`}><button className="course selector">Chemistry</button></Link> 
-               <div className="course selector"></div>
+               <div className=" selector"></div>
             </main>
-              <div className="preFoote">
-
-            </div>
+              
             <footer>
                 <Link href={`/`}><button className="footerButton"><h5>Change Mode</h5></button></Link>
             </footer>
