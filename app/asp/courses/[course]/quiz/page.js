@@ -96,12 +96,13 @@ export default async function Quiz({params, searchParams}) {
             </div>
 
             </Form>
+            {result && <h4>{result}</h4> }
             </main>
           
  
 
             
-              {result && <h4>{result}</h4> }
+              
             
             
             <div id="preFooter">
