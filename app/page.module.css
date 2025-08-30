@@ -160,7 +160,7 @@ a.secondary {
   background-clip: text;
   color: transparent;
   display: inline-block;
-  position: relative;
+  position: absolute;
 }
 .footer{
   display: flex;

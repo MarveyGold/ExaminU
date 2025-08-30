@@ -10,9 +10,10 @@ export const metadata = {
 };
 
 export default async function Quiz({params, searchParams}) {
-  const course = params.course;
+  const course = await params.course;
   const src = `${course}.json`
     const filePath = process.cwd() + `/public/data/${src}`;
+     searchParams = await searchParams;
     const result = await searchParams?.result || "";
     
 
@@ -20,12 +21,11 @@ export default async function Quiz({params, searchParams}) {
 
     const back = `/asp/`;
     const again = `/asp/courses/${course}/quiz`;
-
     
     try {
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
-    const randomIndex = await searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
+    const randomIndex =  searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
     const quiz = data[randomIndex];
      const checkAnswer = async (formData) => {
         'use server';
