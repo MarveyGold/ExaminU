@@ -9,7 +9,6 @@ export default function Home() {
 
     return (
         <>
-            <Logo />
             <main>
                 <h2>Select Your Faculty</h2>
                 {facultyList.map((item, index) => (

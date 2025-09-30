@@ -24,13 +24,6 @@ export default function Dashboard() {
  }
   return (
     <div className={styles.page}>
-      <header>
-      <Logo />
-      <Link href="https://wa.me/+2349164747109">
-          <button>Feedback</button>
-        </Link>
-      </header>
-
       <main className={styles.main}>
       <h3>Exam Success!!!</h3>
       <ol className={course} >

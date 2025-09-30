@@ -17,13 +17,6 @@ export default  function Home({params}) {
 
   return (
     <div className={styles.hom}>
-      <header>
-        <Logo />
-        <Link href="https://wa.me/+2349164747109">
-          <button>Feedback</button>
-        </Link>
-      </header>
-
       <main className={styles.main}>
         <h2>
           Challenge your <div>knowledge</div>

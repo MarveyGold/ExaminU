@@ -38,10 +38,6 @@ export default async function Quiz({searchParams}) {
      
     return(
       <div className={styles.home}>
-        <header>
-                <Logo/>
-                <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
-            </header>
             <main>
             <div className={styles.title}>
              {quiz.title}

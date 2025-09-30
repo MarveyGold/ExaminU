@@ -8,20 +8,14 @@ export const metadata = {
   title: "Quiz",
   description: "Test Yourself with random questions",
 };
-
 export default async function Quiz({params, searchParams}) {
   const course = await params.course;
   const src = `${course}.json`
     const filePath = process.cwd() + `/public/data/${src}`;
      searchParams = await searchParams;
     const result = await searchParams?.result || "";
-    
-
-   
-
     const back = `/asp/`;
     const again = `/asp/courses/${course}/quiz`;
-    
     try {
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
@@ -36,16 +30,10 @@ export default async function Quiz({params, searchParams}) {
             return "The answer is" + correctAnswer
         }
         redirect(`/asp/courses/${course}/quiz?result=${encodeURIComponent(result)}&index=${randomIndex}`);
-    
-
-    }
+}
      
     return(
       <div className={styles.home}>
-        <header>
-                <Logo/>
-                <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
-            </header>
             <main>
             <div className={styles.title}>
              {quiz.title}
@@ -98,13 +86,6 @@ export default async function Quiz({params, searchParams}) {
             </Form>
             {result && <h4>{result}</h4> }
             </main>
-          
- 
-
-            
-              
-            
-            
             <div id="preFooter">
 
             </div>
@@ -112,9 +93,7 @@ export default async function Quiz({params, searchParams}) {
                 <Link href={back}><button className="footerButton"><h4>Change Subject</h4></button></Link>
                 <Link href={again}><button className="footerButton">Change Question</button></Link>
             </footer>
-
-            
-    </div>
+ </div>
  
       
     )
