@@ -92,15 +92,10 @@ export default async function Quiz({params, searchParams}) {
             </div>
 
             </Form>
+          {result && <h4>{result}</h4> }
             </main>
-          
- 
+            <div id="preFooter">
 
-            
-              {result && <h4>{result}</h4> }
-            
-            
-            <div>
             </div>
             <footer >
                 <Link href={back}><button className="footerButton">{course}</button></Link>
