@@ -38,6 +38,7 @@ export default async function Quiz({params, searchParams}) {
             <div className={styles.title}>
              {quiz.title}
             </div>
+            
 
             <div>
               {quiz.question}

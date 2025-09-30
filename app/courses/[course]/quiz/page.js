@@ -46,10 +46,13 @@ export default async function Quiz({params, searchParams}) {
             <div className={styles.title}>
              {quiz.title}
             </div>
+            <code>
+              {quiz.instruction}
+            </code>
 
-            <div>
+            <h4>
               {quiz.question}
-            </div>
+           </h4>
 
             <Form action={checkAnswer}>
             <div>
