@@ -145,7 +145,7 @@ footer img {
   flex-shrink: 0;
 }
 .footerButton{
-  width: 80px;
+  width: 80vw;
   height: 40px;
   border-radius: 20px;
   color: white;
@@ -223,4 +223,12 @@ li{
   position: absolute;
   bottom: 10px;
   background-color: aqua;
+}
+h4{
+  padding: 50px;
+  position: relative;
+}
+h2{
+  position: fixed;
+
 }

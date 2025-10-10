@@ -36,7 +36,6 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
        <header>
          <Logo/>
-        <Link href="https://wa.me/+2349164747109"><button>Feedback</button></Link>
        </header>
         {children}
         <footer>

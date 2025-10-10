@@ -3,8 +3,10 @@ import Link from "next/link";
 
 export default function Logo() {
     return(
-        <Link href="/index.html">
-            <h2 className={styles.head}>ExaminU</h2>
-        </Link>
+            <h2 className={styles.head}>
+                <Link href="/index.html">
+                ExaminU
+                </Link>
+                </h2>
     )
 }

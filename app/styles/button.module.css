@@ -1,22 +1,82 @@
-.buttons{
-    padding-top: 10vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 10px;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  font-family: sans-serif;
 }
-.button{
-    width: 45vw;
-    height: 25vh;
-    border-radius: 30px;
-    background-color: rgb(24, 10, 27);
-    color: white;
-    border: 10px;
-    margin: 0 ;
-    position: relative;
+ .mainCard {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(37, 3, 70);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  overflow: hidden;
+  z-index: 6;
 }
-.button:hover{
-    background-color: blueviolet;
+.card{
+  position: absolute;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  transform: translateY(-50%);
+  background: rgb(37, 3, 70);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 60vh;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.slideContent {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 12px;
+  padding-top: 150px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+
+
+.left {
+  left: -5vw;
+}
+
+.right {
+  right: -5vw;
+}
+
+.counter {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.faculties{
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw;
+  
 }
