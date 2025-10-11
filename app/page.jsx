@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import styles from "./styles/button.module.css";
+import styles from "./styles/home.module.css";
 import Link from "next/link";
 
 export default function SwipeableCarousel() {

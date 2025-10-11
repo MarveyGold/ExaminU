@@ -1,23 +1,57 @@
-.hom{
-    padding: 5px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  font-family: sans-serif;
 }
-.main{
-    padding: 10px;
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(37, 3, 70);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  overflow: hidden;
+  z-index: 6;
 }
-.h2{
-    font-size: 30px;
+.slideContent {
+  font-size: 3rem;
+  font-weight: bold;
 }
-.course{
-    left: 0;
-    scroll-behavior: smooth;
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 12px;
+  padding-top: 150px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
-.course section ul{
-    position: fixed;
-    list-style: none;
+.navButton:active {
+  transform: translateY(-50%) scale(0.98);
 }
-.courselist div{
-    height: 100vh;
+.navButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
 }
-.courselist{
-    margin-left: 10vw;
+
+
+
+.left {
+  left: -3vw;
+}
+
+.right {
+  right: -3vw;
 }

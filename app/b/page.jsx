@@ -7,13 +7,27 @@ import Link from "next/link";
 export default function SwipeableCarousel() {
   const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM'];
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState("");
+  const [animating, setAnimating] = useState(false);
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? facultyList.length - 1 : prev - 1));
+    if (animating) return;
+    setDirection("right");
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev === 0 ? facultyList.length - 1 : prev - 1));
+      setAnimating(false);
+    }, 300);
   };
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev === facultyList.length - 1 ? 0 : prev + 1));
+    if (animating) return;
+    setDirection("left");
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev === facultyList.length - 1 ? 0 : prev + 1));
+      setAnimating(false);
+    }, 300);
   };
 
   const handlers = useSwipeable({
@@ -25,12 +39,19 @@ export default function SwipeableCarousel() {
   facultyList[-1] = "VNM";
 
   return (
-    <>    
-    
-    <div className={styles.container}>
-      <h4>Select Faculty</h4>
-      <div className="faculties">
-      <span className={`${styles.card} ${styles.left}`}>
+    <div className="main">    
+      <h4>Select Faculty</h4><div className={styles.container}>
+            <div {...handlers} className="faculties">
+              <span
+                className={`${styles.slideContent} ${
+                  direction === "left" && animating
+                    ? styles.slideLeft
+                    : direction === "right" && animating
+                    ? styles.slideRight
+                    : ""
+                }`}
+              >
+                 <span className={`${styles.card} ${styles.left}`}>
         <span className={styles.slideContent}><h3>{facultyList[current -1]}</h3></span>
          
     </span>
@@ -42,6 +63,8 @@ export default function SwipeableCarousel() {
         <span className={styles.slideContent}><h3>{facultyList[current +1]}</h3></span>
          
     </span>
+              </span>
+     
     </div>
     {/* Left Button */}
         <button onClick={prevSlide} className={`${styles.navButton} ${styles.left}`}>
@@ -63,7 +86,7 @@ export default function SwipeableCarousel() {
       <Link href={facultyList[current]}> <button className="footerButton">Get Started</button></Link>
       </footer>
     </div>
-    </>
+    </div>
 
   );
 }
