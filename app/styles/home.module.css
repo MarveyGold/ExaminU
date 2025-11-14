@@ -3,9 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
   color: #fff;
   font-family: sans-serif;
+  background: linear-gradient(black, rgb(46, 1, 86), black);
 }
 .card {
   position: relative;
@@ -49,9 +52,9 @@
 
 
 .left {
-  left: -3vw;
+  left: 1vw;
 }
 
 .right {
-  right: -3vw;
+  right: 1vw;
 }

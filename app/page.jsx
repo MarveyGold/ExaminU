@@ -1,54 +1,51 @@
-"use client";
-import { useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import styles from "./styles/home.module.css";
+import { Nav, Contact, Auth } from "./components/indexComponents";
 import Link from "next/link";
+import Logo from "./components/logo";
 
-export default function SwipeableCarousel() {
-  const slides = ["School Exam", "Post Utme"];
-  const links = ['b', 'asp']
-  const [current, setCurrent] = useState(0);
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
+export default function Index() {
 
   return (
-    <>    
-    <div className={styles.container}>
-    <h4>Select Exam</h4>
+<div className="index">
+  <header className="indexHeader">
+    <img className="uniben" src="favicon.ico" alt="examinu" />
+    <div className="logo">ExaminU</div>
+    <Nav/>
+    <Auth className="desktop"/>
+  </header>  
+  <section className="hero">
+    <div className="background">
+      <div className="hero-text">
+        <h1>Get Started with your mock Exam Practice</h1>
+        <p>Prepare for your exams in a smarter way</p>
+        <Link href="/app"> <button>Get Started</button></Link>
       
-      <div {...handlers} className={styles.card}>
-        <span className={styles.slideContent}><h3>{slides[current]}</h3></span>
+      </div>
+      <div className="hero-image">
+        <img className="book float" src="3d-illustration-reading-with-book-esssential_23-2151295086.png"/>
+        <img className="man float" src="man-removebg-preview.png" alt="3D students illustration" />
+     
+      </div>
     </div>
-        <button onClick={prevSlide} className={`${styles.navButton} ${styles.left}`}>
-          &#8592;
-        </button>
-
-        <button onClick={nextSlide} className={`${styles.navButton} ${styles.right}`}>
-          &#8594;
-        </button>
-      
-
-      <p className={styles.counter}>
-        {current + 1} of {slides.length}
-      </p>
-      <footer>
-      <Link href={links[current]}> <button className="footerButton">Get Started</button></Link>
-      </footer>
+  <div className="others">
+    <div className="practice" id="practice">
+ <img className="imgdesc" src="857524.png" alt="null" />
+      <div className="title1">
+        <h3>Browse Courses</h3>
+      <div className="bod">find and browse over 20 available courses with ease</div>
+      </div>
     </div>
-    </>
-
-  );
+    <div className="practice" >
+ <img className="imgdesc" src="4690558-200.png" alt="null" />
+      <div className="title2">
+      <h3>Practice PQ</h3>
+       <div className="bod">answer previous sessions' questions on one click</div>
+      </div>
+     
+    </div>
+  </div>
+  <Contact/>
+  
+</section>
+</div>
+  )
 }

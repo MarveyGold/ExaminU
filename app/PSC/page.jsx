@@ -7,7 +7,7 @@ export default function Home() {
 
 
     return (
-        <>
+        <main>
             <h1>Select Your Department</h1>
             <div>
                 {departmentList.map((item, index) => (
@@ -21,6 +21,6 @@ export default function Home() {
                 )
                 )}
             </div>
-        </>
+        </main>
     )
 }

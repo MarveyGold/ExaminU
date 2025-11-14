@@ -1,12 +1,14 @@
-import styles from "../page.module.css";
+
 import Link from "next/link";
 
 export default function Logo() {
     return(
-            <h2 className={styles.head}>
-                <Link href="/index.html">
-                ExaminU
-                </Link>
-                </h2>
+        <Link href="/">
+        <header className="header">
+                <img className="uniben" src="favicon.ico" alt="examinu" />
+                <div className="logo">ExaminU</div>
+                
+              </header>  
+        </Link>
     )
 }

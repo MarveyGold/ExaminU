@@ -137,7 +137,7 @@ a.secondary {
   display: flex;
   height: 95vh;
 }
-.header{
+.heading{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -145,7 +145,10 @@ a.secondary {
   
   border-radius: 50px;
   gap: 5rem;
-  background-color: rgb(180, 208, 247);
+  background-color: rgb(2, 7, 14);
+}
+h2.logo{
+  font-size: 100px;
 }
 .nav{
   display: flex;

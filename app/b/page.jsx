@@ -39,7 +39,7 @@ export default function SwipeableCarousel() {
   facultyList[-1] = "VNM";
 
   return (
-    <div className="main">    
+    <main className="main">    
       <h4>Select Faculty</h4><div className={styles.container}>
             <div {...handlers} className="faculties">
               <span
@@ -86,7 +86,7 @@ export default function SwipeableCarousel() {
       <Link href={facultyList[current]}> <button className="footerButton">Get Started</button></Link>
       </footer>
     </div>
-    </div>
+    </main>
 
   );
 }

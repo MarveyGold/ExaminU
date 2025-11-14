@@ -5,7 +5,8 @@ export default function Home() {
 
 
     return (
-        <div className={styles.course}>
+        <main>
+            <div className={styles.course}>
             <section>
                 <ul>
                     <li><Link href='#1'><h3>100 Level</h3></Link></li>
@@ -22,5 +23,6 @@ export default function Home() {
                 </div>
             </section>
         </div>
+        </main>
     )
 }

@@ -6,6 +6,7 @@
   min-height: 100vh;
   color: #fff;
   font-family: sans-serif;
+  width: 80vw;
 }
  .mainCard {
   position: relative;
@@ -26,7 +27,6 @@
   width: 150px;
   height: 150px;
   border-radius: 100px;
-  transform: translateY(-50%);
   background: rgb(37, 3, 70);
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
    display: flex;
@@ -111,11 +111,11 @@
 
 
 .left {
-  left: -5vw;
+  left: 5vw;
 }
 
 .right {
-  right: -5vw;
+  right: 5vw;
 }
 
 .counter {

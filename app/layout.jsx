@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./page.module.css";
 import { Analytics } from "@vercel/analytics/next"
 import Logo from "./components/logo";
 import Link from "next/link";

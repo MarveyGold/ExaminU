@@ -212,10 +212,12 @@ nav ul li a {
 }
 .sponsors {
   display: flex;
-  gap: 20px;
+  width: 80vw;
   margin-top: 40px;
   animation: fadeIn 2s ease-in-out;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 10vw;
 }
 .sponsors img {
   height: 24px;
@@ -327,4 +329,32 @@ nav{
   align-items: center;
   justify-content: center;
   display: flex;
+}
+.contact-us {
+ background-color: rgb(223, 221, 221);
+ width: 80vw;
+ margin-left: 10vw;
+ margin-top: 10vw;
+ height: 80vh;
+ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+ border-radius: 20px;
+ padding: 20px 30px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ justify-content: center;
+  align-items: center;
+  
+
+}
+.practice button{
+  background-color: #7a5cfa;
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 5px;
 }
