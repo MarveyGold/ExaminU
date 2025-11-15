@@ -5,7 +5,7 @@ export default async function Home({params}) {
         <main>
             <h3>{faculty} Not Available <b>Yet</b></h3>
             <footer>
-                <Link href={`/`}><button className="footerButton">Go home</button></Link>
+                <Link href={`/b`}><button className="footerButton">Go home</button></Link>
             </footer>
         </main>
     )

@@ -1,34 +1,24 @@
-:root {
-  --background: #ffffff;
-  --foreground: ;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
-  height: 100vh;
+  min-height: 100vh;
+  /* landing page requires white background */
+  background: #fff;
 }
 
-body {
+.index {
   color: #3c2572;
   font-family: "Open Sans", sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  background-color: #f1ebf8; 
-  overflow-x: hidden; 
   font-optical-sizing: auto; 
   font-weight: 500; 
   font-style: normal; 
   font-variation-settings: "width" 100; 
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  background: #fff;
 }
 
 * {
@@ -40,7 +30,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 a {
@@ -49,23 +38,19 @@ a {
 }
 main{
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
   color: #fff;
   font-family: sans-serif;
-  background: linear-gradient(black, rgb(46, 1, 86), black);
+  background: linear-gradient(to bottom, black, rgb(46, 1, 86), black);
   padding-top: 20vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
 
 details{
   gap: 20px;
@@ -84,14 +69,16 @@ header{
   margin-top: 5px;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   gap: 2px;
   padding-left: 5px;
-  border: 1px;
+  border: 10px;
 }
+
 .foot{
   width: 50vw;
-  height: 5vh;
+  height: 0;
   border-radius: 1.7rem;
   background-color: transparent;
   padding: 13px;
@@ -102,7 +89,7 @@ header{
   padding-left: 5px;
   border: 1px;
 }
-.course:hover{
+.selected{
   background-color: #3c2572;
 }
 label:has(input:checked){
@@ -146,8 +133,7 @@ footer {
   width: 100vw;
   gap: 24px;
   position: fixed;
-  bottom: 1vh;
-  margin-top: 20px;
+  bottom: 0;
 }
 
 
@@ -238,12 +224,12 @@ li{
 .preFooter{
   height: 50vh;
   position: absolute;
-  bottom: 10px;
   background-color: aqua;
 }
 h4{
   padding: 50px;
-  position: relative;
+  position: absolute;
+  top: 10vh;
 }
 h2{
   position: fixed;
@@ -515,7 +501,6 @@ nav ul li a {
 .contact-us {
  background-color: rgb(223, 221, 221);
  width: 90vw;
- margin-left: 2.5vw;
  top: 120vh;
  height: 80vh;
  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -523,7 +508,6 @@ nav ul li a {
  padding: 20px 30px;
  display: flex;
  flex-direction: column;
- justify-content: space-between;
  justify-content: center;
   align-items: center;
   position: absolute;
@@ -571,7 +555,7 @@ img{
     top: 20vh;
   }
   .hero-image {
-    margin-top: -190px; 
+    margin-top: -150px; 
     display: flex;
     flex-direction: column;
   }
@@ -601,6 +585,7 @@ img{
     height: 40px;
     font-size: 50px;
     background: linear-gradient(blueviolet, black);
+    color: #fff;
     border: none;
   }
   .man{
@@ -648,9 +633,6 @@ img{
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-top: 5px;
-}
-.index{
-  background-color: #fff;
 }
 .form {
   align-self: center;

@@ -34,14 +34,11 @@ export default function RootLayout({ children }) {
       
       <Analytics/>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`} >
        <header>
          <Logo/>
        </header>
         {children}
-        <footer>
-                
-            </footer>
       </body>
     </html>
   );

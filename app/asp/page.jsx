@@ -15,7 +15,7 @@ export default function Home() {
             </main>
               
             <footer>
-                <Link href={`/`}><button className="footerButton"><h5>Change Mode</h5></button></Link>
+                <Link href={`/app`}><button className="footerButton"><h5>Change Mode</h5></button></Link>
             </footer>
         </div>
     )
