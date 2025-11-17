@@ -3,7 +3,6 @@ import "./globals.css";
 import "./page.module.css";
 import { Analytics } from "@vercel/analytics/next"
 import Logo from "./components/logo";
-import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +23,7 @@ export const viewport = {
   themeColor: '#ffffff',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children}) {
   return (
     <html lang="en">
     <head>

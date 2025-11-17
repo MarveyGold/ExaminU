@@ -3,9 +3,21 @@ import { useState } from "react";
 import styles from "../styles/button.module.css";
 import Link from "next/link";
 
-export default function Faculty() {
+export default function Faculty({searchParams}) {
   const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM'];
-  const faculties = ['Faculty of Physical  Sciences', 'Faculty of Life Sciences', 'Faculty of Basic Medical Sciences', 'Faculty of Engineering', 'Faculty of Agriculture', 'Faculty of Dentistry', 'Faculty of Education', 'Faculty of Environmental Sciences', 'Faculty of Medicine', 'Faculty of Management Science', 'Faculty of Pharmacy','SPESSE', 'Faculty of Veterinary Medicine and Animal Science'];
+  const faculties = ['Faculty of Physical  Sciences',
+                     'Faculty of Life Sciences', 
+                     'Faculty of Basic Medical Sciences', 
+                     'Faculty of Engineering', 
+                     'Faculty of Agriculture', 
+                     'Faculty of Dentistry', 
+                     'Faculty of Education', 
+                     'Faculty of Environmental Sciences', 
+                     'Faculty of Medicine', 
+                     'Faculty of Management Science', 
+                     'Faculty of Pharmacy',
+                     'SPESSE', 
+                     'Faculty of Veterinary Medicine and Animal Science'];
   const [current, setCurrent] = useState("");
   const [search, setSearch] = useState("");
   const filtered = faculties
