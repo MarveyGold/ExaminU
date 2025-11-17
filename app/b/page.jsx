@@ -8,7 +8,6 @@ export default function Faculty() {
   const faculties = ['Faculty of Physical  Sciences', 'Faculty of Life Sciences', 'Faculty of Basic Medical Sciences', 'Faculty of Engineering', 'Faculty of Agriculture', 'Faculty of Dentistry', 'Faculty of Education', 'Faculty of Environmental Sciences', 'Faculty of Medicine', 'Faculty of Management Science', 'Faculty of Pharmacy','SPESSE', 'Faculty of Veterinary Medicine and Animal Science'];
   const [current, setCurrent] = useState("");
   const [search, setSearch] = useState("");
-  const [isSelected, setisSelected] = useState("");
   const filtered = faculties
     .map((f, i) => ({ name: f, abbr: facultyList[i] }))
     .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()));
