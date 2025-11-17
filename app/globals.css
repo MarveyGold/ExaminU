@@ -92,6 +92,10 @@ header{
 .selected{
   background-color: #3c2572;
 }
+.course:hover{
+  background-color: #5f4b8b;
+  cursor: pointer;
+}
 label:has(input:checked){
   background-color: #110b1f;
 }
@@ -100,7 +104,6 @@ label input{
 }
 .course{
   height: 6rem;
-  margin-left: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
