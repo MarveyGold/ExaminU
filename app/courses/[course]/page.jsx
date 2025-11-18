@@ -9,7 +9,7 @@ export default  function Home({params}) {
   const {course} =  React.use(params);
   const router = useRouter();
   const changeCourse = () => {
-    router.push('/')
+    router.push('/b')
   }
     const random = () => {
         router.push(`/courses/${course}/quiz`)
@@ -26,7 +26,7 @@ export default  function Home({params}) {
         <h3>{title}</h3>
       </main>
       <footer>
-        <button className="footerButton left" onClick={changeCourse}><h4>change course</h4></button>
+        <button className="answerButton " onClick={changeCourse}><h4>change course</h4></button>
          <button className="answerButton" onClick={random}>Start Quiz</button>
     
       </footer>

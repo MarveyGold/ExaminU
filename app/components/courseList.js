@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export function COS101(){
   const router = useRouter();
   function Route() {
-  router.push(`/courses/cos101`);
+  router.push(`/courses/cos101/quiz`);
   }
     return(
       <button className="course selector" onClick={Route}><h1>COS101</h1></button>
@@ -18,7 +18,7 @@ export function COS101(){
   export  const STA111 = () => {
     const router = useRouter();
      function Route() {
-  router.push(`/courses/sta111`);
+  router.push(`/courses/sta111/quiz`);
   }
       return <li>
         <button className="course selector" onClick={Route}><h1>STA111</h1></button>
@@ -27,7 +27,7 @@ export function COS101(){
  export   const ENT211 = () => {
   const router = useRouter();
      function Route() {
-  router.push(`/courses/ent211`);
+  router.push(`/courses/ent211/`);
   }
       return (
         <li>
@@ -38,7 +38,7 @@ export function COS101(){
   export  const IFT212 = () => {
     const router = useRouter();
      function Route() {
-  router.push(`/courses/ift212`);
+  router.push(`/courses/ift212/`);
   }
       return (
         <li>

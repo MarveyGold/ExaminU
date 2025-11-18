@@ -34,9 +34,8 @@ export default function RootLayout({ children}) {
       <Analytics/>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`} >
-       <header>
+       
          <Logo/>
-       </header>
         {children}
       </body>
     </html>

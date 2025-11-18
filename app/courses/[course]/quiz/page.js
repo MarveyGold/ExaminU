@@ -41,8 +41,9 @@ export default async function Quiz({params, searchParams}) {
     }
      
     return(
+       <main>
       <div className={styles.home}>
-            <main>
+           
             <div className={styles.title}>
              {quiz.title}
             </div>
@@ -50,9 +51,9 @@ export default async function Quiz({params, searchParams}) {
               {quiz.instruction}
             </code>
 
-            <h4>
+            <h3>
               {quiz.question}
-           </h4>
+           </h3>
 
             <Form action={checkAnswer}>
             <div>
@@ -95,8 +96,8 @@ export default async function Quiz({params, searchParams}) {
             </div>
 
             </Form>
-          {result && <h4>{result}</h4> }
-            </main>
+          {result && <h5>{result}</h5> }
+            
             <div id="preFooter">
 
             </div>
@@ -107,7 +108,7 @@ export default async function Quiz({params, searchParams}) {
 
             
     </div>
- 
+ </main>
       
     )
     } catch (error) {

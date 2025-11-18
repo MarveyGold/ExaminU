@@ -2,8 +2,11 @@
 import { useState } from "react";
 import styles from "../styles/button.module.css";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-export default function Faculty({searchParams}) {
+export default function Faculty() {
+  const alert = useSearchParams().get('alert');
+  console.log(alert)
   const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM'];
   const faculties = ['Faculty of Physical  Sciences',
                      'Faculty of Life Sciences', 
@@ -18,14 +21,14 @@ export default function Faculty({searchParams}) {
                      'Faculty of Pharmacy',
                      'SPESSE', 
                      'Faculty of Veterinary Medicine and Animal Science'];
-  const [current, setCurrent] = useState("");
+  const [current, setCurrent] = useState("/b?alert=no faculty selected");
   const [search, setSearch] = useState("");
   const filtered = faculties
     .map((f, i) => ({ name: f, abbr: facultyList[i] }))
     .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()));
   return (
     <main className="main">    
-      <h4>Select Faculty</h4><div className={styles.container}>
+      <div className="header"><h4>Select Faculty</h4> <h6>{alert}</h6></div> <div className={styles.container}>
         <input
         type='text'
         placeholder="Search"
