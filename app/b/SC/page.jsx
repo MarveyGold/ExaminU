@@ -1,8 +1,10 @@
 import Link from "next/link";
+import data from "@/public/data/faculties.json"
 
 export default function Home() {
-    const departmentList = ['CSC', 'STA', 'MTH'];
-
+    const faculty = data.find(f => f.code ===  "PSC");
+    const departmentList = faculty.departments ;
+    
 
     return (
         <main>

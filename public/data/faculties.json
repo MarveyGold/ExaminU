@@ -1,7 +1,8 @@
 [
     {
         "name": "Faculty of Physical Science",
-        "code": "PSC"
+        "code": "PSC",
+        "departments": ["CSC", "STA", "MTH"]
     },
     {
         "name": "Faculty of Life Sciences",
