@@ -1,47 +1,62 @@
 [
     {
-        "name": "Faculty of Physical Science"
+        "name": "Faculty of Physical Science",
+        "code": "PSC"
     },
     {
-        "name": "Faculty of Life Sciences"
+        "name": "Faculty of Life Sciences",
+        "code": "LSC"
     },
     {
-        "name": "Faculty of Basic Medical Sciences"
+        "name": "Faculty of Basic Medical Sciences",
+        "code": "BMS"
     },
     {
-        "name": "Faculty of Engineering"
+        "name": "Faculty of Engineering",
+        "code": "ENG"
     },
     {
-        "name": "Faculty of Agriculture"
+        "name": "Faculty of Agriculture",
+        "code": "AGR"
     },
     {
-        "name": "Faculty of Dentistry"
+        "name": "Faculty of Dentistry",
+        "code": "DEN"
     },
     {
-        "name": "Faculty of Education"
+        "name": "Faculty of Education",
+        "code": "EDU"
     },
     {
-        "name": "Faculty of Environmental Sciences"
+        "name": "Faculty of Environmental Sciences",
+        "code": "ENV"
     },
     {
-        "name": "Faculty of Medicine"
+        "name": "Faculty of Medicine",
+        "code": "MED"
     },
     {
-        "name": "Faculty of Management Science"
+        "name": "Faculty of Management Science",
+        "code": "MGS"
     },
     {
-        "name": "Faculty of Pharmacy"
+        "name": "Faculty of Pharmacy",
+        "code": "PHA"
     },
     {
-        "name": "Faculty of Veterinary Medicine"
+        "name": "Faculty of Veterinary Medicine",
+        "code": "VNM"
     },
     {
-        "name": "SPESSE"
+        "name": "SPESSE",
+        "code": "SPESSE"
     },
     {
-        "name": "Faculty of Arts"
+        "name": "Faculty of Arts",
+        "code": "ART"
     },
     {
-        "name": "Faculty of Social Sciences"
+        "name": "Faculty of Social Sciences",
+        "code": "SOSSA"
     }
 ]
