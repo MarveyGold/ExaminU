@@ -8,9 +8,10 @@ import data from "@/public/data/faculties.json"
 export default function Faculty() {
   const alert = useSearchParams().get('alert');
   
-  const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM', 'ART', 'SOSSA'];
+  const facultyList = data.map(f => f.code)
   const faculties = data.map(f => f.name);
   console.log(faculties)
+  console.log(facultyList)
   const [current, setCurrent] = useState("?alert=no faculty selected");
   const [search, setSearch] = useState("");
   const filtered = faculties
