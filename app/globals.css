@@ -2,9 +2,9 @@ html,
 body {
   max-width: 100%;
   min-height: 100vh;
-  /* landing page requires white background */
   background: #fff;
 }
+
 
 .index {
   color: #3c2572;
@@ -43,12 +43,12 @@ main{
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   color: #fff;
   font-family: sans-serif;
   background: linear-gradient(to bottom, black, rgb(46, 1, 86), black);
-  padding-top: 20vh;
+  padding-top: 20dvh;
 }
 
 
@@ -82,7 +82,7 @@ header{
   border-radius: 1.7rem;
   background-color: transparent;
   padding: 13px;
-  margin-top: 5vh;
+  margin-top: 5dvh;
   display: flex;
   align-items: center;
   gap: 2px;
@@ -187,12 +187,12 @@ footer img {
   background: linear-gradient(blueviolet, blue);
   border: none;
   position: relative;
-  bottom: -50vh;
+  bottom: -50dvh;
 }
 
 @keyframes comeUp {
   0% {
-    bottom: -40vh;
+    bottom: -40dvh;
   }
   100%{
     bottom: 0;
@@ -203,7 +203,7 @@ footer img {
     bottom: 0;
   }
   100%{
-    bottom: -40vh;
+    bottom: -40dvh;
   }
 }
 .none{
@@ -225,17 +225,16 @@ li{
   list-style: none;
 }
 .preFooter{
-  height: 50vh;
+  height: 50dvh;
   position: absolute;
   background-color: aqua;
 }
-h4{
-  padding: 50px;
+.header{
   position: absolute;
-  top: 10vh;
+  top: 10dvh;
 }
 h6{
-  margin-top: 4vh;
+  margin-top: 4dvh;
 }
 h2{
   position: fixed;
@@ -281,7 +280,7 @@ header {
  justify-content: center;
   align-items: center;
   position: absolute;
-  top: 23.5vh;
+  top: 23.5dvh;
 }
 .logo {
   font-weight: bold;
@@ -348,14 +347,14 @@ nav ul li a {
 }
 .others {
   width: 20vw;
-  height: 80vh;
+  height: 80dvh;
   gap: 2vw;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
  position: absolute;
  right: 7vw;
- top: 20vh;
+ top: 20dvh;
 }
 .practice {
   display: flex;
@@ -408,7 +407,7 @@ nav ul li a {
   position: absolute;
   justify-content: center;
   width: 50px;
-  top: 15vh;
+  top: 15dvh;
 }
 .title1 h3{
   margin-left: 6rem;
@@ -418,7 +417,7 @@ nav ul li a {
   position: absolute;
   justify-content: center;
   width: 50px;
-  top: 55vh;
+  top: 55dvh;
 }
 .title2 h3{
   margin-left: 6rem;
@@ -509,8 +508,8 @@ nav ul li a {
 .contact-us {
  background-color: rgb(223, 221, 221);
  width: 90vw;
- top: 120vh;
- height: 80vh;
+ top: 120dvh;
+ height: 80dvh;
  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
  border-radius: 20px;
  padding: 20px 30px;
@@ -554,13 +553,13 @@ img{
   }
   .hero-text p {
     font-size: 16px;
-    bottom: -25vh;
+    bottom: -25dvh;
     width: 90vw;
   }
   .hero-text{
     width: 95vw;
     left: -2vw;
-    top: 20vh;
+    top: 20dvh;
   }
   .hero-image {
     margin-top: -150px; 
@@ -573,7 +572,7 @@ img{
     gap: 15px;
     right: 0;
     width: 45%;
-    top: 10vh;
+    top: 10dvh;
     background-color: #fff;
     padding: 20px;
     position: absolute;
@@ -608,13 +607,14 @@ img{
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
-    top: 120vh;
-    height: 90vh;
+    top: 120dvh;
+    height: 90dvh;
     gap: 50px;
   }
   .background{
+    top: 15dvh;
     width: 95vw;
-    height: 100vh;
+    height: 100dvh;
     flex-direction: column;
   }
   .practice {
@@ -624,10 +624,10 @@ img{
     width: 60vw;
   }
   .title2{
-    top: 65vh;
+    top: 65dvh;
   }
   .contact-us{
-    top: 220vh;
+    top: 220dvh;
   }
 }
 

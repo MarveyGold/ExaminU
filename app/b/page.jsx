@@ -3,25 +3,15 @@ import { useState } from "react";
 import styles from "../styles/button.module.css";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import data from "@/public/data/faculties.json"
 
 export default function Faculty() {
   const alert = useSearchParams().get('alert');
-  console.log(alert)
-  const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM'];
-  const faculties = ['Faculty of Physical  Sciences',
-                     'Faculty of Life Sciences', 
-                     'Faculty of Basic Medical Sciences', 
-                     'Faculty of Engineering', 
-                     'Faculty of Agriculture', 
-                     'Faculty of Dentistry', 
-                     'Faculty of Education', 
-                     'Faculty of Environmental Sciences', 
-                     'Faculty of Medicine', 
-                     'Faculty of Management Science', 
-                     'Faculty of Pharmacy',
-                     'SPESSE', 
-                     'Faculty of Veterinary Medicine and Animal Science'];
-  const [current, setCurrent] = useState("/b?alert=no faculty selected");
+  
+  const facultyList = ['PSC', 'LSC', 'BMS', 'ENG', 'AGR', 'DEN', 'EDU', 'ENV', 'MED', 'MGS', 'PHA', 'SPESSE', 'VNM', 'ART', 'SOSSA'];
+  const faculties = data.map(f => f.name);
+  console.log(faculties)
+  const [current, setCurrent] = useState("?alert=no faculty selected");
   const [search, setSearch] = useState("");
   const filtered = faculties
     .map((f, i) => ({ name: f, abbr: facultyList[i] }))
@@ -52,7 +42,7 @@ export default function Faculty() {
               ))}
             </div>
       <footer>
-      <Link href={current}> <button className="footerButton">Get Started</button></Link>
+      <Link href={`b/${current}`}> <button className="footerButton">Get Started</button></Link>
       </footer>
     </div>
     </main>
