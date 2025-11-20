@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Quiz({searchParams}) {
   const course = "mth101";
   const source = "mth101.json";
-    const filePath = process.cwd() + `/public/data/${source}`;
+    const filePath = process.cwd() + `/public/data/subjects/${source}`;
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
     const randomIndex =  searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
