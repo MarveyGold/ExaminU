@@ -3,7 +3,7 @@ import Logo from "@/app/components/logo";
 import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
-import data from "@/public/data/eng.json"
+import data from "@/public/data/subjects/eng.json"
 export const metadata = {
   title: "Quiz",
   description: "Test Yourself with random questions",
