@@ -44,10 +44,10 @@ export default function SwipeableCarousel() {
       <p className={styles.counter}>
         {current + 1} of {slides.length}
       </p>
-      <footer>
+    </div>
+    <footer>
       <Link href={links[current]}> <button className="footerButton">Get Started</button></Link>
       </footer>
-    </div>
     </>
 
   );
