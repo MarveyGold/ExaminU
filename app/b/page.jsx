@@ -12,7 +12,7 @@ export default function Faculty() {
   const faculties = data.map(f => f.name);
   console.log(faculties)
   console.log(facultyList)
-  const [current, setCurrent] = useState("?alert=no faculty selected");
+  const [current, setCurrent] = useState();
   const [search, setSearch] = useState("");
   const filtered = faculties
     .map((f, i) => ({ name: f, abbr: facultyList[i] }))
@@ -43,7 +43,7 @@ export default function Faculty() {
               ))}
             </div>
       <footer>
-      <Link href={`b/${current}`}> <button className="footerButton">Get Started</button></Link>
+      <Link href={`b/${current}`}>{current &&  <button className="footerButton">Get Started</button>}</Link>
       </footer>
     </div>
     </main>
