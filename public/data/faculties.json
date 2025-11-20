@@ -2,7 +2,32 @@
     {
         "name": "Faculty of Physical Science",
         "code": "PSC",
-        "departments": ["CSC", "STA", "MTH"]
+        "departments": [
+            {
+                "name": "Department of Chemistry",
+                "code": "CHM"
+            },
+            {
+                "name": "Department of Statistics",
+                "code": "STA"
+            },
+            {
+                "name": "Department of Geology",
+                "code": "GLY"
+            },
+            {
+                "name": "Department of Mathematics",
+                "code": "MTH"
+            },
+            {
+                "name": "Department of Physics",
+                "code": "PHY"
+            },
+            {
+                "name": "Department of Computer Science",
+                "code": "CSC"
+            }
+        ]
     },
     {
         "name": "Faculty of Life Sciences",

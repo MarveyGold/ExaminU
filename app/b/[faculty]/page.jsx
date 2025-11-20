@@ -6,8 +6,7 @@ export default async function Home({params}) {
     const present = {faculty}.faculty;
     try {
         const faculty = data.find(f => f.code === present);
-            const departmentList = faculty.departments ;
-            
+            const departmentList = faculty.departments.map(d => d.code) ;
         
             return (
                 <main>

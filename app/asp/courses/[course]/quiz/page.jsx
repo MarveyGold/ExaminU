@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Quiz({params, searchParams}) {
   const course = await params.course;
   const src = `${course}.json`
-    const filePath = process.cwd() + `/public/data/${src}`;
+    const filePath = process.cwd() + `/public/data/subjects/${src}`;
      searchParams = await searchParams;
     const result = await searchParams?.result || "";
     const back = `/asp/`;
@@ -33,8 +33,9 @@ export default async function Quiz({params, searchParams}) {
 }
      
     return(
+      <main>
       <div className={styles.home}>
-            <main>
+            
             <div className={styles.title}>
              {quiz.title}
             </div>
@@ -86,7 +87,7 @@ export default async function Quiz({params, searchParams}) {
 
             </Form>
             {result && <h4>{result}</h4> }
-            </main>
+           
             <div id="preFooter">
 
             </div>
@@ -95,7 +96,7 @@ export default async function Quiz({params, searchParams}) {
                 <Link href={again}><button className="footerButton">Change Question</button></Link>
             </footer>
  </div>
- 
+  </main>
       
     )
     } catch (error) {
