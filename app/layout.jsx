@@ -3,6 +3,7 @@ import "./globals.css";
 import "./page.module.css";
 import { Analytics } from "@vercel/analytics/next"
 import Logo from "./components/logo";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Examin U",
+  title: {
+  default: "ExaminU",
+  template: "%s | ExaminU",
+},
+    
   description: "Test Yourself",
   manifest: '/manifest.json'
 };

@@ -1,10 +1,9 @@
 import Link from "next/link";
 import styles from "@/app/styles/home.module.css"
 import { COS101, STA111, IFT212 } from "@/app/components/courseList";
+
 export default function Home() {
-
-
-    return (
+return (
         <main>
             <div className={styles.course}>
             <section>

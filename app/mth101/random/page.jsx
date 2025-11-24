@@ -4,8 +4,8 @@ import Logo from "../../components/logo";
 import styles from "../../styles/quiz.module.css";
 import { redirect } from "next/navigation";
 export const metadata = {
-  title: "Random",
-  description: "Test Yourself with random questions",
+  title: "mth101 quiz",
+  description: "Test yourself with random questions",
 };
 
 export default async function Quiz({searchParams}) {
@@ -37,7 +37,7 @@ export default async function Quiz({searchParams}) {
     const again = `${back}/random`;
 
     return(
-    
+    <main>
      
       <div className={styles.home}>
          <header>
@@ -104,7 +104,7 @@ export default async function Quiz({searchParams}) {
       </Link>
             
     </div>
- 
+ </main>
       
     )
     }

@@ -13,7 +13,7 @@ export default async function Home({params}) {
                     <h1>Select Your Department</h1>
                     <div>
                         {departmentList.map((item, index) => (
-                           <Link href={`/PSC/${item}`} key={index}> <button 
+                           <Link href={`/b/PSC/${item}`} key={index}> <button 
                             key={index}
                             className="course selector"
                             >
@@ -30,7 +30,7 @@ export default async function Home({params}) {
         <main>
             <h3>{faculty} Not Available <b>Yet</b></h3>
             <footer>
-                <Link href={`/b`}><button className="footerButton">Go home</button></Link>
+                <Link href={`/b`}><button className="footerButton">Change Faculty</button></Link>
             </footer>
         </main>
     )
