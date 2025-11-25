@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import Logo from "../../../components/logo";
+import Logo from "../../../../../components/logo";
 import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
@@ -10,16 +10,16 @@ export const metadata = {
 };
 
 export default async function Quiz({params, searchParams}) {
-  const course = params.course;
+  const {faculty, department, course} = await params;
   const src = `${course}.json`
-    const filePath = process.cwd() + `/public/data/${src}`;
+    const filePath = process.cwd() + `/public/data/courses/${src}`;
     const result = await searchParams?.result || "";
     
 
    
 
-    const back = `/courses/${course}`;
-    const again = `${back}/quiz`;
+    const back = `/b/${faculty}/${department} `;
+    const again = `${back}/${course}/quiz`;
 
     
     try {
@@ -35,7 +35,7 @@ export default async function Quiz({params, searchParams}) {
         if (selectedAnswer=== null) {
             return "The answer is" + correctAnswer
         }
-        redirect(`/courses/${course}/quiz?result=${encodeURIComponent(result)}&index=${randomIndex}`);
+        redirect(`/b/${faculty}/${department}/${course}/quiz?result=${encodeURIComponent(result)}&index=${randomIndex}`);
     
 
     }
@@ -51,9 +51,9 @@ export default async function Quiz({params, searchParams}) {
               {quiz.instruction}
             </code>
 
-            <h3>
+            <h4>
               {quiz.question}
-           </h3>
+           </h4>
 
             <Form action={checkAnswer}>
             <div>
@@ -102,8 +102,8 @@ export default async function Quiz({params, searchParams}) {
 
             </div>
             <footer >
-                <Link href={back}><button className="footerButton">{course}</button></Link>
-                <Link href={again}><button className="footerButton">Change Question</button></Link>
+                <Link href={back}><button className={styles.footerButton}><h5>Change Course</h5></button></Link>
+                <Link href={again}><button className={styles.footerButton}>Change Question</button></Link>
             </footer>
 
             

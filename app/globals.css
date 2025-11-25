@@ -150,6 +150,9 @@ footer a {
 footer img {
   flex-shrink: 0;
 }
+.left{
+  width: 35vw;
+}
 .footerButton{
   width: 80vw;
   height: 45px;
@@ -159,6 +162,7 @@ footer img {
   border: none;
   position: relative;
 }
+
 .soon{
   display: flex;
   flex-direction: column;

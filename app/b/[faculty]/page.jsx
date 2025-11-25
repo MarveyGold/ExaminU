@@ -4,6 +4,7 @@ import data from "@/public/data/faculties.json"
 export default async function Home({params}) {
     const {faculty} = await params;
     const present = {faculty}.faculty;
+  console.log(faculty)
     try {
         const faculty = data.find(f => f.code === present);
             const departmentList = faculty.departments.map(d => d.code) ;

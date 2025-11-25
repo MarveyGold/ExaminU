@@ -1,8 +1,8 @@
 'use client'
-import styles from "../../styles/home.module.css"
-import Logo from "../../components/logo"
+import styles from "../../../../styles/home.module.css"
+import Logo from "../../../../components/logo"
 import Link from "next/link"
-import Button from "../../components/buttons";
+import Button from "../../../../components/buttons";
 import { useRouter } from "next/navigation";
 import React from "react";
 export default  function Home({params}) {
@@ -15,7 +15,7 @@ export default  function Home({params}) {
         router.push(`/courses/${course}/quiz`)
           
       }
-      const title = course.toUpperCase;
+      const title = course.toUpperCase();
   return (
     <div className={styles.hom}>
       <main className={styles.main}>

@@ -5,27 +5,57 @@
         "departments": [
             {
                 "name": "Department of Chemistry",
-                "code": "CHM"
+                "code": "CHM",
+                "courses": {
+                  "100level": [""],
+                  "200level": [""]
+            }
             },
             {
                 "name": "Department of Statistics",
-                "code": "STA"
+                "code": "STA",
+                "courses": {
+                  "100level": [""],
+                  "200level": [""]
+            }
+
             },
             {
                 "name": "Department of Geology",
-                "code": "GLY"
+                "code": "GLY",
+                 "courses": {
+                  "100level": [""],
+                  "200level": [""]
+            }
+
             },
             {
                 "name": "Department of Mathematics",
-                "code": "MTH"
+                "code": "MTH",
+                "courses": {
+                  "100level": [""],
+                  "200level": [""]
+            }
+
+
             },
             {
                 "name": "Department of Physics",
-                "code": "PHY"
+                "code": "PHY", 
+                "courses": {
+                  "100level": [""],
+                  "200level": [""]
+            }
+
             },
             {
                 "name": "Department of Computer Science",
-                "code": "CSC"
+                "code": "CSC",
+                "courses": {
+                  "100level": ["cos101", "mth101", "sta111"],
+                  "200level": ["cos202", "cyb203", "ent211", "ift212"]
+            }
+
             }
         ]
     },
