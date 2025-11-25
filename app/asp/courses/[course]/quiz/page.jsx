@@ -92,8 +92,8 @@ export default async function Quiz({params, searchParams}) {
 
             </div>
             <footer >
-                <Link href={back}><button className="footerButton"><h4>Change Subject</h4></button></Link>
-                <Link href={again}><button className="footerButton">Change Question</button></Link>
+                <Link href={back}><button className={styles.footerButton}><h4>Change Subject</h4></button></Link>
+                <Link href={again}><button className={styles.footerButton}>Change Question</button></Link>
             </footer>
  </div>
   </main>

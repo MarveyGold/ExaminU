@@ -10,7 +10,6 @@ export default async function Home({params, searchParams}) {
   const Departments = Faculty.departments
   const Department = Departments.find(d => d.code === department)
   const courses = Department.courses;
-  console.log(courses["100level"])
 return (
         <main>
             <div className={styles.course}>
@@ -45,7 +44,9 @@ return (
                 </div>
             </section>
         </div>
-
+        <footer>
+         <Link href={`/b/${faculty} `}> <button className="footerButton"><h5>Change Department</h5></button></Link>
+        </footer>
         </main>
     )
 }
