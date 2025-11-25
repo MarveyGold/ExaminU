@@ -52,8 +52,37 @@
                 "name": "Department of Computer Science",
                 "code": "CSC",
                 "courses": {
-                  "100level": ["cos101", "mth101", "sta111"],
-                  "200level": ["cos202", "cyb203", "ent211", "ift212"]
+                  "100level": [
+                    {"name": "Introduction to Computing",
+                      "code":"cos101" 
+                    },
+                    {
+                      "name": "Algebra and Trigonometry",
+                      "code": "mth101"
+                    },
+                    {
+                      "name": "Descriptive Statistics",
+                      "code": "sta111"
+                    }
+                    ],
+                  "200level": [
+                    {
+                      "name": "Computer Programming II",
+                      "code": "cos202"
+                    },
+                    {
+                      "name": "Cybercrime, Law and Countermeasures",
+                      "code": "cyb203"
+                    },
+                    {
+                      "name": "Computer Architecture and Organisation",
+                      "code": "ift212"
+                    } , 
+                    {
+                      "name": "Entrepreneurship and Innovation",
+                      "code": "ent211"
+                    }
+                  ]
             }
 
             }

@@ -15,18 +15,18 @@ export default async function Home({params, searchParams}) {
 return (
         <main>
             <div className={styles.course}>
-            <nav>
-              <Link href = "?level=100">100 Level</Link>
-              <Link href = "?level=200">200 Level</Link>
+            <nav className={styles.nav}>
+              <Link href = "?level=100"><button style={level == 200 ? {opacity: 0.5} : {opacity: 1}} className={styles.navButton}><h3>100 Level</h3></button></Link>
+              <Link href = "?level=200"><button style={level == 200? {opacity: 1} : {opacity: 0.4}} className={styles.navButton}><h3>200 Level</h3></button></Link>
             </nav>
             <section className={styles.courselist}>
                 <div id="1" style={level == 200 ? {display : "none"} :  {display : "flex", flexDirection : "column"}} >
                     {courses["100level"].map((item, index) => (
-                           <Link href={`/b/${faculty}/${department}/${item}/quiz`} key={index}> <button 
+                           <Link href={`/b/${faculty}/${department}/${item.code}/quiz`} key={index}> <button 
                             key={index}
                             className="course selector"
                             >
-                                {item}
+                                <h5>{item.name} - {item.code.toUpperCase()}</h5>
                             </button>
                             </Link>
                         )
@@ -34,11 +34,11 @@ return (
                 </div>
                 <div id="2" style={level == 200?  {display : "flex", flexDirection : "column"}:{display : "none"}}>
                     {courses["200level"].map((item, index) => (
-                           <Link href={`/b/${faculty}/${department}/${item}/quiz`} key={index}> <button 
+                           <Link href={`/b/${faculty}/${department}/${item.code}/quiz`} key={index}> <button 
                             key={index}
                             className="course selector"
                             >
-                                {item}
+                                <h5>{item.name} - {item.code.toUpperCase()}</h5>
                             </button>
                             </Link>
                         )
