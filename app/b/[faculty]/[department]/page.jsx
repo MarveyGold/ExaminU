@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "@/app/styles/home.module.css"
-import { COS101, STA111, IFT212 } from "@/app/components/courseList";
 import data from "@/public/data/faculties.json"
 
 
