@@ -21,7 +21,10 @@ export const metadata = {
   template: "%s | ExaminU",
 },
     
-  description: "Test Yourself",
+  description: {
+    default: "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions",
+    template: "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions. %s"
+  },
   manifest: '/manifest.json'
 };
 export const viewport = {

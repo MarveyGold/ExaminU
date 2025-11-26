@@ -4,10 +4,14 @@ import Logo from "../../../../../components/logo";
 import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
-export const metadata = {
-  title: "Quiz",
-  description: "Test Yourself with random questions",
-};
+export async function generateMetadata({params}) {
+ const {faculty, department, course} = await params;
+
+  return {
+title: `${course.toUpperCase()} Quiz`,
+  description: `Test Yourself with random ${course.toUpperCase()} past questions and likely exam questions`,
+  };
+}
 
 export default async function Quiz({params, searchParams}) {
   const {faculty, department, course} = await params;

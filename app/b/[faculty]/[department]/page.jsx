@@ -2,10 +2,25 @@ import Link from "next/link";
 import styles from "@/app/styles/home.module.css"
 import data from "@/public/data/faculties.json"
 
+export async function generateMetadata({params, searchParams}) {
+const {faculty, department} = await params;
+  const {level} = await searchParams;
+  const Faculty = data.find(f => f.code === faculty)
+  const Departments = Faculty.departments
+  const Department = Departments.find(d => d.code === department)
+  const courses = Department.courses;
+  return {
+    title: `${Department.name}`, 
+    description: `Revise with past questions and likely exam questions of the ${level} level courses offered by the ${Department.name} under the ${Faculty.name} `,
+  };
+
+
+}
 
 export default async function Home({params, searchParams}) {
   const {faculty, department} = await params;
-  const {level} = await searchParams;
+  try {
+    const {level} = await searchParams;
   const Faculty = data.find(f => f.code === faculty)
   const Departments = Faculty.departments
   const Department = Departments.find(d => d.code === department)
@@ -49,4 +64,9 @@ return (
         </footer>
         </main>
     )
+  } catch (error) {
+    return(
+      <main>{department} not available yet</main>
+    )
+  }
 }

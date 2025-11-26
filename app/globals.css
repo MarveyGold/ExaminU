@@ -300,6 +300,10 @@ header {
   top: 20px;
   left: 70px;
 }
+.title{
+  position: absolute;
+  top: 12vh;
+}
 nav{
   align-items: center;
   justify-content: center;

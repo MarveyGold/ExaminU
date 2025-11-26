@@ -1,16 +1,31 @@
 import Link from "next/link";
 import data from "@/public/data/faculties.json"
 
+
+export async function generateMetadata({params}) {
+ const {faculty} = await params;
+ const faculties = data.find(f => f.code === faculty);
+const facultyName = faculties.name;
+  return {
+    title: `${facultyName}`,
+  };
+}
+
 export default async function Home({params}) {
     const {faculty} = await params;
-    const present = {faculty}.faculty;
     try {
-        const faculty = data.find(f => f.code === present);
-            const departmentList = faculty.departments.map(d => d.code) ;
-        
+        const faculties = data.find(f => f.code === faculty);
+            const departmentList = faculties.departments.map(d => d.code) ;
+           
+      const facultyName = faculties.name;
+         console.log(facultyName)
             return (
                 <main>
-                    <h1>Select Your Department</h1>
+              <div className="title">
+                      <h3>{facultyName}</h3>
+
+                   </div>     
+              <h5>Select Your Department</h5>
                     <div>
                         {departmentList.map((item, index) => (
                            <Link href={`/b/PSC/${item}`} key={index}> <button 
