@@ -11,14 +11,17 @@ const facultyName = faculties.name;
   };
 }
 
-export default async function Home({params}) {
+export default async function Home({params, searchParams}) {
     const {faculty} = await params;
+    const {selected} = await searchParams;
     try {
         const faculties = data.find(f => f.code === faculty);
             const departmentList = faculties.departments.map(d => d.code) ;
+ const departmentNames = faculties.departments.map(d => d.name) ;
+  
            
       const facultyName = faculties.name;
-         console.log(facultyName)
+         console.log(selected)
             return (
                 <main>
               <div className="title">
@@ -28,19 +31,21 @@ export default async function Home({params}) {
               <h5>Select Your Department</h5>
                     <div>
                         {departmentList.map((item, index) => (
-                           <Link href={`/b/PSC/${item}`} key={index}> <button 
+                           <Link href={`/b/PSC/?selected=${item} `} key={index}> <button 
                             key={index}
-                            className="course selector"
+                            className={`course selector ${selected == item? 'selected' : '' } `}
                             >
-                                {item}
+                                {departmentNames[index]}
                             </button>
                             </Link>
                         )
                         )}
                     </div>
                      <footer>
-                <Link href={`/b`}><button className="footerButton">Change Faculty</button></Link>
-            </footer>
+              {selected == 0 ?  <Link href={`/b`}><button className="footerButton">Change Faculty</button></Link>
+ :  <Link href={`/b/${faculty}/${selected} `}><button className="footerButton">Get Started</button></Link>
+}  
+              </footer>
 
                 </main>
             )

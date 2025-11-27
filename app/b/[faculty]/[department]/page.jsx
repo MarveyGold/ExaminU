@@ -8,7 +8,6 @@ const {faculty, department} = await params;
   const Faculty = data.find(f => f.code === faculty)
   const Departments = Faculty.departments
   const Department = Departments.find(d => d.code === department)
-  const courses = Department.courses;
   return {
     title: `${Department.name}`, 
     description: `Revise with past questions and likely exam questions of the ${level} level courses offered by the ${Department.name} under the ${Faculty.name} `,
@@ -60,7 +59,7 @@ return (
             </section>
         </div>
         <footer>
-         <Link href={`/b/${faculty} `}> <button className="footerButton"><h5>Change Department</h5></button></Link>
+         <Link href={`/b/${faculty}/?selected=0 `}> <button className="footerButton"><h5>Change Department</h5></button></Link>
         </footer>
         </main>
     )
