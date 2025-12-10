@@ -17,33 +17,31 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-  default: "ExaminU",
-  template: "%s | ExaminU",
-},
-    
-  description: {
-    default: "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions",
-    template: "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions. %s"
+    default: "ExaminU",
+    template: "%s | ExaminU",
   },
+
+  description: "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions",
+
   manifest: '/manifest.json'
 };
 export const viewport = {
   themeColor: '#ffffff',
 }
 
-export default function RootLayout({ children}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <head>
-      <link rel="manifest" href="/manifest.json" />
-      <meta name="theme-color" content="#ffffff" />
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
 
-      
-      <Analytics/>
+
+        <Analytics />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`} >
-       
-         <Logo/>
+
+        <Logo />
         {children}
       </body>
     </html>
