@@ -1,11 +1,10 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import Logo from "../../../../../components/logo";
 import styles from "@/app/styles/quiz.module.css"
 import { redirect } from "next/navigation";
 import Form from "next/form";
 export async function generateMetadata({ params }) {
-  const { faculty, department, course } = await params;
+  const { course } = await params;
 
   return {
     title: `${course.toUpperCase()} Quiz`,
