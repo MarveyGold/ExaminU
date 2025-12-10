@@ -3,7 +3,6 @@ import "./globals.css";
 import "./page.module.css";
 import { Analytics } from "@vercel/analytics/next"
 import Logo from "./components/logo";
-import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
