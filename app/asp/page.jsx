@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from '@/app/page.module.css';
-import { Metadata } from "next";
 
 export const metadata = {
   title: "post utme,"
