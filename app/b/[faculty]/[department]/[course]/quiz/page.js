@@ -93,19 +93,19 @@ export default async function Quiz({ params, searchParams }) {
                 />
                 {quiz.optionD}
               </label>
-              <label className="selector">
+                { quiz.optionE && <label className="selector">
                 <input
                   type="radio"
                   name="quiz"
                   value={quiz.optionE}
                 />
-                {quiz.optionE}
-              </label>
+              {quiz.optionE}
+              </label>}
 
             </div>
             <div className="ans">
               <button type="submit" className="answerButton">Check The Answer</button>
-            </div>
+  </div>
 
           </Form>
           {result && <h5>{result}</h5>}
