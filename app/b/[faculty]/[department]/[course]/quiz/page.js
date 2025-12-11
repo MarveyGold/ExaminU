@@ -16,7 +16,7 @@ export default async function Quiz({ params, searchParams }) {
   const { faculty, department, course } = await params;
   const src = `${course}.json`
   const filePath = process.cwd() + `/public/data/courses/${src}`;
-  const result = await searchParams?.result || "";
+  const { result, index } = await searchParams;
 
 
 
@@ -28,14 +28,14 @@ export default async function Quiz({ params, searchParams }) {
   try {
     const file = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(file);
-    const randomIndex = await searchParams?.index ? parseInt(searchParams.index, 10) : Math.floor(Math.random() * data.length);
+    const randomIndex = index ? parseInt(index, 10) : Math.floor(Math.random() * data.length);
     const quiz = data[randomIndex];
     const checkAnswer = async (formData) => {
       'use server';
       const selectedAnswer = formData.get('quiz');
       const correctAnswer = quiz.correctAnswer;
       const result = selectedAnswer === correctAnswer ? "CORRECT!!! the answer is:" + correctAnswer : "Wrong, the answer is:" + " " + correctAnswer;
-      if (selectedAnswer === null) {
+      if (!selectedAnswer) {
         return "The answer is" + correctAnswer
       }
       redirect(`/b/${faculty}/${department}/${course}/quiz?result=${encodeURIComponent(result)}&index=${randomIndex}`);
