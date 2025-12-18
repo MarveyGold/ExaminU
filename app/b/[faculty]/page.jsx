@@ -31,7 +31,7 @@ export default async function Home({params, searchParams}) {
               <h5>Select Your Department</h5>
                     <div className="list">
                         {departmentList.map((item, index) => (
-                           <Link href={`/b/PSC/?selected=${item} `} key={index}> <button 
+                           <Link href={`/b/${faculty}/?selected=${item} `} key={index}> <button 
                             key={index}
                             className={`course selector ${selected == item? 'selected' : '' } `}
                             >
