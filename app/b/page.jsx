@@ -1,15 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/button.module.css";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import data from "@/public/data/faculties.json"
 
 export default function Faculty() {
   const alert = useSearchParams().get('alert');
-
-  const facultyList = data.map(f => f.code)
-  const faculties = data.map(f => f.name);
+  const [data, setData] = useState();
+  useEffect(() => {
+    fetch('http://localhost:8080/api/data')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+      })
+  }, [])
+  console.log(data)
+  const facultyList = data ? data.map(f => f.code) : [];
+  const faculties = data ? data.map(f => f.name) : [];
   const [current, setCurrent] = useState();
   const [search, setSearch] = useState("");
   const filtered = faculties
