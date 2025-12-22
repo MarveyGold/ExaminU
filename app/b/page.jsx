@@ -1,55 +1,24 @@
-"use client";
-import { useState, useEffect } from "react";
 import styles from "../styles/button.module.css";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import Faculty from "./client.jsx";
 
-export default function Faculty() {
-  const alert = useSearchParams().get('alert');
-  const [data, setData] = useState();
-  useEffect(() => {
-    fetch('http://localhost:8080/api/data')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-      })
-  }, [])
-  console.log(data)
-  const facultyList = data ? data.map(f => f.code) : [];
-  const faculties = data ? data.map(f => f.name) : [];
-  const [current, setCurrent] = useState();
-  const [search, setSearch] = useState("");
-  const filtered = faculties
-    .map((f, i) => ({ name: f, abbr: facultyList[i] }))
-    .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()));
+export default async function Home() {
+  const faculties = await fetch("https://examinu-api.up.railway.app/api/faculty/names");
+  const facultyList = await fetch("https://examinu-api.up.railway.app/api/faculty/codes");
+  const names = await faculties.json();
+  const codes = await facultyList.json();
+  console.log(names);
+  console.log(codes);
+
   return (
     <main className="main">
-      <div className="header"><h4>Select Faculty</h4> <h6>{alert}</h6></div> <div className={styles.container}>
-        <input
-          type='text'
-          placeholder="Search"
-          value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
-          className='selector'
-        />
+      <h1 className="header">Select Faculty</h1>
+      <div className={styles.container}>
         <div>
-          {filtered.map((faculty) => (
-            <button
-              key={faculty.abbr}
-              onClick={() =>
-                setCurrent(faculty.abbr)
-              }
-              className={`course selector ${current === faculty.abbr ? 'selected' : ''}`}
-            >
-              {faculty.name}
-            </button>
-          ))}
+          <Faculty
+            names={names}
+            codes={codes}
+          />
         </div>
-        <footer>
-          <Link href={`b/${current}/?selected=0`}>{current && <button className="footerButton">Get Started</button>}</Link>
-        </footer>
       </div>
     </main>
 
