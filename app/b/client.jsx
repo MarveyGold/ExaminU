@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 export default function Faculty({ names, codes }) {
-  const alert = useSearchParams().get('alert');
   const [current, setCurrent] = useState();
   const [search, setSearch] = useState("");
   const filtered = names

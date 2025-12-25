@@ -2,12 +2,13 @@ import styles from "../styles/button.module.css";
 import Faculty from "./client.jsx";
 
 export default async function Home() {
-  const faculties = await fetch("https://examinu-api.up.railway.app/api/faculty/names");
-  const facultyList = await fetch("https://examinu-api.up.railway.app/api/faculty/codes");
+  const prodApi = "https://examinu-api.up.railway.app"
+  const devApi = "http://127.0.0.1:8080"
+  const faculties = await fetch(`${devApi}/api/faculty/names`);
+  const facultyList = await fetch(`${devApi}/api/faculty/codes`);
   const names = await faculties.json();
   const codes = await facultyList.json();
-  console.log(names);
-  console.log(codes);
+
 
   return (
     <main className="main">
