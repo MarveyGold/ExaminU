@@ -4,7 +4,7 @@ const prodApi = "https://examinu-api.up.railway.app"
 const devApi = "http://127.0.0.1:8080";
 export async function generateMetadata({ params }) {
   const { faculty } = await params;
-  const faculties = await fetch(`${devApi}/api/${faculty}/name`);
+  const faculties = await fetch(`${prodApi}/api/${faculty}/name`);
   const facultyName = await faculties.text();
   return {
     title: `${facultyName}`,
