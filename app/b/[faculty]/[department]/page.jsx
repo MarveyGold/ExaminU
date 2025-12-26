@@ -4,7 +4,7 @@ import CourseList from "./client";
 
 const prodApi = "https://examinu-api.up.railway.app"
 const devApi = "http://127.0.0.1:8080";
-const env = devApi;
+const env = prodApi;
 export async function generateMetadata({ params, searchParams }) {
   const { faculty, department } = await params;
   const { level } = await searchParams;
