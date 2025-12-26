@@ -13,11 +13,11 @@ export async function generateMetadata({ params }) {
 
 export default async function Home({ params }) {
   const { faculty } = await params;
-  const faculties = await fetch(`${devApi}/api/${faculty}/name`);
+  const faculties = await fetch(`${prodApi}/api/${faculty}/name`);
   const facultyName = await faculties.text();
   try {
-    const names = await fetch(`${devApi}/api/${faculty}/departments/names`);
-    const links = await fetch(`${devApi}/api/${faculty}/departments/codes`);
+    const names = await fetch(`${prodApi}/api/${faculty}/departments/names`);
+    const links = await fetch(`${prodApi}/api/${faculty}/departments/codes`);
     const departmentList = await links.json();
     const departmentNames = await names.json();
 
