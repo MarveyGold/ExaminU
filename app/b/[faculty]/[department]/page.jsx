@@ -1,71 +1,51 @@
 import Link from "next/link";
 import styles from "@/app/styles/home.module.css"
-import data from "@/public/data/faculties.json"
+import CourseList from "./client";
 
-export async function generateMetadata({params, searchParams}) {
-const {faculty, department} = await params;
-  const {level} = await searchParams;
-  const Faculty = data.find(f => f.code === faculty)
-  const Departments = Faculty.departments
-  const Department = Departments.find(d => d.code === department)
+const prodApi = "https://examinu-api.up.railway.app"
+const devApi = "http://127.0.0.1:8080";
+const env = devApi;
+export async function generateMetadata({ params, searchParams }) {
+  const { faculty, department } = await params;
+  const { level } = await searchParams;
+
+  const faculties = await fetch(`${env}/api/${faculty}/name`);
+  const facultyName = await faculties.text();
+  const departmentNameData = await fetch(`${env}/api/${faculty}/${department}/name`);
+  const departmentName = await departmentNameData.text();
+
   return {
-    title: `${Department.name}`, 
-    description: `Revise with past questions and likely exam questions of the ${level} level courses offered by the ${Department.name} under the ${Faculty.name} `,
+    title: `${departmentName}`,
+    description: `Revise with past questions and likely exam questions of the ${level} level courses offered by the ${departmentName} under the ${facultyName} `,
   };
 
 
 }
 
-export default async function Home({params, searchParams}) {
-  const {faculty, department} = await params;
-  try {
-    const {level} = await searchParams;
-  const Faculty = data.find(f => f.code === faculty)
-  const Departments = Faculty.departments
-  const Department = Departments.find(d => d.code === department)
-  const courses = Department.courses;
-return (
-        <main>
-            <div className={styles.course}>
-            <nav className={styles.nav}>
-              <Link href = "?level=100"><button style={level == 200 ? {opacity: 0.5} : {opacity: 1}} className={styles.navButton}><h3>100 Level</h3></button></Link>
-              <Link href = "?level=200"><button style={level == 200? {opacity: 1} : {opacity: 0.4}} className={styles.navButton}><h3>200 Level</h3></button></Link>
-            </nav>
-            <section className={styles.courselist}>
-                <div id="1" style={level == 200 ? {display : "none"} :  {display : "flex", flexDirection : "column"}} >
-                    {courses["100level"].map((item, index) => (
-                           <Link href={`/b/${faculty}/${department}/${item.code}/quiz`} key={index}> <button 
-                            key={index}
-                            className="course selector"
-                            >
-                                <h5>{item.name} - {item.code.toUpperCase()}</h5>
-                            </button>
-                            </Link>
-                        )
-                        )}
-                </div>
-                <div id="2" style={level == 200?  {display : "flex", flexDirection : "column"}:{display : "none"}}>
-                    {courses["200level"].map((item, index) => (
-                           <Link href={`/b/${faculty}/${department}/${item.code}/quiz`} key={index}> <button 
-                            key={index}
-                            className="course selector"
-                            >
-                                <h5>{item.name} - {item.code.toUpperCase()}</h5>
-                            </button>
-                            </Link>
-                        )
-                        )}
-                </div>
-            </section>
-        </div>
-        <footer>
-         <Link href={`/b/${faculty}/?selected=0 `}> <button className="footerButton"><h5>Change Department</h5></button></Link>
-        </footer>
-        </main>
-    )
-  } catch (error) {
-    return(
-      <main>{department} not available yet</main>
-    )
-  }
+export default async function Home({ params, searchParams }) {
+  const { faculty, department } = await params;
+  const { level } = await searchParams;
+  const courselist = await fetch(`${env}/api/${faculty}/${department}/courses`);
+  const courses = await courselist.json();
+  console.log(courses)
+  const departmentNameData = await fetch(`${env}/api/${faculty}/${department}/name`);
+  const departmentName = await departmentNameData.text();
+  return (
+    <main>
+      <div className={styles.course}>
+        <div style={{ position: "fixed", top: "13vh", width: "90vw", display: "flex", alignItems: "center", justifyContent: "center" }}> <h2 className="title">
+          {departmentName}</h2></div>
+        <nav className={styles.nav}>
+          <Link href="?level=100"><button style={level == 200 ? { opacity: 0.5 } : { opacity: 1 }} className={styles.navButton}><h3>100 Level</h3></button></Link>
+          <Link href="?level=200"><button style={level == 200 ? { opacity: 1 } : { opacity: 0.4 }} className={styles.navButton}><h3>200 Level</h3></button></Link>
+        </nav>
+        <CourseList
+          faculty={faculty}
+          department={department}
+          level={level}
+          courses={courses}
+        />
+      </div >
+    </main >
+  )
 }

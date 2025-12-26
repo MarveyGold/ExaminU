@@ -35,7 +35,7 @@ export default function Faculty({ names, codes }) {
         ))}
       </div>
       <footer>
-        <Link href={`b/${current}/?selected=0`}>{current && <button className="footerButton">Get Started</button>}</Link>
+        <Link href={`b/${current}`}>{current && <button className="footerButton">Get Started</button>}</Link>
       </footer>
     </div>
   );
