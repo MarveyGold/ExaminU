@@ -6,8 +6,8 @@ export default async function Home() {
   const prodApi = "https://examinu-api.up.railway.app"
   const devApi = "http://127.0.0.1:8080"
   try {
-    const faculties = await fetch(`${devApi}/api/faculty/names`);
-    const facultyList = await fetch(`${devApi}/api/faculty/codes`);
+    const faculties = await fetch(`${prodApi}/api/faculty/names`);
+    const facultyList = await fetch(`${prodApi}/api/faculty/codes`);
     const names = await faculties.json();
     const codes = await facultyList.json();
 
