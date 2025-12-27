@@ -468,8 +468,8 @@ nav ul li a {
   width: 70vw;
   border-radius: 2rem;
   padding: 0.5rem;
-  background-image: linear-gradient(white, rgb(242, 226, 238));
-  color: #0a0a0a;
+  background-color: rgb(223, 221, 221);
+  color: white;
   border: 1px solid #ccc;
   margin-top: 5px;
 }
