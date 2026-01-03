@@ -1,5 +1,5 @@
 <script>
-  let { departmentName, level, courses, faculty } = $props();
+  let { departmentName, level, courses, faculty, department } = $props();
   let selected = $state();
 </script>
 
@@ -24,11 +24,13 @@
   </nav>
   {#if level == "100"}
     {#each courses["100level"] as course}
-      <button
-        class={`course selector ${selected == course.code ? "selected" : ""}`}
-        onclick={() => (selected = course.code)}
-        ><b>{course.name} - {course.code.toUpperCase()}</b></button
-      >
+      {#if !course.hidden}
+        <button
+          class={`course selector ${selected == course.code ? "selected" : ""}`}
+          onclick={() => (selected = course.code)}
+          ><b>{course.name} - {course.code.toUpperCase()}</b></button
+        >
+      {/if}
     {/each}
   {:else if level == "200"}
     {#each courses["200level"] as course}
@@ -40,9 +42,16 @@
     {/each}
   {/if}
   <footer>
-    <a href={`/b/${faculty}`}
-      ><button class="footerButton">Change Department</button></a
+    <a href={`/b/${faculty}/`}
+      ><button class={selected ? "left-footerButton" : "footerButton"}
+        >Change Department</button
+      ></a
     >
+    {#if selected}
+      <a href={`/b/courses/${selected}`}
+        ><button class="footerButton">Start Quiz</button></a
+      >
+    {/if}
   </footer>
 </main>
 
