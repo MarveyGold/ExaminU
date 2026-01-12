@@ -1,7 +1,6 @@
+import { API_URL } from "$env/static/private";
 export async function load({ params, fetch, url }) {
-  const prodApi = "https://examinu-api.up.railway.app";
-  const devApi = "http://127.0.0.1:8080";
-  const env = prodApi;
+  const env = API_URL;
   const { course } = params;
   const q = url.searchParams.get('q') ?? '0';
   const quizData = await fetch(`${env}/api/quiz/${course}?q=${q}`);

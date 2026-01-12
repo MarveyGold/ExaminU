@@ -1,8 +1,7 @@
+import { API_URL } from "$env/static/private";
 export async function load({ params, fetch, url }) {
-  const prodApi = "https://examinu-api.up.railway.app";
-  const devApi = "http://127.0.0.1:8080";
 
-  const env = prodApi;
+  const env = API_URL;
   const { faculty, department } = params;
   const level = url.searchParams.get('level') ?? '100';
   const courselist = await fetch(`${env}/api/${faculty}/${department}/courses`);
