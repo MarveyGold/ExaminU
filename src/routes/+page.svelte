@@ -15,7 +15,7 @@
     <div class="background">
       <div class="hero-text">
         <h1>Get Started with your mock Exam Practice</h1>
-        <p>Prepare for your exams in a smarter way</p>
+        <p>Ace your next exam with smarter practices not more hours</p>
         <a href="/app"><button>Get Started</button></a>
       </div>
       <div class="hero-image">
