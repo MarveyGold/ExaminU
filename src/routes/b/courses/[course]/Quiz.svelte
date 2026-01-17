@@ -1,13 +1,11 @@
 <script>
   import { goto } from "$app/navigation";
-  import { level, faculty, department } from "$lib/stores";
-  let { Quiz, length, course } = $props();
+  import { Level, faculty, department } from "$lib/stores";
+  let { Quiz, next, course } = $props();
   let result = $state("");
   let option = $state("");
   function newQuiz() {
-    const randomIndex = Math.floor(Math.random() * length);
-
-    goto(`/b/courses/${course}/?q=${randomIndex}`);
+    goto(`/b/courses/${course}/?q=${next}`);
     result = "";
   }
   function handleSubmit(e) {
@@ -96,7 +94,7 @@
     <div id="preFooter"></div>
     <footer>
       {#if $department}
-        <a href={`/b/${$faculty}/${$department}?level=${$level}`}
+        <a href={`/b/${$faculty}/${$department}?level=${$Level}`}
           ><button class="footerButton"><h5>Change Course</h5></button></a
         >
       {:else}

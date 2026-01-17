@@ -4,4 +4,4 @@
   import Quiz from "./Quiz.svelte";
 </script>
 
-<Quiz Quiz={data.quiz} length={data.length} course={data.course} />
+<Quiz Quiz={data.quiz} course={data.course} next={data.next} />

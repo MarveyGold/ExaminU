@@ -1,25 +1,30 @@
 <script>
+  import { goto } from "$app/navigation";
+  import { Level } from "$lib/stores";
   let { departmentName, level, courses, faculty, department } = $props();
   let selected = $state();
+  $effect(() => {
+    Level.set(level);
+    console.log($Level);
+  });
 </script>
 
 <main>
   <div class="title">
-    <h2>{departmentName}</h2>
+    <h1>{departmentName} {$Level}</h1>
   </div>
 
   <nav>
-    <a href="?level=100"
-      ><button
+    <a href={`/b/${faculty}/${department}/?level=100`}>
+      <button
         style={level == 200 ? " opacity: 0.5 " : " opacity: 1 "}
-        class="navButton"><h3>100 Level</h3></button
+        class="navButton"><h5>100 Level</h5></button
       ></a
     >
-    <a href="?level=200"
-      ><button
-        style={level == 200 ? " opacity: 1 " : " opacity: 0.4 "}
-        class="navButton"><h3>200 Level</h3></button
-      ></a
+    <button
+      onclick={() => goto(`/b/${faculty}/${department}/?level=200`)}
+      style={level == 200 ? " opacity: 1 " : " opacity: 0.4 "}
+      class="navButton"><h5>200 Level</h5></button
     >
   </nav>
   {#if level == "100"}
@@ -58,8 +63,12 @@
 <style>
   .title {
     position: fixed;
+    left: 0;
     top: 13vh;
-    left: 42vw;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navButton {
@@ -82,5 +91,8 @@
   }
   nav {
     z-index: 5000;
+  }
+  h1 {
+    font-size: 1rem;
   }
 </style>
