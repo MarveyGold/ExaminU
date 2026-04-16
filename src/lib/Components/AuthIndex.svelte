@@ -5,7 +5,7 @@
   import Me from "$lib/Icons/me.svelte";
   let { class: className = "", data, ...props } = $props();
   const user = $page.data.user;
-  console.log(user);
+  //console.log(user);
   function Auth(a) {
     document.cookie = `prev=${$page.url.href};  path=${`/${a}`} `;
     goto(`/${a}?redirect=${$page.url.href}`);
@@ -25,10 +25,12 @@
 
 {#if user}
   <!-- content here -->
-  <div role="button" class="login" onclick={changeStyle}><Me /></div>
-  <ul id="list" class={style}>
+
+  <div role="button" class={className} onclick={changeStyle}><Me /></div>
+
+  <ul id="list" class={`auth-buttons ${style}`}>
     <li class="email">{user.email}</li>
-    <li class="auth-buttons">
+    <li>
       <button class="signup" onclick={signout}>Sign Out</button>
     </li>
   </ul>
@@ -49,37 +51,26 @@
     gap: 15px;
     right: 0;
     top: 10dvh;
-    background-color: #20203a;
-
+    background-color: #fff;
     padding: 20px;
     position: absolute;
   }
-  .email {
-    color: white;
-  }
+
   .active {
     display: flex;
   }
-
   @media (max-width: 768px) {
+    ul {
+      top: 18dvh;
+      z-index: -1;
+    }
+    .email {
+      display: none;
+    }
     ul li button {
       width: 45vw;
       right: 0;
       position: absolute;
-    }
-    nav ul {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      right: 0;
-      width: 45vw;
-      top: 10dvh;
-      background-color: #20203a;
-      padding: 20px;
-      position: absolute;
-    }
-    .signup {
-      display: none;
     }
   }
 </style>

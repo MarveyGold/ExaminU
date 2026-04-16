@@ -11,7 +11,7 @@
 
 <main>
   <div class="title">
-    <h1>{departmentName} {$Level}</h1>
+    <h1>{departmentName}</h1>
   </div>
 
   <nav>

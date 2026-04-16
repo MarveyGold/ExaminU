@@ -1,72 +1,57 @@
 <script>
-import Send from "$lib/Icons/send.svelte";
-import Gmail from "$lib/Icons/gmail.svelte";
-import Whatsapp from "$lib/Icons/whatsapp.svelte";
-
-let subject = $state();
+  import Send from "$lib/Icons/send.svelte";
+  let name = $state();
   let mail = $state();
+  let message = $state("Send");
   let active = $state("mail");
   function handleChange(e) {
     mail = e.target.value;
   }
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault();
-    console.log(mail);
-
-    const Subject = encodeURIComponent(subject);
-    const Mail = encodeURIComponent(mail);
-    if (active === "mail") {
-      window.location.href = `mailto:osoidaghemarvel@gmail.com?subject=${Subject}&body=${Mail} `;
-    } else if (active === "whatsapp") {
-      window.location.href = `https://api.whatsapp.com/send?phone=2349045394806&text=${Mail}`;
+    message = "Sending...";
+    const res = await fetch("http://192.168.205.116:8080/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, mail }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      message = "Sent";
+      return { message };
+    } else {
+      message = "Error";
+      return { message };
     }
   }
 </script>
-<section id="contact-us" class="contact-us">
-    
-    <h4>Send Us Your Feedback</h4>
-    <span class="sponsors">
-      <form class="form" id="mail" onsubmit={submit}>
-        <span>
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            bind:value={subject}
-            name="name"
-            placeholder="Enter your name"
-          />
-        </span>
-        <span>
-          <label for="message">Message:</label>
-          <textarea
-            bind:value={mail}
-            name="message"
-            placeholder="Write your message"
-            required
-          ></textarea>
-        </span>
 
-        <button type="submit" class="btn">Send<Send /></button>
-      </form>
-      <p></p>
-    </span>
-    <div class="sponsors">
+<section id="contact-us" class="contact-us">
+  <h4>Send Us Your Feedback</h4>
+  <span class="sponsors">
+    <form class="form" id="mail" onsubmit={submit}>
       <span>
-        <button
-          onclick={() => (active = "mail")}
-          style={active === "mail"
-            ? "opacity: 2; color: white; border-radius: 20px; font-weight: bold; width: 30vw;"
-            : "opacity: 0.5; width: 20vw; border-radius: 20px; "}
-          ><Gmail /></button
-        >
-        <button
-          onclick={() => (active = "whatsapp")}
-          style={active === "whatsapp"
-            ? "opacity: 2; color: white; border-radius: 20px; font-weight: bold; width: 30vw;"
-            : "opacity: 0.5; width: 20vw; border-radius: 20px; "}
-          ><Whatsapp /></button
-        >
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          bind:value={name}
+          name="name"
+          placeholder="Enter your name"
+        />
       </span>
-    </div>
-  </section>
+      <span>
+        <label for="message">Message:</label>
+        <textarea
+          bind:value={mail}
+          name="message"
+          placeholder="Write your message"
+          required
+        ></textarea>
+      </span>
+
+      <button type="submit" class="btn">{message}<Send /></button>
+    </form>
+    <p></p>
+  </span>
+</section>

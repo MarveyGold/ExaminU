@@ -1,7 +1,8 @@
 <script>
   import Nav from "$lib/Components/Nav.svelte";
-  import Auth from "$lib/Components/Auth.svelte";
+  import Auth from "$lib/Components/AuthIndex.svelte";
   import Contact from "$lib/Components/Contact.svelte";
+  export let data;
 </script>
 
 <div class="index">
@@ -9,7 +10,7 @@
     <img class="uniben" src="/favicon.png" alt="examinu" />
     <div class="logo">ExaminU</div>
     <Nav />
-    <Auth class="desktop" />
+    <Auth class="desktop" {data} />
   </header>
   <section class="hero">
     <div class="background">
@@ -54,3 +55,4 @@
     <Contact />
   </section>
 </div>
+
