@@ -14,7 +14,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings: "width" 100;
+  font-variation-settings: "wdth" 100;
   z-index: -1;
   margin: 0;
   padding: 0;
@@ -74,7 +74,7 @@ header {
 
 .selector {
   width: 90vw;
-  height: calc(fit-content);
+  height: fit-content;
   border-radius: 1.7rem;
   background-color: #20153a;
   color: white;
@@ -86,7 +86,7 @@ header {
   justify-content: center;
   gap: 2px;
   padding-left: 5px;
-  border: 10px;
+  border: 10px solid transparent;
 }
 
 .foot {
@@ -100,7 +100,7 @@ header {
   align-items: center;
   gap: 2px;
   padding-left: 5px;
-  border: 1px;
+  border: 1px solid transparent;
 }
 
 .selected {
@@ -264,7 +264,6 @@ h3 {
   font-size: 20px;
   display: flex;
   color: blueviolet;
-  font: bold;
   font-weight: 800;
 }
 
@@ -793,4 +792,4 @@ img {
 
 .form {
   align-self: center;
-}
+    }
