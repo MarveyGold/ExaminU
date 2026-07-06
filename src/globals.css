@@ -463,7 +463,7 @@ main {
   width: 100%;
   min-height: 100dvh;
   padding-top: 80px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   color: #fff;
   background: linear-gradient(to bottom, black, rgb(46, 1, 86), black);
 }
@@ -471,7 +471,7 @@ main {
 .list {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 10dvh;
+  padding-bottom: 20px;
   width: 100%;
 }
 
@@ -536,6 +536,7 @@ label input {
   width: 100%;
   gap: 15px;
   flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .answerButton,
@@ -574,14 +575,22 @@ label input {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   width: 100%;
   max-width: 100vw;
-  padding: 20px;
+  padding: 15px 20px;
   flex-wrap: wrap;
+  background: linear-gradient(to bottom, rgba(46, 1, 86, 0.8), rgb(46, 1, 86));
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 9998;
 }
 
 footer a {
@@ -724,6 +733,7 @@ details {
     padding: 25px;
     max-width: 100%;
     margin: 0 15px;
+    margin-bottom: 100px;
   }
 
   nav ul {
@@ -784,12 +794,12 @@ details {
 
   main {
     padding-top: 70px;
-    padding-bottom: 40px;
+    padding-bottom: 120px;
   }
 
   footer {
     gap: 10px;
-    padding: 15px;
+    padding: 12px 10px;
   }
 
   .answerButton,
@@ -868,6 +878,7 @@ details {
   .form {
     padding: 20px;
     margin: 0 10px;
+    margin-bottom: 120px;
   }
 
   .form input,
@@ -898,7 +909,7 @@ details {
 
   main {
     padding-top: 65px;
-    padding-bottom: 30px;
+    padding-bottom: 120px;
   }
 
   .ans {
@@ -908,6 +919,12 @@ details {
 
   footer {
     gap: 8px;
-    padding: 10px;
+    padding: 10px 8px;
+  }
+
+  .footerButton,
+  .left-footerButton {
+    flex: 1;
+    min-width: 120px;
   }
 }
