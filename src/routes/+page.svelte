@@ -5,87 +5,75 @@
   export let data;
 </script>
 
-<div class="index">
-  <header class="indexHeader">
-    <a href="/" class="header-logo">
-      <img class="uniben" src="/favicon.png" alt="examinu" />
-      <div class="logo">ExaminU</div>
-    </a>
-    <Nav />
-    <Auth class="desktop" {data} />
-  </header>
-  <section class="hero">
-    <div class="background">
-      <div class="hero-text">
-        <h1>Get Started with your mock Exam Practice</h1>
-        <p>Ace your next exam with smarter practices not more hours</p>
-        <a href="/app"><button>Get Started</button></a>
-      </div>
-      <div class="hero-image">
-        <img
-          alt="book"
-          class="book float"
-          src="3d-illustration-reading-with-book-esssential_23-2151295086.png"
-        />
-        <img
-          class="man float"
-          src="man-removebg-preview.png"
-          alt="3D students illustration"
-        />
-      </div>
+<header class="pageHeader">
+  <a href="/" class="header-logo">
+    <img class="uniben" src="/favicon.png" alt="examinu" />
+    <div class="logo">ExaminU</div>
+  </a>
+  <Nav />
+  <Auth class="desktop" {data} />
+</header>
+
+<section class="hero">
+  <div class="background">
+    <div class="hero-text">
+      <h1>Get Started with your mock Exam Practice</h1>
+      <p>Ace your next exam with smarter practices not more hours</p>
+      <a href="/app"><button>Get Started</button></a>
     </div>
-    <div class="others">
-      <div class="practice" id="practice">
-        <img class="imgdesc" src="857524.png" alt="Browse Courses" />
-        <div class="title1">
-          <h3>Browse Courses</h3>
-          <div class="bod">
-            Find and browse over 20 available courses with ease
-          </div>
-        </div>
-      </div>
-      <div class="practice">
-        <img class="imgdesc" src="4690558-200.png" alt="Practice Questions" />
-        <div class="title2">
-          <h3>Practice PQ</h3>
-          <div class="bod">
-            Answer previous sessions' questions on one click
-          </div>
+    <div class="hero-image">
+      <img
+        alt="book"
+        class="book float"
+        src="3d-illustration-reading-with-book-esssential_23-2151295086.png"
+      />
+      <img
+        class="man float"
+        src="man-removebg-preview.png"
+        alt="3D students illustration"
+      />
+    </div>
+  </div>
+  <div class="others">
+    <div class="practice" id="practice">
+      <img class="imgdesc" src="857524.png" alt="Browse Courses" />
+      <div class="title1">
+        <h3>Browse Courses</h3>
+        <div class="bod">
+          Find and browse over 20 available courses with ease
         </div>
       </div>
     </div>
-    <Contact />
-  </section>
-</div>
+    <div class="practice">
+      <img class="imgdesc" src="4690558-200.png" alt="Practice Questions" />
+      <div class="title2">
+        <h3>Practice PQ</h3>
+        <div class="bod">
+          Answer previous sessions' questions on one click
+        </div>
+      </div>
+    </div>
+  </div>
+  <Contact />
+</section>
 
 <style>
-  .index {
-    color: #3c2572;
-    font-family: 'Open Sans', sans-serif;
-    background: #fff;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  :global(.indexHeader) {
-    position: static !important;
-    top: auto !important;
+  .pageHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    max-width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px;
-    gap: 20px;
-    background-color: #fff;
+    animation: slideDown 1s ease-in-out;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px 15px;
+    background-color: #fff;
+    gap: 20px;
     flex-wrap: nowrap;
-    animation: none !important;
-    z-index: 100;
-    margin-top: 0 !important;
-    width: 100%;
-    box-sizing: border-box;
   }
 
   .header-logo {
@@ -96,64 +84,62 @@
     text-decoration: none;
   }
 
-  :global(.indexHeader .uniben) {
+  .uniben {
     width: 45px;
     height: auto;
     border-radius: 8px;
     flex-shrink: 0;
   }
 
-  :global(.indexHeader .logo) {
+  .logo {
+    font-weight: bold;
     font-size: 22px;
     background: linear-gradient(to right, blue, purple);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    font-weight: bold;
   }
 
-  :global(.indexHeader nav) {
+  :global(.pageHeader nav) {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
 
-  :global(.indexHeader nav ul) {
+  :global(.pageHeader nav ul) {
     display: flex;
     gap: 30px;
     list-style: none;
   }
 
-  :global(.indexHeader nav ul li a) {
+  :global(.pageHeader nav ul li a) {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.3s ease;
   }
 
-  :global(.indexHeader nav ul li a:hover) {
+  :global(.pageHeader nav ul li a:hover) {
     color: #7a5cfa;
   }
 
-  :global(.indexHeader .auth-buttons) {
+  :global(.pageHeader .auth-buttons) {
     display: flex;
     gap: 10px;
     z-index: 100;
   }
 
-  .hero {
+  section {
     display: flex;
     flex-direction: column;
     gap: 50px;
     padding: 30px 15px;
     align-items: center;
     background: linear-gradient(to bottom, #fff, #f9f5ff);
-    flex: 1;
+    min-height: calc(100vh - 80px);
+    margin-top: 70px;
   }
 
   .background {
@@ -168,8 +154,6 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    position: static !important;
-    top: auto !important;
   }
 
   .hero-text {
@@ -244,9 +228,6 @@
     gap: 25px;
     padding: 0;
     margin: 20px 0;
-    position: static !important;
-    right: auto !important;
-    top: auto !important;
   }
 
   .practice {
@@ -260,8 +241,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     text-align: center;
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
   }
 
   .practice:active {
@@ -271,7 +251,6 @@
   .imgdesc {
     width: 70px;
     height: auto;
-    margin: 0 !important;
     flex-shrink: 0;
   }
 
@@ -281,10 +260,8 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    position: static !important;
-    top: auto !important;
-    align-items: center !important;
-    justify-content: center !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .title1 h3,
@@ -292,23 +269,20 @@
     font-size: 20px;
     color: #7a5cfa;
     font-weight: 800;
-    margin: 0 !important;
-    margin-left: 0 !important;
+    margin: 0;
   }
 
   .bod {
     font-size: 14px;
     color: #666;
     line-height: 1.5;
-    width: 100% !important;
-    margin-left: 0 !important;
     text-align: center;
   }
 
-  @keyframes fadeIn {
+  @keyframes slideDown {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(-20px);
     }
     to {
       opacity: 1;
@@ -327,19 +301,25 @@
     }
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   @media (min-width: 640px) {
-    .hero {
+    .pageHeader {
+      padding: 15px 30px;
+      gap: 40px;
+    }
+
+    .header-logo {
+      gap: 12px;
+    }
+
+    .uniben {
+      width: 50px;
+    }
+
+    .logo {
+      font-size: 26px;
+    }
+
+    section {
       gap: 60px;
       padding: 40px 25px;
     }
@@ -388,27 +368,10 @@
     .bod {
       font-size: 15px;
     }
-
-    :global(.indexHeader) {
-      padding: 15px 30px;
-      gap: 40px;
-    }
-
-    .header-logo {
-      gap: 12px;
-    }
-
-    :global(.indexHeader .uniben) {
-      width: 50px;
-    }
-
-    :global(.indexHeader .logo) {
-      font-size: 26px;
-    }
   }
 
   @media (min-width: 1024px) {
-    .hero {
+    section {
       gap: 80px;
       padding: 50px 30px;
     }
