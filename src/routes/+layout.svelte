@@ -11,6 +11,7 @@
   <meta name="theme-color" content="#ffffff" />
   <link rel="manifest" href="/manifest.json" />
 </svelte:head>
+
 <header>
   <a href="/">
     <img class="uniben" src="/favicon.png" alt="examinu" />
@@ -18,4 +19,5 @@
   </a>
   <Auth class="mobile" />
 </header>
+
 {@render children()}
