@@ -7,7 +7,7 @@
 
 <div class="index">
   <header class="indexHeader">
-    <a href="/">
+    <a href="/" class="header-logo">
       <img class="uniben" src="/favicon.png" alt="examinu" />
       <div class="logo">ExaminU</div>
     </a>
@@ -59,51 +59,52 @@
 </div>
 
 <style>
-  :global(body) {
-    background: #fff;
-  }
-
   .index {
     color: #3c2572;
     font-family: 'Open Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background: #fff;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
-  :global(.index header) {
+  :global(.indexHeader) {
     position: static !important;
+    top: auto !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    gap: 40px;
+    padding: 12px 15px;
+    gap: 20px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     animation: none !important;
     z-index: 100;
-    margin-top: 70px;
+    margin-top: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  :global(.index header a) {
+  .header-logo {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-weight: bold;
+    gap: 8px;
+    flex-shrink: 0;
+    text-decoration: none;
   }
 
-  :global(.index .uniben) {
-    width: 50px;
+  :global(.indexHeader .uniben) {
+    width: 45px;
     height: auto;
     border-radius: 8px;
+    flex-shrink: 0;
   }
 
-  :global(.index .logo) {
-    font-size: 28px;
+  :global(.indexHeader .logo) {
+    font-size: 22px;
     background: linear-gradient(to right, blue, purple);
     -webkit-background-clip: text;
     background-clip: text;
@@ -112,126 +113,137 @@
     position: static !important;
     top: auto !important;
     left: auto !important;
+    font-weight: bold;
   }
 
-  :global(.index nav) {
+  :global(.indexHeader nav) {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
-  :global(.index nav ul) {
+  :global(.indexHeader nav ul) {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     list-style: none;
   }
 
-  :global(.index nav ul li a) {
+  :global(.indexHeader nav ul li a) {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.3s ease;
   }
 
-  :global(.index nav ul li a:hover) {
+  :global(.indexHeader nav ul li a:hover) {
     color: #7a5cfa;
+  }
+
+  :global(.indexHeader .auth-buttons) {
+    display: flex;
+    gap: 10px;
+    z-index: 100;
   }
 
   .hero {
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    padding: 60px 20px;
+    gap: 50px;
+    padding: 30px 15px;
     align-items: center;
-    animation: fadeIn 1.5s ease-in-out;
     background: linear-gradient(to bottom, #fff, #f9f5ff);
+    flex: 1;
   }
 
   .background {
     background-image: linear-gradient(135deg, rgb(252, 235, 248), rgb(238, 188, 225));
     width: 100%;
-    max-width: 1000px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    padding: 50px 40px;
+    max-width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 30px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
     position: static !important;
     top: auto !important;
   }
 
   .hero-text {
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
+    text-align: center;
   }
 
   .hero-text h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     color: #333;
-    line-height: 1.2;
+    line-height: 1.3;
     font-weight: 800;
   }
 
   .hero-text p {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
-    margin-bottom: 30px;
-    line-height: 1.6;
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
 
   .hero-text button {
     background-color: #7a5cfa;
     color: white;
-    padding: 14px 40px;
+    padding: 12px 35px;
     border: none;
-    border-radius: 28px;
+    border-radius: 25px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(122, 92, 250, 0.3);
   }
 
+  .hero-text button:active {
+    transform: scale(0.98);
+  }
+
   .hero-text button:hover {
     background-color: #5a3eda;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(122, 92, 250, 0.4);
   }
 
   .hero-image {
-    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
   }
 
   .book {
-    width: 140px;
+    width: 120px;
     height: auto;
     animation: zoomIn 1.5s ease;
   }
 
   .man {
-    width: 180px;
+    width: 150px;
     height: auto;
     animation: zoomIn 1.5s ease;
   }
 
   .others {
     width: 100%;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    padding: 0 20px;
-    margin: 40px 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0;
+    margin: 20px 0;
     position: static !important;
     right: auto !important;
     top: auto !important;
@@ -241,34 +253,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    border-radius: 20px;
+    gap: 20px;
+    border-radius: 16px;
     background: white;
-    padding: 50px 30px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     text-align: center;
-    width: auto !important;
+    width: 100% !important;
     height: auto !important;
   }
 
-  .practice:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 12px 35px rgba(122, 92, 250, 0.15);
-    border: 2px solid #7a5cfa;
+  .practice:active {
+    transform: scale(0.98);
   }
 
   .imgdesc {
-    width: 80px;
+    width: 70px;
     height: auto;
     margin: 0 !important;
+    flex-shrink: 0;
   }
 
   .title1,
   .title2 {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
     position: static !important;
     top: auto !important;
@@ -278,7 +289,7 @@
 
   .title1 h3,
   .title2 h3 {
-    font-size: 24px;
+    font-size: 20px;
     color: #7a5cfa;
     font-weight: 800;
     margin: 0 !important;
@@ -286,10 +297,10 @@
   }
 
   .bod {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
-    line-height: 1.6;
-    width: auto !important;
+    line-height: 1.5;
+    width: 100% !important;
     margin-left: 0 !important;
     text-align: center;
   }
@@ -316,204 +327,134 @@
     }
   }
 
-  @media (max-width: 1024px) {
-    .background {
-      flex-direction: column;
-      padding: 40px;
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
     }
-
-    .hero {
-      gap: 60px;
-      padding: 40px 20px;
-    }
-
-    :global(.index header) {
-      gap: 20px;
-    }
-
-    :global(.index nav ul) {
-      gap: 25px;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @media (max-width: 768px) {
-    :global(.index header) {
-      flex-direction: column;
-      padding: 15px;
-      gap: 15px;
-      margin-top: 70px;
+  @media (min-width: 640px) {
+    .hero {
+      gap: 60px;
+      padding: 40px 25px;
     }
 
-    :global(.index header a) {
-      gap: 10px;
-      justify-content: center;
+    .background {
+      padding: 40px;
+      flex-direction: row;
     }
 
-    :global(.index .uniben) {
-      width: 40px;
+    .hero-text {
+      flex: 1;
+      text-align: left;
     }
 
-    :global(.index .logo) {
+    .hero-text h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero-image {
+      flex: 1;
+    }
+
+    .book {
+      width: 130px;
+    }
+
+    .man {
+      width: 160px;
+    }
+
+    .others {
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    .practice {
+      flex: 1;
+      padding: 40px 25px;
+    }
+
+    .title1 h3,
+    .title2 h3 {
       font-size: 22px;
     }
 
-    :global(.index nav) {
-      width: 100%;
-    }
-
-    :global(.index nav ul) {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      right: 10px;
-      top: 140px;
-      width: 50vw;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    :global(.index nav ul.active) {
-      display: flex;
-    }
-
-    :global(.index nav ul li a) {
-      color: #333;
-    }
-
-    .hero {
-      gap: 40px;
-      padding: 30px 15px;
-    }
-
-    .background {
-      padding: 30px;
-      border-radius: 16px;
-    }
-
-    .hero-text h1 {
-      font-size: 2rem;
-    }
-
-    .hero-text p {
-      font-size: 16px;
-    }
-
-    .hero-text button {
-      padding: 12px 30px;
-      font-size: 15px;
-    }
-
-    .book {
-      width: 100px;
-    }
-
-    .man {
-      width: 140px;
-    }
-
-    .others {
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .practice {
-      padding: 35px 25px;
-    }
-
-    .imgdesc {
-      width: 60px;
-    }
-
-    .title1 h3,
-    .title2 h3 {
-      font-size: 20px;
-    }
-
     .bod {
       font-size: 15px;
     }
-  }
 
-  @media (max-width: 480px) {
-    :global(.index header) {
-      padding: 10px;
-      gap: 10px;
+    :global(.indexHeader) {
+      padding: 15px 30px;
+      gap: 40px;
     }
 
-    :global(.index header a) {
-      gap: 8px;
+    .header-logo {
+      gap: 12px;
     }
 
-    :global(.index .uniben) {
-      width: 35px;
-    }
-
-    :global(.index .logo) {
-      font-size: 18px;
-    }
-
-    :global(.index nav ul) {
-      width: 60vw;
-      right: 5px;
-      top: 110px;
-    }
-
-    .hero {
-      gap: 30px;
-      padding: 20px 10px;
-    }
-
-    .background {
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .hero-text h1 {
-      font-size: 1.6rem;
-    }
-
-    .hero-text p {
-      font-size: 14px;
-    }
-
-    .hero-text button {
-      padding: 10px 24px;
-      font-size: 14px;
-    }
-
-    .book {
-      width: 80px;
-    }
-
-    .man {
-      width: 110px;
-    }
-
-    .others {
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .practice {
-      padding: 25px 15px;
-    }
-
-    .imgdesc {
+    :global(.indexHeader .uniben) {
       width: 50px;
     }
 
-    .title1 h3,
-    .title2 h3 {
+    :global(.indexHeader .logo) {
+      font-size: 26px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      gap: 80px;
+      padding: 50px 30px;
+    }
+
+    .background {
+      padding: 50px;
+      max-width: 1100px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+    }
+
+    .hero-text p {
       font-size: 18px;
     }
 
-    .bod {
-      font-size: 13px;
+    .book {
+      width: 140px;
+    }
+
+    .man {
+      width: 180px;
+    }
+
+    .others {
+      max-width: 1100px;
+      gap: 40px;
+    }
+
+    .imgdesc {
+      width: 80px;
+    }
+
+    .practice {
+      padding: 50px 30px;
+    }
+
+    .practice:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(122, 92, 250, 0.15);
+    }
+
+    .title1 h3,
+    .title2 h3 {
+      font-size: 24px;
     }
   }
 </style>
