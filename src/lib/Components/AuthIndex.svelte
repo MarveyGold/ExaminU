@@ -10,7 +10,7 @@
     document.cookie = `prev=${$page.url.href};  path=${`/${a}`} `;
     goto(`/${a}?redirect=${$page.url.href}`);
   }
-  let style = $state();
+  let style = $state("");
 
   function changeStyle() {
     style = style === "" ? "active" : "";
