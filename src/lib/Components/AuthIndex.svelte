@@ -37,9 +37,8 @@
 {:else}
   <!-- else content here -->
   <div class={`auth-buttons ${className}`} {...props}>
-    <button class="login" onclick={Auth("login")}>Sign in</button>
-    <button class="signup" onclick={Auth("signup")}>Sign up</button>
-  </div>
+    <button class="login" onclick={() => Auth("login")}>Sign in</button>
+<button class="signup" onclick={() => Auth("signup")}>Sign up</button>  </div>
 {/if}
 
 <style>
