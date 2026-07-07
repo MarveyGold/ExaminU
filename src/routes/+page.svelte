@@ -75,7 +75,11 @@
     gap: 20px;
     flex-wrap: nowrap;
   }
-
+@media (max-width: 768px) {
+  :global(.pageHeader > .auth-buttons.desktop) {
+    display: none;
+  }
+}
   .header-logo {
     display: flex;
     align-items: center;
