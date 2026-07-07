@@ -27,9 +27,8 @@
   <!-- content here -->
 
   <div role="button" class={className} onclick={changeStyle}><Me /></div>
-
-  <ul id="list" class={`auth-buttons ${style}`}>
-    <li class="email">{user.email}</li>
+  <ul id="list" class={`auth-buttons ${className} ${style}`}>
+   <li class="email">{user.email}</li>
     <li>
       <button class="signup" onclick={signout}>Sign Out</button>
     </li>
