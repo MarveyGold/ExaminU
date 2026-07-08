@@ -33,7 +33,15 @@
     position: relative;
     flex: 1;
   }
-
+.mobile :global(#list) {
+  position: static;
+  top: auto;
+  right: auto;
+  box-shadow: none;
+  padding: 0;
+  background: transparent;
+  display: flex !important;
+}
   .nav-btn {
     display: none;
     align-items: center;
