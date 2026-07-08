@@ -24,11 +24,11 @@
 </script>
 
 {#if user}
-  <!-- content here -->
-
-  <div role="button" class={className} onclick={changeStyle}><Me /></div>
-  <ul id="list" class={`auth-buttons ${className} ${style}`}>
-   <li class="email">{user.email}</li>
+<div role="button" class={className} onclick={changeStyle}><Me /></div>
+  <ul id="list" class={`auth-buttons ${className}`}>
+    {#if style === "active"}
+      <li class="email">{user.email}</li>
+    {/if}
     <li>
       <button class="signup" onclick={signout}>Sign Out</button>
     </li>
