@@ -358,7 +358,36 @@ header a {
 /* ============================================
    AUTHENTICATION
    ============================================ */
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
 
+.icon-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.login {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.signup {
+  background: #7a5cfa;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+}
 .auth-buttons {
   display: flex;
   flex-direction: row;
