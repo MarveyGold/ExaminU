@@ -24,20 +24,18 @@
 </script>
 
 {#if user}
-<div role="button" class={className} onclick={changeStyle}><Me /></div>
-  <ul id="list" class={`auth-buttons ${className}`}>
+  <li class="auth-row {className}">
+    <div role="button" class="icon-toggle" onclick={changeStyle}><Me /></div>
     {#if style === "active"}
-      <li class="email">{user.email}</li>
+      <span class="email">{user.email}</span>
     {/if}
-    <li>
-      <button class="signup" onclick={signout}>Sign Out</button>
-    </li>
-  </ul>
+    <button class="signup" onclick={signout}>Sign Out</button>
+  </li>
 {:else}
-  <!-- else content here -->
-  <div class={`auth-buttons ${className}`} {...props}>
+  <li class="auth-row {className}">
     <button class="login" onclick={() => Auth("login")}>Sign in</button>
-<button class="signup" onclick={() => Auth("signup")}>Sign up</button>  </div>
+    <button class="signup" onclick={() => Auth("signup")}>Sign up</button>
+  </li>
 {/if}
 
 <style>
