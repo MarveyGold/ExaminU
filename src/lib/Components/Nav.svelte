@@ -36,12 +36,13 @@
   }
 .mobile :global(#list) {
   position: static;
+  display: flex !important;
+  flex-direction: column;
   top: auto;
   right: auto;
   box-shadow: none;
   padding: 0;
   background: transparent;
-  display: flex !important;
 }
   .nav-btn {
     display: none;
