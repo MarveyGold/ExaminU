@@ -21,7 +21,7 @@
  <li><a href="/">Home</a></li>
     <li><a href="#practice">Curriculum</a></li>
     <li><a href="#contact">Feedback</a></li>
-    <li class="mobile"><Auth class="mobile" /></li>
+  <Auth class="mobile" />
    
   </ul>
 </nav>
