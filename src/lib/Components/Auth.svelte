@@ -63,7 +63,7 @@
 
   @media (max-width: 768px) {
     ul li button {
-      width: 45vw;
+      width: 25vw;
       right: 0;
       position: absolute;
     }

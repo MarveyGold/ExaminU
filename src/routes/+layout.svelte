@@ -15,7 +15,7 @@
 <header>
   <a href="/">
     <img class="uniben" src="/favicon.png" alt="examinu" />
-    <div class="logo">ExaminU</div>
+    <h1 class="logo">ExaminU</h1>
   </a>
   <Auth class="mobile" />
 </header>

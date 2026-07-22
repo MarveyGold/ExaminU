@@ -2,6 +2,7 @@ import { Lucia } from "lucia";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
 import { MongoClient } from "mongodb";
 import { MONGO_URI } from "$env/static/private";
+import { dev } from "$app/environment"
 
 const client = new MongoClient(MONGO_URI);
 await client.connect();

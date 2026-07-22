@@ -78,6 +78,7 @@ header a {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -179,9 +180,12 @@ header a {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-15px);
   }
+
   50% {
     transform: translateY(15px);
   }
@@ -192,6 +196,7 @@ header a {
     transform: scale(0.9);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -388,6 +393,7 @@ header a {
   border-radius: 25px;
   font-weight: 600;
 }
+
 .auth-buttons {
   display: flex;
   flex-direction: row;
@@ -638,6 +644,7 @@ footer a {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -802,13 +809,13 @@ details {
 
   .auth-buttons {
     flex-direction: column;
-    width: 100%;
     gap: 10px;
   }
 
   .auth-buttons button {
-    width: 100%;
+    width: 20vw;
     padding: 12px;
+
   }
 
   .contact-us {

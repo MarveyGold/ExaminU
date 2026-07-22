@@ -1,40 +1,37 @@
 <script>
-  let current = $state("");
-
-  const exams = [
-    { name: "Post UTME", code: "asp" },
-    { name: "Uniben Exam", code: "b" },
-  ];
+  let { data } = $props();
+  let current = $state();
+  const names = {
+    bio: "Biology",
+    chem: "Chemistry",
+    econs: "Economics",
+    eng: "English",
+    gov: "Government",
+    phy: "Physics",
+  };
 </script>
 
 <main class="main">
-  <h1 class="header">Select Exam</h1>
-
+  <h2 class="header">Post-UTME Subjects</h2>
   <div class="container">
-    {#each exams as exam}
+    {#each data.subjects as subject}
       <a
-        href={`/${exam.code}`}
-        class:selected={current === exam.code}
-        class="course selector"
-        onmouseenter={() => (current = exam.code)}
-        onfocus={() => (current = exam.code)}
+        href={`/asp/${subject}`}
+        class={`course selector ${current === subject ? "selected" : ""}`}
         onclick={(e) => {
-          if (!current || current !== exam.code) {
-            e.preventDefault();
-            current = exam.code;
-          }
+          e.preventDefault();
+          current = subject;
         }}
       >
-        {exam.name}
+        {names[subject] ?? subject}
       </a>
     {/each}
   </div>
-
   {#if current}
     <footer>
-      <a href={`/${current}`}>
-        <button class="footerButton">Get Started</button>
-      </a>
+      <a href={`asp/${current}`}
+        ><button class="footerButton">Get Started</button></a
+      >
     </footer>
   {/if}
 </main>
