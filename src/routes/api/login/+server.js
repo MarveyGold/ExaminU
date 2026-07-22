@@ -13,7 +13,7 @@ export async function POST({ request, event }) {
     await User.findOne({ email });
 
   if (!user) {
-    return new Response("Invalid", { status: 400 });
+    return json({ status: 400 });
   }
 
   const valid =
@@ -23,7 +23,7 @@ export async function POST({ request, event }) {
     );
 
   if (!valid) {
-    return new Response("Invalid", { status: 400 });
+    return json({ status: 400 });
   }
 
   const session =
