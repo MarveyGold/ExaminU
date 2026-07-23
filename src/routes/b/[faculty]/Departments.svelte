@@ -27,3 +27,29 @@
     >
   {/if}
 </footer>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+    font-family: sans-serif;
+    width: 80vw;
+    position: relative;
+    margin-top: 50px;
+
+    margin-bottom: 50px;
+  }
+  .faculties {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    max-width: 100vw;
+    height: 40vh;
+    overflow: hidden;
+  }
+</style>

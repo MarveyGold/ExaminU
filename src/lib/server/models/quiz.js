@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 const quizSchema = new Schema({
   title: String,
   id: Number,
+  exam: { type: String, default: "post-utme" },
   question: { type: String, trim: true },
   options: [String],
   optionA: String,

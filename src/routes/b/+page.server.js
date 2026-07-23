@@ -1,11 +1,17 @@
-import { API_URL } from "$env/static/private";
-export async function load({ fetch }) {
 
-  const faculties = await fetch(`${API_URL}/api/faculty/names`);
-  const facultyList = await fetch(`${API_URL}/api/faculty/codes`);
-  console.log(faculties);
-  console.log(facultyList)
-  const names = await faculties.json();
-  const codes = await facultyList.json();
+import Data from "$lib/server/models/data.js";
+export async function load({ fetch }) {
+  const result = await Data.aggregate([
+    {
+      $group: {
+        _id: { name: "$name", code: "$code" },
+      },
+    },
+    { $project: { _id: 0, name: "$_id.name", code: "$_id.code" } },
+  ]);
+  //  console.log(faculties);
+  //  console.log(facultyList)
+  const names = await result.map((a) => a.name);
+  const codes = await result.map((a) => a.code);
   return { names, codes }
 }
