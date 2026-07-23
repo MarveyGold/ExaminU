@@ -5,7 +5,7 @@
   import Me from "$lib/Icons/me.svelte";
   let { class: className = "", data, ...props } = $props();
   const user = $page.data.user;
-  console.log(user);
+  // console.log(user);
   function Auth(a) {
     document.cookie = `prev=${$page.url.href};  path=${`/${a}`} `;
     goto(`/${a}?redirect=${$page.url.href}`);
@@ -25,7 +25,15 @@
 
 {#if user}
   <!-- content here -->
-  <div role="button" class="login" onclick={changeStyle}><Me /></div>
+  <div
+    role="button"
+    tabindex="0"
+    onkeyup={changeStyle}
+    class="login"
+    onclick={changeStyle}
+  >
+    <Me />
+  </div>
   <ul id="list" class={style}>
     <li class="email">{user.email}</li>
     <li class="auth-buttons">
@@ -63,19 +71,8 @@
 
   @media (max-width: 768px) {
     ul li button {
-      width: 25vw;
-      right: 0;
-      position: absolute;
-    }
-    nav ul {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      right: 0;
       width: 45vw;
-      top: 10dvh;
-      background-color: #20203a;
-      padding: 20px;
+      right: 0;
       position: absolute;
     }
     .signup {

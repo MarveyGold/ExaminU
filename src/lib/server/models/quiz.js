@@ -1,7 +1,7 @@
 import mongoose from "../db.js"
 const { Schema } = mongoose;
 const quizSchema = new Schema({
-  title: String,
+  title: { type: String, trim: true },
   id: Number,
   exam: { type: String, default: "post-utme" },
   question: { type: String, trim: true },

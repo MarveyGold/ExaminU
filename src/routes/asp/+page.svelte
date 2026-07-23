@@ -16,11 +16,11 @@
   <div class="container">
     {#each data.subjects as subject}
       <a
-        href={`/asp/${subject}`}
+        href={`/asp/${names[subject].toLowerCase()}`}
         class={`course selector ${current === subject ? "selected" : ""}`}
         onclick={(e) => {
           e.preventDefault();
-          current = subject;
+          current = names[subject].toLowerCase();
         }}
       >
         {names[subject] ?? subject}
