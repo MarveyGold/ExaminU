@@ -1,16 +1,14 @@
 import { Lucia } from "lucia";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
-import { MongoClient } from "mongodb";
-import { MONGO_URI } from "$env/static/private";
-import { dev } from "$app/environment"
+import { dev } from "$app/environment";
+import mongoose from "./db.js";
 
-const client = new MongoClient(MONGO_URI);
-await client.connect();
+const client = mongoose.connection.getClient();
 const db = client.db("examinu");
 
 const adapter = new MongodbAdapter(
   db.collection("sessions"),
-  db.collection("users"), // must match Mongoose User collection
+  db.collection("users"),
 );
 
 export const lucia = new Lucia(adapter, {
@@ -20,7 +18,7 @@ export const lucia = new Lucia(adapter, {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      secure: false,
+      secure: !dev,
     },
   },
   getUserAttributes: (attributes) => ({
