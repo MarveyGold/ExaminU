@@ -1,22 +1,21 @@
-import { API_URL } from "$env/static/private";
-export async function load({ params, fetch, url }) {
+import Data from "$lib/server/models/data.js";
 
-  const env = API_URL;
+export async function load({ params, url }) {
   const { faculty, department } = params;
-  const level = url.searchParams.get('level') ?? '100';
-  const courselist = await fetch(`${env}/api/${faculty}/${department}/courses`);
-  const courses = await courselist.json();
+  const level = url.searchParams.get("level") ?? "100";
 
-  const faculties = await fetch(`${env}/api/${faculty}/name`);
-  const facultyName = await faculties.text();
-  const departmentNameData = await fetch(`${env}/api/${faculty}/${department}/name`);
-  const departmentName = await departmentNameData.text();
+  const foundFaculty = await Data.findOne({ code: faculty }).lean();
+  if (!foundFaculty) return { faculty, department, level, courses: {}, facultyName: faculty, departmentName: department };
+
+  const foundDepartment = foundFaculty.departments.find((d) => d.code === department);
+  if (!foundDepartment) return { faculty, department, level, courses: {}, facultyName: foundFaculty.name, departmentName: department };
+
   return {
     faculty,
     department,
     level,
-    courses,
-    facultyName,
-    departmentName
-  }
+    courses: foundDepartment.courses,
+    facultyName: foundFaculty.name,
+    departmentName: foundDepartment.name,
+  };
 }
