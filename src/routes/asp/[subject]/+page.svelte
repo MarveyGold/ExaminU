@@ -110,15 +110,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     color: #fff;
     font-family: sans-serif;
     width: 80vw;
-    position: absolute;
     top: 5px;
 
     margin-bottom: 50px;
   }
+.main {
+min-height: 100vh;
+}
   .title {
     font-size: 20px;
     display: flex;
