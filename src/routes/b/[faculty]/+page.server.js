@@ -1,12 +1,15 @@
-import { API_URL } from "$env/static/private";
-export async function load({ params, fetch }) {
+import Data from "$lib/server/models/data.js";
+
+export async function load({ params }) {
   const { faculty } = params;
-  const env = API_URL;
-  const faculties = await fetch(`${env}/api/${faculty}/name`);
-  const facultyName = await faculties.text();
-  const names = await fetch(`${env}/api/${faculty}/departments/names`);
-  const links = await fetch(`${env}/api/${faculty}/departments/codes`);
-  const departmentList = await links.json();
-  const departmentNames = await names.json();
-  return { faculty, facultyName, departmentNames, departmentList }
+
+  const foundFaculty = await Data.findOne({ code: faculty }).lean();
+  if (!foundFaculty) return { faculty, facultyName: faculty, departmentNames: [], departmentList: [] };
+
+  return {
+    faculty,
+    facultyName: foundFaculty.name,
+    departmentNames: foundFaculty.departments.map((d) => d.name),
+    departmentList: foundFaculty.departments.map((d) => d.code),
+  };
 }
