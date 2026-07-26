@@ -17,9 +17,30 @@
 <section class="hero">
   <div class="background">
     <div class="hero-text">
-      <h1>Get Started with your mock Exam Practice</h1>
-      <p>Ace your next exam with smarter practices not more hours</p>
+      <div class="award-pill">
+        🏆
+        <div class="award-pill-text">
+          Tech Startup of the Year
+          <span>Beyond the Code Awards · NACOS UNIBEN</span>
+        </div>
+      </div>
+      <h1>Ace your exams with <em>smarter practice</em></h1>
+      <p>Post-UTME and university past questions — one tap away.</p>
       <a href="/app"><button>Get Started</button></a>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Courses</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">ASP subjects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">To start</div>
+        </div>
+      </div>
     </div>
     <div class="hero-image">
       <img
@@ -48,9 +69,7 @@
       <img class="imgdesc" src="4690558-200.png" alt="Practice Questions" />
       <div class="title2">
         <h3>Practice PQ</h3>
-        <div class="bod">
-          Answer previous sessions' questions on one click
-        </div>
+        <div class="bod">Answer previous sessions' questions on one click</div>
       </div>
     </div>
   </div>
@@ -75,11 +94,13 @@
     gap: 20px;
     flex-wrap: nowrap;
   }
-@media (max-width: 768px) {
-  :global(.pageHeader > .auth-buttons.desktop) {
-    display: none;
+
+  @media (max-width: 768px) {
+    :global(.pageHeader > .auth-buttons.desktop) {
+      display: none;
+    }
   }
-}
+
   .header-logo {
     display: flex;
     align-items: center;
@@ -102,7 +123,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
 
   :global(.pageHeader nav) {
@@ -138,18 +159,17 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 30px 15px;
+    padding: 30px 15px 60px;
     align-items: center;
-    background: linear-gradient(to bottom, #fff, #f9f5ff);
-    min-height: calc(100vh - 80px);
+    background: linear-gradient(to bottom, #0f0a1e 0%, #f9f5ff 100%);
+    height: 300dvh;
     margin-top: 70px;
   }
 
   .background {
-    background-image: linear-gradient(135deg, rgb(252, 235, 248), rgb(238, 188, 225));
+    background: #0f0a1e;
     width: 100%;
     max-width: 100%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     padding: 30px;
     display: flex;
@@ -164,17 +184,53 @@
     text-align: center;
   }
 
+  .award-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2a1f00;
+    border: 1px solid #f59e0b;
+    border-radius: 100px;
+    padding: 6px 14px;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+
+  .award-pill-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #fbbf24;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .award-pill-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: #d97706;
+  }
+
   .hero-text h1 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #ffffff;
     line-height: 1.3;
     font-weight: 800;
   }
 
+  .hero-text h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
   .hero-text p {
     font-size: 16px;
-    color: #666;
+    color: #9ca3af;
     margin-bottom: 20px;
     line-height: 1.5;
   }
@@ -200,6 +256,34 @@
     background-color: #5a3eda;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(122, 92, 250, 0.4);
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .stat {
+    background: #1a1030;
+    border: 1px solid #2d2060;
+    border-radius: 12px;
+    padding: 12px 14px;
+    flex: 1;
+  }
+
+  .stat-num {
+    font-size: 20px;
+    font-weight: 800;
+    color: #a78bfa;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 4px;
   }
 
   .hero-image {
@@ -330,6 +414,7 @@
     .background {
       padding: 40px;
       flex-direction: row;
+      align-items: flex-start;
     }
 
     .hero-text {
