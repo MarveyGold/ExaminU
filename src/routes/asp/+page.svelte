@@ -1,14 +1,6 @@
 <script>
   let { data } = $props();
   let current = $state();
-  const names = {
-    bio: "Biology",
-    chem: "Chemistry",
-    econs: "Economics",
-    eng: "English",
-    gov: "Government",
-    phy: "Physics",
-  };
 </script>
 
 <main class="main">
@@ -16,14 +8,14 @@
   <div class="container">
     {#each data.subjects as subject}
       <a
-        href={`/asp/${names[subject].toLowerCase()}`}
+        href={`/asp/${subject.toLowerCase()}`}
         class={`course selector ${current === subject ? "selected" : ""}`}
         onclick={(e) => {
           e.preventDefault();
-          current = names[subject].toLowerCase();
+          current = subject.toLowerCase();
         }}
       >
-        {names[subject] ?? subject}
+        {subject}
       </a>
     {/each}
   </div>
@@ -42,7 +34,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     color: #fff;
     font-family: sans-serif;
     width: 80vw;
