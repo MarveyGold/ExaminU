@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import data from "../../../../../static/data/departments.json"
+
 import mongoose from '$lib/server/db.js';
 import Department from '$lib/server/models/department.model.js';
 
