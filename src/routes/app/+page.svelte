@@ -16,8 +16,6 @@
         href={`/${exam.code}`}
         class:selected={current === exam.code}
         class="course selector"
-        onmouseenter={() => (current = exam.code)}
-        onfocus={() => (current = exam.code)}
         onclick={(e) => {
           if (!current || current !== exam.code) {
             e.preventDefault();
