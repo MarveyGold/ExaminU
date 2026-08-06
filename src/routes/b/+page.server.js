@@ -1,17 +1,9 @@
+import Faculty from "$lib/server/models/faculty.model.js";
 
-import Data from "$lib/server/models/data.js";
-export async function load({ fetch }) {
-  const result = await Data.aggregate([
-    {
-      $group: {
-        _id: { name: "$name", code: "$code" },
-      },
-    },
-    { $project: { _id: 0, name: "$_id.name", code: "$_id.code" } },
-  ]);
-  //  console.log(faculties);
-  //  console.log(facultyList)
-  const names = await result.map((a) => a.name);
-  const codes = await result.map((a) => a.code);
-  return { names, codes }
+export async function load() {
+  // load all faculties (name and code) from the Faculty collection
+  const faculties = await Faculty.find({}, { _id: 0, name: 1, code: 1 }).lean();
+  const names = faculties.map((f) => f.name);
+  const codes = faculties.map((f) => f.code);
+  return { names, codes };
 }
