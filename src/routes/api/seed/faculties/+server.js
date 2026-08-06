@@ -7,7 +7,7 @@ export async function GET() {
   try {
     // rely on existing db connector (top-level connect in src/lib/server/db.js)
     const documents = await Faculty.find({}).lean();
-    return json({ documents });
+    return json(documents );
   } catch (err) {
     return json({ error: err?.message || String(err) }, { status: 500 });
   }
