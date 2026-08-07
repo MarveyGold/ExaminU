@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+
 import mongoose from '$lib/server/db.js';
 import Course from '$lib/server/models/course.model.js';
 
