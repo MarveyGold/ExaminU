@@ -1,3 +1,4 @@
+import Quiz from "$lib/server/models/quiz.js";
 export async function load({ params, url }) {
   const { course } = params;
 
