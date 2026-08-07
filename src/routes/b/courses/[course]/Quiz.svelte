@@ -7,6 +7,7 @@
   function newQuiz() {
     goto(`/b/courses/${course}/?q=${next}`);
     result = "";
+    option = "";
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,54 +37,13 @@
 
     <form onsubmit={handleSubmit}>
       <div>
-        <label class="selector">
-          <input
-            type="radio"
-            name="Option"
-            value={Quiz.optionA}
-            bind:group={option}
-          />
-          {Quiz.optionA}
-        </label>
+    {#each Quiz.options ?? [] as opt}
+  <label class="selector">
+    <input type="radio" name="Option" value={opt} bind:group={option} />
+    {opt}
+  </label>
+{/each}   
 
-        <label class="selector">
-          <input
-            type="radio"
-            name="Option"
-            value={Quiz.optionB}
-            bind:group={option}
-          />
-          {Quiz.optionB}
-        </label>
-        <label class="selector">
-          <input
-            type="radio"
-            name="Option"
-            value={Quiz.optionC}
-            bind:group={option}
-          />
-          {Quiz.optionC}
-        </label>
-        <label class="selector">
-          <input
-            type="radio"
-            name="Option"
-            value={Quiz.optionD}
-            bind:group={option}
-          />
-          {Quiz.optionD}
-        </label>
-        {#if Quiz.optionE}
-          <label class="selector">
-            <input
-              type="radio"
-              name="Option"
-              value={Quiz.optionE}
-              bind:group={option}
-            />
-            {Quiz.optionE}
-          </label>
-        {/if}
       </div>
       <div class="ans">
         <button type="submit" class="answerButton">Check The Answer</button>
