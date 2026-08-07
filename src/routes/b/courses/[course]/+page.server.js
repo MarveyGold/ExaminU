@@ -1,18 +1,17 @@
-import { API_URL } from "$env/static/private";
-import Quiz from "$lib/server/models/quiz.js";
-export async function load({ params, fetch, url }) {
-  const env = API_URL;
+export async function load({ params, url }) {
   const { course } = params;
 
+  const all = await Quiz.find({ title: course }).distinct('question');
+  if (!all.length) {
+    return { quiz: [], course, next: null };
+  }
 
-  // const quizLength = await fetch(`${env}/api/quiz/${course}/length`);
-  const all = await Quiz.distinct("question").lean();
   const question = url.searchParams.get('q') ?? all[0];
-  const randomIndex = Math.floor(Math.random() * all.length);
-  const next = all[randomIndex];
 
-  //  const quizData = await fetch(`${env}/api/quiz/${course}?q=${q}`);
+  const remaining = all.filter(q => q !== question);
+  const pool = remaining.length ? remaining : all;
+  const next = pool[Math.floor(Math.random() * pool.length)];
+
   const quiz = await Quiz.find({ question }, { _id: 0 }).lean();
-  return { quiz, course, next }
-
+  return { quiz, course, next };
 }
