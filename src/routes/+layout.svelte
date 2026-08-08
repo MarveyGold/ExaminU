@@ -8,6 +8,7 @@
 <svelte:head>
   <link rel="icon" href="/favicon.png" />
   <title>ExaminU</title>
+<meta name="description" content="ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="manifest" href="/manifest.json" />
 </svelte:head>
