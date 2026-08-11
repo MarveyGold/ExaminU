@@ -6,7 +6,7 @@ import Course from '$lib/server/models/course.model.js';
 export async function GET() {
   try {
 
-    const documents = await Course.find({}).lean();
+    const documents = await Course.distinct("code");
     return json(documents);
   } catch (err) {
     return json({ error: err?.message || String(err) }, { status: 500 });
