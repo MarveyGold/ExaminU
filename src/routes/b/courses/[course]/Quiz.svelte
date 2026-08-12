@@ -5,7 +5,7 @@
   let result = $state("");
   let option = $state("");
   function newQuiz() {
-    goto(`/b/courses/${course}/?q=${next}`);
+    goto(`/b/courses/${course}/?q=${encodeURIComponent(next)}`);
     result = "";
     option = "";
   }
