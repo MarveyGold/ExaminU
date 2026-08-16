@@ -2,12 +2,11 @@
   let { names, codes } = $props();
   let current = $state();
   let search = $state("");
-  let filtered = $state(names.map((f, i) => ({ name: f, abbr: codes[i] })));
-  $effect(() => {
-    filtered = names
-      .map((f, i) => ({ name: f, abbr: codes[i] }))
-      .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()));
-  });
+let filtered = $derived(
+  names
+    .map((f, i) => ({ name: f, abbr: codes[i] }))
+    .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()))
+);
 </script>
 
 <main class="main">
@@ -20,11 +19,15 @@
       class="selector"
     />
     {#each filtered as faculty}
-      <button
+      <a
+  href={`b/${faculty.abbr}`}
         class={`course selector ${current === faculty.abbr ? "selected" : ""}`}
-        onclick={() => (current = faculty.abbr)}
+        onclick={(e) => {
+      e.preventDefault();
+      current = faculty.abbr;
+    }}
       >
-        {faculty.name}</button
+        {faculty.name}</a
       >
     {/each}
   </div>
