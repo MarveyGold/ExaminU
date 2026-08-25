@@ -66,12 +66,13 @@ header a {
 .logo {
   font-weight: bold;
   font-size: 24px;
-  background: linear-gradient(to right, blue, purple);
+  /* Keeps the blue -> purple brand identity with high dark-mode contrast */
+  background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
+  font-family: 'Inter', sans-serif;
+  }
 
 @keyframes slideDown {
   from {
