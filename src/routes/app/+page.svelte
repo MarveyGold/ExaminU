@@ -8,17 +8,18 @@
 </script>
 
 <main class="page-wrapper">
-  <header class="navbar">
+  <!-- Use div instead of header to avoid global header position:fixed rule -->
+  <div class="top-nav">
     <div class="brand">
       <img src="/favicon.png" alt="logo" class="logo-img" />
       <span class="brand-name">ExaminU</span>
     </div>
     <button class="sign-in-btn">Sign in</button>
-  </header>
+  </div>
 
   <section class="content-container">
     <div class="title-block">
-      <h1>Select Exam</h1>
+      <h1 class="page-title">Select Exam</h1>
       <p class="subtitle">Choose a category to start practicing</p>
     </div>
 
@@ -51,7 +52,6 @@
 </main>
 
 <style>
-  /* Base Reset & Variables */
   :global(*) {
     box-sizing: border-box;
     margin: 0;
@@ -68,13 +68,13 @@
     padding-bottom: 90px;
   }
 
-  /* Navbar Layout */
-  .navbar {
+  /* Scoped nav class avoiding global fixed header */
+  .top-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background-color: #0c0914;
+    width: 100%;
   }
 
   .brand {
@@ -89,11 +89,10 @@
     border-radius: 6px;
   }
 
-  /* High contrast text for dark mode */
   .brand-name {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #a78bfa; 
+    color: #a78bfa;
   }
 
   .sign-in-btn {
@@ -107,7 +106,6 @@
     cursor: pointer;
   }
 
-  /* Main Body Layout */
   .content-container {
     width: 100%;
     max-width: 480px;
@@ -122,7 +120,7 @@
     text-align: center;
   }
 
-  .title-block h1 {
+  .page-title {
     font-size: 2rem;
     font-weight: 700;
     color: #ffffff;
@@ -134,7 +132,6 @@
     font-size: 0.95rem;
   }
 
-  /* Card List Layout */
   .exam-list {
     display: flex;
     flex-direction: column;
@@ -191,7 +188,6 @@
     box-shadow: inset 0 0 0 3.5px #1f1638;
   }
 
-  /* Footer Button */
   .bottom-bar {
     position: fixed;
     bottom: 0;
