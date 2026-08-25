@@ -7,73 +7,135 @@
   ];
 </script>
 
-<main class="main">
-  <header class="page-header">
-    <h1>Select Exam</h1>
-    <p class="subtitle">Choose a category to start practicing</p>
+<main class="page-wrapper">
+  <header class="navbar">
+    <div class="brand">
+      <img src="/favicon.png" alt="logo" class="logo-img" />
+      <span class="brand-name">ExaminU</span>
+    </div>
+    <button class="sign-in-btn">Sign in</button>
   </header>
 
-  <div class="exam-grid">
-    {#each exams as exam}
-      <a
-href={`/${exam.code}`}
-        class="exam-card"
-        class:selected={current === exam.code}
-        onclick={() => (current = exam.code)}
-      >
-        <div class="card-content">
-          <span class="exam-title">{exam.name}</span>
-          <span class="exam-desc">{exam.description}</span>
-        </div>
-        <div class="radio-indicator"></div>
-      </a>
-    {/each}
-  </div>
+  <section class="content-container">
+    <div class="title-block">
+      <h1>Select Exam</h1>
+      <p class="subtitle">Choose a category to start practicing</p>
+    </div>
+
+    <div class="exam-list">
+      {#each exams as exam}
+        <a
+          href={`/${exam.code}`}
+          class="exam-card"
+          class:selected={current === exam.code}
+          onclick={(e) => {
+            e.preventDefault();
+            current = exam.code;
+          }}
+        >
+          <div class="card-text">
+            <span class="exam-title">{exam.name}</span>
+            <span class="exam-desc">{exam.description}</span>
+          </div>
+          <div class="radio-circle"></div>
+        </a>
+      {/each}
+    </div>
+  </section>
 
   {#if current}
-    <footer class="action-footer">
-      <a href={`/${current}`} class="start-btn"> Get Started </a>
+    <footer class="bottom-bar">
+      <a href={`/${current}`} class="cta-button"> Get Started </a>
     </footer>
   {/if}
 </main>
 
 <style>
-  :global(body) {
-    background-color: #0d0a1a;
+  /* Base Reset & Variables */
+  :global(*) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-wrapper {
+    min-height: 100vh;
+    background-color: #0c0914;
     color: #ffffff;
     font-family: system-ui, -apple-system, sans-serif;
-    margin: 0;
-  }
-
-  .main {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 24px 16px 100px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
+    padding-bottom: 90px;
   }
 
-  .page-header {
-    text-align: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+  /* Navbar Layout */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background-color: #0c0914;
   }
 
-  h1 {
-    font-size: 1.75rem;
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+  }
+
+  /* High contrast text for dark mode */
+  .brand-name {
+    font-size: 1.2rem;
     font-weight: 700;
-    margin: 0 0 8px;
+    color: #a78bfa; 
+  }
+
+  .sign-in-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  /* Main Body Layout */
+  .content-container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .title-block {
+    text-align: center;
+  }
+
+  .title-block h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
   }
 
   .subtitle {
     color: #9ca3af;
-    font-size: 0.9rem;
-    margin: 0;
+    font-size: 0.95rem;
   }
 
-  .exam-grid {
+  /* Card List Layout */
+  .exam-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -84,26 +146,21 @@ href={`/${exam.code}`}
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #18132a;
-    border: 2px solid #282042;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: left;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .exam-card:hover {
-    border-color: #4c3b80;
+    background-color: #161026;
+    border: 1.5px solid #2d2242;
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease-in-out;
   }
 
   .exam-card.selected {
     border-color: #7c3aed;
-    background: #21193d;
+    background-color: #1f1638;
   }
 
-  .card-content {
+  .card-text {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -112,48 +169,50 @@ href={`/${exam.code}`}
   .exam-title {
     font-size: 1.1rem;
     font-weight: 600;
+    color: #ffffff;
   }
 
   .exam-desc {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
     color: #9ca3af;
   }
 
-  .radio-indicator {
-    width: 20px;
-    height: 20px;
+  .radio-circle {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: 2px solid #4c3b80;
-    box-sizing: border-box;
+    flex-shrink: 0;
   }
 
-  .exam-card.selected .radio-indicator {
+  .exam-card.selected .radio-circle {
     border-color: #7c3aed;
     background-color: #7c3aed;
-    box-shadow: inset 0 0 0 3px #21193d;
+    box-shadow: inset 0 0 0 3.5px #1f1638;
   }
 
-  .action-footer {
+  /* Footer Button */
+  .bottom-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 16px;
-    background: #0d0a1a;
-    border-top: 1px solid #282042;
+    padding: 16px 20px;
+    background-color: #0c0914;
+    border-top: 1px solid #2d2242;
     display: flex;
     justify-content: center;
   }
 
-  .start-btn {
+  .cta-button {
     width: 100%;
-    max-width: 500px;
-    background: #7c3aed;
+    max-width: 480px;
+    background-color: #7c3aed;
     color: #ffffff;
     text-decoration: none;
     text-align: center;
     padding: 14px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 1rem;
   }
