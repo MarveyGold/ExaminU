@@ -9,14 +9,6 @@
 
 <main class="page-wrapper">
   <!-- Use div instead of header to avoid global header position:fixed rule -->
-  <div class="top-nav">
-    <div class="brand">
-      <img src="/favicon.png" alt="logo" class="logo-img" />
-      <span class="brand-name">ExaminU</span>
-    </div>
-    <button class="sign-in-btn">Sign in</button>
-  </div>
-
   <section class="content-container">
     <div class="title-block">
       <h1 class="page-title">Select Exam</h1>
