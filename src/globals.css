@@ -497,7 +497,7 @@ main {
   justify-content: flex-start;
   width: 100%;
   min-height: 100dvh;
-  padding-top: 80px;
+  padding-top: 100px; /* Increased to prevent fixed header overlap */
   padding-bottom: 100px;
   color: #fff;
   background: linear-gradient(to bottom, black, rgb(46, 1, 86), black);
@@ -515,29 +515,37 @@ main {
 }
 
 .selector {
+.selector {
   width: 90vw;
   max-width: 600px;
-  height: fit-content;
-  border-radius: 20px;
+  border-radius: 16px;
   background-color: #20153a;
   color: white;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 20px;
+  margin-top: 16px;
   display: flex;
-  align-items: center;
-  text-align: center;
+  flex-direction: column; /* Stack title and description cleanly */
+  align-items: flex-start; /* Align text to the left */
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
-
 .selector:hover {
   border-color: #7a5cfa;
 }
-
-.selected {
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.selector.selected {
   background-color: #3c2572;
+  border-color: #7a5cfa;
 }
 
 .course {
