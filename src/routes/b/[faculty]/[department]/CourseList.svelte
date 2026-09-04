@@ -13,7 +13,7 @@
 <main class="page-body">
   <div class="header-block">
     <h1 class="page-title">{departmentName}</h1>
-    
+
     <!-- Level Switcher Tabs -->
     <nav class="level-tabs">
       <a
@@ -95,7 +95,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px 16px 120px;
+    padding: 80px 16px 120px;
     box-sizing: border-box;
   }
 

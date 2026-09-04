@@ -1,18 +1,22 @@
 <script>
-  let { departmentList, departmentNames, faculty } = $props();
+  let { departmentList, departmentNames, faculty, facultyName } = $props();
   let selected = $state(null);
 
   let departments = $derived(
     departmentNames.map((name, i) => ({
       name,
-      code: departmentList[i]
-    }))
+      code: departmentList[i],
+    })),
   );
 </script>
 
 <main class="page-body">
   <div class="header-block">
-    <h1 class="page-title">Select Department</h1>
+    <div class="title">
+      <h1>{facultyName}</h1>
+    </div>
+
+    <h2 class="page-title">Select Department</h2>
     <p class="subtitle">Choose your course of study</p>
   </div>
 
@@ -37,7 +41,10 @@
       <a href="/b" class="footer-action secondary">Change Faculty</a>
 
       {#if selected}
-        <a href={`/b/${faculty}/${selected}?level=100`} class="footer-action primary">
+        <a
+          href={`/b/${faculty}/${selected}?level=100`}
+          class="footer-action primary"
+        >
           Continue
         </a>
       {/if}
@@ -46,6 +53,12 @@
 </main>
 
 <style>
+  h1 {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
   .page-body {
     display: flex;
     flex-direction: column;
@@ -53,7 +66,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px 16px 120px;
+    padding: 80px 16px 120px;
     box-sizing: border-box;
   }
 

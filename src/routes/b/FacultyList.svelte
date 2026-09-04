@@ -6,7 +6,7 @@
   let filtered = $derived(
     names
       .map((f, i) => ({ name: f, abbr: codes[i] }))
-      .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()))
+      .filter((f) => f.name.toLowerCase().includes(search.toLowerCase())),
   );
 </script>
 
@@ -54,7 +54,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px 16px 100px;
+    padding: 80px 16px 100px;
     box-sizing: border-box;
   }
 
