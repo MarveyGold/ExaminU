@@ -25,13 +25,7 @@
 
 {#if user}
   <!-- content here -->
-  <div
-    role="button"
-    tabindex="0"
-    onkeyup={changeStyle}
-    class="login"
-    onclick={changeStyle}
-  >
+  <div role="button" tabindex="0" onkeyup={changeStyle} onclick={changeStyle}>
     <Me />
   </div>
   <ul id="list" class={style}>
