@@ -78,9 +78,7 @@
           Change Course
         </a>
       {:else}
-        <a href="/b/" class="footer-link secondary">
-          Change Course
-        </a>
+        <a href="/b/" class="footer-link secondary"> Change Course </a>
       {/if}
 
       <a href="#change-question" class="footer-link primary" onclick={newQuiz}>
@@ -98,7 +96,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px 16px 120px;
+    padding: 80px 16px 120px;
     box-sizing: border-box;
   }
 
