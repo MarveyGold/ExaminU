@@ -25,7 +25,7 @@
 
 {#if user}
   <li class="auth-row {className}">
-    <div role="button" class="icon-toggle" onclick={changeStyle}><Me /></div>
+    <button class="icon-toggle" onclick={changeStyle}><Me /></button>
     {#if style === "active"}
       <span class="email">{user.email}</span>
     {/if}

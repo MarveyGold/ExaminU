@@ -96,7 +96,7 @@
   }
 
   @media (max-width: 768px) {
-    :global(.pageHeader > .auth-buttons.desktop) {
+    :global(.pageHeader .desktop) {
       display: none;
     }
   }

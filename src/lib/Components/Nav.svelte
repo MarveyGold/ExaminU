@@ -18,11 +18,10 @@
 <nav>
   <button onclick={changeStyle} class="nav-btn">{btnText}</button>
   <ul id="list" class={style}>
- <li><a href="/">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="#practice">Curriculum</a></li>
     <li><a href="#contact">Feedback</a></li>
-  <Auth class="mobile" />
-   
+    <Auth class="mobile" />
   </ul>
 </nav>
 
@@ -34,16 +33,15 @@
     position: relative;
     flex: 1;
   }
-.mobile :global(#list) {
-  position: static;
-  display: flex !important;
-  flex-direction: column;
-  top: auto;
-  right: auto;
-  box-shadow: none;
-  padding: 0;
-  background: transparent;
-}
+  :global(.mobile) {
+    display: none;
+    flex-direction: column;
+    top: auto;
+    right: auto;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+  }
   .nav-btn {
     display: none;
     align-items: center;
@@ -119,7 +117,7 @@
     }
 
     .mobile {
-      display: flex !important;
+      display: flex;
     }
   }
 
@@ -132,6 +130,14 @@
 
     ul {
       width: 70vw;
+    }
+    :global(.mobile) {
+      display: flex;
+      top: auto;
+      right: auto;
+      box-shadow: none;
+      padding: 0;
+      background: transparent;
     }
   }
 </style>
