@@ -168,8 +168,7 @@
 
   .background {
     background: #0f0a1e;
-    width: 100%;
-    max-width: 100%;
+    width: 95vw;
     border-radius: 16px;
     padding: 30px;
     display: flex;

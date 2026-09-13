@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite dev --host",
+    "dev": "vite dev --host examinu.local",
     "build": "vite build",
-    "start": "node build/index.js",
+    "start": "bun build/index.js",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''"
   },
@@ -25,6 +25,7 @@
     "lucia": "^3.2.2",
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.1",
-    "svelte-swipeable": "^1.0.9"
+    "svelte-swipeable": "^1.0.9",
+    "valibot": "^1.5.0"
   }
 }

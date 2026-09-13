@@ -7,7 +7,7 @@ const feedbackSchema = new Schema({
     required: true,
     trim: true
   },
-  mail: String,
+  message: String,
   createdAt: { type: Date, default: Date.now }
 });
 

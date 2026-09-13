@@ -22,34 +22,37 @@
     }
   }
 </script>
-
+ <ul>
 {#if user}
-  <li class="auth-row {className}">
+
+    <li class="auth-row {className}">
     <button class="icon-toggle" onclick={changeStyle}><Me /></button>
     {#if style === "active"}
       <span class="email">{user.email}</span>
     {/if}
     <button class="signup" onclick={signout}>Sign Out</button>
   </li>
+
 {:else}
+
   <li class="auth-row {className}">
     <button class="login" onclick={() => Auth("login")}>Sign in</button>
     <button class="signup" onclick={() => Auth("signup")}>Sign up</button>
   </li>
-{/if}
 
+
+{/if}
+ </ul>
 <style>
   ul {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 15px;
     right: 0;
-    top: 10dvh;
     background-color: #fff;
     padding: 20px;
-    position: absolute;
   }
 
   .active {

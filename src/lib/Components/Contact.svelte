@@ -1,55 +1,50 @@
 <script>
   import Send from "$lib/Icons/send.svelte";
+  import {submitFeedback} from './feedback.remote.js';
+  let status = $state('idle');
   let name = $state();
   let mail = $state();
   let message = $state("Send");
 
-  async function submit(e) {
-    e.preventDefault();
-    message = "Sending...";
-    const res = await fetch("http://192.168.205.116:8080/user", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, mail }),
-    });
-    const data = await res.json();
-    if (res.ok) {
-      message = "Sent";
-      return { message };
-    } else {
-      message = "Error";
-      return { message };
-    }
-  }
+
 </script>
 
 <section class="contact-us">
   <h2>Send Us Your Feedback</h2>
-  <form class="form" onsubmit={submit}>
+  <form class="form" {...submitFeedback.enhance(async ({submit}) => {
+    status = 'sending';
+    try {
+      await submit();
+      status = 'sent';
+    } catch {
+      status = 'error';
+    }
+  })} >
     <div class="form-group">
       <label for="name">Name:</label>
       <input
-        type="text"
-        id="name"
-        bind:value={name}
-        name="name"
+          {...submitFeedback.fields.name.as('text')}
         placeholder="Enter your name"
-        required
       />
     </div>
     <div class="form-group">
       <label for="message">Message:</label>
       <textarea
-        id="message"
-        bind:value={mail}
-        name="message"
+          {...submitFeedback.fields.message.as('text')}
         placeholder="Write your message"
-        required
       ></textarea>
     </div>
 
-    <button type="submit" class="btn">
-      {message}
+    <button type="submit" class="btn" disabled={status == 'sending'}>
+        {#if status == 'sending'}
+          Sending...
+        {:else if status == 'sent' }
+        Sent
+          {:else if status == 'error'}
+          Try again
+          {:else}
+          Send
+        {/if}
       <Send />
     </button>
   </form>
