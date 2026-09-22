@@ -1,510 +1,731 @@
 <script>
-  import Nav from "$lib/Components/Nav.svelte";
-  import Auth from "$lib/Components/AuthIndex.svelte";
+  // Self-hosted, so there is no request to Google Fonts. Latin subset, one file (~40 KB).
+  import "@fontsource-variable/bricolage-grotesque/wght.css";
+
+  import SiteHeader from "$lib/Components/SiteHeader.svelte";
+  import DemoQuestion from "$lib/Components/DemoQuestion.svelte";
   import Contact from "$lib/Components/Contact.svelte";
-  export let data;
+  import InstallPrompt from "$lib/Components/InstallPrompt.svelte";
+  import { landing } from "$lib/landing.js";
+
+  let { data } = $props();
+
+  const user = $derived(data.user);
+  const cta = $derived(user ? landing.hero.ctaReturning : landing.hero.cta);
+
+  const links = [
+    { href: "#how", label: "How it works" },
+    { href: "#trust", label: "Our approach" },
+    ...(landing.show.partners ? [{ href: "#partners", label: "Partners" }] : []),
+    { href: "#contact", label: "Feedback" }
+  ];
+
+  const year = new Date().getFullYear();
 </script>
 
-<header class="pageHeader">
-  <a href="/" class="header-logo">
-    <img class="uniben" src="/favicon.png" alt="examinu" />
-    <div class="logo">ExaminU</div>
-  </a>
-  <Nav />
-  <Auth class="desktop" {data} />
-</header>
+<div class="lp">
+  <SiteHeader {links} {user} {cta} ctaHref="/app" />
 
-<section class="hero">
-  <div class="background">
-    <div class="hero-text">
-      <div class="award-pill">
-        🏆
-        <div class="award-pill-text">
-          Tech Startup of the Year
-          <span>Beyond the Code Awards · NACOS UNIBEN</span>
+  <main class="main">
+    <section class="opener">
+      <div class="wrap opener-grid">
+        <div class="copy">
+          <h1>{landing.hero.headline}</h1>
+          <p class="sub">{landing.hero.sub}</p>
+
+          <div class="ctas">
+            <a class="btn primary" href="/app">{cta}</a>
+            <a class="btn ghost" href="#how">{landing.hero.secondary}</a>
+          </div>
+
+          <p class="award">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path class="ribbon" d="M10 18 7 29l6-3 3 4 3-4 6 3-3-11" />
+              <circle class="disc" cx="16" cy="12" r="9" />
+              <path class="star" d="m16 7 1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" />
+            </svg>
+            <span>
+              <strong>{landing.award.title}</strong>
+              {landing.award.by}
+            </span>
+          </p>
+        </div>
+
+        <div class="demo">
+          <DemoQuestion samples={landing.samples} ctaHref="/app" />
         </div>
       </div>
-      <h1>Ace your exams with <em>smarter practice</em></h1>
-      <p>Post-UTME and university past questions — one tap away.</p>
-      <a href="/app"><button>Get Started</button></a>
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-num">20+</div>
-          <div class="stat-label">Courses</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">6</div>
-          <div class="stat-label">ASP subjects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">Free</div>
-          <div class="stat-label">To start</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img
-        alt="book"
-        class="book float"
-        src="3d-illustration-reading-with-book-esssential_23-2151295086.png"
-      />
-      <img
-        class="man float"
-        src="man-removebg-preview.png"
-        alt="3D students illustration"
-      />
-    </div>
-  </div>
-  <div class="others">
-    <div class="practice" id="practice">
-      <img class="imgdesc" src="857524.png" alt="Browse Courses" />
-      <div class="title1">
-        <h3>Browse Courses</h3>
-        <div class="bod">
-          Find and browse over 20 available courses with ease
+    </section>
+
+    <section class="facts" aria-label="ExaminU in numbers">
+      <ul class="wrap facts-row">
+        {#each landing.facts as fact}
+          <li>
+            <strong>{fact.value}</strong>
+            <span>{fact.label}</span>
+          </li>
+        {/each}
+      </ul>
+    </section>
+
+    <section class="study" aria-hidden="false">
+      <div class="wrap study-grid">
+        <img class="study-img" src="/images/hero-man.png" alt="A student studying on a laptop" width="340" height="364" loading="lazy" />
+        <div class="study-copy">
+          <h2>{landing.study.title}</h2>
+          <p class="prose">{landing.study.body}</p>
+          <InstallPrompt />
         </div>
       </div>
-    </div>
-    <div class="practice">
-      <img class="imgdesc" src="4690558-200.png" alt="Practice Questions" />
-      <div class="title2">
-        <h3>Practice PQ</h3>
-        <div class="bod">Answer previous sessions' questions on one click</div>
+    </section>
+
+    <section class="sec" id="how">
+      <div class="wrap">
+        <h2>{landing.steps.title}</h2>
+        <ol class="steps">
+          {#each landing.steps.items as step, i}
+            <li>
+              {#if i === 0}
+                <img class="step-icon" src="/images/icon-focus.png" alt="" width="40" height="40" loading="lazy" />
+              {:else if i === 1}
+                <img class="step-icon" src="/images/icon-checklist.png" alt="" width="40" height="40" loading="lazy" />
+              {/if}
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          {/each}
+        </ol>
       </div>
+    </section>
+
+    <section class="trust" id="trust">
+      <div class="wrap trust-grid">
+        <div class="trust-text">
+          <h2>{landing.trust.title}</h2>
+          <p class="prose">{landing.trust.body}</p>
+          <a class="text-link" href="#contact">{landing.trust.link}</a>
+        </div>
+        <img class="trust-img" src="/images/hero-book.png" alt="" width="220" height="220" loading="lazy" />
+      </div>
+    </section>
+
+    {#if landing.show.partners}
+      <section class="partners" id="partners">
+        <div class="wrap">
+          <h2>{landing.partners.title}</h2>
+          <div class="partner-grid">
+            {#each landing.partners.items as item}
+              <div class="partner">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            {/each}
+          </div>
+          <a class="btn light" href="#contact">{landing.partners.cta}</a>
+        </div>
+      </section>
+    {/if}
+
+    {#if landing.testimonials.length}
+      <section class="sec" id="voices">
+        <div class="wrap">
+          <h2>What students say</h2>
+          <ul class="voices">
+            {#each landing.testimonials as t}
+              <li>
+                <blockquote>{t.quote}</blockquote>
+                <p class="who"><strong>{t.name}</strong> {t.detail}</p>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      </section>
+    {/if}
+
+    <Contact title={landing.contact.title} body={landing.contact.body} />
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/">
+          <img src="/favicon.png" alt="" width="32" height="32" />
+          <span>ExaminU</span>
+        </a>
+        <p>{landing.footer.blurb}</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="/app">{cta}</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#contact">Feedback</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-  <Contact />
-</section>
+    <p class="wrap legal">
+      © {year} ExaminU · Illustrations and icons by
+      <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a>
+    </p>
+  </footer>
+</div>
 
 <style>
-  .pageHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    max-width: 100vw;
-    display: flex;
-    justify-content: space-between;
+  /* ---------- Tokens ---------- */
+  .lp {
+    --ink: #1b1740;
+    --body: #47456a;
+    --muted: #64628a;
+    --ground: #f7f6fc;
+    --paper: #ffffff;
+    --line: #e4e2f2;
+    --line-strong: #8f8cb2;
+    --rule: #d9def5;
+    --violet: #5a3df0;
+    --violet-deep: #4527d4;
+    --violet-tint: #efecff;
+    --pen: #d93a41;
+    --pen-text: #b3232a;
+    --pen-tint: #fdecec;
+    --ok: #0d7a53;
+    --ok-tint: #e4f5ec;
+    --gold: #c98a07;
+
+    --font-sans: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+    --font-serif: ui-serif, Georgia, "Noto Serif", "Times New Roman", serif;
+
+    --wrap: 1120px;
+    --gap: clamp(1rem, 4vw, 2rem);
+
+    min-height: 100dvh;
+    background: var(--ground);
+    color: var(--body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* globals.css forces one font on every element; this lets a single element
+     opt into the serif by setting --ff, and everything inside follows. */
+  .lp :global(*) {
+    font-family: var(--ff, var(--font-sans));
+  }
+
+  .lp :global(a:focus-visible),
+  .lp :global(button:focus-visible) {
+    outline: 3px solid var(--violet);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: var(--gap);
+  }
+
+  /* globals.css styles every <main> as the dark app shell; undo that here. */
+  .main {
+    display: block;
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Buttons and links ---------- */
+  .btn {
+    display: inline-flex;
     align-items: center;
-    animation: slideDown 1s ease-in-out;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 12px 15px;
-    background-color: #fff;
-    gap: 20px;
-    flex-wrap: nowrap;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 1.75rem;
+    border-radius: 999px;
+    border: 1.5px solid transparent;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    transition: background-color 0.15s, border-color 0.15s;
   }
 
-  @media (max-width: 768px) {
-    :global(.pageHeader .desktop) {
-      display: none;
-    }
+  .btn.primary {
+    background: var(--violet);
+    color: #fff;
   }
 
-  .header-logo {
+  .btn.primary:hover {
+    background: var(--violet-deep);
+  }
+
+  .btn.ghost {
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+
+  .btn.ghost:hover {
+    border-color: var(--ink);
+  }
+
+  .btn.light {
+    background: #fff;
+    color: var(--ink);
+  }
+
+  .btn.light:hover {
+    background: var(--violet-tint);
+  }
+
+  .text-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-weight: 600;
+    color: var(--violet-deep);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* ---------- Hero ---------- */
+  .opener {
+    padding-block: clamp(1.75rem, 5vw, 4.5rem) clamp(2.5rem, 6vw, 5rem);
+  }
+
+  /* On phones the copy's children join the grid directly, so the sample
+     question sits right under the buttons and the award line comes after it. */
+  .opener-grid {
+    display: grid;
+    align-items: center;
+  }
+
+  .copy {
+    display: contents;
+  }
+
+  .demo {
+    order: 4;
+    margin-top: 2.25rem;
+  }
+
+  .award {
+    order: 5;
+  }
+
+  h1 {
+    font-size: clamp(2.375rem, 1.5rem + 4.2vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 750;
+  }
+
+  .sub {
+    max-width: 34rem;
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+
+  .ctas {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .award {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-    text-decoration: none;
+    gap: 0.75rem;
+    max-width: 30rem;
+    margin-top: 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.4;
   }
 
-  .uniben {
-    width: 45px;
-    height: auto;
-    border-radius: 8px;
-    flex-shrink: 0;
+  .award strong {
+    display: block;
+    color: var(--ink);
   }
 
-  .logo {
-    font-weight: bold;
-    font-size: 22px;
-    background: linear-gradient(to right, blue, purple);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-family: Georgia, "Times New Roman", Times, serif;
+  .award svg {
+    flex: none;
+    width: 34px;
+    height: 34px;
   }
 
-  :global(.pageHeader nav) {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  .award .ribbon {
+    fill: var(--violet);
   }
 
-  :global(.pageHeader nav ul) {
-    gap: 30px;
+  .award .disc {
+    fill: var(--gold);
+  }
+
+  .award .star {
+    fill: #fff;
+  }
+
+  /* ---------- Numbers ---------- */
+  .facts {
+    background: var(--paper);
+    border-block: 1px solid var(--line);
+  }
+
+  .facts-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-block: 1.5rem;
     list-style: none;
   }
 
-  :global(.pageHeader nav ul li a) {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  .facts-row li {
+    display: grid;
+    gap: 0.125rem;
+    align-content: start;
   }
 
-  :global(.pageHeader nav ul li a:hover) {
-    color: #7a5cfa;
+  .facts-row li + li {
+    padding-left: clamp(0.75rem, 3vw, 2rem);
+    border-left: 1px solid var(--line);
   }
 
-  :global(.pageHeader .auth-buttons) {
-    display: flex;
-    gap: 10px;
-    z-index: 100;
+  .facts-row strong {
+    font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
 
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    padding: 30px 15px 60px;
-    align-items: center;
-    background: linear-gradient(to bottom, #0f0a1e 0%, #f9f5ff 100%);
-    height: 300dvh;
-    margin-top: 70px;
+  .facts-row span {
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: var(--muted);
   }
 
-  .background {
-    background: #0f0a1e;
-    width: 95vw;
-    border-radius: 16px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+  /* ---------- Study anywhere ---------- */
+  .study {
+    padding-block: clamp(2.5rem, 6vw, 4rem);
   }
 
-  .hero-text {
-    width: 100%;
+  .study-grid {
+    display: grid;
+    justify-items: center;
+    gap: 1.75rem;
     text-align: center;
   }
 
-  .award-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #2a1f00;
-    border: 1px solid #f59e0b;
-    border-radius: 100px;
-    padding: 6px 14px;
-    width: fit-content;
-    margin-bottom: 16px;
-  }
-
-  .award-pill-text {
-    font-size: 12px;
-    font-weight: 500;
-    color: #fbbf24;
-    line-height: 1.3;
-    text-align: left;
-  }
-
-  .award-pill-text span {
-    display: block;
-    font-size: 11px;
-    font-weight: 400;
-    color: #d97706;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #ffffff;
-    line-height: 1.3;
-    font-weight: 800;
-  }
-
-  .hero-text h1 em {
-    font-style: normal;
-    background: linear-gradient(90deg, #a78bfa, #7c3aed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    white-space: nowrap;
-  }
-
-  .hero-text p {
-    font-size: 16px;
-    color: #9ca3af;
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-
-  .hero-text button {
-    background-color: #7a5cfa;
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(122, 92, 250, 0.3);
-  }
-
-  .hero-text button:active {
-    transform: scale(0.98);
-  }
-
-  .hero-text button:hover {
-    background-color: #5a3eda;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(122, 92, 250, 0.4);
-  }
-
-  .stats-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  .stat {
-    background: #1a1030;
-    border: 1px solid #2d2060;
-    border-radius: 12px;
-    padding: 12px 14px;
-    flex: 1;
-  }
-
-  .stat-num {
-    font-size: 20px;
-    font-weight: 800;
-    color: #a78bfa;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: #6b7280;
-    margin-top: 4px;
-  }
-
-  .hero-image {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .book {
-    width: 120px;
-    height: auto;
-    animation: zoomIn 1.5s ease;
-  }
-
-  .man {
+  .study-img {
     width: 150px;
     height: auto;
-    animation: zoomIn 1.5s ease;
   }
 
-  .others {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  .study-copy .prose {
+    max-width: 34rem;
+    margin-inline: auto;
+    font-size: 1.0625rem;
+  }
+
+  .study-copy :global(.install) {
+    margin: 1.25rem auto 0;
+  }
+
+  /* ---------- How it works ---------- */
+  .sec {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+    scroll-margin-top: 64px;
+  }
+
+  .step-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.75rem;
+  }
+
+  #how,
+  #trust,
+  #partners,
+  #voices {
+    scroll-margin-top: 64px;
+  }
+
+  .steps {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
     padding: 0;
-    margin: 20px 0;
+    list-style: none;
+    counter-reset: step;
   }
 
-  .practice {
-    display: flex;
-    flex-direction: column;
+  .steps li {
+    counter-increment: step;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .steps li::before {
+    content: counter(step);
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 2.25rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--violet);
+  }
+
+  .steps p {
+    max-width: 24rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ---------- Trust ---------- */
+  .trust {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+    background: var(--paper);
+    border-block: 1px solid var(--line);
+  }
+
+  .trust-grid {
+    display: grid;
+    gap: 2rem;
     align-items: center;
-    gap: 20px;
-    border-radius: 16px;
-    background: white;
-    padding: 30px 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 100%;
   }
 
-  .practice:active {
-    transform: scale(0.98);
-  }
-
-  .imgdesc {
-    width: 70px;
+  .trust-img {
+    width: 140px;
     height: auto;
-    flex-shrink: 0;
+    justify-self: center;
   }
 
-  .title1,
-  .title2 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+  .prose {
+    --ff: var(--font-serif);
+    max-width: 36rem;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  /* ---------- Partners ---------- */
+  .partners {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+    background: var(--ink);
+    color: #d6d3f3;
+  }
+
+  .partners h2,
+  .partners h3 {
+    color: #fff;
+  }
+
+  .partner-grid {
+    display: grid;
+    gap: 2rem;
+    margin-block: 2.5rem;
+  }
+
+  .partner {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .partner p {
+    max-width: 30rem;
+    margin-top: 0.5rem;
+  }
+
+  .partners :global(a:focus-visible) {
+    outline-color: #fff;
+  }
+
+  /* ---------- Student quotes (hidden until you add some) ---------- */
+  .voices {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    list-style: none;
+  }
+
+  .voices blockquote {
+    --ff: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .who {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .who strong {
+    color: var(--ink);
+  }
+
+  /* ---------- Footer ---------- */
+  .foot {
+    position: static;
+    display: block;
+    width: auto;
+    max-width: none;
+    padding: 2.5rem 0 2rem;
+    background: none;
+    backdrop-filter: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .foot-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .foot .brand {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.625rem;
+    color: var(--ink);
+    font-size: 1.125rem;
+    font-weight: 750;
   }
 
-  .title1 h3,
-  .title2 h3 {
-    font-size: 20px;
-    color: #7a5cfa;
-    font-weight: 800;
-    margin: 0;
+  .foot .brand img {
+    border-radius: 8px;
   }
 
-  .bod {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    text-align: center;
+  .foot-brand p {
+    max-width: 24rem;
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .foot ul {
+    display: grid;
+    gap: 0.25rem;
+    list-style: none;
   }
 
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.9);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+  .foot nav {
+    display: block;
+    flex: none;
   }
 
-  @media (min-width: 640px) {
-    .pageHeader {
-      padding: 15px 30px;
-      gap: 40px;
+  .foot nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--body);
+  }
+
+  .foot nav a:hover {
+    color: var(--violet-deep);
+  }
+
+  .legal {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .legal a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .legal a:hover {
+    color: var(--violet-deep);
+  }
+
+  /* ---------- Wider screens ---------- */
+  @media (min-width: 760px) {
+    .steps,
+    .partner-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
     }
 
-    .header-logo {
-      gap: 12px;
+    .partner-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
     }
 
-    .uniben {
-      width: 50px;
+    .voices {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .logo {
-      font-size: 26px;
-    }
-
-    section {
-      gap: 60px;
-      padding: 40px 25px;
-    }
-
-    .background {
-      padding: 40px;
-      flex-direction: row;
-      align-items: flex-start;
-    }
-
-    .hero-text {
-      flex: 1;
-      text-align: left;
-    }
-
-    .hero-text h1 {
-      font-size: 2.2rem;
-    }
-
-    .hero-image {
-      flex: 1;
-    }
-
-    .book {
-      width: 130px;
-    }
-
-    .man {
-      width: 160px;
-    }
-
-    .others {
-      flex-direction: row;
-      gap: 30px;
-    }
-
-    .practice {
-      flex: 1;
-      padding: 40px 25px;
-    }
-
-    .title1 h3,
-    .title2 h3 {
-      font-size: 22px;
-    }
-
-    .bod {
-      font-size: 15px;
+    .foot-grid {
+      grid-template-columns: 1fr auto;
+      align-items: start;
     }
   }
 
-  @media (min-width: 1024px) {
-    section {
-      gap: 80px;
-      padding: 50px 30px;
+  @media (min-width: 480px) {
+    .ctas {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .opener-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 4rem;
     }
 
-    .background {
-      padding: 50px;
-      max-width: 1100px;
+    .copy {
+      display: block;
     }
 
-    .hero-text h1 {
-      font-size: 2.8rem;
+    .demo {
+      order: 0;
+      margin-top: 0;
     }
 
-    .hero-text p {
-      font-size: 18px;
+    .trust-grid {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 4rem;
     }
 
-    .book {
-      width: 140px;
-    }
-
-    .man {
+    .trust-img {
+      order: 2;
       width: 180px;
     }
 
-    .others {
-      max-width: 1100px;
-      gap: 40px;
+    .study-grid {
+      grid-template-columns: auto minmax(0, 1fr);
+      justify-items: start;
+      text-align: left;
     }
 
-    .imgdesc {
-      width: 80px;
+    .study-img {
+      width: 170px;
     }
 
-    .practice {
-      padding: 50px 30px;
+    .study-copy .prose {
+      margin-inline: 0;
     }
 
-    .practice:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(122, 92, 250, 0.15);
-    }
-
-    .title1 h3,
-    .title2 h3 {
-      font-size: 24px;
+    .study-copy :global(.install) {
+      margin-inline: 0;
     }
   }
 </style>

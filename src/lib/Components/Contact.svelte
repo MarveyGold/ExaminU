@@ -1,50 +1,56 @@
 <script>
   import Send from "$lib/Icons/send.svelte";
-  import {submitFeedback} from './feedback.remote.js';
+  import { submitFeedback } from './feedback.remote.js';
+
   let status = $state('idle');
-  let name = $state();
-  let mail = $state();
-  let message = $state("Send");
-
-
+  let formElement = $state();
 </script>
 
-<section class="contact-us">
+<section class="contact-us" id="contact">
   <h2>Send Us Your Feedback</h2>
-  <form class="form" {...submitFeedback.enhance(async ({submit}) => {
-    status = 'sending';
-    try {
-      await submit();
-      status = 'sent';
-    } catch {
-      status = 'error';
-    }
-  })} >
+  <form
+    bind:this={formElement}
+    class="form"
+    {...submitFeedback.enhance(async ({ submit }) => {
+      status = 'sending';
+      try {
+        await submit();
+        status = 'sent';
+        if (formElement) formElement.reset();
+      } catch {
+        status = 'error';
+      }
+    })}
+  >
     <div class="form-group">
-      <label for="name">Name:</label>
+      <label for="name">Name</label>
       <input
-          {...submitFeedback.fields.name.as('text')}
+        id="name"
+        {...submitFeedback.fields.name.as('text')}
         placeholder="Enter your name"
+        required
       />
     </div>
     <div class="form-group">
-      <label for="message">Message:</label>
+      <label for="message">Message</label>
       <textarea
-          {...submitFeedback.fields.message.as('text')}
-        placeholder="Write your message"
+        id="message"
+        {...submitFeedback.fields.message.as('text')}
+        placeholder="Write your feedback or questions..."
+        required
       ></textarea>
     </div>
 
-    <button type="submit" class="btn" disabled={status == 'sending'}>
-        {#if status == 'sending'}
-          Sending...
-        {:else if status == 'sent' }
-        Sent
-          {:else if status == 'error'}
-          Try again
-          {:else}
-          Send
-        {/if}
+    <button type="submit" class="btn" disabled={status === 'sending'}>
+      {#if status === 'sending'}
+        Sending...
+      {:else if status === 'sent'}
+        Sent Successfully!
+      {:else if status === 'error'}
+        Try Again
+      {:else}
+        Send Feedback
+      {/if}
       <Send />
     </button>
   </form>
@@ -52,66 +58,55 @@
 
 <style>
   .contact-us {
-    background: linear-gradient(135deg, rgb(240, 239, 239), #f5f5f5);
+    background: #ffffff;
     width: 100%;
-    max-width: 1000px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border-radius: 24px;
-    padding: 60px 40px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin: 60px auto;
-    position: static !important;
-    top: auto !important;
-    height: auto !important;
+    gap: 24px;
+    margin: 40px auto;
   }
 
   h2 {
-    font-size: 28px;
-    color: #333;
+    font-size: 24px;
+    color: #1a1030;
     margin: 0;
     font-weight: 800;
-    text-align: center;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     width: 100%;
-    max-width: 600px;
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   label {
     font-weight: 600;
-    color: #333;
+    color: #4b5563;
     font-size: 14px;
   }
 
   input,
   textarea {
     width: 100%;
-    border-radius: 12px;
-    padding: 12px 15px;
-    background-color: #f9f9f9;
-    color: #333;
-    border: 2px solid #eee;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background-color: #f9fafb;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+    font-size: 15px;
+    transition: all 0.2s ease;
   }
 
   input:focus,
@@ -119,86 +114,38 @@
     outline: none;
     border-color: #7a5cfa;
     background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(122, 92, 250, 0.1);
+    box-shadow: 0 0 0 3px rgba(122, 92, 250, 0.15);
   }
 
   textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
   }
 
   .btn {
     background-color: #7a5cfa;
     color: white;
-    padding: 14px 30px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    align-self: flex-end;
   }
 
-  .btn:hover {
+  .btn:hover:not(:disabled) {
     background-color: #5a3eda;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(122, 92, 250, 0.3);
+    transform: translateY(-1px);
   }
 
-  @media (max-width: 768px) {
-    .contact-us {
-      padding: 40px 25px;
-      margin: 40px 15px;
-      border-radius: 16px;
-    }
-
-    h2 {
-      font-size: 22px;
-    }
-
-    .form {
-      padding: 25px;
-    }
-
-    input,
-    textarea {
-      padding: 10px 12px;
-      font-size: 14px;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .contact-us {
-      padding: 25px 15px;
-      margin: 20px 10px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    .form {
-      padding: 20px;
-    }
-
-    input,
-    textarea {
-      padding: 10px 12px;
-      font-size: 13px;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      font-size: 13px;
-    }
+  .btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 </style>
