@@ -9,7 +9,7 @@
   import { landing } from "$lib/landing.js";
 
   let { data } = $props();
-
+console.log(data)
   const user = $derived(data.user);
   const cta = $derived(user ? landing.hero.ctaReturning : landing.hero.cta);
 
@@ -66,7 +66,26 @@
           </li>
         {/each}
       </ul>
+      <div>
+          <ul class="wrap">
+
+          </ul>
+      </div>
     </section>
+    <marquee class="course facts" aria-label="Available Courses">
+      <ul class="wrap facts-row">
+        {#each data.courses as course}
+          <li>
+            <strong>{course}</strong>
+          </li>
+        {/each}
+      </ul>
+      <div>
+          <ul class="wrap">
+
+          </ul>
+      </div>
+    </marquee>
 
     <section class="study" aria-hidden="false">
       <div class="wrap study-grid">
