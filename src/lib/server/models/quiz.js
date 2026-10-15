@@ -14,5 +14,5 @@ const quizSchema = new Schema({
   correctAnswer: String,
   explanation: String
 });
-const Quiz = mongoose.model.Quiz ?? mongoose.model("Quiz", quizSchema);
+const Quiz = mongoose.models.Quiz ?? mongoose.model("Quiz", quizSchema);
 export default Quiz

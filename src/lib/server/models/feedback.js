@@ -11,5 +11,5 @@ const feedbackSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-const Feedback = mongoose.model.Feedback ?? mongoose.model("Feedback", feedbackSchema);
+const Feedback = mongoose.models.Feedback ?? mongoose.model("Feedback", feedbackSchema);
 export default Feedback;
