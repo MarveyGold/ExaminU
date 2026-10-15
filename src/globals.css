@@ -153,9 +153,7 @@ label:has(input:checked) {
   background-color: #110b1f;
 }
 
-label input {
-  display: none;
-}
+
 
 /* ANSWERS & BUTTONS */
 .ans {
