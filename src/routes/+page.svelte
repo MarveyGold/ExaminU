@@ -7,6 +7,7 @@
   import Contact from "#lib/Components/Contact.svelte";
   import InstallPrompt from "#lib/Components/InstallPrompt.svelte";
   import NumberCounter from "#lib/Components/NumberCounter.svelte";
+  import {getCourseCodes} from "#lib/functions/courses.remote.js"
 import { landing } from "#lib/landing.js";
 
   let { data } = $props();
@@ -60,6 +61,15 @@ console.log(data)
 
     <section class="facts" aria-label="ExaminU in numbers">
       <ul class="wrap facts-row">
+          <li>
+            <strong><NumberCounter target={(await getCourseCodes()).length} /></strong>
+            <span>courses to practise</span>
+          </li>
+          <li>
+            <strong><NumberCounter target={1500} duration={2500} /></strong>
+            <span>students in the beta</span>
+          </li>
+
         {#each landing.facts as fact}
           <li>
             <strong>{fact.value}</strong>
@@ -73,21 +83,20 @@ console.log(data)
           </ul>
       </div>
     </section>
+<p> courses available</p>
     <marquee class="course facts" aria-label="Available Courses">
-      <ul class="wrap facts-row">
-        {#each data.courses as course}
-          <li>
-            <strong>{course}</strong>
-          </li>
-        {/each}
-      </ul>
-      <div>
-          <ul class="wrap">
+  <svelte:boundary>
+    <ul class="wrap course-row">
+      {#each await getCourseCodes() as course (course)}
+        <li><strong>{course}</strong></li>
+      {/each}
+    </ul>
 
-          </ul>
-      </div>
-    </marquee>
-
+    {#snippet failed()}
+      <span>Couldn't load courses</span>
+    {/snippet}
+  </svelte:boundary>
+</marquee>
     <section class="study" aria-hidden="false">
       <div class="wrap study-grid">
         <img class="study-img" src="/images/hero-man.png" alt="A student studying on a laptop" width="340" height="364" loading="lazy" />
@@ -414,26 +423,36 @@ console.log(data)
     padding-block: 1.5rem;
     list-style: none;
   }
+  .course-row {
+ display: flex;
+ padding-block: 1.5rem;
+    list-style: none;
+    }
 
   .facts-row li {
     display: grid;
     gap: 0.125rem;
     align-content: start;
   }
+.course-row li {
+ display: flex;
+    gap: 0.125rem;
+    align-content: start;
+  }
 
-  .facts-row li + li {
+  .facts-row li + li, .course-row li + li {
     padding-left: clamp(0.75rem, 3vw, 2rem);
     border-left: 1px solid var(--line);
   }
 
-  .facts-row strong {
+  .facts-row strong, .course-row strong {
     font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
 
-  .facts-row span {
+  .facts-row span, .course-row span {
     font-size: 0.875rem;
     line-height: 1.35;
     color: var(--muted);

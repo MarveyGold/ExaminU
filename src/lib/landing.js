@@ -24,8 +24,6 @@ export const landing = {
 
   // Update these as the numbers change.
   facts: [
-    { value: "1,500", label: "students in the beta" },
-    { value: "20+", label: "courses to practise" },
     { value: "Free", label: "to start" }
   ],
 
