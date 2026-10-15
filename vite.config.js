@@ -7,14 +7,7 @@ export default defineConfig({
 		sveltekit({
 			compilerOptions: { experimental: { async: true } },
 			experimental: { remoteFunctions: true },
-			adapter: adapter({
-				out: 'build',
-				precompress: {
-					brotli: true,
-					gzip: true,
-					files: ['htm', 'html', 'js', 'css', 'svg']
-				}
-			})
+			adapter: adapter()
 		})
 	]
 });
