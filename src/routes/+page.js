@@ -1,5 +1,11 @@
 export async function load({fetch}) {
-  const res = await fetch('/api/quiz')
+  try {
+     const res = await fetch('/api/quiz')
   const courses = await res.json()
   return {courses}
-}
+
+  } catch (error) {
+    let courses = []
+    return {courses}
+  }
+ }
