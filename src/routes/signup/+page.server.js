@@ -1,27 +1,50 @@
-import { redirect } from "@sveltejs/kit";
+import { redirect, fail } from "@sveltejs/kit";
 import { User } from "#lib/server/models/user.js";
-import argon2 from "argon2";
 
-export async function load() { }
+export async function load() {
+  return {};
+}
 
 export const actions = {
   default: async ({ request, url }) => {
-    const Redirect = url.searchParams.get("redirect") ?? "/"
+    // only allow same-site relative redirects
+    const target = url.searchParams.get("redirect");
+    const safeTarget =
+      target && target.startsWith("/") && !target.startsWith("//") ? target : null;
+
     const form = await request.formData();
-    const email = form.get("email") || "";
-    const password = form.get("password") || "";
+    const email = String(form.get("email") ?? "").trim();
+    const password = String(form.get("password") ?? "");
 
     if (!email || !password) {
-      return { error: "Missing email or password" };
+      return fail(400, { error: "Missing email or password" });
+    }
+    if (password.length < 8) {
+      return fail(400, { error: "Password must be at least 8 characters" });
     }
 
     const existing = await User.findOne({ email });
-    if (existing) return { error: "User already exists" };
+    if (existing) return fail(400, { error: "User already exists" });
 
-    const passwordHash = await argon2.hash(password);
+    const passwordHash = await Bun.password.hash(password, {
+      algorithm: "argon2id",
+      memoryCost: 65536,
+      timeCost: 3,
+    });
 
-    await User.create({ email, passwordHash, role: "user" });
+    try {
+      await User.create({ email, passwordHash, role: "user" });
+    } catch (err) {
+      // duplicate key: two signups raced past the findOne check
+      if (err?.code === 11000) {
+        return fail(400, { error: "User already exists" });
+      }
+      throw err;
+    }
 
-    throw redirect(303, "/login")
-  }
+    redirect(
+      303,
+      safeTarget ? `/login?redirect=${encodeURIComponent(safeTarget)}` : "/login",
+    );
+  },
 };

@@ -1,35 +1,26 @@
 import { lucia } from "#lib/server/lucia.js";
-export async function handle({ event, resolve, cookies }) {
-  try {
-    const sessionId = event.cookies.get("session");
 
+export async function handle({ event, resolve }) {
+  const sessionId = event.cookies.get(lucia.sessionCookieName);
 
   if (!sessionId) {
     event.locals.user = null;
     event.locals.session = null;
     return resolve(event);
   }
-  if (sessionId) {
+
   const { session, user } = await lucia.validateSession(sessionId);
+
+  if (session?.fresh) {
+    const c = lucia.createSessionCookie(session.id);
+    event.cookies.set(c.name, c.value, { path: ".", ...c.attributes });
   }
-  if (!session || !user) {
-    const blankCookie = lucia.createBlankSessionCookie();
-    event.cookies.set(
-      blankCookie.name,
-      blankCookie.value,
-      blankCookie.attributes,
-    );
-    event.locals.user = { id: null, email: null, role: null };
-    event.locals.session = null;
-    return resolve(event);
+  if (!session) {
+    const c = lucia.createBlankSessionCookie();
+    event.cookies.set(c.name, c.value, { path: ".", ...c.attributes });
   }
 
-  event.locals.session = session;
   event.locals.user = user;
-
+  event.locals.session = session;
   return resolve(event);
-
-  } catch (error) {
-    console.log(error)
-  }
-  }
+}

@@ -1,7 +1,5 @@
-
 import { lucia } from "#lib/server/lucia.js";
 import { User } from "#lib/server/models/user.js";
-import argon2 from "argon2";
 import { redirect, fail } from "@sveltejs/kit";
 
 export async function load() {
@@ -10,15 +8,28 @@ export async function load() {
 
 export const actions = {
   default: async ({ request, cookies, url }) => {
-    const redirectTo = url.searchParams.get("redirect") ?? "/";
+    // only allow same-site relative redirects
+    const target = url.searchParams.get("redirect");
+    const redirectTo =
+      target && target.startsWith("/") && !target.startsWith("//") ? target : "/";
+
     const form = await request.formData();
-    const email = form.get("email") || "";
-    const password = form.get("password") || "";
+    const email = String(form.get("email") ?? "").trim();
+    const password = String(form.get("password") ?? "");
+
+    if (!email || !password) {
+      return fail(400, { error: "Invalid email or password" });
+    }
 
     const user = await User.findOne({ email });
     if (!user) return fail(400, { error: "Invalid email or password" });
 
-    const valid = await argon2.verify(user.passwordHash, password);
+    let valid = false;
+    try {
+      valid = await Bun.password.verify(password, user.passwordHash);
+    } catch {
+      valid = false; // malformed hash
+    }
     if (!valid) return fail(400, { error: "Invalid email or password" });
 
     const session = await lucia.createSession(user._id, {
@@ -27,8 +38,11 @@ export const actions = {
     });
 
     const sessionCookie = lucia.createSessionCookie(session.id);
-    cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+    cookies.set(sessionCookie.name, sessionCookie.value, {
+      path: ".",
+      ...sessionCookie.attributes,
+    });
 
     redirect(303, redirectTo);
-  }
+  },
 };

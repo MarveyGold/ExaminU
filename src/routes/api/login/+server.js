@@ -1,46 +1,47 @@
-
-import argon2 from "argon2";
 import { lucia } from "#lib/server/lucia.js";
 import { User } from "#lib/server/models/user.js";
-import { redirect } from "@sveltejs/kit";
 import { json } from "@sveltejs/kit";
-export async function POST({ request, event }) {
 
-  const { email, password } =
-    await request.json();
+export async function POST({ request, cookies }) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Invalid request" }, { status: 400 });
+  }
 
-  const user =
-    await User.findOne({ email });
+  const email = String(body?.email ?? "").trim();
+  const password = String(body?.password ?? "");
 
+  if (!email || !password) {
+    return json({ error: "Invalid email or password" }, { status: 400 });
+  }
+
+  const user = await User.findOne({ email });
   if (!user) {
-    return json({ status: 400 });
+    return json({ error: "Invalid email or password" }, { status: 400 });
   }
 
-  const valid =
-    await argon2.verify(
-      user.passwordHash,
-      password
-    );
-
+  let valid = false;
+  try {
+    valid = await Bun.password.verify(password, user.passwordHash);
+  } catch {
+    valid = false; // malformed hash
+  }
   if (!valid) {
-    return json({ status: 400 });
+    return json({ error: "Invalid email or password" }, { status: 400 });
   }
 
-  const session =
-    await lucia.createSession(
-      user._id,
-      {
-        email: user.email,
-        role: user.role
-      }
-    );
+  const session = await lucia.createSession(user._id, {
+    email: user.email,
+    role: user.role,
+  });
 
-  const sessionCookie =
-    lucia.createSessionCookie(
-      session.id
-    );
+  const sessionCookie = lucia.createSessionCookie(session.id);
+  cookies.set(sessionCookie.name, sessionCookie.value, {
+    path: ".",
+    ...sessionCookie.attributes,
+  });
 
-
-
-  return json({ status: 201, session: sessionCookie });
+  return json({ success: true }, { status: 201 });
 }
