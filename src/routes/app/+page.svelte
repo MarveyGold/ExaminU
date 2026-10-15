@@ -38,7 +38,7 @@
 
   {#if current}
     <footer class="bottom-bar">
-      <a href={`/${current}`} class="cta-button"> Get Started </a>
+      <a href={`/${current}`} class=" footerButton cta-button"> Get Started </a>
     </footer>
   {/if}
 </main>
@@ -180,22 +180,26 @@
     box-shadow: inset 0 0 0 3.5px #1f1638;
   }
 
-  .bottom-bar {
+  .bottom-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 16px 20px;
-    background-color: #0c0914;
-    border-top: 1px solid #2d2242;
     display: flex;
     justify-content: center;
+    padding: 16px;
+    background: linear-gradient(to bottom, rgba(12, 9, 20, 0.8), #0c0914);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 99;
   }
 
   .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 480px;
-    background-color: #7c3aed;
     color: #ffffff;
     text-decoration: none;
     text-align: center;
