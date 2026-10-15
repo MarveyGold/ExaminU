@@ -1,17 +1,22 @@
 import mongoose from "mongoose";
-import { MONGO_URI } from "$env/static/private";
-const clientOptions =
-  process.env.NODE_ENV == "production"
-    ? {
-        serverApi: { version: "1", strict: true, deprecationErrors: true },
-        serverSelectionTimeoutMS: 5000, // ← fail fast instead of hanging
-        connectTimeoutMS: 5000,
-        family: 4,
+import { MONGO_URI } from "$app/env/private";
+
+try {
+  const clientOptions = process.env.NODE_ENV == "production"
+  ? {
+    serverApi: { version: "1", strict: true, deprecationErrors: true },
+    serverSelectionTimeoutMS: 5000, // ← fail fast instead of hanging
+    connectTimeoutMS: 5000,
+    family: 4,
         dbName: "examinu",
-      }
-    : { dbName: "examinu" };
+  }
+  : { dbName: "examinu" };
 if (!mongoose.connection.readyState) {
   await mongoose.connect(MONGO_URI, clientOptions);
+}
+
+} catch (error) {
+  console.log(error)
 }
 
 export default mongoose;

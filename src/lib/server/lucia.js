@@ -1,6 +1,6 @@
 import { Lucia } from "lucia";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
-import { dev } from "$app/environment";
+import { dev } from "$app/env";
 import mongoose from "./db.js";
 
 const client = mongoose.connection.getClient();
