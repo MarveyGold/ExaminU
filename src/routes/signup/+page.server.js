@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
-import { User } from "$lib/server/models/user";
+import { User } from "#lib/server/models/user.js";
 import argon2 from "argon2";
 
 export async function load() { }

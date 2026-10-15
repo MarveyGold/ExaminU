@@ -1,6 +1,6 @@
 import { form } from "$app/server";
 import * as v from "valibot";
-import Feedback from "$lib/server/models/feedback";
+import Feedback from "#lib/server/models/feedback.js";
 
 const schema = v.object({
   name: v.pipe(v.string(), v.nonEmpty()),

@@ -1,6 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
-  import { Level } from "$lib/stores";
+  import { Level } from "#lib/stores.js";
 
   let { departmentName, level, courses, faculty, department } = $props();
   let selected = $state(null);
@@ -93,7 +93,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
     padding: 80px 16px 120px;
     box-sizing: border-box;
@@ -155,7 +154,7 @@
   .course-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     padding: 16px 20px;
     background-color: #20153a;

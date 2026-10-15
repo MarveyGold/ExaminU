@@ -1,4 +1,4 @@
-import Quiz from "$lib/server/models/quiz.js";
+import Quiz from "#lib/server/models/quiz.js";
 
 
 

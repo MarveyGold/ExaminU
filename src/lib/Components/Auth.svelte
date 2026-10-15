@@ -1,14 +1,14 @@
 <script>
   import { goto } from "$app/navigation";
-  import { page } from "$app/stores";
-  import { prev } from "$lib/stores";
-  import Me from "$lib/Icons/me.svelte";
+  import { page } from '$app/state';
+  import { prev } from "#lib/stores.js";
+  import Me from "#lib/Icons/me.svelte";
   let { class: className = "", data, ...props } = $props();
-  const user = $page.data.user;
+  const user = page.data.user;
   // console.log(user);
   function Auth(a) {
-    document.cookie = `prev=${$page.url.href};  path=${`/${a}`} `;
-    goto(`/${a}?redirect=${$page.url.href}`);
+    document.cookie = `prev=${page.url.href};  path=${`/${a}`} `;
+    goto(`/${a}?redirect=${page.url.href}`);
   }
   let style = $state();
 
@@ -18,7 +18,7 @@
   async function signout() {
     const res = await fetch("/api/logout");
     if (res.ok) {
-      window.location.href = $page.url.href;
+      window.location.href = page.url.href;
     }
   }
 </script>

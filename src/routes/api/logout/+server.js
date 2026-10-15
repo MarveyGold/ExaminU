@@ -1,5 +1,5 @@
 
-import { lucia } from "$lib/server/lucia";
+import { lucia } from "#lib/server/lucia.js";
 
 export async function GET({ cookies }) {
 

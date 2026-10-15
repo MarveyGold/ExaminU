@@ -1,5 +1,5 @@
 <script>
-  import { faculty, department } from "$lib/stores";
+  import { faculty, department } from "#lib/stores.js";
  import { page } from '$app/state';
 
 export let data;

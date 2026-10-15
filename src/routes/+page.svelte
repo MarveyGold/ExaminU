@@ -2,11 +2,12 @@
   // Self-hosted, so there is no request to Google Fonts. Latin subset, one file (~40 KB).
   import "@fontsource-variable/bricolage-grotesque/wght.css";
 
-  import SiteHeader from "$lib/Components/SiteHeader.svelte";
-  import DemoQuestion from "$lib/Components/DemoQuestion.svelte";
-  import Contact from "$lib/Components/Contact.svelte";
-  import InstallPrompt from "$lib/Components/InstallPrompt.svelte";
-  import { landing } from "$lib/landing.js";
+  import SiteHeader from "#lib/Components/SiteHeader.svelte";
+  import DemoQuestion from "#lib/Components/DemoQuestion.svelte";
+  import Contact from "#lib/Components/Contact.svelte";
+  import InstallPrompt from "#lib/Components/InstallPrompt.svelte";
+  import NumberCounter from "#lib/Components/NumberCounter.svelte";
+import { landing } from "#lib/landing.js";
 
   let { data } = $props();
 console.log(data)

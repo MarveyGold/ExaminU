@@ -1,12 +1,12 @@
 import { json } from '@sveltejs/kit';
 
-import mongoose from '$lib/server/db.js';
-import Course from '$lib/server/models/course.model.js';
+import mongoose from '#lib/server/db.js';
+import Course from '#lib/server/models/course.model.js';
 
 export async function GET() {
   try {
 
-    const documents = await Course.distinct("code");
+    const documents = await Course.find();
     return json(documents);
   } catch (err) {
     return json({ error: err?.message || String(err) }, { status: 500 });

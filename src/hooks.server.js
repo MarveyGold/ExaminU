@@ -1,6 +1,7 @@
-import { lucia } from "$lib/server/lucia.js";
+import { lucia } from "#lib/server/lucia.js";
 export async function handle({ event, resolve, cookies }) {
-  const sessionId = event.cookies.get("session");
+  try {
+    const sessionId = event.cookies.get("session");
 
 
   if (!sessionId) {
@@ -8,9 +9,9 @@ export async function handle({ event, resolve, cookies }) {
     event.locals.session = null;
     return resolve(event);
   }
-
+  if (sessionId) {
   const { session, user } = await lucia.validateSession(sessionId);
-
+  }
   if (!session || !user) {
     const blankCookie = lucia.createBlankSessionCookie();
     event.cookies.set(
@@ -27,4 +28,8 @@ export async function handle({ event, resolve, cookies }) {
   event.locals.user = user;
 
   return resolve(event);
-}
+
+  } catch (error) {
+    console.log(error)
+  }
+  }

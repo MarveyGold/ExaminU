@@ -1,5 +1,5 @@
 <script>
-  import Send from "$lib/Icons/send.svelte";
+  import Send from "#lib/Icons/send.svelte";
   import { submitFeedback } from './feedback.remote.js';
 
   let status = $state('idle');

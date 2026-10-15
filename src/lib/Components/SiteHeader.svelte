@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/state";
-  import Me from "$lib/Icons/me.svelte";
+  import Me from "#lib/Icons/me.svelte";
 
   let { links = [], user = null, cta = "Start practising", ctaHref = "/app" } = $props();
 
@@ -10,7 +10,6 @@
 
   const redirect = $derived(encodeURIComponent(page.url.href));
 
-  // Same behaviour as before: remember where the visitor came from.
   function remember(route) {
     document.cookie = `prev=${page.url.href}; path=/${route}`;
   }
@@ -39,9 +38,9 @@
 
 <header class="bar">
   <div class="inner">
-    <a class="brand" href="/" aria-label="ExaminU home">
+    <a class="brand name" href="/" aria-label="ExaminU home">
       <img class="mark" src="/favicon.png" alt="" width="36" height="36" />
-      <span class="name">ExaminU</span>
+      <span class="brand name">ExaminU</span>
     </a>
 
     <nav class="primary" aria-label="Main">

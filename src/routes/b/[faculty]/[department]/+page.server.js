@@ -1,6 +1,6 @@
-import Department from '$lib/server/models/department.model.js';
-import Course from '$lib/server/models/course.model.js';
-import Faculty from '$lib/server/models/faculty.model.js';
+import Department from '#lib/server/models/department.model.js';
+import Course from '#lib/server/models/course.model.js';
+import Faculty from '#lib/server/models/faculty.model.js';
 
 export async function load({ params, url }) {
   const { faculty, department } = params;

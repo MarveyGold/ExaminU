@@ -1,7 +1,7 @@
 
 import argon2 from "argon2";
-import { lucia } from "$lib/server/lucia";
-import { User } from "$lib/server/models/user";
+import { lucia } from "#lib/server/lucia.js";
+import { User } from "#lib/server/models/user.js";
 import { redirect } from "@sveltejs/kit";
 import { json } from "@sveltejs/kit";
 export async function POST({ request, event }) {

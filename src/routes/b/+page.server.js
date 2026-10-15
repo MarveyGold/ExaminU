@@ -1,4 +1,4 @@
-import Faculty from "$lib/server/models/faculty.model.js";
+import Faculty from "#lib/server/models/faculty.model.js";
 
 export async function load() {
   // load all faculties (name and code) from the Faculty collection

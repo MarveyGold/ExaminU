@@ -1,5 +1,5 @@
-import Faculty from "$lib/server/models/faculty.model.js";
-import Department from "$lib/server/models/department.model.js";
+import Faculty from "#lib/server/models/faculty.model.js";
+import Department from "#lib/server/models/department.model.js";
 
 export async function load({ params }) {
   const { faculty } = params;

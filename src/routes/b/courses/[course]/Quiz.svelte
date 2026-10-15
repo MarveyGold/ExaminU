@@ -1,6 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
-  import { Level, faculty, department } from "$lib/stores";
+  import { Level, faculty, department } from "#lib/stores.js";
 
   let { Quiz, next, course } = $props();
   let result = $state("");

@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 
-import mongoose from '$lib/server/db.js';
-import Department from '$lib/server/models/department.model.js';
+import mongoose from '#lib/server/db.js';
+import Department from '#lib/server/models/department.model.js';
 
 export async function GET() {
   try {

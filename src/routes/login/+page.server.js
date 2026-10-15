@@ -1,6 +1,6 @@
 
-import { lucia } from "$lib/server/lucia.js";
-import { User } from "$lib/server/models/user.js";
+import { lucia } from "#lib/server/lucia.js";
+import { User } from "#lib/server/models/user.js";
 import argon2 from "argon2";
 import { redirect, fail } from "@sveltejs/kit";
 

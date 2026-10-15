@@ -1,8 +1,8 @@
 <script>
   import { page } from "$app/state";
   import "../globals.css";
-  import Auth from "$lib/Components/Auth.svelte";
-  import { landing } from "$lib/landing.js";
+  import Auth from "#lib/Components/Auth.svelte";
+  import { landing } from "#lib/landing.js";
 
   let { children } = $props();
 
