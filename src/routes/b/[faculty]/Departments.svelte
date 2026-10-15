@@ -64,7 +64,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
     padding: 80px 16px 120px;
     box-sizing: border-box;
@@ -97,8 +96,10 @@
   .department-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    max-width: 600px;
+    margin: auto;
     padding: 16px 20px;
     background-color: #20153a;
     border: 1.5px solid transparent;
