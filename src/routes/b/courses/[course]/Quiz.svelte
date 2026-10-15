@@ -94,7 +94,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
     padding: 80px 16px 120px;
     box-sizing: border-box;
@@ -102,6 +101,7 @@
 
   .quiz-card {
     width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
