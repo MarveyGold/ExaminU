@@ -1,7 +1,7 @@
 <script>
-  let {data} = $props()
-  let  names = data.names;
-  let codes  = data.codes;
+  let { data } = $props();
+  let names = $derived(data.names);
+  let codes = $derived(data.codes);
   let current = $state("");
   let search = $state("");
 
@@ -84,7 +84,6 @@
     box-sizing: border-box;
     max-width: 600px;
     margin: auto;
-
   }
 
   .search-input:focus {

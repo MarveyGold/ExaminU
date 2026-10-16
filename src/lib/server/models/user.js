@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  notifs: { type: Boolean, default: true },
 
   role: {
     type: String,
