@@ -1,48 +1,54 @@
 <script>
-  export let data;
+  import { enhance } from "$app/forms";
+  import { page } from "$app/state";
+  import AuthCard from "#lib/Components/AuthCard.svelte";
+  import PasswordField from "#lib/Components/PasswordField.svelte";
+
+  let { form } = $props();
+  let submitting = $state(false);
+
+  const next = $derived(page.url.searchParams.get("redirect"));
+  const signupHref = $derived(
+    next ? `/signup?redirect=${encodeURIComponent(next)}` : "/signup",
+  );
 </script>
 
-<main>
-  <h1>Login</h1>
+<svelte:head><title>Log in - ExaminU</title></svelte:head>
 
-  <form method="POST" data-sveltekit-enhance="false">
-    <input name="email" type="email" placeholder="Email" required />
-    <input name="password" type="password" placeholder="Password" required />
-    <button type="submit" class="footerButton">Login</button>
+<AuthCard
+  title="Log in"
+  lede="Pick up your practice where you left off."
+  error={form?.error}
+>
+  <form
+    method="POST"
+    use:enhance={() => {
+      submitting = true;
+      return async ({ update }) => {
+        await update();
+        submitting = false;
+      };
+    }}
+  >
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      autocomplete="email"
+      inputmode="email"
+      value={form?.email ?? ""}
+      required
+    />
+
+    <PasswordField autocomplete="current-password" />
+
+    <button type="submit" class="submit" disabled={submitting}>
+      {submitting ? "Logging in…" : "Log in"}
+    </button>
   </form>
 
-  {#if data?.error}
-    <p class="error">{data.error}</p>
-  {/if}
-
-  <p>Don't have an account? <a href="/signup">Sign up</a></p>
-</main>
-
-<style>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 250px;
-  }
-  input {
-    padding: 12px;
-    border-radius: 1.7rem;
-    background-color: #20153a;
-    color: white;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    gap: 2px;
-    border: 10px;
-  }
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  .error {
-    color: red;
-  }
-</style>
+  {#snippet footer()}
+    New to ExaminU? <a href={signupHref}>Create an account</a>
+  {/snippet}
+</AuthCard>

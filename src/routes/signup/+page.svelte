@@ -1,49 +1,59 @@
 <script>
-  export let data;
+  import { enhance } from "$app/forms";
+  import { page } from "$app/state";
+  import AuthCard from "#lib/Components/AuthCard.svelte";
+  import PasswordField from "#lib/Components/PasswordField.svelte";
+
+  let { form } = $props();
+  let submitting = $state(false);
+
+  const next = $derived(page.url.searchParams.get("redirect"));
+  const loginHref = $derived(
+    next ? `/login?redirect=${encodeURIComponent(next)}` : "/login",
+  );
 </script>
 
-<main>
-  <h1>Sign Up</h1>
+<svelte:head><title>Sign up - ExaminU</title></svelte:head>
 
-  <form method="POST">
-    <input name="email" type="email" placeholder="Email" required />
-    <input name="password" type="password" placeholder="Password" required />
-    <button type="submit" class="footerButton">Sign Up</button>
+<AuthCard
+  title="Create your account"
+  lede="Practise past questions for your courses."
+  error={form?.error}
+>
+  <form
+    method="POST"
+    use:enhance={() => {
+      submitting = true;
+      return async ({ update }) => {
+        await update();
+        submitting = false;
+      };
+    }}
+  >
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      autocomplete="email"
+      inputmode="email"
+      value={form?.email ?? ""}
+      required
+    />
+
+    <PasswordField
+      autocomplete="new-password"
+      minlength={8}
+      describedby="pw-hint"
+    />
+    <p id="pw-hint" class="hint">At least 8 characters.</p>
+
+    <button type="submit" class="submit" disabled={submitting}>
+      {submitting ? "Creating account…" : "Create account"}
+    </button>
   </form>
 
-  {#if data?.error}
-    <p class="error">{data.error}</p>
-  {/if}
-
-  <p>
-    Already have an account? <a href="/login">Login</a>
-  </p>
-</main>
-
-<style>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 250px;
-  }
-  input {
-    padding: 12px;
-    border-radius: 1.7rem;
-    background-color: #20153a;
-    color: white;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    gap: 2px;
-  }
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  .error {
-    color: red;
-  }
-</style>
+  {#snippet footer()}
+    Already have an account? <a href={loginHref}>Log in</a>
+  {/snippet}
+</AuthCard>
