@@ -1,9 +1,10 @@
 <script>
+  import "./layout.css";
   import { page } from "$app/state";
   import "../globals.css";
   import Auth from "#lib/Components/Auth.svelte";
   import { landing } from "#lib/landing.js";
-
+  import { App } from "konsta/svelte";
   let { children } = $props();
 
   const site = "https://examinu.pxxl.run";
@@ -15,8 +16,8 @@
       : {
           title: "ExaminU",
           description:
-            "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions"
-        }
+            "ExaminU is a web based revision app built to make exam preparation easier for university students using past questions and likely exam questions",
+        },
   );
 
   const url = $derived(`${site}${page.url.pathname}`);
@@ -41,16 +42,17 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
+<App theme="ios">
+  <!-- The landing page has its own header. -->
+  {#if !isHome}
+    <header>
+      <a href="/">
+        <img class="uniben" src="/favicon.png" alt="examinu" />
+        <h1 class="logo">ExaminU</h1>
+      </a>
+      <Auth class="mobile" />
+    </header>
+  {/if}
 
-<!-- The landing page has its own header. -->
-{#if !isHome}
-  <header>
-    <a href="/">
-      <img class="uniben" src="/favicon.png" alt="examinu" />
-      <h1 class="logo">ExaminU</h1>
-    </a>
-    <Auth class="mobile" />
-  </header>
-{/if}
-
-{@render children()}
+  {@render children()}
+</App>
