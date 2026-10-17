@@ -1,8 +1,8 @@
 <script>
   import Send from "#lib/Icons/send.svelte";
-  import { submitFeedback } from './feedback.remote.js';
+  import { submitFeedback } from "./feedback.remote.js";
 
-  let status = $state('idle');
+  let status = $state("idle");
   let formElement = $state();
 </script>
 
@@ -12,13 +12,13 @@
     bind:this={formElement}
     class="form"
     {...submitFeedback.enhance(async ({ submit }) => {
-      status = 'sending';
+      status = "sending";
       try {
         await submit();
-        status = 'sent';
+        status = "sent";
         if (formElement) formElement.reset();
       } catch {
-        status = 'error';
+        status = "error";
       }
     })}
   >
@@ -26,7 +26,7 @@
       <label for="name">Name</label>
       <input
         id="name"
-        {...submitFeedback.fields.name.as('text')}
+        {...submitFeedback.fields.name.as("text")}
         placeholder="Enter your name"
         required
       />
@@ -35,18 +35,18 @@
       <label for="message">Message</label>
       <textarea
         id="message"
-        {...submitFeedback.fields.message.as('text')}
+        {...submitFeedback.fields.message.as("text")}
         placeholder="Write your feedback or questions..."
         required
       ></textarea>
     </div>
 
-    <button type="submit" class="btn" disabled={status === 'sending'}>
-      {#if status === 'sending'}
+    <button type="submit" class="btn" disabled={status === "sending"}>
+      {#if status === "sending"}
         Sending...
-      {:else if status === 'sent'}
+      {:else if status === "sent"}
         Sent Successfully!
-      {:else if status === 'error'}
+      {:else if status === "error"}
         Try Again
       {:else}
         Send Feedback

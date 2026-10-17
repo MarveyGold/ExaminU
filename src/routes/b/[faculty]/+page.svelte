@@ -1,7 +1,11 @@
 <script>
-  let {  data } = $props();
-  let selected = $state(null);
+  import { enhance } from "$app/forms";
 
+  import { chooseDepartment } from "#lib/functions/department.remote.js";
+  let { data } = $props();
+  const faculty = $derived(data.faculty)
+  let selected = $state(null);
+  let saving = $state(false);
   let departments = $derived(
     data.departmentNames.map((name, i) => ({
       name,
@@ -9,6 +13,7 @@
     })),
   );
 </script>
+
 <svelte:head>
   <title>{data.facultyName} | ExaminU</title>
   <meta
@@ -23,7 +28,9 @@
     </div>
 
     <h2 class="page-title">Select Department</h2>
-    <p class="subtitle">Choose your course of study</p>
+    <p class="subtitle">
+      Choose your course of study. We'll remember it for next time.
+    </p>
   </div>
 
   <div class="department-list">
@@ -44,15 +51,21 @@
 
   <footer class="bottom-footer">
     <div class="footer-actions">
-      <a href="/b" class="footer-action secondary">Change Faculty</a>
+      <a href="/b?change" class="footer-action secondary">Change Faculty</a>
 
       {#if selected}
-        <a
-          href={`/b/${data.faculty}/${selected}?level=100`}
-          class="footer-action primary"
-        >
-          Continue
-        </a>
+        <form {...chooseDepartment} class="choose">
+          <input {...chooseDepartment.fields.faculty.as("hidden", faculty)} />
+          <input
+            {...chooseDepartment.fields.department.as("hidden", selected)}
+          />
+          <button
+            class="footer-action primary"
+            disabled={chooseDepartment.pending > 0}
+          >
+            {chooseDepartment.pending > 0 ? "Saving…" : "Continue"}
+          </button>
+        </form>
       {/if}
     </div>
   </footer>
@@ -64,6 +77,23 @@
   }
   h2 {
     font-size: 1rem;
+  }
+  .choose {
+    flex: 1;
+    display: flex;
+  }
+
+  button.footer-action {
+    width: 100%;
+    border: 0;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button.footer-action:disabled {
+    opacity: 0.65;
+    cursor: progress;
   }
   .page-body {
     display: flex;

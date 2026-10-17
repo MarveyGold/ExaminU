@@ -1,15 +1,16 @@
 <script>
   import { goto } from "$app/navigation";
   import { Level } from "#lib/stores.js";
-   import { faculty, department } from "#lib/stores.js";
- import { page } from '$app/state';
+  import { faculty, department } from "#lib/stores.js";
+  import { page } from "$app/state";
 
-  let {data} = $props()
-  let departmentName = $derived(data.departmentName)
-  let level = $derived(data.level) 
-  let courses = $derived(data.courses) 
- await faculty.set(data.faculty);
- await department.set(data.department);
+  let { data } = $props();
+
+  let departmentName = $derived(data.departmentName);
+  let level = $derived(data.level);
+  let courses = $derived(data.courses);
+  await faculty.set(data.faculty);
+  await department.set(data.department);
 
   let selected = $state(null);
 
@@ -25,7 +26,7 @@
     <!-- Level Switcher Tabs -->
     <nav class="level-tabs">
       <a
-        href={`/b/${faculty}/${department}/?level=100`}
+        href={`/b/${data.faculty}/${$department}/?level=100`}
         class="tab-link"
         class:active={level == "100"}
       >
@@ -33,7 +34,7 @@
       </a>
 
       <a
-        href={`/b/${faculty}/${department}/?level=200`}
+        href={`/b/${$faculty}/${$department}/?level=200`}
         class="tab-link"
         class:active={level == "200"}
       >
@@ -82,7 +83,7 @@
   <!-- Action Links Footer -->
   <footer class="bottom-footer">
     <div class="footer-actions">
-      <a href={`/b/${faculty}/`} class="footer-link secondary">
+      <a href={`/b/${$faculty}/`} class="footer-link secondary">
         Change Department
       </a>
 

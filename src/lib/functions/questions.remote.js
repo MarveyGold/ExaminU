@@ -44,7 +44,33 @@ export const remainingDailyUploads = query(async () => {
   });
   return Math.max(0, R.DAILY_FILE_LIMIT - used);
 });
+export const getMySubmissions = query(async () => {
+  const email = requireUserId(); // returns the email
 
+  const docs = await Submission.find(
+    { submittedBy: email },
+    "kind exam title note key createdAt file.name file.mimeType file.size",
+  )
+    .sort({ createdAt: -1 })
+    .lean();
+
+  return docs.map((d) => ({
+    id: String(d._id),
+    kind: d.kind ?? "question",
+    exam: d.exam ?? null,
+    title: d.title ?? null,
+    note: d.note ?? null,
+    createdAt: d.createdAt ? d.createdAt.toISOString() : null,
+    file:
+      d.kind === "file" && d.file
+        ? {
+          name: d.file.name ?? null,
+          mimeType: d.file.mimeType ?? null,
+          size: d.file.size ?? 0,
+        }
+        : null,
+  }));
+});
 /* ---------------- commands ---------------- */
 
 export const submitQuestions = command(

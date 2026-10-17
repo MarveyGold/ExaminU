@@ -11,7 +11,7 @@
 import { landing } from "#lib/landing.js";
 
   let { data } = $props();
-console.log(data)
+let feedbackOpen = $state(true);
   const user = $derived(data.user);
   const cta = $derived(user ? landing.hero.ctaReturning : landing.hero.cta);
 
@@ -171,7 +171,7 @@ console.log(data)
       </section>
     {/if}
 
-    <Contact title={landing.contact.title} body={landing.contact.body} />
+    <Contact title={landing.contact.title} body={landing.contact.body} bind:open={feedbackOpen}/>
   </main>
 
   <footer class="foot">
