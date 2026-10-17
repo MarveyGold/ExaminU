@@ -19,6 +19,9 @@ function createLucia() {
     getUserAttributes: (attributes) => ({
       email: attributes.email,
       role: attributes.role,
+      faculty: attributes.faculty,
+      department: attributes.department,
+      level: attributes.level,
     }),
   });
 }

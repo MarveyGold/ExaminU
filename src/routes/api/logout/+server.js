@@ -1,7 +1,7 @@
 
 import { lucia } from "#lib/server/lucia.js";
 
-export async function GET({ cookies }) {
+export async function POST({ cookies }) {
 
   const sessionId =
     cookies.get("session");

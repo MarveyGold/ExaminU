@@ -14,7 +14,11 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   notifs: { type: Boolean, default: true },
-
+  name: { type: String, trim: true, maxlength: 60, default: "user" },
+  username: { type: String, lowercase: true, trim: true, unique: true, sparse: true },
+  level: { type: String, enum: ["100", "200", "300", "400", "500", "600"], default: "100" },
+  faculty: { type: String, uppercase: true, trim: true },
+  department: { type: String, uppercase: true, trim: true },
   role: {
     type: String,
     default: "user"
