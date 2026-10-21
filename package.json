@@ -25,6 +25,7 @@
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
     "@lucia-auth/adapter-mongodb": "^1.0.3",
     "@svelte-put/swipeable": "^1.1.0",
+    "framework7-icons": "^5.0.5",
     "konsta": "^5.5.0",
     "lucia": "^3.2.2",
     "mongoose": "8",

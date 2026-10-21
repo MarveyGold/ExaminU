@@ -1,32 +1,26 @@
 <script>
   import { goto, invalidateAll } from "$app/navigation";
   import { page } from "$app/state";
-  import { Popover, List, ListItem, Block, Button } from "konsta/svelte";
+  import { Popover, Popup, Block } from "konsta/svelte";
+
   import Me from "#lib/Icons/me.svelte";
   import Contact from "#lib/Components/Contact.svelte";
 
   let { class: className = "", ...props } = $props();
 
   let user = $derived(page.data.user);
-  let popoverOpened = $state(false);
-  let popoverTargetEl = $state();
+  let open = $state(false);
   let feedbackOpen = $state(false);
+  let triggerEl = $state();
 
   const displayName = $derived(
-    user?.name && user.name !== "user"
-      ? user.name
-      : (user?.username ?? "Account"),
+    (user?.name && user.name !== "user" ? user.name : "") ||
+      user?.username ||
+      user?.email?.split("@")[0] ||
+      "Account",
   );
 
-  const initial = $derived(
-    (displayName || user?.email || "?").trim().charAt(0).toUpperCase(),
-  );
-
-  const subtitle = $derived(
-    [user?.level && `Level ${user.level}`, user?.department]
-      .filter(Boolean)
-      .join(" · "),
-  );
+  const initial = $derived(Array.from(displayName)[0]?.toUpperCase() ?? "?");
 
   function auth(target) {
     document.cookie = `prev=${encodeURIComponent(page.url.href)}; path=/; max-age=600; samesite=lax`;
@@ -39,72 +33,119 @@
     goto("/");
   }
 
-  const close = () => (popoverOpened = false);
+  function close() {
+    open = false;
+  }
 
   function openFeedback() {
     close();
     feedbackOpen = true;
   }
-
-  function closeFeedback() {
-    feedbackOpen = false;
-  }
-
-  function onOverlayKeydown(e) {
-    if (e.key === "Escape") closeFeedback();
-  }
 </script>
 
 {#if user}
-  <div class="trigger-wrap" bind:this={popoverTargetEl}>
+  <div class="trigger-wrap">
     <button
       type="button"
-      onclick={() => (popoverOpened = !popoverOpened)}
-      aria-expanded={popoverOpened}
-      aria-label="Account menu"
+      bind:this={triggerEl}
+      onclick={() => (open = !open)}
       class="avatar-trigger"
+      aria-haspopup="menu"
+      aria-expanded={open}
+      aria-label="Account menu"
     >
       <Me />
     </button>
 
     <Popover
-      opened={popoverOpened}
-      target={popoverTargetEl}
+      opened={open}
+      target={triggerEl}
       onBackdropClick={close}
-      class="profile-menu w-72"
+      class="account-popover"
     >
-      <Block class="profile-head">
-        <div class="profile-avatar" aria-hidden="true">{initial}</div>
-        <h6 class="profile-name">{displayName}</h6>
-        <small class="profile-email">{user.email}</small>
-        {#if subtitle}
-          <small class="profile-subtitle">{subtitle}</small>
-        {/if}
-      </Block>
+      <div class="panel">
+        <div class="head">
+          <div class="avatar" aria-hidden="true">{initial}</div>
+          <p class="name">{displayName}</p>
+          <p class="email">{user.email}</p>
+        </div>
 
-      <Block>
-        <Button rounded raised class="w-full" href="/me" onClick={close}>
-          Manage your account
-        </Button>
-      </Block>
+        <div class="list">
+          <a class="item" role="menuitem" href="/me" onclick={close}>
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+              />
+            </svg>
+            <span>Manage your account</span>
+          </a>
 
-      <List dividers="between" class="profile-list">
-        <ListItem
-          link
-          href="/me/submissions"
-          onClick={close}
-          title="My submissions"
-        />
-        <ListItem onClick={openFeedback} title="Send feedback" />
-        <ListItem
-          onClick={() => {
-            close();
-            signout();
-          }}
-          title="Log out"
-          class="profile-logout"
-        />
-      </List>
+          <a
+            class="item"
+            role="menuitem"
+            href="/me/submissions"
+            onclick={close}
+          >
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+              />
+            </svg>
+            <span>My submissions</span>
+          </a>
+
+          <button
+            type="button"
+            class="item"
+            role="menuitem"
+            onclick={openFeedback}
+          >
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+            <span>Send feedback</span>
+          </button>
+
+          <button
+            type="button"
+            class="item danger"
+            role="menuitem"
+            onclick={() => {
+              close();
+              signout();
+            }}
+          >
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
+              />
+            </svg>
+            <span>Log out</span>
+          </button>
+        </div>
+      </div>
     </Popover>
   </div>
 {:else}
@@ -119,9 +160,11 @@
     class="feedback-overlay"
     role="presentation"
     onclick={(e) => {
-      if (e.target === e.currentTarget) closeFeedback();
+      if (e.target === e.currentTarget) feedbackOpen = false;
     }}
-    onkeydown={onOverlayKeydown}
+    onkeydown={(e) => {
+      if (e.key === "Escape") feedbackOpen = false;
+    }}
   >
     <div
       class="feedback-modal"
@@ -132,11 +175,9 @@
       <button
         type="button"
         class="feedback-close"
-        onclick={closeFeedback}
-        aria-label="Close feedback form"
+        onclick={() => (feedbackOpen = false)}
+        aria-label="Close feedback form">✕</button
       >
-        ✕
-      </button>
       <Contact />
     </div>
   </div>
@@ -144,106 +185,155 @@
 
 <style>
   .trigger-wrap {
+    position: relative;
     display: inline-flex;
-    margin-inline-end: 8px;
+    margin: -9px;
+    margin-inline-end: -1px;
   }
 
   .avatar-trigger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 9px;
     background: none;
     border: 0;
-    cursor: pointer;
+    border-radius: 12px;
     color: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s;
   }
+
+  .avatar-trigger:hover,
+  .avatar-trigger[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
   .avatar-trigger:focus-visible {
     outline: 2px solid #7a5cfa;
     outline-offset: 2px;
+  }
+
+  /* Neutralize Konsta's popover chrome so our panel shows cleanly */
+  .account-popover :global(.k-popover) {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .panel {
+    min-width: 16rem;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+    padding-bottom: 6px;
+    background: #eceef8;
+    color: #1a1840;
+    border-radius: 18px;
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.2),
+      0 12px 28px rgba(0, 0, 0, 0.35);
+    font-family: Roboto, system-ui, sans-serif;
+    overflow: hidden;
+  }
+
+  .head {
+    display: grid;
+    justify-items: center;
+    padding: 13px 16px 0;
+  }
+
+  .avatar {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-  }
-
-  :global(.profile-menu),
-  :global(.profile-menu .k-glass) {
-    border-radius: 0 !important;
-    background: #20153a !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  }
-
-  :global(.profile-menu) {
-    --k-color-primary: #7a5cfa;
-    --color-primary: #7a5cfa;
-    --k-color-ios-primary: #7a5cfa;
-    --k-color-md-light-primary: #7a5cfa;
-    --k-color-md-light-on-primary: #ffffff;
-    --k-color-md-dark-primary: #7a5cfa;
-    --k-color-md-dark-on-primary: #ffffff;
-    --k-color-md-light-surface-3: #20153a;
-    --k-color-md-dark-surface-3: #20153a;
-    --k-color-md-light-on-surface: #ffffff;
-    --k-color-md-dark-on-surface: #ffffff;
-    --k-color-md-light-on-surface-variant: #b4a9d6;
-    --k-color-md-dark-on-surface-variant: #b4a9d6;
-    --k-color-md-light-outline: #3c2572;
-    --k-color-md-dark-outline: #3c2572;
-    color: #ffffff;
-  }
-
-  .profile-head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    padding-block: 16px 8px;
-    text-align: center;
-  }
-
-  .profile-avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 4px;
-    border-radius: 50%;
-    background: #3c2572;
+    background: #9d8ef2;
     color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
   }
 
-  .profile-name {
-    margin: 0;
-    font-size: 15px;
+  .name {
+    max-width: 100%;
+    margin-top: 10px;
+    color: #14122e;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    overflow-wrap: anywhere;
   }
-  .profile-email {
+
+  .email {
+    max-width: 100%;
+    margin-top: 2px;
+    color: #6b6b7b;
     font-size: 12px;
-    opacity: 0.6;
-    word-break: break-all;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .profile-subtitle {
-    font-size: 11px;
-    opacity: 0.45;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+
+  .list {
+    margin-top: 12px;
   }
-  :global(.profile-list .k-list-item) {
-    font-size: 14px;
-    color: #ffffff !important;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    height: 36px;
+    padding: 0 13px 0 14px;
+    background: none;
+    border: 0;
+    color: #1a1840;
+    font-size: 15px;
+    line-height: 1;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.12s;
   }
-  :global(.profile-list .k-list-item a),
-  :global(.profile-list .k-list-item div),
-  :global(.profile-list .k-list-item span) {
-    color: #ffffff !important;
+
+  .item span {
+    flex: 1;
   }
-  :global(.profile-logout),
-  :global(.profile-logout div),
-  :global(.profile-logout span) {
-    color: #ffb4b4 !important;
+
+  .item:hover,
+  .item:focus-visible {
+    background: rgba(26, 24, 64, 0.08);
   }
+
+  .item:focus-visible {
+    outline: 2px solid #7a5cfa;
+    outline-offset: -2px;
+  }
+
+  .icon {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+
+  .chev {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    color: #111;
+  }
+
+  .item.danger {
+    color: #c2303f;
+  }
+
   .auth-buttons {
     display: flex;
     gap: 8px;
@@ -264,7 +354,6 @@
     border-color: #7a5cfa;
   }
 
-  /* Full-screen dimmed overlay centered on the viewport */
   .feedback-overlay {
     position: fixed;
     inset: 0;
@@ -317,13 +406,11 @@
     outline-offset: 2px;
   }
 
-  /* Contact.svelte renders its own white card - we neutralize its outer
-     margin/radius so it blends into the modal container. */
   .feedback-modal :global(.contact-us) {
     margin: 0;
     box-shadow: none;
     border-radius: 24px;
-    padding-top: 56px; /* room for the close button */
+    padding-top: 56px;
   }
 
   @keyframes feedback-fade-in {
@@ -349,6 +436,10 @@
     .feedback-overlay,
     .feedback-modal {
       animation: none;
+    }
+    .avatar-trigger,
+    .item {
+      transition: none;
     }
   }
 </style>
