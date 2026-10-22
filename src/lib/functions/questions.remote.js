@@ -49,7 +49,7 @@ export const getMySubmissions = query(async () => {
 
   const docs = await Submission.find(
     { submittedBy: email },
-    "kind exam title note key createdAt file.name file.mimeType file.size",
+    "kind exam status title note key createdAt file.name file.mimeType file.size",
   )
     .sort({ createdAt: -1 })
     .lean();
@@ -57,6 +57,7 @@ export const getMySubmissions = query(async () => {
   return docs.map((d) => ({
     id: String(d._id),
     kind: d.kind ?? "question",
+    status: d.status ?? "pending",
     exam: d.exam ?? null,
     title: d.title ?? null,
     note: d.note ?? null,

@@ -12,6 +12,7 @@
 
   const submissions = getMySubmissions();
   const list = $derived(submissions.current);
+  //console.log(list);
 
   function formatDate(iso) {
     if (!iso) return "";
@@ -76,13 +77,20 @@
           <li>
             <Card class="sub-card">
               <Block class="head">
-                <Badge class="kind-badge">
-                  {s.kind === "file" ? "File" : "Question"}
-                </Badge>
-                {#if s.exam}
-                  <Badge class="exam-badge">{s.exam}</Badge>
-                {/if}
-                <span class="date">{formatDate(s.createdAt)}</span>
+                <span
+                  ><Badge class="kind-badge">
+                    {s.kind === "file" ? "File" : "Question"}
+                  </Badge>
+                </span> <span class="date">{formatDate(s.createdAt)}</span>
+                <span
+                  >{#if s.status == "approved"}
+                    <Badge class="approved-badge">{s.status}</Badge>
+                  {:else if s.status == "rejected"}
+                    <Badge class="rejected-badge">{s.status}</Badge>
+                  {:else}
+                    <Badge class="exam-badge">{s.status}</Badge>
+                  {/if}
+                </span>
               </Block>
 
               {#if s.title}
@@ -234,9 +242,11 @@
     list-style: none;
   }
 
-  .head {
+  :global(.head) {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
     gap: 0.5rem;
     flex-wrap: wrap;
     font-size: 0.78rem;
@@ -250,6 +260,20 @@
 
   .shell :global(.exam-badge) {
     background: rgba(122, 92, 250, 0.2) !important;
+    color: #b8a8ff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .shell :global(.rejected-badge) {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    border: 1px solid #ef4444;
+    color: #b8a8ff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .shell :global(.approved-badge) {
+    background-color: rgba(34, 197, 94, 0.15) !important;
+    border: 1px solid #22c55e;
     color: #b8a8ff !important;
     text-transform: uppercase;
     letter-spacing: 0.04em;
