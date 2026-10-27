@@ -10,7 +10,7 @@ export const landing = {
   },
 
   hero: {
-    headline: "Practise the questions your exam is most likely to ask",
+    headline: "Practise the <span class='highlight'>questions</span> your exam is most likely to ask",
     sub: "Pick a course, answer the questions most likely to come out, and check yourself as you go. Free to start, and it runs in your phone browser.",
     cta: "Start practising",
     ctaReturning: "Continue practising",

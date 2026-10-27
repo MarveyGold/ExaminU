@@ -1,4 +1,5 @@
 <script>
+  import { Button } from "konsta/svelte";
   import { Level, faculty, department } from "#lib/stores.js";
   import { page } from "$app/state";
 

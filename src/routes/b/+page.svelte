@@ -1,25 +1,56 @@
 <script>
+  import {
+    Page,
+    Navbar,
+    NavbarBackLink,
+    Button,
+    Searchbar,
+    List,
+    ListItem,
+  } from "konsta/svelte";
   let { data } = $props();
   let names = $derived(data.names);
   let codes = $derived(data.codes);
   let current = $state("");
-  let search = $state("");
+  let searchQuery = $state("");
 
+  function handleSearch(e) {
+    searchQuery = e.target.value;
+  }
+  function handleDisable() {
+    console.log("Disable");
+  }
+  function handleClear() {
+    searchQuery = "";
+  }
   let filtered = $derived(
     names
       .map((f, i) => ({ name: f, abbr: codes[i] }))
-      .filter((f) => f.name.toLowerCase().includes(search.toLowerCase())),
+      .filter((f) => f.name.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 </script>
 
 <main class="page-body">
   <div class="header-block">
-    <h1 class="page-title">Select Faculty</h1>
-    <input
-      type="text"
-      placeholder="Search faculty..."
-      bind:value={search}
-      class="search-input"
+    <Navbar
+      title="Select Faculty"
+      class="!bg-[transparent]"
+      colors={{
+        bgIos: "!bg-[#0c0914]",
+        bgMaterial: "!bg-[#0c0914]",
+        textIos: "!text-white",
+        textMaterial: "!text-white",
+      }}
+      titleClass="!font-bold !text-white"
+    />
+    <Searchbar
+      onInput={handleSearch}
+      value={searchQuery}
+      onClear={handleClear}
+      class="  !bg-[#161026] max-w-150 !mx-auto rounded-3xl"
+      disableButton={!searchQuery}
+      disableButtonText="Cancel"
+      onDisable={handleDisable}
     />
   </div>
 
@@ -55,10 +86,12 @@
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding: 80px 16px 100px;
+    padding: 80px 16px 20dvh;
     box-sizing: border-box;
   }
-
+  :global(.bg-gradient-to-b) {
+    display: none;
+  }
   .header-block {
     width: 100%;
     text-align: center;
@@ -138,13 +171,39 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 99;
   }
+  :global(.k-searchbar input) {
+    padding-left: 44px !important;
+  }
 
+  :global(.k-searchbar svg) {
+    width: 16px;
+    height: 16px;
+  }
+  :global(.k-searchbar input) {
+    color: #fff !important;
+    font-size: 14px !important;
+    line-height: 1.5;
+  }
+
+  :global(.k-searchbar input::placeholder) {
+    color: rgb(255 255 255 / 55%) !important;
+    opacity: 1 !important;
+  }
+
+  :global(.k-searchbar .k-glass > span svg) {
+    width: 18px !important;
+    height: 18px !important;
+    opacity: 0.7 !important;
+  }
   .start-link {
     width: 100%;
     max-width: 600px;
   }
-
-  .footerButton {
+  :global(.k-searchbar .k-glass) {
+    background: #161026 !important;
+    box-shadow: none !important;
+  }
+  :global(.footerButton) {
     width: 100%;
     background-color: #7a5cfa;
     color: #ffffff;

@@ -1,9 +1,17 @@
 <script>
-  import { goto } from "$app/navigation";
+  import { goto, preloadData } from "$app/navigation";
   import { Level } from "#lib/stores.js";
   import { faculty, department } from "#lib/stores.js";
   import { page } from "$app/state";
-
+  import { onMount } from "svelte";
+  import {
+    Page,
+    Navbar,
+    NavbarBackLink,
+    Button,
+    Segmented,
+    SegmentedButton,
+  } from "konsta/svelte";
   let { data } = $props();
 
   let departmentName = $derived(data.departmentName);
@@ -13,7 +21,10 @@
   await department.set(data.department);
 
   let selected = $state(null);
-
+  onMount(() => {
+    preloadData(`/b/${data.faculty}/${data.department}?level=100`);
+    preloadData(`/b/${data.faculty}/${data.department}?level=100`);
+  });
   $effect(() => {
     Level.set(level);
   });
@@ -21,26 +32,36 @@
 
 <main class="page-body">
   <div class="header-block">
-    <h1 class="page-title">{departmentName}</h1>
+    <Navbar
+      title={departmentName}
+      class="!bg-[transparent]"
+      colors={{
+        bgIos: "!bg-[#0c0914]",
+        bgMaterial: "!bg-[#0c0914]",
+        textIos: "!text-white",
+        textMaterial: "!text-white",
+      }}
+      titleClass="!font-bold !text-white"
+      >{#snippet subnavbar()}
+        <Segmented strong rounded class="level-segmented">
+          <SegmentedButton
+            href={`/b/${$faculty}/${$department}?level=100`}
+            active={level === "100"}
+            class={level === "100" ? "level-active" : ""}
+          >
+            100 Level
+          </SegmentedButton>
 
-    <!-- Level Switcher Tabs -->
-    <nav class="level-tabs">
-      <a
-        href={`/b/${data.faculty}/${$department}/?level=100`}
-        class="tab-link"
-        class:active={level == "100"}
-      >
-        100 Level
-      </a>
-
-      <a
-        href={`/b/${$faculty}/${$department}/?level=200`}
-        class="tab-link"
-        class:active={level == "200"}
-      >
-        200 Level
-      </a>
-    </nav>
+          <SegmentedButton
+            href={`/b/${$faculty}/${$department}?level=200`}
+            active={level === "200"}
+            class={level === "200" ? "level-active" : ""}
+          >
+            200 Level
+          </SegmentedButton>
+        </Segmented>
+      {/snippet}</Navbar
+    >
   </div>
 
   <!-- Course List using intercepted anchor tags -->
@@ -159,7 +180,21 @@
     gap: 12px;
     width: 100%;
   }
+  :global(.level-segmented) {
+    width: 100%;
+    max-width: 320px;
+    min-height: 44px;
+    background: #161026;
+    color: #fff !important;
+    border: 1px solid #2d2242;
+    margin: auto;
+  }
 
+  :global(.level-segmented .level-active) {
+    background: #7a5cfa !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgb(122 92 250 / 30%);
+  }
   .course-card {
     display: flex;
     align-items: center;
@@ -246,7 +281,23 @@
     color: #9ca3af;
     border: 1px solid #2d2242;
   }
+  .level-segment-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    border-radius: 8px;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
 
+  .level-segment-link.active {
+    background: #7a5cfa;
+    color: #fff;
+  }
   .footer-link.secondary:hover {
     color: #ffffff;
     border-color: #4c3b80;

@@ -1,9 +1,17 @@
 <script>
   import { enhance } from "$app/forms";
-
+  import {
+    Page,
+    Navbar,
+    NavbarBackLink,
+    Button,
+    Searchbar,
+    List,
+    ListItem,
+  } from "konsta/svelte";
   import { chooseDepartment } from "#lib/functions/department.remote.js";
   let { data } = $props();
-  const faculty = $derived(data.faculty)
+  const faculty = $derived(data.faculty);
   let selected = $state(null);
   let saving = $state(false);
   let departments = $derived(
@@ -22,16 +30,18 @@
   />
 </svelte:head>
 <main class="page-body">
-  <div class="header-block">
-    <div class="title">
-      <h1>{data.facultyName}</h1>
-    </div>
-
-    <h2 class="page-title">Select Department</h2>
-    <p class="subtitle">
-      Choose your course of study. We'll remember it for next time.
-    </p>
-  </div>
+  <Navbar
+    title={data.facultyName}
+    subtitle="Select Department"
+    titleClass="!font-bold !text-white"
+    colors={{
+      bgIos: "!bg-[#0c0914]",
+      bgMaterial: "!bg-[#0c0914]",
+      textIos: "!text-white",
+      textMaterial: "!text-white",
+    }}
+    centerTitle
+  ></Navbar>
 
   <div class="department-list">
     {#each departments as department}
