@@ -5,9 +5,3 @@
 
 {@render children()}
 <AddQuestionsFab />
-
-<style>
-  :global(.bg-gradient-to-b) {
-    display: none;
-  }
-</style>

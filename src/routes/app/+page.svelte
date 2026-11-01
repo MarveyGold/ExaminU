@@ -1,37 +1,75 @@
 <script>
+  import {
+    Page,
+    Navbar,
+    NavbarBackLink,
+    Radio,
+    Card,
+    ListItem,
+  } from "konsta/svelte";
   let current = $state("");
 
   const exams = [
-    { name: "Post UTME", code: "asp", description: "Practice past questions for entry screening" },
-    { name: "Uniben Exam", code: "b", description: "Course-specific UNIBEN past questions" },
+    {
+      name: "Post UTME",
+      code: "asp",
+      description: "Practice past questions for entry screening",
+    },
+    {
+      name: "Uniben Exam",
+      code: "b",
+      description: "Course-specific UNIBEN past questions",
+    },
   ];
 </script>
 
-<main class="page-wrapper">
+<Page class="page-wrapper">
   <!-- Use div instead of header to avoid global header position:fixed rule -->
   <section class="content-container">
     <div class="title-block">
-      <h1 class="page-title">Select Exam</h1>
-      <p class="subtitle">Choose a category to start practicing</p>
+      <Navbar
+        title="Select Exam"
+        subtitle="Choose a category to start practicing "
+        class="!bg-[transparent]"
+        colors={{
+          bgIos: "!bg-[#0c0914]",
+          bgMaterial: "!bg-[#0c0914]",
+          textIos: "!text-white",
+          textMaterial: "!text-white",
+        }}
+        titleClass="!font-bold !text-white"
+      />
     </div>
 
     <div class="exam-list">
-      {#each exams as exam}
-        <a
-          href={`/${exam.code}`}
-          class="exam-card"
-          class:selected={current === exam.code}
+      {#each exams as o (o.code)}
+        <Card
+          component="a"
+          href={o.code}
           onclick={(e) => {
             e.preventDefault();
-            current = exam.code;
+            current = o.code;
           }}
+          class="!bg-[#1c1828] !rounded-2xl block no-underline"
+          contentWrapClass="!p-0"
         >
-          <div class="card-text">
-            <span class="exam-title">{exam.name}</span>
-            <span class="exam-desc">{exam.description}</span>
+          <div class="flex w-full items-center justify-between gap-6 p-4">
+            <div class="min-w-0 flex-1">
+              <h3 class="font-semibold text-white">{o.name}</h3>
+              <p class="text-sm text-gray-400">{o.description}</p>
+            </div>
+            <Radio
+              component="div"
+              class="pointer-events-none shrink-0"
+              value="post-utme"
+              checked={current === o.code}
+              onChange={(e) => {
+                e.preventDefault();
+                current = "post-utme";
+              }}
+            />
           </div>
-          <div class="radio-circle"></div>
-        </a>
+        </Card>
       {/each}
     </div>
   </section>
@@ -41,7 +79,7 @@
       <a href={`/${current}`} class=" footerButton cta-button"> Get Started </a>
     </footer>
   {/if}
-</main>
+</Page>
 
 <style>
   :global(*) {
@@ -50,52 +88,9 @@
     padding: 0;
   }
 
-  .page-wrapper {
-    min-height: 100vh;
+  :global(.k-page) {
     background-color: #0c0914;
     color: #ffffff;
-    font-family: system-ui, -apple-system, sans-serif;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 90px;
-  }
-
-  /* Scoped nav class avoiding global fixed header */
-  .top-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    width: 100%;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-img {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-  }
-
-  .brand-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #a78bfa;
-  }
-
-  .sign-in-btn {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
   }
 
   .content-container {
@@ -131,7 +126,7 @@
     width: 100%;
   }
 
-  .exam-card {
+  :global(.k-card) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -144,33 +139,10 @@
     transition: all 0.2s ease-in-out;
   }
 
-  .exam-card.selected {
-    border-color: #7c3aed;
-    background-color: #1f1638;
-  }
-
-  .card-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .exam-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
-
-  .exam-desc {
-    font-size: 0.85rem;
-    color: #9ca3af;
-  }
-
-  .radio-circle {
+  :global(.k-radio) {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    border: 2px solid #4c3b80;
     flex-shrink: 0;
   }
 

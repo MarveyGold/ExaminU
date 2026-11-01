@@ -3,6 +3,7 @@
   import { page } from "$app/state";
   import AuthCard from "#lib/Components/AuthCard.svelte";
   import PasswordField from "#lib/Components/PasswordField.svelte";
+  import { Button } from "konsta/svelte";
 
   let { form } = $props();
   let submitting = $state(false);
@@ -43,9 +44,9 @@
 
     <PasswordField autocomplete="current-password" />
 
-    <button type="submit" class="submit" disabled={submitting}>
+    <Button type="submit" class="submit" disabled={submitting}>
       {submitting ? "Logging in…" : "Log in"}
-    </button>
+    </Button>
   </form>
 
   {#snippet footer()}

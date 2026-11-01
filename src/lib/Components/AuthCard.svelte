@@ -1,9 +1,10 @@
 <script>
+  import { Card } from "konsta/svelte";
   let { title, lede, error = "", children, footer } = $props();
 </script>
 
 <main>
-  <div class="card">
+  <Card>
     <h1>{title}</h1>
     <p class="lede">{lede}</p>
 
@@ -14,11 +15,11 @@
     {@render children()}
 
     <p class="alt">{@render footer()}</p>
-  </div>
+  </Card>
 </main>
 
 <style>
-  .card {
+  :global(.k-card) {
     --card: #20153a;
     --field: #110b1f;
     --line: #3c2572;
@@ -71,18 +72,18 @@
   }
 
   /* Styles for the form that each page passes in */
-  .card :global(form) {
+  :global(.k-card) :global(form) {
     display: grid;
     gap: 0.4rem;
   }
 
-  .card :global(label) {
+  :global(.k-card) :global(label) {
     margin-top: 0.6rem;
     font-size: 0.875rem;
     font-weight: 600;
   }
 
-  .card :global(input) {
+  :global(.k-card) :global(input) {
     width: 100%;
     padding: 0.8rem 1rem;
     background: var(--field);
@@ -90,28 +91,30 @@
     font: inherit;
     border: 1px solid var(--line);
     border-radius: 12px;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
   }
 
-  .card :global(input:focus-visible) {
+  :global(.k-card) :global(input:focus-visible) {
     outline: 2px solid transparent; /* stays visible in high-contrast mode */
     border-color: var(--brand);
     box-shadow: 0 0 0 3px rgba(122, 92, 250, 0.45);
   }
 
-  .card :global(input:-webkit-autofill) {
+  :global(.k-card) :global(input:-webkit-autofill) {
     -webkit-text-fill-color: #fff;
     box-shadow: 0 0 0 100px var(--field) inset;
     caret-color: #fff;
   }
 
-  .card :global(.hint) {
+  :global(.k-card) :global(.hint) {
     color: var(--muted);
     font-size: 0.85rem;
   }
 
   /* matches .answerButton in your global styles */
-  .card :global(.submit) {
+  :global(.k-card) :global(.k-button) {
     margin-top: 1.25rem;
     padding: 12px 20px;
     background: linear-gradient(135deg, var(--brand), var(--brand-deep));
@@ -122,29 +125,31 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
   }
 
-  .card :global(.submit:hover:not(:disabled)) {
+  :global(.k-card) :global(.k-button:hover:not(:disabled)) {
     background: linear-gradient(135deg, #5a3eda, #4533b8);
     transform: translateY(-2px);
   }
 
-  .card :global(.submit:focus-visible) {
+  :global(.k-card) :global(.k-button:focus-visible) {
     outline: 3px solid rgba(184, 168, 255, 0.7);
     outline-offset: 2px;
   }
 
-  .card :global(.submit:disabled) {
+  :global(.k-card) :global(.k-button:disabled) {
     opacity: 0.65;
     cursor: progress;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card :global(*) {
+    :global(.k-card) :global(*) {
       transition: none !important;
     }
-    .card :global(.submit:hover:not(:disabled)) {
+    :global(.k-card) :global(.k-button:hover:not(:disabled)) {
       transform: none;
     }
   }
