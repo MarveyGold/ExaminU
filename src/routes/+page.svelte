@@ -260,8 +260,8 @@
     --ok-tint: #e4f5ec;
     --gold: #c98a07;
 
-    --font-sans: "Bricolage Grotesque Variable", ui-sans-serif, system-ui,
-      "Segoe UI", Roboto, sans-serif;
+    --font-sans: "Space Grotesk", ui-sans-serif, system-ui, "Segoe UI", Roboto,
+      sans-serif;
     --font-serif: ui-serif, Georgia, "Noto Serif", "Times New Roman", serif;
 
     --wrap: 1120px;
