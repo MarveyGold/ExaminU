@@ -1,15 +1,33 @@
 <script>
-  // Self-hosted, so there is no request to Google Fonts. Latin subset, one file (~40 KB).
-  import "@fontsource-variable/bricolage-grotesque/wght.css";
-
   import SiteHeader from "#lib/Components/SiteHeader.svelte";
   import DemoQuestion from "#lib/Components/DemoQuestion.svelte";
   import Contact from "#lib/Components/Contact.svelte";
   import InstallPrompt from "#lib/Components/InstallPrompt.svelte";
+  import Typewriter from "#lib/Components/Typewriter.svelte";
   import NumberCounter from "#lib/Components/NumberCounter.svelte";
   import { getCourseCodes } from "#lib/functions/courses.remote.js";
   import { landing } from "#lib/landing.js";
 
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  });
   let { data } = $props();
   let feedbackOpen = $state(true);
   const user = $derived(data.user);
@@ -35,7 +53,7 @@
       <div class="wrap opener-grid">
         <div class="copy">
           <h1>{@html landing.hero.headline}</h1>
-          <p class="sub">{landing.hero.sub}</p>
+          <p class="sub"><Typewriter text={landing.hero.sub} /></p>
 
           <div class="ctas">
             <a class="btn primary" href="/app">{cta}</a>
@@ -102,7 +120,7 @@
         {/snippet}
       </svelte:boundary>
     </marquee>
-    <section class="study" aria-hidden="false">
+    <section class="study reveal" aria-hidden="false">
       <div class="wrap study-grid">
         <img
           class="study-img"
@@ -120,7 +138,7 @@
       </div>
     </section>
 
-    <section class="sec" id="how">
+    <section class="sec reveal" id="how">
       <div class="wrap">
         <h2>{landing.steps.title}</h2>
         <ol class="steps">
@@ -153,7 +171,7 @@
       </div>
     </section>
 
-    <section class="trust" id="trust">
+    <section class="trust reveal" id="trust">
       <div class="wrap trust-grid">
         <div class="trust-text">
           <h2>{landing.trust.title}</h2>
@@ -172,7 +190,7 @@
     </section>
 
     {#if landing.show.partners}
-      <section class="partners" id="partners">
+      <section class="partners reveal" id="partners">
         <div class="wrap">
           <h2>{landing.partners.title}</h2>
           <div class="partner-grid">
@@ -189,7 +207,7 @@
     {/if}
 
     {#if landing.testimonials.length}
-      <section class="sec" id="voices">
+      <section class="sec reveal" id="voices">
         <div class="wrap">
           <h2>What students say</h2>
           <ul class="voices">
@@ -204,11 +222,13 @@
       </section>
     {/if}
 
-    <Contact
-      title={landing.contact.title}
-      body={landing.contact.body}
-      bind:open={feedbackOpen}
-    />
+    <div class="reveal">
+      <Contact
+        title={landing.contact.title}
+        body={landing.contact.body}
+        bind:open={feedbackOpen}
+      />
+    </div>
   </main>
 
   <footer class="foot">

@@ -41,6 +41,21 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <noscript>
+    <style>
+      /* Show all content when JavaScript is disabled */
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      /* Disable animations */
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    </style>
+  </noscript>
 </svelte:head>
 <App theme="ios">
   <!-- The landing page has its own header. -->
@@ -56,3 +71,39 @@
 
   {@render children()}
 </App>
+
+<style>
+  :global(.bg-gradient-to-b) {
+    display: none;
+  }
+  :global(.bg-md-light-surface-2) {
+    display: none;
+  }
+
+  /* Account for fixed header on sections */
+  :global(section:first-of-type) {
+    padding-top: calc(88px) !important;
+  }
+
+  :global(section.tight:first-of-type) {
+    padding-top: calc(56px) !important;
+  }
+
+  :global(.hero) {
+    padding-top: calc(120px) !important;
+  }
+
+  @media (max-width: 760px) {
+    :global(section:first-of-type) {
+      padding-top: calc(64px) !important;
+    }
+
+    :global(section.tight:first-of-type) {
+      padding-top: calc(40px) !important;
+    }
+
+    :global(.hero) {
+      padding-top: calc(100px) !important;
+    }
+  }
+</style>
