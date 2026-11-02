@@ -138,7 +138,7 @@
       </div>
     </section>
 
-    <section class="sec reveal" id="how">
+    <section class="sec" id="how">
       <div class="wrap">
         <h2>{landing.steps.title}</h2>
         <ol class="steps">
