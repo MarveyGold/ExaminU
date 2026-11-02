@@ -12,11 +12,7 @@ export default defineConfig({
     tailwindcss(),
     sveltekit({
       adapter: adapter({
-        buildOptions: {
-          compile: {
-            aot: true
-          }
-        }
+
       }),
       compilerOptions: {
         experimental: {
