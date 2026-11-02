@@ -1,20 +1,15 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
-  import {
-    Page,
-    Navbar,
-    NavbarBackLink,
-    Button,
-    Searchbar,
-    List,
-    ListItem,
-  } from "konsta/svelte";
-  import { chooseDepartment } from "#lib/functions/department.remote.ts";
-  let { data } = $props();
+  import { Navbar } from "konsta/svelte";
+  import type { PageProps } from "./$types";
+  import { chooseDepartment } from "#lib/functions/department.remote.ts";
+
+  let { data }: PageProps = $props();
+
   const faculty = $derived(data.faculty);
-  let selected = $state(null);
-  let saving = $state(false);
-  let departments = $derived(
+
+  let selected = $state<string | null>(null);
+
+  const departments = $derived(
     data.departmentNames.map((name, i) => ({
       name,
       code: data.departmentList[i],

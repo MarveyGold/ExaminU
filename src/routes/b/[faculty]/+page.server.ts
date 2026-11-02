@@ -1,6 +1,8 @@
 import Faculty from "#lib/server/models/faculty.model.js";
 import Department from "#lib/server/models/department.model.js";
-export async function load({ params }) {
+import type { PageServerLoad } from "./$types";
+
+export const load: PageServerLoad = async ({ params }) => {
   const { faculty } = params;
 
   const foundFaculty = await Faculty.findOne({ code: faculty }).lean();

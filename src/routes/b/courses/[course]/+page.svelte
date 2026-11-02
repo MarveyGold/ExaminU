@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { Button } from "konsta/svelte";
   import { Level, faculty, department } from "#lib/stores.ts";
   import { page } from "$app/state";
 
-  let { data } = $props();
+  import type { PageProps } from "./$types";
+
+  let { data }: PageProps = $props();
 
   let option = $state("");
   let checked = $state(false);
@@ -27,12 +28,12 @@
           : "wrong",
   );
 
-  function check(e) {
+  function check(e: SubmitEvent): void {
     e.preventDefault();
     checked = true;
   } // New question: clear the previous pick once the data actually changes
   $effect.pre(() => {
-    void quiz;
+    quiz;
     option = "";
     checked = false;
   });

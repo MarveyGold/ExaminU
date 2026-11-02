@@ -5,6 +5,7 @@ const quizSchema = new Schema({
   title: { type: String, trim: true },
   id: Number,
   exam: { type: String, default: "post-utme" },
+  instruction: String,
   question: { type: String, trim: true },
   options: [String],
   optionA: String,

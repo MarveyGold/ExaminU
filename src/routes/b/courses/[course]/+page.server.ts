@@ -1,5 +1,7 @@
-import Quiz from "#lib/server/models/quiz.js";
-export async function load({ params, url }) {
+import Quiz from "#lib/server/models/quiz.ts";
+import type { PageServerLoad } from "./$types";
+export const load: PageServerLoad = async ({ params, url }) => {
+
   const { course } = params;
 
   const all = await Quiz.find({ title: course }).distinct('question');

@@ -88,6 +88,22 @@ main {
   background: linear-gradient(to bottom, #0f0a1e, #1a1030, #0f0a1e);
 }
 
+:global(.k-page) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100dvh;
+  padding-top: 10dvh;
+  padding-bottom: 120px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  color: #fff;
+  background: linear-gradient(to bottom, #0f0a1e, #1a1030, #0f0a1e);
+}
+
 .list {
   flex: 1;
   overflow-y: auto;

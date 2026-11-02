@@ -1,21 +1,16 @@
 <script lang="ts">
-  import {
-    Page,
-    Navbar,
-    NavbarBackLink,
-    Button,
-    Searchbar,
-    List,
-    ListItem,
-  } from "konsta/svelte";
+  import { Page, Navbar, Searchbar } from "konsta/svelte";
   let { data } = $props();
   let names = $derived(data.names);
   let codes = $derived(data.codes);
   let current = $state("");
   let searchQuery = $state("");
 
-  function handleSearch(e) {
-    searchQuery = e.target.value;
+  function handleSearch(e: Event) {
+    const target = e.target;
+    if (target instanceof HTMLInputElement) {
+      searchQuery = target.value;
+    }
   }
   function handleDisable() {
     console.log("Disable");
@@ -30,7 +25,7 @@
   );
 </script>
 
-<main class="page-body">
+<Page>
   <div class="header-block">
     <Navbar
       title="Select Faculty"
@@ -49,7 +44,6 @@
       onClear={handleClear}
       class="  !bg-[#161026] max-w-150 !mx-auto rounded-3xl"
       disableButton={!searchQuery}
-      disableButtonText="Cancel"
       onDisable={handleDisable}
     />
   </div>
@@ -77,17 +71,12 @@
       </a>
     </footer>
   {/if}
-</main>
+</Page>
 
 <style>
-  .page-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
+  :global(.k-page) {
     padding: 80px 16px 20dvh;
-    box-sizing: border-box;
+    background: linear-gradient(to bottom, #0f0a1e, #1a1030, #0f0a1e);
   }
   :global(.bg-gradient-to-b) {
     display: none;
