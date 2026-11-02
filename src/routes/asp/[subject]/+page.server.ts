@@ -1,6 +1,9 @@
-import Quiz from "#lib/server/models/quiz.js";
-export async function load({ params, fetch, url }) {
-  //const env = API_URL;
+import Quiz from "#lib/server/models/quiz.ts";
+import type { PageServerLoad } from "./$types";
+
+
+
+export const load: PageServerLoad = async ({ params, url }) => {
   const { subject } = params;
   const title = subject.charAt(0).toUpperCase() + subject.slice(1);
 

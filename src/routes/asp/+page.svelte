@@ -1,6 +1,8 @@
 <script lang="ts">
-  let { data } = $props();
-  let current = $state();
+  import type { PageProps } from "./$types";
+
+  let { data }: PageProps = $props();
+  let current = $state("");
 </script>
 
 <main class="main">
@@ -21,9 +23,9 @@
   </div>
   {#if current}
     <footer>
-      <a href={`asp/${current}`}
-        ><button class="footerButton">Get Started</button></a
-      >
+      <a class="footerButton" href={`/asp/${encodeURIComponent(current)}`}>
+        Get Started
+      </a>
     </footer>
   {/if}
 </main>
