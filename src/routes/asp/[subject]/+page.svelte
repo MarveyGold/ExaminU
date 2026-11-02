@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { goto } from "$app/navigation";
   let { data } = $props();
   let Quiz = $derived(data.quiz);

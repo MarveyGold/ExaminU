@@ -1,8 +1,9 @@
-import { lucia } from "#lib/server/lucia.js";
-import { User } from "#lib/server/models/user.js";
+import { lucia, asLuciaId } from "#lib/server/lucia.ts";
+import { User } from "#lib/server/models/user.ts";
 import { redirect, fail } from "@sveltejs/kit";
+import type { Actions, PageServerLoad } from "./$types";
 
-export async function load() {
+export const load: PageServerLoad = async () => {
   return {};
 }
 
@@ -32,7 +33,7 @@ export const actions = {
     }
     if (!valid) return fail(400, { error: "Invalid email or password" });
 
-    const session = await lucia.createSession(user._id, {
+    const session = await lucia.createSession(asLuciaId(user._id), {
       email: user.email,
       role: user.role,
     });
@@ -45,4 +46,4 @@ export const actions = {
 
     redirect(303, redirectTo);
   },
-};
+} satisfies Actions;

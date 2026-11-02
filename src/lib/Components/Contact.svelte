@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Send from "#lib/Icons/send.svelte";
-  import { submitFeedback } from "./feedback.remote.js";
+  import { submitFeedback } from "./feedback.remote.ts";
 
   let status = $state("idle");
   let formElement = $state();

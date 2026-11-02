@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import {
     Card,
     Badge,
@@ -8,14 +8,14 @@
     Preloader,
     Block,
   } from "konsta/svelte";
-  import { getMySubmissions } from "#lib/functions/questions.remote.js";
+  import { getMySubmissions } from "#lib/functions/questions.remote.ts";
 
   const submissions = getMySubmissions();
   const list = $derived(submissions.current);
-  //console.log(list);
 
-  function formatDate(iso) {
+  function formatDate(iso: string | Date | null | undefined): string {
     if (!iso) return "";
+
     return new Date(iso).toLocaleDateString(undefined, {
       year: "numeric",
       month: "short",
@@ -23,10 +23,11 @@
     });
   }
 
-  function formatBytes(n) {
+  function formatBytes(n: number | null | undefined): string {
     if (!n) return "";
     if (n < 1024) return `${n} B`;
     if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
+
     return `${(n / (1024 * 1024)).toFixed(1)} MB`;
   }
 </script>

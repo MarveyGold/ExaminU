@@ -1,2 +1,39 @@
 @import 'tailwindcss';
 @import 'konsta/svelte/theme.css';
+
+/* src/app.css */
+.reveal {
+  opacity: 0;
+  transform: translateX(240px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* optional: stagger sibling cards */
+.grid>.reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.grid>.reveal:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.grid>.reveal:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* respect users who turn off motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { page } from "$app/state";
 
   let { href = "/contribute", label = "Add questions", raised = true } = $props();

@@ -6,9 +6,9 @@ import { User } from "#lib/server/models/user.js";
 import Faculty from "#lib/server/models/faculty.model.js";
 import Department from "#lib/server/models/department.model.js";
 import Submission from "#lib/server/models/submission.model.js";
-import { lucia } from "#lib/server/lucia.js";
+import { lucia, asLuciaId } from "#lib/server/lucia.js";
 import { savedDepartment } from "#lib/server/department.js";
-import { LEVELS, USERNAME_RE, isReserved, cleanName } from "#lib/profile.js";
+import { LEVELS, USERNAME_RE, isLevel, isReserved, cleanName } from "#lib/profile.js";
 
 function requireUser() {
   const event = getRequestEvent();
@@ -38,7 +38,7 @@ export const getProfile = query(async () => {
     email: user.email,
     name: user.name ?? "",
     username: user.username ?? "",
-    level: LEVELS.includes(user.level) ? user.level : "100",
+    level: isLevel(user.level) ? user.level : "100",
     joined: user.createdAt?.toISOString() ?? "",
     facultyName: faculty?.name ?? "",
     departmentName: department?.name ?? "",
@@ -50,7 +50,7 @@ export const getProfile = query(async () => {
 export const updateProfile = form(
   v.object({
     name: v.optional(
-      v.pipe(v.string(), v.transform(cleanName), v.maxLength(60, "Your name must be 60 characters or fewer.")),
+      v.pipe(v.string(), v.transform((s) => cleanName(s)), v.maxLength(60, "Your name must be 60 characters or fewer.")),
       "",
     ),
     username: v.optional(
@@ -67,8 +67,8 @@ export const updateProfile = form(
   async ({ name, username, level }, issue) => {
     const { userId } = requireUser();
 
-    const $set = { level };
-    const $unset = {};
+    const $set: Record<string, string> = { level };
+    const $unset: Record<string, ""> = {};
     if (name) $set.name = name; else $unset.name = "";
     if (username) $set.username = username; else $unset.username = "";
 
@@ -79,7 +79,7 @@ export const updateProfile = form(
         { runValidators: true },
       );
     } catch (err) {
-      if (err?.code === 11000) invalid(issue.username("That username is taken."));
+      if ((err as { code?: number })?.code === 11000) invalid(issue.username("That username is taken."));
       throw err;
     }
 
@@ -123,8 +123,8 @@ export const changePassword = form(
     await user.save();
 
     // Sign out everywhere else, then keep this device signed in
-    await lucia.invalidateUserSessions(user._id);
-    const session = await lucia.createSession(user._id, { email: user.email, role: user.role });
+    await lucia.invalidateUserSessions(asLuciaId(user._id));
+    const session = await lucia.createSession(asLuciaId(user._id), { email: user.email, role: user.role });
     const cookie = lucia.createSessionCookie(session.id);
     event.cookies.set(cookie.name, cookie.value, { path: ".", ...cookie.attributes });
 

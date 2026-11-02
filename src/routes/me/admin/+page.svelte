@@ -1,23 +1,24 @@
-<script>
-  import { listEmails } from "./admin.remote.js";
+<script lang="ts">
+  import { listEmails } from "./admin.remote.ts";
 
   const emails = listEmails();
 
-  let status = $state(""); // "", "copied" or "failed"
-  let timer;
+  let status = $state<"" | "copied" | "failed">("");
+  let timer: ReturnType<typeof setTimeout> | undefined;
 
   const list = $derived(emails.current ?? []);
   const text = $derived(list.join(", "));
 
-  async function copyForGmail() {
-    clearTimeout(timer);
+  async function copyForGmail(): Promise<void> {
+    if (timer) clearTimeout(timer);
+
     try {
       await navigator.clipboard.writeText(text);
       status = "copied";
     } catch {
-      // clipboard blocked (http, iframe, or permissions)
       status = "failed";
     }
+
     timer = setTimeout(() => (status = ""), 2500);
   }
 </script>

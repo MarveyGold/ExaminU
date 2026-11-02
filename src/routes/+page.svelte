@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import SiteHeader from "#lib/Components/SiteHeader.svelte";
   import DemoQuestion from "#lib/Components/DemoQuestion.svelte";
   import Contact from "#lib/Components/Contact.svelte";
   import InstallPrompt from "#lib/Components/InstallPrompt.svelte";
   import Typewriter from "#lib/Components/Typewriter.svelte";
   import NumberCounter from "#lib/Components/NumberCounter.svelte";
-  import { getCourseCodes } from "#lib/functions/courses.remote.js";
-  import { landing } from "#lib/landing.js";
-
+  import { getCourseCodes } from "#lib/functions/courses.remote.ts";
+  import { landing } from "#lib/landing.ts";
+  import type { LayoutProps } from "./$types";
   import { onMount } from "svelte";
 
   onMount(() => {
@@ -22,18 +22,18 @@
       { threshold: 0.4 },
     );
 
-    document.querySelectorAll(".reveal").forEach((el) => {
+    document.querySelectorAll(".reveal").forEach((el: Element) => {
       observer.observe(el);
     });
 
     return () => observer.disconnect();
   });
-  let { data } = $props();
+  let { data }: LayoutProps = $props();
   let feedbackOpen = $state(true);
   const user = $derived(data.user);
   const cta = $derived(user ? landing.hero.ctaReturning : landing.hero.cta);
 
-  const links = [
+  const links: { href: string; label: string }[] = [
     { href: "#how", label: "How it works" },
     { href: "#trust", label: "Our approach" },
     ...(landing.show.partners
@@ -42,7 +42,7 @@
     { href: "#contact", label: "Feedback" },
   ];
 
-  const year = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
 </script>
 
 <div class="lp">

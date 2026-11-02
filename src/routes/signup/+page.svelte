@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import { enhance } from "$app/forms";
   import { page } from "$app/state";
   import AuthCard from "#lib/Components/AuthCard.svelte";
   import PasswordField from "#lib/Components/PasswordField.svelte";
-
-  let { form } = $props();
+  import type { PageProps } from "./$types";
+  let { form }: PageProps = $props();
   let submitting = $state(false);
 
   const next = $derived(page.url.searchParams.get("redirect"));

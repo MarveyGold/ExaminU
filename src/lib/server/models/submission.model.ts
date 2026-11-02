@@ -1,7 +1,8 @@
 import mongoose from "../db.js";
+import type { InferSchemaType, Model } from "mongoose";
 const { Schema } = mongoose;
 
-const isQuestion = function() {
+const isQuestion = function (this: { kind?: string }) {
   return this.kind === "question";
 };
 
@@ -36,5 +37,8 @@ const submissionSchema = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.models.QuestionSubmission ??
-  mongoose.model("QuestionSubmission", submissionSchema);
+export type SubmissionDoc = InferSchemaType<typeof submissionSchema>;
+
+const Submission: Model<SubmissionDoc> =
+  mongoose.models.QuestionSubmission ?? mongoose.model("QuestionSubmission", submissionSchema);
+export default Submission;

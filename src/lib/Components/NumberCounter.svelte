@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Tween } from 'svelte/motion';
   import { cubicOut } from 'svelte/easing';
   import { browser } from "$app/env";

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import AddQuestionsFab from "#lib/Components/AddQuestionsFab.svelte";
   let { children } = $props();
 </script>

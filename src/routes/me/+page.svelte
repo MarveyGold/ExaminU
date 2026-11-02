@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import Avatar from "#lib/Components/Avatar.svelte";
   import ProfileShell from "#lib/Components/ProfileShell.svelte";
-  import { getProfile, logout } from "#lib/functions/profile.remote.js";
-  import { displayName } from "#lib/profile.js";
+  import { getProfile, logout } from "#lib/functions/profile.remote.ts";
 
-  const since = (iso) =>
+  import { displayName } from "#lib/profile.ts";
+  const since = (iso: string | null | undefined) =>
     iso
       ? new Date(iso).toLocaleDateString("en-GB", {
           month: "long",

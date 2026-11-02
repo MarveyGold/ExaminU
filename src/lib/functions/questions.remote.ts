@@ -4,17 +4,19 @@ import * as v from "valibot";
 import "#lib/server/db.js";
 import Quiz from "#lib/server/models/quiz.js";
 import Submission from "#lib/server/models/submission.model.js";
-import { normalizeQuestion, looseKey, COURSE_CODE } from "#lib/questionSchema.js";
+import { normalizeQuestion, looseKey, COURSE_CODE, type NormalizedQuestion } from "#lib/questionSchema.js";
 import * as R from "#lib/server/upload-rules.js";
 
 const DAILY_LIMIT = 300;
 
-const sha1 = (data) =>
+type MongoWriteError = { code?: number; writeErrors?: unknown; insertedDocs?: unknown[] };
+
+const sha1 = (data: string | Uint8Array) =>
   new Bun.CryptoHasher("sha1").update(data).digest("hex");
 
-const questionKey = (title, question) => sha1(looseKey(title, question));
+const questionKey = (title: string, question: string) => sha1(looseKey(title, question));
 
-function requireUserId() {
+function requireUserId(): string {
   const { locals } = getRequestEvent();
   if (!locals.user?.id) error(401, "Log in first.");
   return String(locals.user.email);
@@ -23,7 +25,7 @@ function requireUserId() {
 /* ---------------- queries ---------------- */
 
 export const getQuizCourses = query(async () => {
-  const titles = await Quiz.distinct("title");
+  const titles: (string | null | undefined)[] = await Quiz.distinct("title");
   return titles.filter(Boolean).sort();
 });
 
@@ -92,8 +94,10 @@ export const submitQuestions = command(
       error(429, `You can submit up to ${DAILY_LIMIT} questions per day.`);
     }
 
+    type Candidate = NormalizedQuestion & { exam: typeof exam; key: string; submittedBy: string };
+
     let rejected = 0;
-    const byKey = new Map();
+    const byKey = new Map<string, Candidate>();
     for (const raw of items) {
       const r = normalizeQuestion(raw);
       if (!r.ok) {
@@ -114,7 +118,7 @@ export const submitQuestions = command(
       "title question",
     ).lean();
     const liveKeys = new Set(
-      live.map((q) => questionKey(q.title, q.question)),
+      live.map((q) => questionKey(q.title ?? "", q.question ?? "")),
     );
 
     const queued = await Submission.find(
@@ -134,8 +138,9 @@ export const submitQuestions = command(
         await Submission.insertMany(fresh, { ordered: false });
         accepted = fresh.length;
       } catch (err) {
-        if (err?.code !== 11000 && !err?.writeErrors) throw err;
-        accepted = err?.insertedDocs?.length ?? 0;
+        const e = err as MongoWriteError;
+        if (e?.code !== 11000 && !e?.writeErrors) throw err;
+        accepted = e?.insertedDocs?.length ?? 0;
         duplicates += fresh.length - accepted;
       }
     }
@@ -182,12 +187,12 @@ export const uploadFiles = command(
 
     let uploaded = 0;
     let duplicates = 0;
-    const rejected = [];
+    const rejected: { name: string; reason: string }[] = [];
 
     for (const file of usable) {
       const name = R.cleanName(file.name);
       const ext = name.includes(".")
-        ? name.split(".").pop().toLowerCase()
+        ? (name.split(".").pop() ?? "").toLowerCase()
         : "";
       const mimeType = R.TYPES[ext];
 
@@ -233,11 +238,11 @@ export const uploadFiles = command(
         });
         uploaded++;
       } catch (err) {
-        if (err?.code === 11000) duplicates++;
+        if ((err as MongoWriteError)?.code === 11000) duplicates++;
         else throw err;
       }
     }
 
     return { uploaded, duplicates, rejected };
   },
-);;
+);

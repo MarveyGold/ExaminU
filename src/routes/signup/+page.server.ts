@@ -1,7 +1,8 @@
 import { redirect, fail } from "@sveltejs/kit";
-import { User } from "#lib/server/models/user.js";
+import type { Actions, PageServerLoad } from "./$types";
+import { User } from "#lib/server/models/user.ts";
 
-export async function load() {
+export const load: PageServerLoad = async () => {
   return {};
 }
 
@@ -36,7 +37,7 @@ export const actions = {
       await User.create({ email, passwordHash, role: "user" });
     } catch (err) {
       // duplicate key: two signups raced past the findOne check
-      if (err?.code === 11000) {
+      if ((err as { code?: number })?.code === 11000) {
         return fail(400, { error: "User already exists" });
       }
       throw err;
@@ -47,4 +48,4 @@ export const actions = {
       safeTarget ? `/login?redirect=${encodeURIComponent(safeTarget)}` : "/login",
     );
   },
-};
+} satisfies Actions;

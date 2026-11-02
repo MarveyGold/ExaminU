@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   let { title, backHref = "/", children } = $props();
 </script>
 

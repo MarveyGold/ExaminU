@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { tick } from "svelte";
 
   let { samples, ctaHref = "/app", ctaLabel = "Practise more like this" } = $props();

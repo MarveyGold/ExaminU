@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { goto, preloadData } from "$app/navigation";
-  import { Level } from "#lib/stores.js";
-  import { faculty, department } from "#lib/stores.js";
+  import { Level } from "#lib/stores.ts";
+  import { faculty, department } from "#lib/stores.ts";
   import { page } from "$app/state";
   import { onMount } from "svelte";
   import {

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Card } from "konsta/svelte";
   let { title, lede, error = "", children, footer } = $props();
 </script>

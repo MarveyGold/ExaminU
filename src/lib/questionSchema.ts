@@ -1,19 +1,33 @@
-const trim = (s) => String(s ?? "").replace(/\r\n/g, "\n").trim();
-const squash = (s) => trim(s).replace(/\s+/g, " ");
-export const loose = (s) => squash(s).toLowerCase().replace(/[.\s]+$/, "");
+const trim = (s: unknown) => String(s ?? "").replace(/\r\n/g, "\n").trim();
+const squash = (s: unknown) => trim(s).replace(/\s+/g, " ");
+export const loose = (s: unknown) => squash(s).toLowerCase().replace(/[.\s]+$/, "");
 
 export const COURSE_CODE = /^[A-Z]{2,5} ?\d{2,4}[A-Z]?$/;
 export const LIMITS = { question: 1000, option: 300, explanation: 1500 };
 
-export function looseKey(title, question) {
+export function looseKey(title: unknown, question: unknown): string {
   return `${squash(title).toUpperCase()}|${loose(question).replace(/[^a-z0-9]/g, "")}`;
 }
 
-export function normalizeQuestion(raw) {
-  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+export interface NormalizedQuestion {
+  title: string;
+  question: string;
+  options: string[];
+  correctAnswer: string;
+  explanation?: string;
+  instruction?: string;
+}
+
+export type NormalizeResult =
+  | { ok: false; errors: string[] }
+  | { ok: true; errors: string[]; value: NormalizedQuestion };
+
+export function normalizeQuestion(input: unknown): NormalizeResult {
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
     return { ok: false, errors: ["Not a question object."] };
   }
-  const errors = [];
+  const raw = input as Record<string, unknown>;
+  const errors: string[] = [];
 
   const title = squash(raw.title ?? raw.course).toUpperCase();
   const question = trim(raw.question);
@@ -37,7 +51,7 @@ export function normalizeQuestion(raw) {
   if (!answer && /^[A-Ea-e]$/.test(given)) answer = options["ABCDE".indexOf(given.toUpperCase())];
   if (!answer) errors.push("Correct answer doesn't match any option.");
 
-  if (errors.length) return { ok: false, errors };
+  if (errors.length || !answer) return { ok: false, errors };
   return {
     ok: true,
     errors,
@@ -46,8 +60,8 @@ export function normalizeQuestion(raw) {
       question,
       options,
       correctAnswer: answer, // always stored as the exact option text
-      ...(explanation && { explanation }),
-      ...(instruction && { instruction }),
+      ...(explanation ? { explanation } : {}),
+      ...(instruction ? { instruction } : {}),
     },
   };
 }

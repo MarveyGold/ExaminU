@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
-import { building } from "$app/environment";
+import mongoose, { type ConnectOptions } from "mongoose";
+import { building } from "$app/env";
 import { MONGO_URI } from "$app/env/private";
 
 if (!building) {
   try {
-    const clientOptions =
+    const clientOptions: ConnectOptions =
       process.env.NODE_ENV === "production"
         ? {
             serverApi: { version: "1", strict: true, deprecationErrors: true },

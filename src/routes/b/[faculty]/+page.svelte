@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { enhance } from "$app/forms";
   import {
     Page,
@@ -9,7 +9,7 @@
     List,
     ListItem,
   } from "konsta/svelte";
-  import { chooseDepartment } from "#lib/functions/department.remote.js";
+  import { chooseDepartment } from "#lib/functions/department.remote.ts";
   let { data } = $props();
   const faculty = $derived(data.faculty);
   let selected = $state(null);

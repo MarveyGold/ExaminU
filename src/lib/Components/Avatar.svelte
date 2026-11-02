@@ -1,5 +1,5 @@
-<script>
-  import { initials } from "#lib/profile.js";
+<script lang="ts">
+  import { initials } from "#lib/profile.ts";
 
   let { name = "", email = "", size = 88 } = $props();
   const text = $derived(initials(name, email));

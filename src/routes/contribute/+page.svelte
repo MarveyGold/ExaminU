@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
   import {
     getQuizCourses,
     submitQuestions,
     getUploadRules,
     uploadFiles,
-  } from "#lib/functions/questions.remote.js";
-  import { normalizeQuestion } from "#lib/questionSchema.js";
+  } from "#lib/functions/questions.remote.ts";
+  import { normalizeQuestion } from "#lib/questionSchema.ts";
 
   const courses = getQuizCourses();
   const rules = getUploadRules();
-
   const blank = () => ({
     title: "",
     question: "",
@@ -18,18 +17,41 @@
     explanation: "",
   });
 
-  let exam = $state("school");
+  type Exam = "school" | "post-utme";
+
+  let exam = $state<Exam>("school");
   let single = $state(blank());
   let busy = $state(false);
 
   let uploading = $state(false);
   let uploadError = $state("");
-  let upload = $state(null);
+  let upload = $state<Awaited<ReturnType<typeof uploadFiles>> | null>(null);
 
-  let outcome = $state(null);
+  let outcome = $state<Awaited<ReturnType<typeof submitQuestions>> | null>(
+    null,
+  );
+
   let message = $state("");
+  function getErrorMessage(error: unknown, fallback: string): string {
+    if (typeof error !== "object" || error === null) return fallback;
 
-  async function sendSingle(e) {
+    if (
+      "body" in error &&
+      typeof error.body === "object" &&
+      error.body !== null
+    ) {
+      if ("message" in error.body && typeof error.body.message === "string") {
+        return error.body.message;
+      }
+    }
+
+    if ("message" in error && typeof error.message === "string") {
+      return error.message;
+    }
+
+    return fallback;
+  }
+  async function sendSingle(e: Event) {
     e.preventDefault();
     outcome = null;
     message = "";
@@ -53,24 +75,24 @@
       outcome = await submitQuestions({ exam, items: [item] });
       if (outcome.accepted) single = blank();
     } catch (err) {
-      message = err?.body?.message ?? "Something went wrong. Please try again.";
+      message = getErrorMessage(err, "Something went wrong. Please try again.");
     } finally {
       busy = false;
     }
   }
 
-  async function sendFiles(e) {
+  async function sendFiles(e: SubmitEvent) {
     e.preventDefault();
     const el = e.currentTarget;
 
+    if (!(el instanceof HTMLFormElement)) return;
     uploadError = "";
     upload = null;
 
     const fd = new FormData(el);
     const files = fd
       .getAll("files")
-      .filter((f) => f instanceof File && f.size > 0);
-
+      .filter((f): f is File => f instanceof File && f.size > 0);
     if (!files.length) {
       uploadError = "Choose at least one file.";
       return;
@@ -86,7 +108,7 @@
       });
       el.reset(); // only after the command succeeds
     } catch (err) {
-      uploadError = err?.body?.message ?? err?.message ?? "Upload failed.";
+      uploadError = getErrorMessage(err, "Upload failed.");
     } finally {
       uploading = false;
     }

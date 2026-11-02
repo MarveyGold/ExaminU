@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { Button } from "konsta/svelte";
-  import { Level, faculty, department } from "#lib/stores.js";
+  import { Level, faculty, department } from "#lib/stores.ts";
   import { page } from "$app/state";
 
   let { data } = $props();

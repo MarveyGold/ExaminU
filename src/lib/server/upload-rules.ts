@@ -1,9 +1,9 @@
-// #lib/server/uplexport const MAX_FILES = 5;
+export const MAX_FILES = 5;
 export const MAX_FILE_BYTES = 8 * 1024 * 1024;
 export const MAX_TEXT_BYTES = 2 * 1024 * 1024;
 export const DAILY_FILE_LIMIT = 20;
 
-export const TYPES = {
+export const TYPES: Record<string, string> = {
   pdf: "application/pdf",
   png: "image/png",
   jpg: "image/jpeg",
@@ -16,15 +16,15 @@ export const TYPES = {
 
 export const ACCEPT = Object.keys(TYPES).map((e) => "." + e).join(",");
 
-export const cleanName = (n) =>
+export const cleanName = (n: unknown) =>
   String(n ?? "file")
     .split(/[\\/]/)
-    .pop()
+    .pop()!
     .replace(/[\u0000-\u001f\u007f]/g, "")
     .trim()
     .slice(0, 120) || "file";
 
-export function isUtf8Text(bytes) {
+export function isUtf8Text(bytes: Uint8Array): boolean {
   if (bytes.includes(0)) return false;
   try {
     new TextDecoder("utf-8", { fatal: true }).decode(bytes);
@@ -34,7 +34,7 @@ export function isUtf8Text(bytes) {
   }
 }
 
-export function looksLike(ext, b) {
+export function looksLike(ext: string, b: Buffer): boolean {
   switch (ext) {
     case "pdf":
       return b.subarray(0, 4).toString("latin1") === "%PDF";

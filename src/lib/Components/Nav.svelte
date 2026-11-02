@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Auth from "./AuthIndex.svelte";
   let style = $state("");
   let btnText = $state("≡");

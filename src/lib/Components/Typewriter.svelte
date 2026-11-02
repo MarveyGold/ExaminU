@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { browser } from "$app/env";
   let { text, speed = 28, delay = 0 } = $props();
 

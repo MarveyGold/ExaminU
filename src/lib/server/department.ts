@@ -1,12 +1,16 @@
+import type { Cookies } from "@sveltejs/kit";
 import { dev } from "$app/env";
 import Department from "./models/department.model.js";
 import { User } from "./models/user.js";
-import { LEVELS } from "#lib/profile.js";
+import { isLevel, type Level } from "#lib/profile.js";
+
+type Ctx = { locals: App.Locals; cookies: Cookies };
+type Choice = { faculty: string; department: string };
 
 const COOKIE = "examinu_department";
-const safeLevel = (l) => (LEVELS.includes(l) ? l : "100");
+const safeLevel = (l: unknown): Level => (isLevel(l) ? l : "100");
 
-function fromCookie(cookies) {
+function fromCookie(cookies: Cookies): Choice | null {
   const [faculty, department] = (cookies.get(COOKIE) ?? "").split(":");
   return faculty && department
     ? { faculty: faculty.slice(0, 20), department: department.slice(0, 20) }
@@ -15,11 +19,11 @@ function fromCookie(cookies) {
 
 // The visitor's saved department: the account's choice first, then the guest cookie.
 // Returns { faculty, department, level } or null. Only reads, so it's safe inside queries.
-export async function savedDepartment({ locals, cookies }) {
+export async function savedDepartment({ locals, cookies }: Ctx): Promise<(Choice & { level: Level }) | null> {
   const userId = locals.user?.id ? String(locals.user.id) : null;
   const me = userId ? await User.findById(userId, "faculty department level").lean() : null;
 
-  const fromDb = me?.faculty && me?.department
+  const fromDb: Choice | null = me?.faculty && me?.department
     ? { faculty: me.faculty, department: me.department }
     : null;
   const choice = fromDb ?? fromCookie(cookies);
@@ -34,14 +38,14 @@ export async function savedDepartment({ locals, cookies }) {
   return { ...choice, level: safeLevel(me?.level) };
 }
 
-export async function userLevel(locals) {
+export async function userLevel(locals: App.Locals): Promise<Level> {
   if (!locals.user?.id) return "100";
   const me = await User.findById(String(locals.user.id), "level").lean();
   return safeLevel(me?.level);
 }
 
 // Writes a cookie, so call it only from a remote form or command
-export async function saveDepartment({ locals, cookies }, faculty, department) {
+export async function saveDepartment({ locals, cookies }: Ctx, faculty: string, department: string): Promise<void> {
   cookies.set(COOKIE, `${faculty}:${department}`, {
     path: "/",
     maxAge: 60 * 60 * 24 * 365,

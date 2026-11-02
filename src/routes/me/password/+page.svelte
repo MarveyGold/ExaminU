@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import ProfileShell from "#lib/Components/ProfileShell.svelte";
-  import { changePassword } from "#lib/functions/profile.remote.js";
+  import { changePassword } from "#lib/functions/profile.remote.ts";
 
   const f = changePassword.fields;
 </script>

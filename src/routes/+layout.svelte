@@ -1,16 +1,15 @@
-<script>
+<script lang="ts">
   import "./layout.css";
   import { page } from "$app/state";
   import "../globals.css";
   import Auth from "#lib/Components/Auth.svelte";
-  import { landing } from "#lib/landing.js";
+  import { landing } from "#lib/landing.ts";
   import { App } from "konsta/svelte";
   let { children } = $props();
 
   const site = "https://examinu.pxxl.run";
   const isHome = $derived(page.url.pathname === "/");
-
-  const meta = $derived(
+  const meta: { title: string; description: string } = $derived(
     isHome
       ? landing.meta
       : {
@@ -20,7 +19,7 @@
         },
   );
 
-  const url = $derived(`${site}${page.url.pathname}`);
+  const url: string = $derived(`${site}${page.url.pathname}`);
 </script>
 
 <svelte:head>

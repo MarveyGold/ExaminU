@@ -2,6 +2,12 @@
 // sentence without touching markup. Keep every claim true: investors, grant
 // panels and sponsors will read this page closely.
 
+export interface Testimonial {
+  quote: string;
+  name: string;
+  detail: string;
+}
+
 export const landing = {
   meta: {
     title: "ExaminU: practise the questions your exam is most likely to ask",
@@ -73,7 +79,7 @@ export const landing = {
 
   // Add real student quotes here and the section appears by itself.
   // { quote: "…", name: "Ada", detail: "300 level, Microbiology" }
-  testimonials: [],
+  testimonials: [] as Testimonial[],
 
   contact: {
     title: "Tell us what to fix or add",

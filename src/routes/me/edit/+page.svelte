@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import Avatar from "#lib/Components/Avatar.svelte";
   import ProfileShell from "#lib/Components/ProfileShell.svelte";
-  import { getProfile, updateProfile } from "#lib/functions/profile.remote.js";
-  import { LEVELS, displayName } from "#lib/profile.js";
+  import { getProfile, updateProfile } from "#lib/functions/profile.remote.ts";
+  import { LEVELS, displayName } from "#lib/profile.ts";
 
   const f = updateProfile.fields;
 </script>

@@ -1,6 +1,7 @@
+import type { Handle } from "@sveltejs/kit/hooks";
 import { lucia } from "#lib/server/lucia.js";
 
-export async function handle({ event, resolve }) {
+export const handle: Handle = async ({ event, resolve }) => {
   const sessionId = event.cookies.get(lucia.sessionCookieName);
 
   if (!sessionId) {
@@ -23,4 +24,4 @@ export async function handle({ event, resolve }) {
   event.locals.user = user;
   event.locals.session = session;
   return resolve(event);
-}
+};
