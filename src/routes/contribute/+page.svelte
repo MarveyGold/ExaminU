@@ -6,7 +6,7 @@
     uploadFiles,
   } from "#lib/functions/questions.remote.ts";
   import { normalizeQuestion } from "#lib/questionSchema.ts";
-
+  import { Page, Navbar, ListInput } from "konsta/svelte";
   const courses = getQuizCourses();
   const rules = getUploadRules();
   const blank = () => ({
@@ -121,225 +121,173 @@
   {#each courses.current ?? [] as c (c)}<option value={c}></option>{/each}
 </datalist>
 
-<main>
-  <div class="page">
-    <div class="intro">
-      <h1>Contribute questions</h1>
-      <p class="lede">
-        Submitted questions are reviewed before they appear in quizzes.
-      </p>
-    </div>
+<Page>
+  <Navbar
+    title="Contribute questions"
+    titleClass="intro"
+    subtitle="Submitted questions are reviewed before they appear in quizzes."
+    subtitleClass="lede"
+  />
 
-    <div class="exam">
-      <label for="exam">Exam type</label>
-      <select id="exam" class="control" bind:value={exam}>
-        <option value="school">School</option>
-        <option value="post-utme">Post-UTME</option>
-      </select>
-    </div>
-
-    <section class="card">
-      <h2>Add one question</h2>
-      <form onsubmit={sendSingle}>
-        <label for="code">Course code</label>
-        <input
-          id="code"
-          name="code"
-          class="control"
-          list="course-list"
-          autocomplete="off"
-          placeholder="ECO111"
-          bind:value={single.title}
-          required
-        />
-
-        <label for="question">Question</label>
-        <textarea
-          id="question"
-          class="control"
-          rows="3"
-          bind:value={single.question}
-          required
-        ></textarea>
-
-        <fieldset>
-          <legend>Options</legend>
-          <p class="hint">
-            Select the circle next to the correct option. Options C to E are
-            optional.
-          </p>
-          {#each single.options as _, i}
-            <div class="opt">
-              <input
-                type="radio"
-                name="answer"
-                value={i}
-                bind:group={single.answer}
-                aria-label={`Option ${"ABCDE"[i]} is correct`}
-              />
-              <input
-                class="control"
-                bind:value={single.options[i]}
-                autocomplete="off"
-                placeholder={`Option ${"ABCDE"[i]}${i > 1 ? " (optional)" : ""}`}
-                required={i < 2}
-              />
-            </div>
-          {/each}
-        </fieldset>
-
-        <label for="explanation">Explanation (optional)</label>
-        <textarea
-          id="explanation"
-          class="control"
-          rows="2"
-          bind:value={single.explanation}
-        ></textarea>
-
-        <button class="answerButton" disabled={busy}
-          >{busy ? "Submitting…" : "Submit question"}</button
-        >
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Upload files</h2>
-      <p class="hint">
-        CSV, JSON, PDF or photos of past question papers. Files are saved
-        exactly as you send them, and a reviewer turns them into quiz questions.
-        Up to five files, 8 MB each.
-      </p>
-
-      <form onsubmit={sendFiles} enctype="multipart/form-data">
-        <input type="hidden" name="exam" value={exam} />
-
-        <label for="course">Course code (optional)</label>
-        <input
-          id="course"
-          name="course"
-          class="control"
-          list="course-list"
-          autocomplete="off"
-          placeholder="ECO111"
-        />
-
-        <label for="note">Note for the reviewer (optional)</label>
-        <textarea
-          id="note"
-          name="note"
-          class="control"
-          rows="2"
-          maxlength="500"
-          placeholder="For example: 2022/2023 first semester, answers are at the end"
-        ></textarea>
-
-        <label for="files" class="sr-only">Choose files</label>
-        <input
-          id="files"
-          name="files"
-          type="file"
-          multiple
-          required
-          accept={rules.current?.accept}
-        />
-
-        <button class="answerButton" disabled={uploading}>
-          {uploading ? "Uploading…" : "Upload files"}
-        </button>
-      </form>
-
-      {#if uploadError}
-        <p class="err" role="alert">{uploadError}</p>
-      {/if}
-    </section>
-
-    {#if upload}
-      <div class="status" role="status">
-        <p class="ok">
-          {upload.uploaded} file{upload.uploaded === 1 ? "" : "s"} submitted for
-          review.
-          {#if upload.duplicates}{upload.duplicates} had already been uploaded.{/if}
-        </p>
-        {#if upload.rejected?.length}
-          <ul class="problems">
-            {#each upload.rejected as r}<li>{r.name}: {r.reason}</li>{/each}
-          </ul>
-        {/if}
-      </div>
-    {/if}
-
-    {#if message}<p class="err status" role="alert">{message}</p>{/if}
-    {#if outcome}
-      <p class="ok status" role="status">
-        {outcome.accepted} submitted for review.
-        {#if outcome.duplicates}{outcome.duplicates} already existed.{/if}
-        {#if outcome.rejected}{outcome.rejected} were rejected.{/if}
-      </p>
-    {/if}
+  <div class="exam">
+    <ListInput
+      type="select"
+      label="Exam Type"
+      dropdown
+      outlineIos={true}
+      inputId="exam"
+      inputClass="text-white"
+      class="control"
+      value={exam}
+      onchange={(e: Event) =>
+        (exam = (e.target as HTMLSelectElement).value as Exam)}
+    >
+      <option value="school">School</option>
+      <option value="post-utme">Post-UTME</option>
+    </ListInput>
   </div>
-</main>
+
+  <section class="card">
+    <h2>Add one question</h2>
+    <form onsubmit={sendSingle}>
+      <label for="code">Course code</label>
+      <input
+        id="code"
+        name="code"
+        class="control"
+        list="course-list"
+        autocomplete="off"
+        placeholder="ECO111"
+        bind:value={single.title}
+        required
+      />
+
+      <label for="question">Question</label>
+      <textarea
+        id="question"
+        class="control"
+        rows="3"
+        bind:value={single.question}
+        required
+      ></textarea>
+
+      <fieldset>
+        <legend>Options</legend>
+        <p class="hint">
+          Select the circle next to the correct option. Options C to E are
+          optional.
+        </p>
+        {#each single.options as _, i}
+          <div class="opt">
+            <input
+              type="radio"
+              name="answer"
+              value={i}
+              bind:group={single.answer}
+              aria-label={`Option ${"ABCDE"[i]} is correct`}
+            />
+            <input
+              class="control"
+              bind:value={single.options[i]}
+              autocomplete="off"
+              placeholder={`Option ${"ABCDE"[i]}${i > 1 ? " (optional)" : ""}`}
+              required={i < 2}
+            />
+          </div>
+        {/each}
+      </fieldset>
+
+      <label for="explanation">Explanation (optional)</label>
+      <textarea
+        id="explanation"
+        class="control"
+        rows="2"
+        bind:value={single.explanation}
+      ></textarea>
+
+      <button class="answerButton" disabled={busy}
+        >{busy ? "Submitting…" : "Submit question"}</button
+      >
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Upload files</h2>
+    <p class="hint">
+      CSV, JSON, PDF or photos of past question papers. Files are saved exactly
+      as you send them, and a reviewer turns them into quiz questions. Up to
+      five files, 8 MB each.
+    </p>
+
+    <form onsubmit={sendFiles} enctype="multipart/form-data">
+      <input type="hidden" name="exam" value={exam} />
+
+      <label for="course">Course code (optional)</label>
+      <input
+        id="course"
+        name="course"
+        class="control"
+        list="course-list"
+        autocomplete="off"
+        placeholder="ECO111"
+      />
+
+      <label for="note">Note for the reviewer (optional)</label>
+      <textarea
+        id="note"
+        name="note"
+        class="control"
+        rows="2"
+        maxlength="500"
+        placeholder="For example: 2022/2023 first semester, answers are at the end"
+      ></textarea>
+
+      <label for="files" class="sr-only">Choose files</label>
+      <input
+        id="files"
+        name="files"
+        type="file"
+        multiple
+        required
+        accept={rules.current?.accept}
+      />
+
+      <button class="answerButton" disabled={uploading}>
+        {uploading ? "Uploading…" : "Upload files"}
+      </button>
+    </form>
+
+    {#if uploadError}
+      <p class="err" role="alert">{uploadError}</p>
+    {/if}
+  </section>
+
+  {#if upload}
+    <div class="status" role="status">
+      <p class="ok">
+        {upload.uploaded} file{upload.uploaded === 1 ? "" : "s"} submitted for review.
+        {#if upload.duplicates}{upload.duplicates} had already been uploaded.{/if}
+      </p>
+      {#if upload.rejected?.length}
+        <ul class="problems">
+          {#each upload.rejected as r}<li>{r.name}: {r.reason}</li>{/each}
+        </ul>
+      {/if}
+    </div>
+  {/if}
+
+  {#if message}<p class="err status" role="alert">{message}</p>{/if}
+  {#if outcome}
+    <p class="ok status" role="status">
+      {outcome.accepted} submitted for review.
+      {#if outcome.duplicates}{outcome.duplicates} already existed.{/if}
+      {#if outcome.rejected}{outcome.rejected} were rejected.{/if}
+    </p>
+  {/if}
+</Page>
 
 <style>
-  .review {
-    display: grid;
-    gap: 0.4rem;
-    min-inline-size: 0;
-    margin: 0;
-    padding: 1rem;
-    background: var(--field);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-  }
-
-  .review.bad {
-    border-color: rgba(255, 99, 99, 0.55);
-  }
-
-  .review legend {
-    padding: 0 0.4rem;
-    font-weight: 700;
-  }
-
-  .choices {
-    display: grid;
-    gap: 0.5rem;
-    margin-top: 0.4rem;
-  }
-
-  .review .opt {
-    background: var(--card);
-  }
-
-  .linkbtn {
-    justify-self: start;
-    margin-top: 0.4rem;
-    padding: 0.3rem 0;
-    background: none;
-    border: 0;
-    color: var(--muted);
-    font: inherit;
-    font-size: 0.875rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    cursor: pointer;
-  }
-
-  .linkbtn:hover {
-    color: #fff;
-  }
-
-  .sample {
-    margin: 0.5rem 0;
-    padding: 0.75rem;
-    overflow-x: auto;
-    background: var(--card);
-    border-radius: 8px;
-    font-family: ui-monospace, monospace;
-    font-size: 0.8rem;
-    white-space: pre;
-  }
-
-  .page {
+  :global(.k-page) {
     --card: #20153a;
     --field: #110b1f;
     --line: #3c2572;
@@ -347,20 +295,32 @@
     --brand: #7a5cfa;
     --danger: #ffb4b4;
     --ok: #8fe3bf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100dvh;
+    padding-top: 10dvh;
+    padding-bottom: 120px;
+    padding: auto;
+    box-sizing: border-box;
+    color: #fff;
+    background: linear-gradient(to bottom, #0f0a1e, #1a1030, #0f0a1e);
 
-    width: min(100%, 44rem);
+    width: 100vw;
     display: grid;
     gap: 1.5rem;
     color-scheme: dark;
+    padding-top: 10dvh;
   }
 
-  .intro h1 {
+  :global(.intro) {
+    color: white;
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
 
-  .lede,
+  :global(.lede),
   .hint {
     color: var(--muted);
   }
@@ -428,7 +388,17 @@
       border-color 0.15s,
       box-shadow 0.15s;
   }
-
+  :global(.k-list-item) {
+    width: 100%;
+    background: var(--field);
+    color: #fff;
+    font: inherit;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
   textarea.control {
     resize: vertical;
   }
@@ -531,9 +501,10 @@
     border-radius: 12px;
   }
 
-  summary {
+  :global(#exam) option {
     cursor: pointer;
     font-weight: 600;
+    color: black;
   }
 
   .problems {
