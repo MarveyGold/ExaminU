@@ -6,7 +6,7 @@
     uploadFiles,
   } from "#lib/functions/questions.remote.ts";
   import { normalizeQuestion } from "#lib/questionSchema.ts";
-  import { Page, Navbar, ListInput } from "konsta/svelte";
+  import { Page, Navbar, ListInput, Toast, Button } from "konsta/svelte";
   const courses = getQuizCourses();
   const rules = getUploadRules();
   const blank = () => ({
@@ -20,6 +20,7 @@
   type Exam = "school" | "post-utme";
 
   let exam = $state<Exam>("school");
+  let toastCenterOpened = $state(false);
   let single = $state(blank());
   let busy = $state(false);
 
@@ -74,6 +75,7 @@
     try {
       outcome = await submitQuestions({ exam, items: [item] });
       if (outcome.accepted) single = blank();
+      toastCenterOpened = true;
     } catch (err) {
       message = getErrorMessage(err, "Something went wrong. Please try again.");
     } finally {
@@ -262,29 +264,51 @@
     {/if}
   </section>
 
-  {#if upload}
-    <div class="status" role="status">
-      <p class="ok">
-        {upload.uploaded} file{upload.uploaded === 1 ? "" : "s"} submitted for review.
-        {#if upload.duplicates}{upload.duplicates} had already been uploaded.{/if}
-      </p>
-      {#if upload.rejected?.length}
-        <ul class="problems">
-          {#each upload.rejected as r}<li>{r.name}: {r.reason}</li>{/each}
-        </ul>
-      {/if}
-    </div>
-  {/if}
+  <Toast position="center" opened={toastCenterOpened}
+    >{#snippet button()}
+      <Button
+        clear
+        inline
+        small
+        rounded
+        onClick={() => (toastCenterOpened = false)}
+      >
+        X
+      </Button>
+    {/snippet}
+    {#if upload}
+      <div class="status" role="status">
+        <p class="ok">
+          {upload.uploaded} file{upload.uploaded === 1 ? "" : "s"} submitted for
+          review.
+          {#if upload.duplicates}
+            {upload.duplicates} had already been uploaded.
+          {/if}
+        </p>
 
-  {#if message}<p class="err status" role="alert">{message}</p>{/if}
-  {#if outcome}
-    <p class="ok status" role="status">
-      {outcome.accepted} submitted for review.
-      {#if outcome.duplicates}{outcome.duplicates} already existed.{/if}
-      {#if outcome.rejected}{outcome.rejected} were rejected.{/if}
-    </p>
-  {/if}
-</Page>
+        {#if upload.rejected?.length}
+          <ul class="problems">
+            {#each upload.rejected as r}
+              <li>{r.name}: {r.reason}</li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+    {:else if message}
+      <p class="err status" role="alert">{message}</p>
+    {:else if outcome}
+      <p class="ok status" role="status">
+        {outcome.accepted} submitted for review.
+        {#if outcome.duplicates}
+          {outcome.duplicates} already existed.
+        {/if}
+        {#if outcome.rejected}
+          {outcome.rejected} were rejected.
+        {/if}
+      </p>
+    {/if}
+  </Toast></Page
+>
 
 <style>
   :global(.k-page) {
