@@ -1,3 +1,6 @@
 .svelte-kit
 node_modules
 .env
+build
+dist 
+aot

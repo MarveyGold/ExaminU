@@ -78,6 +78,10 @@
   :global(.bg-md-light-surface-2) {
     display: none;
   }
+  :global(.k-page) {
+    padding: 80px 16px 20dvh;
+    background: linear-gradient(to bottom, #0f0a1e, #1a1030, #0f0a1e);
+  }
 
   /* Account for fixed header on sections */
   :global(section:first-of-type) {

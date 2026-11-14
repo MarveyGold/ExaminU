@@ -12,8 +12,10 @@ export default defineConfig({
     tailwindcss(),
     sveltekit({
       adapter: adapter({
-        out: "build",
+        out: "dist",
+
       }),
+
       compilerOptions: {
         experimental: {
           async: true
