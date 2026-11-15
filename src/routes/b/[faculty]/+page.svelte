@@ -1,19 +1,35 @@
 <script lang="ts">
-  import { Navbar } from "konsta/svelte";
+  import { Navbar, Searchbar } from "konsta/svelte";
   import type { PageProps } from "./$types";
   import { chooseDepartment } from "#lib/functions/department.remote.ts";
 
   let { data }: PageProps = $props();
+  let searchQuery = $state("");
+
+  function handleSearch(e: Event) {
+    const target = e.target;
+    if (target instanceof HTMLInputElement) {
+      searchQuery = target.value;
+    }
+  }
+  function handleDisable() {
+    console.log("Disable");
+  }
+  function handleClear() {
+    searchQuery = "";
+  }
 
   const faculty = $derived(data.faculty);
 
   let selected = $state<string | null>(null);
 
   const departments = $derived(
-    data.departmentNames.map((name, i) => ({
-      name,
-      code: data.departmentList[i],
-    })),
+    data.departmentNames
+      .map((name, i) => ({
+        name,
+        code: data.departmentList[i],
+      }))
+      .filter((f) => f.name.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 </script>
 
@@ -25,7 +41,8 @@
   />
 </svelte:head>
 <main class="page-body">
-  <Navbar
+<div class="header-block">
+ <Navbar
     title={data.facultyName}
     subtitle="Select Department"
     titleClass="!font-bold !text-white"
@@ -37,8 +54,17 @@
     }}
     centerTitle
   ></Navbar>
+  <Searchbar
+    onInput={handleSearch}
+    value={searchQuery}
+    onClear={handleClear}
+    class="  !bg-[#161026] max-w-150 !mx-auto rounded-3xl"
+    disableButton={!searchQuery}
+    onDisable={handleDisable}
+  />
 
-  <div class="department-list">
+</div>
+   <div class="department-list">
     {#each departments as department}
       <a
         href="#select"

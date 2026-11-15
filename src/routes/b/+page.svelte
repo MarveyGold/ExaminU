@@ -81,11 +81,6 @@
   :global(.bg-gradient-to-b) {
     display: none;
   }
-  .header-block {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 24px;
-  }
 
   .page-title {
     font-size: 1.75rem;
