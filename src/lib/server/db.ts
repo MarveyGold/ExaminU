@@ -2,24 +2,33 @@ import mongoose, { type ConnectOptions } from "mongoose";
 import { building } from "$app/env";
 import { MONGO_URI } from "$app/env/private";
 
-if (!building) {
-  try {
-    const clientOptions: ConnectOptions =
-      process.env.NODE_ENV === "production"
-        ? {
-            serverApi: { version: "1", strict: true, deprecationErrors: true },
-            serverSelectionTimeoutMS: 5000,
-            connectTimeoutMS: 5000,
-            family: 4,
-            dbName: "examinu",
-          }
-        : { dbName: "examinu" };
+console.log("[DB] Module loaded", {
+  building,
+  uriPresent: !!MONGO_URI,
+  nodeEnv: process.env.NODE_ENV,
+  readyState: mongoose.connection.readyState,
+});
 
-    if (!mongoose.connection.readyState) {
-      await mongoose.connect(MONGO_URI, clientOptions);
-    }
+if (!building) {
+  const options: ConnectOptions = {
+    serverApi: {
+      version: "1",
+      strict: true,
+      deprecationErrors: true,
+    },
+    serverSelectionTimeoutMS: 10000,
+    connectTimeoutMS: 10000,
+    family: 4,
+    dbName: "examinu",
+  };
+
+  try {
+    console.log("[DB] Connecting...");
+    await mongoose.connect(MONGO_URI, options);
+    console.log("[DB] Connected!", mongoose.connection.readyState);
   } catch (error) {
-    console.error("MongoDB connection failed:", error);
+    console.error("[DB] CONNECTION FAILED:", error);
+    throw error;
   }
 }
 
