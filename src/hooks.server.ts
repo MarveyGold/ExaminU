@@ -1,5 +1,6 @@
 import type { Handle } from "@sveltejs/kit/hooks";
 import { lucia } from "#lib/server/lucia.js";
+import "#lib/server/db.js";
 
 export const handle: Handle = async ({ event, resolve }) => {
   const sessionId = event.cookies.get(lucia.sessionCookieName);
@@ -16,6 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     const c = lucia.createSessionCookie(session.id);
     event.cookies.set(c.name, c.value, { path: ".", ...c.attributes });
   }
+
   if (!session) {
     const c = lucia.createBlankSessionCookie();
     event.cookies.set(c.name, c.value, { path: ".", ...c.attributes });
