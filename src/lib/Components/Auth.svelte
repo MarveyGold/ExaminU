@@ -86,7 +86,7 @@
     size="min-w-64 w-max max-w-[calc(100vw-24px)]"
     onBackdropClick={close}
     colors={{ bgMaterial: "bg-[#eceef8]" }}
-    class="!rounded-[18px] !p-6 !pb-[6px] overflow-hidden text-[#1a1840] !shadow-[0_4px_6px_rgba(0,0,0,0.2),0_12px_28px_rgba(0,0,0,0.35)]"
+    class="!rounded-[18px] !p-0 !pb-[6px] overflow-hidden text-[#1a1840] !shadow-[0_4px_6px_rgba(0,0,0,0.2),0_12px_28px_rgba(0,0,0,0.35)]"
   >
     <!-- Header -->
     <div class="grid justify-items-center px-4 pt-[13px]">

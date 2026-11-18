@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev --host ",
     "build": "vite build",
-      "compile": "docker run --rm --platform linux/amd64 --user 1000:1000 -v \"$PWD:/app:Z\" -w /app oven/bun:1.4.4-alpine sh -c 'bun install --frozen-lockfile && bun run --bun build && bun build ./dist/index.js --compile --target=bun-linux-x64-musl --asset ./dist/client --outfile ./examinu --minify'",
+      "compile": "docker run --rm --platform linux/amd64 --user 1000:1000 -v \"$PWD:/app:Z\" -w /app oven/bun:1.4.4-alpine sh -c 'bun install --frozen-lockfile && bun run --bun build && bun build --compile --aot ./dist/index.js --asset ./dist/client --outfile ./examinu --trim'",
     "start": "bun build/index.js",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''"
