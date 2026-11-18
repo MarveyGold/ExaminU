@@ -11,11 +11,7 @@ console.log("[DB] Module loaded", {
 
 if (!building) {
   const options: ConnectOptions = {
-    serverApi: {
-      version: "1",
-      strict: true,
-      deprecationErrors: true,
-    },
+
     serverSelectionTimeoutMS: 10000,
     connectTimeoutMS: 10000,
     family: 4,
