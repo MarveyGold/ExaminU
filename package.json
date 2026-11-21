@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev --host ",
     "build": "vite build",
-      "compile": "curl -fsSL https://bun.sh/install | bash -s \"bun-v1.4.4\" && ~/.bun/bin/bun install --frozen-lockfile && ~/.bun/bin/bun run --bun build && ~/.bun/bin/bun build --compile --aot ./dist/index.js --asset ./dist/client --outfile ./examinu --trim",
+    "compile:pxxl": "curl -fsSL https://bun.sh/install | bash -s \"bun-v1.4.6\" && ~/.bun/bin/bun install --frozen-lockfile && ~/.bun/bin/bun run --bun build && ~/.bun/bin/bun build --compile --aot ./dist/index.js --asset ./dist/client --outfile ./examinu --trim",
     "start": "bun build/index.js",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''"
