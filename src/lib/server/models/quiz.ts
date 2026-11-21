@@ -6,6 +6,8 @@ const quizSchema = new Schema({
   id: Number,
   exam: { type: String, default: "post-utme" },
   instruction: String,
+  repeat: Boolean,
+  year: Number,
   question: { type: String, trim: true },
   options: [String],
   optionA: String,
