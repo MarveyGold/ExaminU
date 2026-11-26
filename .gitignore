@@ -4,3 +4,5 @@ node_modules
 build
 dist 
 aot
+.env.development
+.env.production
